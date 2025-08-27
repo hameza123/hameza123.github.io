@@ -80,4 +80,3 @@ https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extende
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
-
