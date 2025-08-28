@@ -13,7 +13,7 @@ draft = "false"
  
 # About SecLice Insights
 
-![Cybersecurity Expert](images/avatar.png)
+![Cybersecurity Expert](avatar.png)
 
 Welcome to SecLice Insights, your trusted resource for navigating the complex world of cybersecurity. In an era where digital threats evolve daily, knowledge is your best defense.
 
