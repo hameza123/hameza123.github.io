@@ -1,4 +1,4 @@
-baseURL = "http://Seclice.github.io/"
+baseURL = "https://Seclice.github.io/"
 title = "SecLice"
 theme = "hugo-coder"
 languageCode = "en"
