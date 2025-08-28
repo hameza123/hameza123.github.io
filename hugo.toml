@@ -27,7 +27,7 @@ author = "SecLice"
 description = "Cybersecurity Blog By SecLice"
 keywords = "blog,Cybersecurity"
 info = ["Cybersecurity Aalyst", "Magician"]
-avatarURL = "images/avatar.jpg/"
+avatarURL = "tags/avatar.jpg"
 #<a href="https://www.flaticon.com/free-icons/lice" title="lice icons">Lice icons created by Freepik - Flaticon</a>
 #gravatar = "john.doe@example.com"
 dateFormat = "January 2, 2006"
