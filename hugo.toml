@@ -1,5 +1,5 @@
-baseURL = "http://www.example.com"
-title = "johndoe"
+baseURL = "http://Seclice.github.io/"
+title = "SecLice"
 theme = "hugo-coder"
 languageCode = "en"
 defaultContentLanguage = "en"
@@ -10,8 +10,8 @@ pagerSize = 6
 
 [services]
 [services.disqus]
-# Enable Disqus comments
-# shortname = "yourdiscussshortname"
+#Enable Disqus comments
+shortname = "yourdiscussshortname"
 
 [markup]
 [markup.highlight]
@@ -22,15 +22,16 @@ noClasses = false
 unsafe = true
 
 [params]
-author = "John Doe"
+author = "SecLice"
 # license = '<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA-4.0</a>'
-description = "John Doe's personal website"
-keywords = "blog,developer,personal"
-info = ["Full Stack DevOps", "Magician"]
-avatarURL = "images/avatar.jpg"
+description = "Cybersecurity Blog By SecLice"
+keywords = "blog,Cybersecurity"
+info = ["Cybersecurity Aalyst", "Magician"]
+avatarURL = "images/lice.png/"
+#<a href="https://www.flaticon.com/free-icons/lice" title="lice icons">Lice icons created by Freepik - Flaticon</a>
 #gravatar = "john.doe@example.com"
 dateFormat = "January 2, 2006"
-since = 2019
+since = 2017
 # Git Commit in Footer, uncomment the line below to enable it
 commit = "https://github.com/luizdepra/hugo-coder/tree/"
 # Right To Left, shift content direction for languages such as Arabic
@@ -145,37 +146,37 @@ author = "authors"
 name = "Github"
 icon = "fa-brands fa-github fa-2x"
 weight = 1
-url = "https://github.com/johndoe/"
+url = "https://github.com/hameza123/"
 
 [[params.social]]
 name = "Gitlab"
 icon = "fa-brands fa-gitlab fa-2x"
 weight = 2
-url = "https://gitlab.com/johndoe/"
+url = "https://gitlab.com/"
 
 [[params.social]]
 name = "Twitter"
 icon = "fa-brands fa-x-twitter fa-2x"
 weight = 3
-url = "https://twitter.com/johndoe/"
+url = "https://twitter.com/"
 
 [[params.social]]
 name = "LinkedIn"
 icon = "fa-brands fa-linkedin fa-2x"
 weight = 4
-url = "https://www.linkedin.com/in/johndoe/"
+url = "https://www.linkedin.com/"
 
 [[params.social]]
 name = "Medium"
 icon = "fa-brands fa-medium fa-2x"
 weight = 5
-url = "https://medium.com/@johndoe"
+url = "https://medium.com"
 
 [[params.social]]
 name = "RSS"
 icon = "fa-solid fa-rss fa-2x"
 weight = 6
-url = "https://myhugosite.com/index.xml"
+url = "https://hameza123.github.io/seclice.github.io/"
 rel = "alternate"
 type = "application/rss+xml"
 
