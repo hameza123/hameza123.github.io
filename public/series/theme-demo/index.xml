@@ -6,8 +6,15 @@
     <description>Recent content in Theme Demo on SecLice</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 13 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 29 Aug 2025 10:42:23 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/series/theme-demo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create blog github pages with hugo</title>
+      <link>http://localhost:1313/posts/rv/</link>
+      <pubDate>Fri, 29 Aug 2025 10:42:23 +0100</pubDate>
+      <guid>http://localhost:1313/posts/rv/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Markdown Syntax Guide</title>
       <link>http://localhost:1313/posts/markdown-syntax/</link>

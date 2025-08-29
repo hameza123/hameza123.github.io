@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Creating a Blog with GitHub Pages and Hugo · SecLice
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="SecLice">
+<meta name="description" content="A step-by-step guide to creating a static blog using Hugo and deploying it to GitHub Pages">
+<meta name="keywords" content="blog,Cybersecurity">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Creating a Blog with GitHub Pages and Hugo">
+  <meta name="twitter:description" content="A step-by-step guide to creating a static blog using Hugo and deploying it to GitHub Pages">
+
+<meta property="og:url" content="http://localhost:1313/posts/github-pages/">
+  <meta property="og:site_name" content="SecLice">
+  <meta property="og:title" content="Creating a Blog with GitHub Pages and Hugo">
+  <meta property="og:description" content="A step-by-step guide to creating a static blog using Hugo and deploying it to GitHub Pages">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-29T10:56:37+01:00">
+    <meta property="article:modified_time" content="2025-08-29T10:56:37+01:00">
+    <meta property="article:tag" content="Hugo">
+    <meta property="article:tag" content="Github-Pages">
+    <meta property="article:tag" content="Blog">
+    <meta property="article:tag" content="Static-Site">
+    <meta property="article:tag" content="Tutorial">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/github-pages/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      SecLice
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/pt-br/">🇧🇷</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/github-pages/">
+              Creating a Blog with GitHub Pages and Hugo
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-08-29T10:56:37&#43;01:00">
+                August 29, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              2-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/web-development/">Web Development</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/hugo/">Hugo</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/github-pages/">Github-Pages</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/blog/">Blog</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/static-site/">Static-Site</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/tutorial/">Tutorial</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="creating-a-blog-with-github-pages-and-hugo">
+  Creating a Blog with GitHub Pages and Hugo
+  <a class="heading-link" href="#creating-a-blog-with-github-pages-and-hugo">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>This markdown file includes:</p>
+<ol>
+<li><strong>Front matter</strong> with metadata (title, date, tags, etc.)</li>
+<li><strong>Step-by-step instructions</strong> with code blocks</li>
+<li><strong>Proper formatting</strong> with headers and lists</li>
+<li><strong>Code examples</strong> for different operating systems</li>
+<li><strong>GitHub Actions workflow</strong> for automatic deployment</li>
+<li><strong>Conclusion</strong> and additional resources</li>
+</ol>
+<h2 id="introduction">
+  Introduction
+  <a class="heading-link" href="#introduction">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>In this tutorial, I&rsquo;ll walk you through the process of creating a static blog using Hugo and deploying it to GitHub Pages. This combination provides a fast, free, and easy way to host your blog.</p>
+<h2 id="prerequisites">
+  Prerequisites
+  <a class="heading-link" href="#prerequisites">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Before we begin, make sure you have:</p>
+<ul>
+<li>A GitHub account</li>
+<li>Git installed on your local machine</li>
+<li>Hugo extended installed</li>
+</ul>
+<h2 id="step-1-install-hugo">
+  Step 1: Install Hugo
+  <a class="heading-link" href="#step-1-install-hugo">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="on-macos-using-homebrew">
+  On macOS (using Homebrew)
+  <a class="heading-link" href="#on-macos-using-homebrew">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install hugo
+</span></span></code></pre></div><h3 id="on-on-windows-using-chocolatey">
+  On On Windows (using Chocolatey)
+  <a class="heading-link" href="#on-on-windows-using-chocolatey">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">choco install hugo
+</span></span></code></pre></div><h3 id="on-linux">
+  On Linux
+  <a class="heading-link" href="#on-linux">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt-get install hugo
+</span></span></code></pre></div><h2 id="step-2-create-a-new-hugo-site">
+  Step 2: Create a New Hugo Site
+  <a class="heading-link" href="#step-2-create-a-new-hugo-site">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo new site my-blog
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> my-blog
+</span></span></code></pre></div><h2 id="step-3-add-a-theme">
+  Step 3: Add a Theme
+  <a class="heading-link" href="#step-3-add-a-theme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Let&rsquo;s add a popular theme like Ananke:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
+</span></span></code></pre></div><p>Add the theme to your config.toml:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">theme</span> <span class="o">=</span> <span class="s2">&#34;ananke&#34;</span>
+</span></span></code></pre></div><h2 id="step-4-create-your-first-post">
+  Step 4: Create Your First Post
+  <a class="heading-link" href="#step-4-create-your-first-post">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo new posts/my-first-post.md
+</span></span></code></pre></div><p>This creates a new markdown file in content/posts/ with front matter:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">title: <span class="s2">&#34;My First Post&#34;</span>
+</span></span><span class="line"><span class="cl">date: 2023-12-07T15:13:47Z
+</span></span><span class="line"><span class="cl">draft: <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">---
+</span></span></code></pre></div><h2 id="step-5-configure-github-pages">
+  Step 5: Configure GitHub Pages
+  <a class="heading-link" href="#step-5-configure-github-pages">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Create a new repository on GitHub named username.github.io (replace username with your GitHub username)</p>
+<p>Initialize your Hugo site as a Git repository and connect it to GitHub:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git remote add origin https://github.com/username/username.github.io.git
+</span></span><span class="line"><span class="cl">git branch -M main
+</span></span><span class="line"><span class="cl">git push -u origin main
+</span></span></code></pre></div><h2 id="step-6-deploy-with-github-actions">
+  Step 6: Deploy with GitHub Actions
+  <a class="heading-link" href="#step-6-deploy-with-github-actions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Create a GitHub Actions workflow file at .github/workflows/gh-pages.yml:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">name: GitHub Pages
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">on:
+</span></span><span class="line"><span class="cl">  push:
+</span></span><span class="line"><span class="cl">    branches: <span class="o">[</span>main<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">jobs:
+</span></span><span class="line"><span class="cl">  build:
+</span></span><span class="line"><span class="cl">    runs-on: ubuntu-latest
+</span></span><span class="line"><span class="cl">    steps:
+</span></span><span class="line"><span class="cl">      - uses: actions/checkout@v3
+</span></span><span class="line"><span class="cl">        with:
+</span></span><span class="line"><span class="cl">          submodules: <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">          fetch-depth: <span class="m">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      - name: Setup Hugo
+</span></span><span class="line"><span class="cl">        uses: peaceiris/actions-hugo@v2
+</span></span><span class="line"><span class="cl">        with:
+</span></span><span class="line"><span class="cl">          hugo-version: <span class="s1">&#39;latest&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      - name: Build
+</span></span><span class="line"><span class="cl">        run: hugo --minify
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      - name: Deploy
+</span></span><span class="line"><span class="cl">        uses: peaceiris/actions-gh-pages@v3
+</span></span><span class="line"><span class="cl">        with:
+</span></span><span class="line"><span class="cl">          github_token: <span class="si">${</span><span class="p">{ secrets.GITHUB_TOKEN </span><span class="si">}</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">          publish_dir: ./public
+</span></span></code></pre></div><h2 id="step-7-view-your-blog">
+  Step 7: View Your Blog
+  <a class="heading-link" href="#step-7-view-your-blog">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Your blog will be available at <a href="https://username.github.io"  class="external-link" target="_blank" rel="noopener">https://username.github.io</a> after the GitHub Action completes.</p>
+<h2 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>You now have a fully functional blog hosted on GitHub Pages using Hugo! The setup might seem complex at first, but the benefits are worth it:</p>
+<p>Free hosting with GitHub Pages</p>
+<p>Blazing fast static site generation</p>
+<p>Version control with Git</p>
+<p>Easy content management with markdown</p>
+<p>Happy blogging!</p>
+<h2 id="additional-resources">
+  Additional Resources:
+  <a class="heading-link" href="#additional-resources">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Cloud Native Trainer with Mike : <a href="https://www.youtube.com/watch?v=zrmeOu8DYyw"  class="external-link" target="_blank" rel="noopener">https://www.youtube.com/watch?v=zrmeOu8DYyw</a></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2025
+     SecLice 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
