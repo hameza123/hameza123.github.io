@@ -7,7 +7,6 @@ slug = ""
 authors = []
 tags = ["hugo", "github-pages", "blog", "static-site", "tutorial"]
 categories = ["web development"]
-externalLink = "/posts/github-pages/"
 series = []
 +++
 
