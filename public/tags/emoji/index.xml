@@ -15,5 +15,12 @@
       <guid>https://Seclice.github.io/posts/rv/</guid>
       <description></description>
     </item>
+    <item>
+      <title>Emoji Support</title>
+      <link>https://Seclice.github.io/posts/emoji-support/</link>
+      <pubDate>Fri, 07 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://Seclice.github.io/posts/emoji-support/</guid>
+      <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

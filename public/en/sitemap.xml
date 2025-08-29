@@ -178,6 +178,32 @@
     <loc>https://Seclice.github.io/pgp/</loc>
     <lastmod>2023-08-28T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://Seclice.github.io/posts/emoji-support/</loc>
+    <lastmod>2023-07-07T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="https://Seclice.github.io/pt-br/posts/emoji-support/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://Seclice.github.io/posts/emoji-support/"
+                />
+  </url><url>
+    <loc>https://Seclice.github.io/authors/lone-coder/</loc>
+    <lastmod>2023-07-07T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="https://Seclice.github.io/pt-br/authors/lone-coder/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://Seclice.github.io/authors/lone-coder/"
+                />
+  </url><url>
     <loc>https://Seclice.github.io/authors/hugo-authors/</loc>
     <lastmod>2023-01-05T01:15:29+01:00</lastmod>
     <xhtml:link
