@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Static-Site on SecLice</title>
-    <link>https://Seclice.github.io/tags/static-site/</link>
+    <link>http://localhost:1313/tags/static-site/</link>
     <description>Recent content in Static-Site on SecLice</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 29 Aug 2025 10:56:37 +0100</lastBuildDate>
-    <atom:link href="https://Seclice.github.io/tags/static-site/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/static-site/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creating a Blog with GitHub Pages and Hugo</title>
-      <link>https://Seclice.github.io/posts/github-pages/</link>
+      <link>http://localhost:1313/posts/github-pages/</link>
       <pubDate>Fri, 29 Aug 2025 10:56:37 +0100</pubDate>
-      <guid>https://Seclice.github.io/posts/github-pages/</guid>
-      <description>&lt;h1 id=&#34;creating-a-blog-with-github-pages-and-hugo&#34;&gt;&#xA;  Creating a Blog with GitHub Pages and Hugo&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#creating-a-blog-with-github-pages-and-hugo&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;This markdown file includes:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Front matter&lt;/strong&gt; with metadata (title, date, tags, etc.)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Step-by-step instructions&lt;/strong&gt; with code blocks&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Proper formatting&lt;/strong&gt; with headers and lists&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Code examples&lt;/strong&gt; for different operating systems&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;GitHub Actions workflow&lt;/strong&gt; for automatic deployment&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Conclusion&lt;/strong&gt; and additional resources&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;&#xA;  Introduction&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#introduction&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;In this tutorial, I&amp;rsquo;ll walk you through the process of creating a static blog using Hugo and deploying it to GitHub Pages. This combination provides a fast, free, and easy way to host your blog.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/github-pages/</guid>
+      <description>&lt;h1 id=&#34;creating-a-blog-with-github-pages-and-hugo&#34;&gt;&#xA;  Creating a Blog with GitHub Pages and Hugo&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#creating-a-blog-with-github-pages-and-hugo&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;This markdown file includes:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;introduction&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Prerequisites&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Steps&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Conclusion&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Additional Resources&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;&#xA;  Introduction&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#introduction&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;In this tutorial, I&amp;rsquo;ll walk you through the process of creating a static blog using Hugo and deploying it to GitHub Pages. This combination provides a fast, free, and easy way to host your blog.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

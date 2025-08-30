@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Emoji on SecLice</title>
-    <link>https://Seclice.github.io/tags/emoji/</link>
+    <link>http://localhost:1313/tags/emoji/</link>
     <description>Recent content in Emoji on SecLice</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 29 Aug 2025 10:42:23 +0100</lastBuildDate>
-    <atom:link href="https://Seclice.github.io/tags/emoji/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/emoji/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Create blog github pages with hugo</title>
-      <link>https://Seclice.github.io/posts/rv/</link>
+      <link>http://localhost:1313/posts/rv/</link>
       <pubDate>Fri, 29 Aug 2025 10:42:23 +0100</pubDate>
-      <guid>https://Seclice.github.io/posts/rv/</guid>
+      <guid>http://localhost:1313/posts/rv/</guid>
       <description></description>
     </item>
     <item>
       <title>Emoji Support</title>
-      <link>https://Seclice.github.io/posts/emoji-support/</link>
+      <link>http://localhost:1313/posts/emoji-support/</link>
       <pubDate>Fri, 07 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>https://Seclice.github.io/posts/emoji-support/</guid>
+      <guid>http://localhost:1313/posts/emoji-support/</guid>
       <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
     </item>
   </channel>
