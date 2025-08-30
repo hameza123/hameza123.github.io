@@ -62,7 +62,7 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "https://myusername.github.io/"
+            --baseURL "https://hameza123.github.io/"
             
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3  # Updated artifact upload
