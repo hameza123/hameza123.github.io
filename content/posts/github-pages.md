@@ -12,6 +12,8 @@ series = []
 
 # Creating a Blog with GitHub Pages and Hugo
 
+This comprehensive tutorial exists to fill a gap. During my own journey of building a blog with Hugo and GitHub Pages, I discovered that most available guides were either outdated, fragmented, or skipped crucial steps.
+
 This markdown file includes:
 
 1. **introduction**  
@@ -260,53 +262,174 @@ Key fields in the front matter:
  To publish your post, you must change draft: true to draft: false.
  {{< /notice  >}}
  
-## Step 5: Configure GitHub Pages
+## Step 6: Configure GitHub Pages
 
-Create a new repository on GitHub named username.github.io (replace username with your GitHub username)
+This step involves creating a GitHub repository and configuring it to host your site. There are two main methods: using a special repository name (username.github.io) or using a project site from a gh-pages branch or docs folder. 
 
-Initialize your Hugo site as a Git repository and connect it to GitHub:
+We will use the first method as it's the most straightforward for a personal or blog site. This method creates a site available at https://yourusername.github.io.
+
+
+1. Go to [github](https://www.github.com) and make sure you are logged in.
+
+2. Click the "+" icon in the top-right corner and select "New repository".
+
+3. On the creation page, enter the following critical details:
+
+- Repository name: yourusername.github.io (Replace yourusername with your actual GitHub username. This is case-sensitive!).
+
+- Description: (Optional) e.g., "My personal blog built with Hugo".
+
+- Visibility: Public (Private repos can use GitHub Pages but require a paid account).
+
+- Initialize this repository with a README: You can leave this unchecked. We will push an existing repository.
+
+4. Click "Create repository".
+
+Now, you need to link the local Git repository on your computer to the new one you just created on GitHub.
+
+1. In your terminal, navigate to your Hugo site's root directory.
+
+2. Run the following commands, replacing yourusername with your GitHub username.
 
 ```bash
-git remote add origin https://github.com/username/username.github.io.git
+# Add the remote GitHub repository as the origin
+git remote add origin https://github.com/yourusername/yourusername.github.io.git
+
+# Rename the default branch to 'main' (if it isn't already)
 git branch -M main
+
+# Stage all your existing files for the first commit
+git add .
+
+# Create your first commit with a message
+git commit -m "Initial commit - Hugo site with theme"
+
+# Push your local 'main' branch to the GitHub repository
 git push -u origin main
 ```
 
-## Step 6: Deploy with GitHub Actions
-Create a GitHub Actions workflow file at .github/workflows/gh-pages.yml:
+3. You will be prompted for your GitHub username and password. For password, you must use a Personal Access Token (PAT). You can create one in your GitHub settings under Developer settings > Personal access tokens > Tokens (classic). Give it full repo permissions.
+
+4. After the push completes, refresh your repository page on GitHub. You should see all your Hugo files there!
+
+
+## Step 7: Deploy with GitHub Actions
+
+This is the most crucial step. GitHub Actions will automatically build your Hugo site and deploy it to GitHub Pages every time you push a new change to your main branch.
+
+We will create a YAML file that defines a "workflow"—a set of instructions for GitHub's servers to follow.
+
+In your Hugo project's root directory, you need to create a specific folder structure for the workflow file.
 
 ```bash
-name: GitHub Pages
+mkdir -p .github/workflows
+```
+This creates a hidden .github folder and a workflows folder inside it.
 
-on:
-  push:
-    branches: [main]
+Inside the .github/workflows/ directory, create a new file named gh-pages.yml.
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: true
-          fetch-depth: 0
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: 'latest'
-
-      - name: Build
-        run: hugo --minify
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+```bash
+touch .github/workflows/gh-pages.yml
 ```
 
-## Step 7: View Your Blog
+Open the .github/workflows/gh-pages.yml file and copy the following configuration into it. This is a popular and reliable configuration that uses community-built actions.
+
+```bash
+# Sample workflow for building and deploying a Hugo site to GitHub Pages
+name: Deploy Hugo site to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches:
+      - main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+# Default to bash
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.128.0  # Updated to latest stable version
+    steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb
+          sudo dpkg -i ${{ runner.temp }}/hugo.deb
+          
+      - name: Install Dart Sass
+        run: sudo snap install dart-sass
+        
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+          
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5  # Updated to v5
+        
+      - name: Install Node.js dependencies
+        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+        
+      - name: Build with Hugo
+        env:
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+            
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3  # Updated artifact upload
+        with:
+          path: ./public
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4  # Updated to v4
+```
+
+After the action completes successfully, you need to tell GitHub to use the result of this action as your site's source.
+
+Go to your repository's Settings.
+
+Click on Pages in the left sidebar.
+
+Under "Build and deployment", for the Source, select GitHub Actions.
+
+That's it! Your site is now live!
+
+## Step 8: View Your Blog
 
 Your blog will be available at https://username.github.io after the GitHub Action completes.
 
@@ -315,19 +438,21 @@ Your blog will be available at https://username.github.io after the GitHub Actio
 
 You now have a fully functional blog hosted on GitHub Pages using Hugo! The setup might seem complex at first, but the benefits are worth it:
 
-Free hosting with GitHub Pages
+- Free hosting with GitHub Pages
 
-Blazing fast static site generation
+- Blazing fast static site generation
 
-Version control with Git
+- Version control with Git
 
-Easy content management with markdown
+- Easy content management with markdown
 
-Happy blogging!
+- Happy blogging!
 
 
 ## Additional Resources:
 
 
-Cloud Native Trainer with Mike : https://www.youtube.com/watch?v=zrmeOu8DYyw
+[Cloud Native Trainer with Mike](https://www.youtube.com/watch?v=zrmeOu8DYyw) 
+
+[Git crash course ]()
 

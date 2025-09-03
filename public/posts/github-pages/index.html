@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <title>
   Creating a Blog with GitHub Pages and Hugo · SecLice
 </title>
@@ -22,7 +22,7 @@
   <meta name="twitter:title" content="Creating a Blog with GitHub Pages and Hugo">
   <meta name="twitter:description" content="A step-by-step guide to creating a static blog using Hugo and deploying it to GitHub Pages">
 
-<meta property="og:url" content="https://hameza123.github.io/posts/github-pages/">
+<meta property="og:url" content="http://localhost:1313/posts/github-pages/">
   <meta property="og:site_name" content="SecLice">
   <meta property="og:title" content="Creating a Blog with GitHub Pages and Hugo">
   <meta property="og:description" content="A step-by-step guide to creating a static blog using Hugo and deploying it to GitHub Pages">
@@ -40,7 +40,7 @@
 
 
 
-<link rel="canonical" href="https://hameza123.github.io/posts/github-pages/">
+<link rel="canonical" href="http://localhost:1313/posts/github-pages/">
 
 
 <link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -50,7 +50,7 @@
 
   
   
-  <link rel="stylesheet" href="/css/coder.min.6445a802b9389c9660e1b07b724dcf5718b1065ed2d71b4eeaf981cc7cc5fc46.css" integrity="sha256-ZEWoArk4nJZg4bB7ck3PVxixBl7S1xtO6vmBzHzF/EY=" crossorigin="anonymous" media="screen" />
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
 
 
 
@@ -60,7 +60,7 @@
   
     
     
-    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
   
 
 
@@ -108,7 +108,7 @@
     <nav class="navigation">
   <section class="container">
     
-    <a class="navigation-title" href="https://hameza123.github.io/">
+    <a class="navigation-title" href="http://localhost:1313/">
       SecLice
     </a>
     
@@ -169,7 +169,7 @@
       <header>
         <div class="post-title">
           <h1 class="title">
-            <a class="title-link" href="https://hameza123.github.io/posts/github-pages/">
+            <a class="title-link" href="http://localhost:1313/posts/github-pages/">
               Creating a Blog with GitHub Pages and Hugo
             </a>
           </h1>
@@ -184,7 +184,7 @@
             </span>
             <span class="reading-time">
               <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              7-minute read
+              11-minute read
             </span>
           </div>
           
@@ -226,6 +226,7 @@
     <span class="sr-only">Link to heading</span>
   </a>
 </h1>
+<p>This comprehensive tutorial exists to fill a gap. During my own journey of building a blog with Hugo and GitHub Pages, I discovered that most available guides were either outdated, fragmented, or skipped crucial steps.</p>
 <p>This markdown file includes:</p>
 <ol>
 <li><strong>introduction</strong></li>
@@ -494,57 +495,179 @@ After the command finishes, you need to move into your project&rsquo;s directory
   <div class="notice-content">To publish your post, you must change draft: true to draft: false.</div>
 </div>
 
-<h2 id="step-5-configure-github-pages">
-  Step 5: Configure GitHub Pages
-  <a class="heading-link" href="#step-5-configure-github-pages">
+<h2 id="step-6-configure-github-pages">
+  Step 6: Configure GitHub Pages
+  <a class="heading-link" href="#step-6-configure-github-pages">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p>Create a new repository on GitHub named username.github.io (replace username with your GitHub username)</p>
-<p>Initialize your Hugo site as a Git repository and connect it to GitHub:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git remote add origin https://github.com/username/username.github.io.git
+<p>This step involves creating a GitHub repository and configuring it to host your site. There are two main methods: using a special repository name (username.github.io) or using a project site from a gh-pages branch or docs folder.</p>
+<p>We will use the first method as it&rsquo;s the most straightforward for a personal or blog site. This method creates a site available at <a href="https://yourusername.github.io"  class="external-link" target="_blank" rel="noopener">https://yourusername.github.io</a>.</p>
+<ol>
+<li>
+<p>Go to <a href="https://www.github.com"  class="external-link" target="_blank" rel="noopener">github</a> and make sure you are logged in.</p>
+</li>
+<li>
+<p>Click the &ldquo;+&rdquo; icon in the top-right corner and select &ldquo;New repository&rdquo;.</p>
+</li>
+<li>
+<p>On the creation page, enter the following critical details:</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>Repository name: yourusername.github.io (Replace yourusername with your actual GitHub username. This is case-sensitive!).</p>
+</li>
+<li>
+<p>Description: (Optional) e.g., &ldquo;My personal blog built with Hugo&rdquo;.</p>
+</li>
+<li>
+<p>Visibility: Public (Private repos can use GitHub Pages but require a paid account).</p>
+</li>
+<li>
+<p>Initialize this repository with a README: You can leave this unchecked. We will push an existing repository.</p>
+</li>
+</ul>
+<ol start="4">
+<li>Click &ldquo;Create repository&rdquo;.</li>
+</ol>
+<p>Now, you need to link the local Git repository on your computer to the new one you just created on GitHub.</p>
+<ol>
+<li>
+<p>In your terminal, navigate to your Hugo site&rsquo;s root directory.</p>
+</li>
+<li>
+<p>Run the following commands, replacing yourusername with your GitHub username.</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Add the remote GitHub repository as the origin</span>
+</span></span><span class="line"><span class="cl">git remote add origin https://github.com/yourusername/yourusername.github.io.git
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Rename the default branch to &#39;main&#39; (if it isn&#39;t already)</span>
 </span></span><span class="line"><span class="cl">git branch -M main
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Stage all your existing files for the first commit</span>
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create your first commit with a message</span>
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;Initial commit - Hugo site with theme&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Push your local &#39;main&#39; branch to the GitHub repository</span>
 </span></span><span class="line"><span class="cl">git push -u origin main
-</span></span></code></pre></div><h2 id="step-6-deploy-with-github-actions">
-  Step 6: Deploy with GitHub Actions
-  <a class="heading-link" href="#step-6-deploy-with-github-actions">
+</span></span></code></pre></div><ol start="3">
+<li>
+<p>You will be prompted for your GitHub username and password. For password, you must use a Personal Access Token (PAT). You can create one in your GitHub settings under Developer settings &gt; Personal access tokens &gt; Tokens (classic). Give it full repo permissions.</p>
+</li>
+<li>
+<p>After the push completes, refresh your repository page on GitHub. You should see all your Hugo files there!</p>
+</li>
+</ol>
+<h2 id="step-7-deploy-with-github-actions">
+  Step 7: Deploy with GitHub Actions
+  <a class="heading-link" href="#step-7-deploy-with-github-actions">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p>Create a GitHub Actions workflow file at .github/workflows/gh-pages.yml:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">name: GitHub Pages
+<p>This is the most crucial step. GitHub Actions will automatically build your Hugo site and deploy it to GitHub Pages every time you push a new change to your main branch.</p>
+<p>We will create a YAML file that defines a &ldquo;workflow&rdquo;—a set of instructions for GitHub&rsquo;s servers to follow.</p>
+<p>In your Hugo project&rsquo;s root directory, you need to create a specific folder structure for the workflow file.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p .github/workflows
+</span></span></code></pre></div><p>This creates a hidden .github folder and a workflows folder inside it.</p>
+<p>Inside the .github/workflows/ directory, create a new file named gh-pages.yml.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">touch .github/workflows/gh-pages.yml
+</span></span></code></pre></div><p>Open the .github/workflows/gh-pages.yml file and copy the following configuration into it. This is a popular and reliable configuration that uses community-built actions.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Sample workflow for building and deploying a Hugo site to GitHub Pages</span>
+</span></span><span class="line"><span class="cl">name: Deploy Hugo site to Pages
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">on:
+</span></span><span class="line"><span class="cl">  <span class="c1"># Runs on pushes targeting the default branch</span>
 </span></span><span class="line"><span class="cl">  push:
-</span></span><span class="line"><span class="cl">    branches: <span class="o">[</span>main<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    branches:
+</span></span><span class="line"><span class="cl">      - main
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Allows you to run this workflow manually from the Actions tab</span>
+</span></span><span class="line"><span class="cl">  workflow_dispatch:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages</span>
+</span></span><span class="line"><span class="cl">permissions:
+</span></span><span class="line"><span class="cl">  contents: <span class="nb">read</span>
+</span></span><span class="line"><span class="cl">  pages: write
+</span></span><span class="line"><span class="cl">  id-token: write
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Allow only one concurrent deployment</span>
+</span></span><span class="line"><span class="cl">concurrency:
+</span></span><span class="line"><span class="cl">  group: <span class="s2">&#34;pages&#34;</span>
+</span></span><span class="line"><span class="cl">  cancel-in-progress: <span class="nb">false</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Default to bash</span>
+</span></span><span class="line"><span class="cl">defaults:
+</span></span><span class="line"><span class="cl">  run:
+</span></span><span class="line"><span class="cl">    shell: bash
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">jobs:
+</span></span><span class="line"><span class="cl">  <span class="c1"># Build job</span>
 </span></span><span class="line"><span class="cl">  build:
 </span></span><span class="line"><span class="cl">    runs-on: ubuntu-latest
+</span></span><span class="line"><span class="cl">    env:
+</span></span><span class="line"><span class="cl">      HUGO_VERSION: 0.128.0  <span class="c1"># Updated to latest stable version</span>
 </span></span><span class="line"><span class="cl">    steps:
-</span></span><span class="line"><span class="cl">      - uses: actions/checkout@v3
+</span></span><span class="line"><span class="cl">      - name: Install Hugo CLI
+</span></span><span class="line"><span class="cl">        run: <span class="p">|</span>
+</span></span><span class="line"><span class="cl">          wget -O <span class="si">${</span><span class="p">{ runner.temp </span><span class="si">}</span><span class="o">}</span>/hugo.deb https://github.com/gohugoio/hugo/releases/download/v<span class="si">${</span><span class="nv">HUGO_VERSION</span><span class="si">}</span>/hugo_extended_<span class="si">${</span><span class="nv">HUGO_VERSION</span><span class="si">}</span>_linux-amd64.deb
+</span></span><span class="line"><span class="cl">          sudo dpkg -i <span class="si">${</span><span class="p">{ runner.temp </span><span class="si">}</span><span class="o">}</span>/hugo.deb
+</span></span><span class="line"><span class="cl">          
+</span></span><span class="line"><span class="cl">      - name: Install Dart Sass
+</span></span><span class="line"><span class="cl">        run: sudo snap install dart-sass
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">      - name: Checkout
+</span></span><span class="line"><span class="cl">        uses: actions/checkout@v4
 </span></span><span class="line"><span class="cl">        with:
-</span></span><span class="line"><span class="cl">          submodules: <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">          submodules: recursive
 </span></span><span class="line"><span class="cl">          fetch-depth: <span class="m">0</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      - name: Setup Hugo
-</span></span><span class="line"><span class="cl">        uses: peaceiris/actions-hugo@v2
+</span></span><span class="line"><span class="cl">          
+</span></span><span class="line"><span class="cl">      - name: Setup Pages
+</span></span><span class="line"><span class="cl">        id: pages
+</span></span><span class="line"><span class="cl">        uses: actions/configure-pages@v5  <span class="c1"># Updated to v5</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">      - name: Install Node.js dependencies
+</span></span><span class="line"><span class="cl">        run: <span class="s2">&#34;[[ -f package-lock.json || -f npm-shrinkwrap.json ]] &amp;&amp; npm ci || true&#34;</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">      - name: Build with Hugo
+</span></span><span class="line"><span class="cl">        env:
+</span></span><span class="line"><span class="cl">          HUGO_ENVIRONMENT: production
+</span></span><span class="line"><span class="cl">          HUGO_ENV: production
+</span></span><span class="line"><span class="cl">        run: <span class="p">|</span>
+</span></span><span class="line"><span class="cl">          hugo <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>            --gc <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>            --minify <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>            --baseURL <span class="s2">&#34;</span><span class="si">${</span><span class="p">{ steps.pages.outputs.base_url </span><span class="si">}</span><span class="s2">}/&#34;</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">      - name: Upload artifact
+</span></span><span class="line"><span class="cl">        uses: actions/upload-pages-artifact@v3  <span class="c1"># Updated artifact upload</span>
 </span></span><span class="line"><span class="cl">        with:
-</span></span><span class="line"><span class="cl">          hugo-version: <span class="s1">&#39;latest&#39;</span>
+</span></span><span class="line"><span class="cl">          path: ./public
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      - name: Build
-</span></span><span class="line"><span class="cl">        run: hugo --minify
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      - name: Deploy
-</span></span><span class="line"><span class="cl">        uses: peaceiris/actions-gh-pages@v3
-</span></span><span class="line"><span class="cl">        with:
-</span></span><span class="line"><span class="cl">          github_token: <span class="si">${</span><span class="p">{ secrets.GITHUB_TOKEN </span><span class="si">}</span><span class="o">}</span>
-</span></span><span class="line"><span class="cl">          publish_dir: ./public
-</span></span></code></pre></div><h2 id="step-7-view-your-blog">
-  Step 7: View Your Blog
-  <a class="heading-link" href="#step-7-view-your-blog">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Deployment job</span>
+</span></span><span class="line"><span class="cl">  deploy:
+</span></span><span class="line"><span class="cl">    environment:
+</span></span><span class="line"><span class="cl">      name: github-pages
+</span></span><span class="line"><span class="cl">      url: <span class="si">${</span><span class="p">{ steps.deployment.outputs.page_url </span><span class="si">}</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">    runs-on: ubuntu-latest
+</span></span><span class="line"><span class="cl">    needs: build
+</span></span><span class="line"><span class="cl">    steps:
+</span></span><span class="line"><span class="cl">      - name: Deploy to GitHub Pages
+</span></span><span class="line"><span class="cl">        id: deployment
+</span></span><span class="line"><span class="cl">        uses: actions/deploy-pages@v4  <span class="c1"># Updated to v4</span>
+</span></span></code></pre></div><p>After the action completes successfully, you need to tell GitHub to use the result of this action as your site&rsquo;s source.</p>
+<p>Go to your repository&rsquo;s Settings.</p>
+<p>Click on Pages in the left sidebar.</p>
+<p>Under &ldquo;Build and deployment&rdquo;, for the Source, select GitHub Actions.</p>
+<p>That&rsquo;s it! Your site is now live!</p>
+<h2 id="step-8-view-your-blog">
+  Step 8: View Your Blog
+  <a class="heading-link" href="#step-8-view-your-blog">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -558,11 +681,23 @@ After the command finishes, you need to move into your project&rsquo;s directory
   </a>
 </h2>
 <p>You now have a fully functional blog hosted on GitHub Pages using Hugo! The setup might seem complex at first, but the benefits are worth it:</p>
+<ul>
+<li>
 <p>Free hosting with GitHub Pages</p>
+</li>
+<li>
 <p>Blazing fast static site generation</p>
+</li>
+<li>
 <p>Version control with Git</p>
+</li>
+<li>
 <p>Easy content management with markdown</p>
+</li>
+<li>
 <p>Happy blogging!</p>
+</li>
+</ul>
 <h2 id="additional-resources">
   Additional Resources:
   <a class="heading-link" href="#additional-resources">
@@ -570,7 +705,8 @@ After the command finishes, you need to move into your project&rsquo;s directory
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p>Cloud Native Trainer with Mike : <a href="https://www.youtube.com/watch?v=zrmeOu8DYyw"  class="external-link" target="_blank" rel="noopener">https://www.youtube.com/watch?v=zrmeOu8DYyw</a></p>
+<p><a href="https://www.youtube.com/watch?v=zrmeOu8DYyw"  class="external-link" target="_blank" rel="noopener">Cloud Native Trainer with Mike</a></p>
+<p><a href="" >Git crash course </a></p>
 
       </div>
 
@@ -638,7 +774,7 @@ After the command finishes, you need to move into your project&rsquo;s directory
 
   
   
-  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  <script src="/js/coder.js"></script>
   
 
   

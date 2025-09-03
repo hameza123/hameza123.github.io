@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-08-29T10:42:23+01:00
 title = "Create blog github pages with hugo"
 description = "trv"

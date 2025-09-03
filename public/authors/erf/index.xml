@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Erf on SecLice</title>
-    <link>https://hameza123.github.io/authors/erf/</link>
+    <link>http://localhost:1313/authors/erf/</link>
     <description>Recent content in Erf on SecLice</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 29 Aug 2025 10:42:23 +0100</lastBuildDate>
-    <atom:link href="https://hameza123.github.io/authors/erf/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/authors/erf/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Create blog github pages with hugo</title>
-      <link>https://hameza123.github.io/posts/rv/</link>
+      <link>http://localhost:1313/posts/rv/</link>
       <pubDate>Fri, 29 Aug 2025 10:42:23 +0100</pubDate>
-      <guid>https://hameza123.github.io/posts/rv/</guid>
+      <guid>http://localhost:1313/posts/rv/</guid>
       <description></description>
     </item>
   </channel>
