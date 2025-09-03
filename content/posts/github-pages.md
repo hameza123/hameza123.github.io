@@ -421,11 +421,11 @@ jobs:
 
 After the action completes successfully, you need to tell GitHub to use the result of this action as your site's source.
 
-Go to your repository's Settings.
+- Go to your repository's Settings.
 
-Click on Pages in the left sidebar.
+- Click on Pages in the left sidebar.
 
-Under "Build and deployment", for the Source, select GitHub Actions.
+- Under "Build and deployment", for the Source, select GitHub Actions.
 
 That's it! Your site is now live!
 
