@@ -15,7 +15,7 @@ categories = [
     "syntax",
 ]
 series = ["Theme Demo"]
-draft = "false"
+draft = "true"
 +++
 
 Hugo Coder provides some Custom Shortcodes.

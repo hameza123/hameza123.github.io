@@ -30,16 +30,6 @@
   </url><url>
     <loc>https://seclice.github.io/pt-br/tags/css/</loc>
     <lastmod>2023-07-13T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://seclice.github.io/tags/css/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt-br"
-                href="https://seclice.github.io/pt-br/tags/css/"
-                />
   </url><url>
     <loc>https://seclice.github.io/pt-br/categories/demonstra%C3%A7%C3%A3o-do-tema/</loc>
     <lastmod>2023-07-13T00:00:00+00:00</lastmod>
@@ -52,16 +42,6 @@
   </url><url>
     <loc>https://seclice.github.io/pt-br/tags/html/</loc>
     <lastmod>2023-07-13T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://seclice.github.io/tags/html/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt-br"
-                href="https://seclice.github.io/pt-br/tags/html/"
-                />
   </url><url>
     <loc>https://seclice.github.io/pt-br/tags/hugo/</loc>
     <lastmod>2023-07-13T00:00:00+00:00</lastmod>
@@ -91,16 +71,6 @@
   </url><url>
     <loc>https://seclice.github.io/pt-br/tags/markdown/</loc>
     <lastmod>2023-07-13T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://seclice.github.io/tags/markdown/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt-br"
-                href="https://seclice.github.io/pt-br/tags/markdown/"
-                />
   </url><url>
     <loc>https://seclice.github.io/pt-br/posts/</loc>
     <lastmod>2023-07-13T00:00:00+00:00</lastmod>
@@ -152,16 +122,6 @@
   </url><url>
     <loc>https://seclice.github.io/pt-br/posts/more-rich-content/</loc>
     <lastmod>2023-07-11T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://seclice.github.io/posts/more-rich-content/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt-br"
-                href="https://seclice.github.io/pt-br/posts/more-rich-content/"
-                />
   </url><url>
     <loc>https://seclice.github.io/pt-br/posts/math-typesetting/</loc>
     <lastmod>2023-07-10T00:00:00+00:00</lastmod>
@@ -171,45 +131,15 @@
   </url><url>
     <loc>https://seclice.github.io/pt-br/authors/lone-coder/</loc>
     <lastmod>2023-07-08T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://seclice.github.io/authors/lone-coder/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt-br"
-                href="https://seclice.github.io/pt-br/authors/lone-coder/"
-                />
   </url><url>
     <loc>https://seclice.github.io/pt-br/posts/mermaid-support/</loc>
     <lastmod>2023-07-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://seclice.github.io/pt-br/tags/emoji/</loc>
     <lastmod>2023-07-07T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://seclice.github.io/tags/emoji/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt-br"
-                href="https://seclice.github.io/pt-br/tags/emoji/"
-                />
   </url><url>
     <loc>https://seclice.github.io/pt-br/posts/emoji-support/</loc>
     <lastmod>2023-07-07T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://seclice.github.io/posts/emoji-support/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt-br"
-                href="https://seclice.github.io/pt-br/posts/emoji-support/"
-                />
   </url><url>
     <loc>https://seclice.github.io/pt-br/posts/hugo-coder-wiki/</loc>
     <lastmod>2023-07-06T00:00:00+00:00</lastmod>
@@ -238,29 +168,9 @@
   </url><url>
     <loc>https://seclice.github.io/pt-br/categoria/sintaxe/</loc>
     <lastmod>2023-01-04T23:21:06+01:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://seclice.github.io/categories/syntax/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt-br"
-                href="https://seclice.github.io/pt-br/categoria/sintaxe/"
-                />
   </url><url>
     <loc>https://seclice.github.io/pt-br/tags/shortcodes/</loc>
     <lastmod>2023-01-04T11:51:36+01:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://seclice.github.io/tags/shortcodes/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt-br"
-                href="https://seclice.github.io/pt-br/tags/shortcodes/"
-                />
   </url><url>
     <loc>https://seclice.github.io/pt-br/about/</loc>
     <lastmod>2019-02-28T00:00:00+00:00</lastmod>

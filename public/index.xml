@@ -30,20 +30,6 @@
       <description>&lt;h2 id=&#34;my-pgp-key&#34;&gt;&#xA;  My PGP Key&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#my-pgp-key&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;For secure communication, you can use my PGP public key to encrypt messages that only I can decrypt. This is particularly useful for sharing sensitive information.&lt;/p&gt;&#xA;&lt;h3 id=&#34;download-public-key&#34;&gt;&#xA;  Download Public Key&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#download-public-key&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://seclice.github.io/pgp/public-key.asc&#34; &gt;Download my public key&lt;/a&gt; to encrypt messages or verify my digital signature.&lt;/p&gt;&#xA;&lt;h3 id=&#34;key-fingerprint&#34;&gt;&#xA;  Key Fingerprint&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#key-fingerprint&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Verify the authenticity of my public key using this fingerprint:&#xA;&lt;code&gt;E1E0 33C4 D53B D298 28CE  74FA BC18 568C B9E1 B49C&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     <item>
-      <title>More Rich Content</title>
-      <link>https://seclice.github.io/posts/more-rich-content/</link>
-      <pubDate>Tue, 11 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>https://seclice.github.io/posts/more-rich-content/</guid>
-      <description>&lt;p&gt;Hugo Coder provides some Custom Shortcodes.&lt;/p&gt;&#xA;&lt;h2 id=&#34;&#34;&gt;&#xA;  &#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;</description>
-    </item>
-    <item>
-      <title>Emoji Support</title>
-      <link>https://seclice.github.io/posts/emoji-support/</link>
-      <pubDate>Fri, 07 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>https://seclice.github.io/posts/emoji-support/</guid>
-      <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Contact</title>
       <link>https://seclice.github.io/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

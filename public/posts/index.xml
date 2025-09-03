@@ -15,19 +15,5 @@
       <guid>https://seclice.github.io/posts/github-pages/</guid>
       <description>&lt;h1 id=&#34;creating-a-blog-with-github-pages-and-hugo&#34;&gt;&#xA;  Creating a Blog with GitHub Pages and Hugo&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#creating-a-blog-with-github-pages-and-hugo&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;This comprehensive tutorial exists to fill a gap. During my own journey of building a blog with Hugo and GitHub Pages, I discovered that most available guides were either outdated, fragmented, or skipped crucial steps.&lt;/p&gt;&#xA;&lt;p&gt;This markdown file includes:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;introduction&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Prerequisites&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Steps&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Conclusion&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Additional Resources&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;&#xA;  Introduction&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#introduction&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;In this tutorial, I&amp;rsquo;ll walk you through the process of creating a static blog using Hugo and deploying it to GitHub Pages. This combination provides a fast, free, and easy way to host your blog.&lt;/p&gt;</description>
     </item>
-    <item>
-      <title>More Rich Content</title>
-      <link>https://seclice.github.io/posts/more-rich-content/</link>
-      <pubDate>Tue, 11 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>https://seclice.github.io/posts/more-rich-content/</guid>
-      <description>&lt;p&gt;Hugo Coder provides some Custom Shortcodes.&lt;/p&gt;&#xA;&lt;h2 id=&#34;&#34;&gt;&#xA;  &#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;</description>
-    </item>
-    <item>
-      <title>Emoji Support</title>
-      <link>https://seclice.github.io/posts/emoji-support/</link>
-      <pubDate>Fri, 07 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>https://seclice.github.io/posts/emoji-support/</guid>
-      <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
-    </item>
   </channel>
 </rss>
