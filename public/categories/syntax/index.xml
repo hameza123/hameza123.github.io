@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Syntax on SecLice1</title>
+    <title>Syntax on SecLice</title>
     <link>http://localhost:1313/categories/syntax/</link>
-    <description>Recent content in Syntax on SecLice1</description>
+    <description>Recent content in Syntax on SecLice</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 29 Aug 2025 10:42:23 +0100</lastBuildDate>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <title>
   Creating a Blog with GitHub Pages and Hugo Template · SecLice
 </title>
@@ -22,7 +22,7 @@
   <meta name="twitter:title" content="Creating a Blog with GitHub Pages and Hugo Template">
   <meta name="twitter:description" content="A step-by-step guide to creating a static blog using Hugo and deploying it to GitHub Pages">
 
-<meta property="og:url" content="https://hameza123.github.io/posts/github-pages/">
+<meta property="og:url" content="http://localhost:1313/posts/github-pages/">
   <meta property="og:site_name" content="SecLice">
   <meta property="og:title" content="Creating a Blog with GitHub Pages and Hugo Template">
   <meta property="og:description" content="A step-by-step guide to creating a static blog using Hugo and deploying it to GitHub Pages">
@@ -40,7 +40,7 @@
 
 
 
-<link rel="canonical" href="https://hameza123.github.io/posts/github-pages/">
+<link rel="canonical" href="http://localhost:1313/posts/github-pages/">
 
 
 <link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -50,7 +50,7 @@
 
   
   
-  <link rel="stylesheet" href="/css/coder.min.6445a802b9389c9660e1b07b724dcf5718b1065ed2d71b4eeaf981cc7cc5fc46.css" integrity="sha256-ZEWoArk4nJZg4bB7ck3PVxixBl7S1xtO6vmBzHzF/EY=" crossorigin="anonymous" media="screen" />
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
 
 
 
@@ -60,7 +60,7 @@
   
     
     
-    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
   
 
 
@@ -108,7 +108,7 @@
     <nav class="navigation">
   <section class="container">
     
-    <a class="navigation-title" href="https://hameza123.github.io/">
+    <a class="navigation-title" href="http://localhost:1313/">
       SecLice
     </a>
     
@@ -169,7 +169,7 @@
       <header>
         <div class="post-title">
           <h1 class="title">
-            <a class="title-link" href="https://hameza123.github.io/posts/github-pages/">
+            <a class="title-link" href="http://localhost:1313/posts/github-pages/">
               Creating a Blog with GitHub Pages and Hugo Template
             </a>
           </h1>
@@ -353,7 +353,7 @@ Once you&rsquo;re in the desired parent directory, run the following command:</p
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo new site my-blog
 </span></span></code></pre></div><pre><code> - hugo: This calls the Hugo program.
  - new site: This is the command to create a new website framework.
- - my-awesome-blog: This is the name of your project folder. You can change this to anything you like (e.g., blog, my-hugo-site).
+ - my-blog: This is the name of your project folder. You can change this to anything you like (e.g., blog, my-hugo-site).
 </code></pre>
 <p>What this command does:
 Hugo will create a new folder with the name you provided (my-awesome-blog) and generate all the necessary directories and configuration files inside it for a basic Hugo website.</p>
@@ -426,10 +426,10 @@ After the command finishes, you need to move into your project&rsquo;s directory
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p>A theme controls the visual design and layout of your Hugo site. Hugo doesn&rsquo;t have a default theme, so adding one is essential. We&rsquo;ll use a theme called <a href="https://themes.gohugo.io/themes/hugo-coder/"  class="external-link" target="_blank" rel="noopener">Coder</a>, <a href="https://hugo-coder.netlify.app/"  class="external-link" target="_blank" rel="noopener">Demo</a></p>
+<p>A theme controls the visual design and layout of your Hugo site. <a href="https://themes.gohugo.io/"  class="external-link" target="_blank" rel="noopener">Hugo</a> doesn&rsquo;t have a default theme, so adding one is essential. We&rsquo;ll use a theme called [Ananke], <a href="https://ananke-theme.netlify.app/"  class="external-link" target="_blank" rel="noopener">Demo</a></p>
 <p>We will add the Ananke theme from its GitHub repository. A submodule links the theme&rsquo;s code directly to your project without copying all its files into your main repository.</p>
 <p>Run this command:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git submodule add https://github.com/luizdepra/hugo-coder.git themes/hugo-coder
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
 </span></span></code></pre></div><p>What this command does:</p>
 <ul>
 <li>
@@ -443,7 +443,9 @@ After the command finishes, you need to move into your project&rsquo;s directory
 </li>
 </ul>
 <p>Now you need to configure your site to use the Ananke theme. This is done in the main configuration file. Add the theme to your hugo.toml:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">theme</span> <span class="o">=</span> <span class="s2">&#34;hugo-coder&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">theme</span> <span class="o">=</span> <span class="s2">&#34;ananke&#34;</span>
+</span></span></code></pre></div><p>and modify the baseURL to:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">baseURL</span> <span class="o">=</span> <span class="s2">&#34;https://username.github.io/&#34;</span>
 </span></span></code></pre></div><p>It&rsquo;s time to start the Hugo development server to see your site with its new look.</p>
 <ul>
 <li>Run the server. The -D flag includes content marked as &ldquo;draft&rdquo;.
@@ -534,14 +536,31 @@ After the command finishes, you need to move into your project&rsquo;s directory
 <p>Now, you need to link the local Git repository on your computer to the new one you just created on GitHub.</p>
 <ol>
 <li>
-<p>In your terminal, navigate to your Hugo site&rsquo;s root directory.</p>
+<p>Go to GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)</p>
 </li>
 <li>
-<p>Run the following commands, replacing yourusername with your GitHub username.</p>
+<p>Click &ldquo;Generate new token&rdquo; → &ldquo;Generate new token (classic)&rdquo;</p>
+</li>
+<li>
+<p>Give it a descriptive name (e.g., &ldquo;My Hugo Blog Deployment&rdquo;)</p>
+</li>
+<li>
+<p>Select these scopes:</p>
+<ul>
+<li>repo</li>
+<li>workflow</li>
+</ul>
+</li>
+<li>
+<p>Click &ldquo;Generate token&rdquo;</p>
+</li>
+<li>
+<p>Copy the token immediately - you won&rsquo;t be able to see it again!</p>
 </li>
 </ol>
+<p>In your terminal, navigate to your Hugo site&rsquo;s root directory and Run the following commands, replacing yourusername with your GitHub username.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Add the remote GitHub repository as the origin</span>
-</span></span><span class="line"><span class="cl">git remote add origin https://github.com/yourusername/yourusername.github.io.git
+</span></span><span class="line"><span class="cl">git remote add origin https://<span class="o">[</span>YOUR_TOKEN<span class="o">]</span>@github.com/<span class="o">[</span>YOUR_USERNAME<span class="o">]</span>/<span class="o">[</span>YOUR_REPOSITORY_NAME<span class="o">]</span>.git
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Rename the default branch to &#39;main&#39; (if it isn&#39;t already)</span>
 </span></span><span class="line"><span class="cl">git branch -M main
@@ -550,25 +569,11 @@ After the command finishes, you need to move into your project&rsquo;s directory
 </span></span><span class="line"><span class="cl">git add .
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Create your first commit with a message</span>
-</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;Initial commit - Hugo site with theme&#34;</span>
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;Initial commit Hugo site with theme&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">create id-token
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">git remote remove origin
-</span></span><span class="line"><span class="cl">git remote add origin https://<span class="o">[</span>TOKEN<span class="o">]</span>@github.com/<span class="o">[</span>REPO-OWNER<span class="o">]</span>/<span class="o">[</span>REPO-NAME<span class="o">]</span>
-</span></span><span class="line"><span class="cl">git push
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Push your local &#39;main&#39; branch to the GitHub repository</span>
 </span></span><span class="line"><span class="cl">git push -u origin main
-</span></span></code></pre></div><ol start="3">
-<li>
-<p>You will be prompted for your GitHub username and password. For password, you must use a Personal Access Token (PAT). You can create one in your GitHub settings under Developer settings &gt; Personal access tokens &gt; Tokens (classic). Give it full repo permissions.</p>
-</li>
-<li>
-<p>After the push completes, refresh your repository page on GitHub. You should see all your Hugo files there!</p>
-</li>
-</ol>
+</span></span></code></pre></div><p>After the push completes, refresh your repository page on GitHub. You should see all your Hugo files there!</p>
+<p>Seeing all your Hugo files in the GitHub repository with no errors in the Actions tab means you&rsquo;ve successfully completed the most difficult parts of the setup.</p>
 <h2 id="step-7-deploy--with-github-actions">
   Step 7: Deploy  with GitHub Actions
   <a class="heading-link" href="#step-7-deploy--with-github-actions">
@@ -577,13 +582,29 @@ After the command finishes, you need to move into your project&rsquo;s directory
   </a>
 </h2>
 <p>This is the most crucial step. GitHub Actions will automatically build your Hugo site and deploy it to GitHub Pages every time you push a new change to your main branch.</p>
+<p>you need to tell GitHub to use the result of this action as your site&rsquo;s source:</p>
+<ol>
+<li>
+<p>Navigate to your GitHub repository in your web browser, click on the &ldquo;Settings&rdquo; tab in the top navigation menu.</p>
+</li>
+<li>
+<p>In the left sidebar, click on &ldquo;Actions&rdquo;, General and change the section &ldquo;Workflow permissions&rdquo; to &ldquo;Read and write permissions&rdquo; and click save.</p>
+</li>
+<li>
+<p>In the left sidebar, click on &ldquo;Pages&rdquo;, Under the &ldquo;Build and deployment&rdquo; section, you&rsquo;ll see the &ldquo;Source&rdquo; dropdown.</p>
+</li>
+<li>
+<p>Once selected, the page will update. You should see a message similar to: &ldquo;Your GitHub Pages site is currently being built from a GitHub Actions workflow. [View latest deployment].&rdquo;</p>
+</li>
+</ol>
+<p>You&rsquo;re done! The configuration is now complete.</p>
 <p>We will create a YAML file that defines a &ldquo;workflow&rdquo;—a set of instructions for GitHub&rsquo;s servers to follow.</p>
 <p>In your Hugo project&rsquo;s root directory, you need to create a specific folder structure for the workflow file.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p .github/workflows
 </span></span></code></pre></div><p>This creates a hidden .github folder and a workflows folder inside it.</p>
-<p>Inside the .github/workflows/ directory, create a new file named gh-pages.yml.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">touch .github/workflows/gh-pages.yml
-</span></span></code></pre></div><p>Open the .github/workflows/gh-pages.yml file and copy the following configuration into it. This is a popular and reliable configuration that uses community-built actions.</p>
+<p>Inside the .github/workflows/ directory, create a new file named hugo.yaml.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">touch .github/workflows/hugo.yaml
+</span></span></code></pre></div><p>Open the .github/workflows/hugo.yaml file and copy the following configuration into it. This is a popular and reliable configuration that uses community-built actions.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Sample workflow for building and deploying a Hugo site to GitHub Pages</span>
 </span></span><span class="line"><span class="cl">name: Deploy Hugo site to Pages
 </span></span><span class="line"><span class="cl">
@@ -666,16 +687,16 @@ After the command finishes, you need to move into your project&rsquo;s directory
 </span></span><span class="line"><span class="cl">      - name: Deploy to GitHub Pages
 </span></span><span class="line"><span class="cl">        id: deployment
 </span></span><span class="line"><span class="cl">        uses: actions/deploy-pages@v4  <span class="c1"># Updated to v4</span>
-</span></span></code></pre></div><p>After the action completes successfully, you need to tell GitHub to use the result of this action as your site&rsquo;s source.</p>
-<ul>
-<li>Go to your repository&rsquo;s Settings.</li>
-<li>Click on Pages in the left sidebar.</li>
-<li>Under &ldquo;Build and deployment&rdquo;, for the Source, select GitHub Actions.</li>
-<li>Go to Actions, General, Workflow permissions and put
-Read and write permissions ad save.
-That&rsquo;s it! Your site is now live!</li>
-</ul>
-<h2 id="step-8-view-your-blog">
+</span></span></code></pre></div><p>Now, Commit and Push the Workflow File</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Add the workflow file to git</span>
+</span></span><span class="line"><span class="cl">git add .github/workflows/hugo.yaml
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Commit the changes</span>
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;Add GitHub Actions workflow for automated deployment&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Push to trigger the workflow</span>
+</span></span><span class="line"><span class="cl">git push origin main
+</span></span></code></pre></div><h2 id="step-8-view-your-blog">
   Step 8: View Your Blog
   <a class="heading-link" href="#step-8-view-your-blog">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
@@ -784,7 +805,7 @@ That&rsquo;s it! Your site is now live!</li>
 
   
   
-  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  <script src="/js/coder.js"></script>
   
 
   

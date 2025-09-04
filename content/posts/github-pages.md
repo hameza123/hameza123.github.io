@@ -111,7 +111,7 @@ Now that you have Hugo and Git installed, it's time to create the foundation of 
 
 		- hugo: This calls the Hugo program.
 		- new site: This is the command to create a new website framework.
-		- my-awesome-blog: This is the name of your project folder. You can change this to anything you like (e.g., blog, my-hugo-site).
+		- my-blog: This is the name of your project folder. You can change this to anything you like (e.g., blog, my-hugo-site).
 
 	What this command does:
 	Hugo will create a new folder with the name you provided (my-awesome-blog) and generate all the necessary directories and configuration files inside it for a basic Hugo website.
@@ -179,13 +179,13 @@ Now that you have Hugo and Git installed, it's time to create the foundation of 
 
 ## Step 4: Add a Theme
 
-A theme controls the visual design and layout of your Hugo site. Hugo doesn't have a default theme, so adding one is essential. We'll use a theme called [Coder](https://themes.gohugo.io/themes/hugo-coder/), [Demo](https://hugo-coder.netlify.app/)
+A theme controls the visual design and layout of your Hugo site. [Hugo](https://themes.gohugo.io/) doesn't have a default theme, so adding one is essential. We'll use a theme called [Ananke], [Demo](https://ananke-theme.netlify.app/)
 
 We will add the Ananke theme from its GitHub repository. A submodule links the theme's code directly to your project without copying all its files into your main repository.
 
 Run this command:
 ```bash
-git submodule add https://github.com/luizdepra/hugo-coder.git themes/hugo-coder
+git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
 ```
 
 What this command does:
@@ -199,7 +199,12 @@ What this command does:
 Now you need to configure your site to use the Ananke theme. This is done in the main configuration file. Add the theme to your hugo.toml:
 
 ```bash
-theme = "hugo-coder"
+theme = "ananke"
+```
+
+and modify the baseURL to:
+```bash
+baseURL = "https://username.github.io/"
 ```
 
 It's time to start the Hugo development server to see your site with its new look.
@@ -286,13 +291,25 @@ We will use the first method as it's the most straightforward for a personal or 
 
 Now, you need to link the local Git repository on your computer to the new one you just created on GitHub.
 
-1. In your terminal, navigate to your Hugo site's root directory.
+1. Go to GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
 
-2. Run the following commands, replacing yourusername with your GitHub username.
+2. Click "Generate new token" → "Generate new token (classic)"
+
+3. Give it a descriptive name (e.g., "My Hugo Blog Deployment")
+
+4. Select these scopes:
+	- repo
+	- workflow  
+
+5. Click "Generate token"
+
+6. Copy the token immediately - you won't be able to see it again!
+
+In your terminal, navigate to your Hugo site's root directory and Run the following commands, replacing yourusername with your GitHub username.
 
 ```bash
 # Add the remote GitHub repository as the origin
-git remote add origin https://github.com/yourusername/yourusername.github.io.git
+git remote add origin https://[YOUR_TOKEN]@github.com/[YOUR_USERNAME]/[YOUR_REPOSITORY_NAME].git
 
 # Rename the default branch to 'main' (if it isn't already)
 git branch -M main
@@ -301,27 +318,30 @@ git branch -M main
 git add .
 
 # Create your first commit with a message
-git commit -m "Initial commit - Hugo site with theme"
+git commit -m "Initial commit Hugo site with theme"
 
-
-create id-token
-
-git remote remove origin
-git remote add origin https://[TOKEN]@github.com/[REPO-OWNER]/[REPO-NAME]
-git push
-
-# Push your local 'main' branch to the GitHub repository
 git push -u origin main
 ```
 
-3. You will be prompted for your GitHub username and password. For password, you must use a Personal Access Token (PAT). You can create one in your GitHub settings under Developer settings > Personal access tokens > Tokens (classic). Give it full repo permissions.
+After the push completes, refresh your repository page on GitHub. You should see all your Hugo files there! 
 
-4. After the push completes, refresh your repository page on GitHub. You should see all your Hugo files there!
-
+Seeing all your Hugo files in the GitHub repository with no errors in the Actions tab means you've successfully completed the most difficult parts of the setup.
 
 ## Step 7: Deploy  with GitHub Actions
 
 This is the most crucial step. GitHub Actions will automatically build your Hugo site and deploy it to GitHub Pages every time you push a new change to your main branch.
+
+you need to tell GitHub to use the result of this action as your site's source:
+
+1. Navigate to your GitHub repository in your web browser, click on the "Settings" tab in the top navigation menu.
+
+2. In the left sidebar, click on "Actions", General and change the section "Workflow permissions" to "Read and write permissions" and click save.
+
+3. In the left sidebar, click on "Pages", Under the "Build and deployment" section, you'll see the "Source" dropdown.
+
+4. Once selected, the page will update. You should see a message similar to: "Your GitHub Pages site is currently being built from a GitHub Actions workflow. [View latest deployment]."
+
+You're done! The configuration is now complete.
 
 We will create a YAML file that defines a "workflow"—a set of instructions for GitHub's servers to follow.
 
@@ -332,13 +352,13 @@ mkdir -p .github/workflows
 ```
 This creates a hidden .github folder and a workflows folder inside it.
 
-Inside the .github/workflows/ directory, create a new file named gh-pages.yml.
+Inside the .github/workflows/ directory, create a new file named hugo.yaml.
 
 ```bash
-touch .github/workflows/gh-pages.yml
+touch .github/workflows/hugo.yaml
 ```
 
-Open the .github/workflows/gh-pages.yml file and copy the following configuration into it. This is a popular and reliable configuration that uses community-built actions.
+Open the .github/workflows/hugo.yaml file and copy the following configuration into it. This is a popular and reliable configuration that uses community-built actions.
 
 ```bash
 # Sample workflow for building and deploying a Hugo site to GitHub Pages
@@ -425,15 +445,19 @@ jobs:
         uses: actions/deploy-pages@v4  # Updated to v4
 ```
 
-After the action completes successfully, you need to tell GitHub to use the result of this action as your site's source.
+Now, Commit and Push the Workflow File
 
-- Go to your repository's Settings.
-- Click on Pages in the left sidebar.
-- Under "Build and deployment", for the Source, select GitHub Actions.
-- Go to Actions, General, Workflow permissions and put 
-Read and write permissions ad save.
-That's it! Your site is now live!
 
+```bash
+# Add the workflow file to git
+git add .github/workflows/hugo.yaml
+
+# Commit the changes
+git commit -m "Add GitHub Actions workflow for automated deployment"
+
+# Push to trigger the workflow
+git push origin main
+```
 ## Step 8: View Your Blog
 
 Your blog will be available at https://username.github.io after the GitHub Action completes.
