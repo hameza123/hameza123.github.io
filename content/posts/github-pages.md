@@ -1,7 +1,7 @@
 +++ 
 draft = false
 date = 2025-08-29T10:56:37+01:00
-title = "Creating a Blog with GitHub Pages and Hugo"
+title = "Creating a Blog with GitHub Pages and Hugo Template"
 description = "A step-by-step guide to creating a static blog using Hugo and deploying it to GitHub Pages"
 slug = ""
 authors = []
@@ -107,7 +107,6 @@ Now that you have Hugo and Git installed, it's time to create the foundation of 
 	Once you're in the desired parent directory, run the following command:
 	```bash
 	hugo new site my-blog
-	cd my-blog
 	```
 
 		- hugo: This calls the Hugo program.
@@ -120,7 +119,7 @@ Now that you have Hugo and Git installed, it's time to create the foundation of 
 2. Navigate into Your New Site
 	After the command finishes, you need to move into your project's directory. Use the cd (change directory) command:
 	```bash
-	cd my-awesome-blog
+	cd my-blog
 	```
 	You are now "inside" your Hugo project. Any commands you run from here will affect this project.
 
@@ -304,6 +303,13 @@ git add .
 # Create your first commit with a message
 git commit -m "Initial commit - Hugo site with theme"
 
+
+create id-token
+
+git remote remove origin
+git remote add origin https://[TOKEN]@github.com/[REPO-OWNER]/[REPO-NAME]
+git push
+
 # Push your local 'main' branch to the GitHub repository
 git push -u origin main
 ```
@@ -313,7 +319,7 @@ git push -u origin main
 4. After the push completes, refresh your repository page on GitHub. You should see all your Hugo files there!
 
 
-## Step 7: Deploy with GitHub Actions
+## Step 7: Deploy  with GitHub Actions
 
 This is the most crucial step. GitHub Actions will automatically build your Hugo site and deploy it to GitHub Pages every time you push a new change to your main branch.
 
@@ -422,11 +428,10 @@ jobs:
 After the action completes successfully, you need to tell GitHub to use the result of this action as your site's source.
 
 - Go to your repository's Settings.
-
 - Click on Pages in the left sidebar.
-
 - Under "Build and deployment", for the Source, select GitHub Actions.
-
+- Go to Actions, General, Workflow permissions and put 
+Read and write permissions ad save.
 That's it! Your site is now live!
 
 ## Step 8: View Your Blog
