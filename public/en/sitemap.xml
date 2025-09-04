@@ -2,165 +2,165 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://seclice.github.io/tags/blog/</loc>
+    <loc>https://hameza123.github.io/tags/blog/</loc>
     <lastmod>2025-08-29T10:56:37+01:00</lastmod>
   </url><url>
-    <loc>https://seclice.github.io/categories/</loc>
-    <lastmod>2025-08-29T10:56:37+01:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt-br"
-                href="https://seclice.github.io/pt-br/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://seclice.github.io/categories/"
-                />
-  </url><url>
-    <loc>https://seclice.github.io/posts/github-pages/</loc>
-    <lastmod>2025-08-29T10:56:37+01:00</lastmod>
-  </url><url>
-    <loc>https://seclice.github.io/tags/github-pages/</loc>
-    <lastmod>2025-08-29T10:56:37+01:00</lastmod>
-  </url><url>
-    <loc>https://seclice.github.io/tags/hugo/</loc>
+    <loc>https://hameza123.github.io/categories/</loc>
     <lastmod>2025-08-29T10:56:37+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="https://seclice.github.io/pt-br/tags/hugo/"
+                href="https://hameza123.github.io/pt-br/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://seclice.github.io/tags/hugo/"
+                href="https://hameza123.github.io/categories/"
                 />
   </url><url>
-    <loc>https://seclice.github.io/posts/</loc>
+    <loc>https://hameza123.github.io/posts/github-pages/</loc>
+    <lastmod>2025-08-29T10:56:37+01:00</lastmod>
+  </url><url>
+    <loc>https://hameza123.github.io/tags/github-pages/</loc>
+    <lastmod>2025-08-29T10:56:37+01:00</lastmod>
+  </url><url>
+    <loc>https://hameza123.github.io/tags/hugo/</loc>
     <lastmod>2025-08-29T10:56:37+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="https://seclice.github.io/pt-br/posts/"
+                href="https://hameza123.github.io/pt-br/tags/hugo/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://seclice.github.io/posts/"
+                href="https://hameza123.github.io/tags/hugo/"
                 />
   </url><url>
-    <loc>https://seclice.github.io/</loc>
+    <loc>https://hameza123.github.io/posts/</loc>
     <lastmod>2025-08-29T10:56:37+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="https://seclice.github.io/pt-br/"
+                href="https://hameza123.github.io/pt-br/posts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://seclice.github.io/"
+                href="https://hameza123.github.io/posts/"
                 />
   </url><url>
-    <loc>https://seclice.github.io/tags/static-site/</loc>
-    <lastmod>2025-08-29T10:56:37+01:00</lastmod>
-  </url><url>
-    <loc>https://seclice.github.io/tags/</loc>
+    <loc>https://hameza123.github.io/</loc>
     <lastmod>2025-08-29T10:56:37+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="https://seclice.github.io/pt-br/tags/"
+                href="https://hameza123.github.io/pt-br/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://seclice.github.io/tags/"
+                href="https://hameza123.github.io/"
                 />
   </url><url>
-    <loc>https://seclice.github.io/tags/tutorial/</loc>
+    <loc>https://hameza123.github.io/tags/static-site/</loc>
     <lastmod>2025-08-29T10:56:37+01:00</lastmod>
   </url><url>
-    <loc>https://seclice.github.io/categories/web-development/</loc>
+    <loc>https://hameza123.github.io/tags/</loc>
+    <lastmod>2025-08-29T10:56:37+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="https://hameza123.github.io/pt-br/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hameza123.github.io/tags/"
+                />
+  </url><url>
+    <loc>https://hameza123.github.io/tags/tutorial/</loc>
     <lastmod>2025-08-29T10:56:37+01:00</lastmod>
   </url><url>
-    <loc>https://seclice.github.io/about/</loc>
+    <loc>https://hameza123.github.io/categories/web-development/</loc>
+    <lastmod>2025-08-29T10:56:37+01:00</lastmod>
+  </url><url>
+    <loc>https://hameza123.github.io/about/</loc>
     <lastmod>2023-08-28T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="https://seclice.github.io/pt-br/about/"
+                href="https://hameza123.github.io/pt-br/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://seclice.github.io/about/"
+                href="https://hameza123.github.io/about/"
                 />
   </url><url>
-    <loc>https://seclice.github.io/pgp/</loc>
+    <loc>https://hameza123.github.io/pgp/</loc>
     <lastmod>2023-08-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://seclice.github.io/authors/</loc>
+    <loc>https://hameza123.github.io/authors/</loc>
     <lastmod>2023-01-05T01:15:29+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="https://seclice.github.io/pt-br/authors/"
+                href="https://hameza123.github.io/pt-br/authors/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://seclice.github.io/authors/"
+                href="https://hameza123.github.io/authors/"
                 />
   </url><url>
-    <loc>https://seclice.github.io/authors/hugo-authors/</loc>
+    <loc>https://hameza123.github.io/authors/hugo-authors/</loc>
     <lastmod>2023-01-05T01:15:29+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="https://seclice.github.io/pt-br/autores/autores-de-hugo/"
+                href="https://hameza123.github.io/pt-br/autores/autores-de-hugo/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://seclice.github.io/authors/hugo-authors/"
+                href="https://hameza123.github.io/authors/hugo-authors/"
                 />
   </url><url>
-    <loc>https://seclice.github.io/contact/</loc>
+    <loc>https://hameza123.github.io/contact/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="https://seclice.github.io/pt-br/contact/"
+                href="https://hameza123.github.io/pt-br/contact/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://seclice.github.io/contact/"
+                href="https://hameza123.github.io/contact/"
                 />
   </url><url>
-    <loc>https://seclice.github.io/projects/</loc>
+    <loc>https://hameza123.github.io/projects/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="https://seclice.github.io/pt-br/projects/"
+                href="https://hameza123.github.io/pt-br/projects/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://seclice.github.io/projects/"
+                href="https://hameza123.github.io/projects/"
                 />
   </url><url>
-    <loc>https://seclice.github.io/series/</loc>
+    <loc>https://hameza123.github.io/series/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="https://seclice.github.io/pt-br/series/"
+                href="https://hameza123.github.io/pt-br/series/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://seclice.github.io/series/"
+                href="https://hameza123.github.io/series/"
                 />
   </url>
 </urlset>

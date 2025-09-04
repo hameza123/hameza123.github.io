@@ -3,7 +3,7 @@
 
 <head>
   <title>
-  Creating a Blog with GitHub Pages and Hugo · SecLice
+  Creating a Blog with GitHub Pages and Hugo Template · SecLice
 </title>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,12 +19,12 @@
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Creating a Blog with GitHub Pages and Hugo">
+  <meta name="twitter:title" content="Creating a Blog with GitHub Pages and Hugo Template">
   <meta name="twitter:description" content="A step-by-step guide to creating a static blog using Hugo and deploying it to GitHub Pages">
 
-<meta property="og:url" content="https://seclice.github.io/posts/github-pages/">
+<meta property="og:url" content="https://hameza123.github.io/posts/github-pages/">
   <meta property="og:site_name" content="SecLice">
-  <meta property="og:title" content="Creating a Blog with GitHub Pages and Hugo">
+  <meta property="og:title" content="Creating a Blog with GitHub Pages and Hugo Template">
   <meta property="og:description" content="A step-by-step guide to creating a static blog using Hugo and deploying it to GitHub Pages">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
@@ -40,7 +40,7 @@
 
 
 
-<link rel="canonical" href="https://seclice.github.io/posts/github-pages/">
+<link rel="canonical" href="https://hameza123.github.io/posts/github-pages/">
 
 
 <link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -108,7 +108,7 @@
     <nav class="navigation">
   <section class="container">
     
-    <a class="navigation-title" href="https://seclice.github.io/">
+    <a class="navigation-title" href="https://hameza123.github.io/">
       SecLice
     </a>
     
@@ -169,8 +169,8 @@
       <header>
         <div class="post-title">
           <h1 class="title">
-            <a class="title-link" href="https://seclice.github.io/posts/github-pages/">
-              Creating a Blog with GitHub Pages and Hugo
+            <a class="title-link" href="https://hameza123.github.io/posts/github-pages/">
+              Creating a Blog with GitHub Pages and Hugo Template
             </a>
           </h1>
         </div>
@@ -351,7 +351,6 @@
 Navigate to the directory where you want to create your blog project. For example, your Documents folder or a dedicated Projects folder.
 Once you&rsquo;re in the desired parent directory, run the following command:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo new site my-blog
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> my-blog
 </span></span></code></pre></div><pre><code> - hugo: This calls the Hugo program.
  - new site: This is the command to create a new website framework.
  - my-awesome-blog: This is the name of your project folder. You can change this to anything you like (e.g., blog, my-hugo-site).
@@ -362,7 +361,7 @@ Hugo will create a new folder with the name you provided (my-awesome-blog) and g
 <li>
 <p>Navigate into Your New Site
 After the command finishes, you need to move into your project&rsquo;s directory. Use the cd (change directory) command:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> my-awesome-blog
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> my-blog
 </span></span></code></pre></div><p>You are now &ldquo;inside&rdquo; your Hugo project. Any commands you run from here will affect this project.</p>
 </li>
 <li>
@@ -553,6 +552,13 @@ After the command finishes, you need to move into your project&rsquo;s directory
 </span></span><span class="line"><span class="cl"><span class="c1"># Create your first commit with a message</span>
 </span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;Initial commit - Hugo site with theme&#34;</span>
 </span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">create id-token
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git remote remove origin
+</span></span><span class="line"><span class="cl">git remote add origin https://<span class="o">[</span>TOKEN<span class="o">]</span>@github.com/<span class="o">[</span>REPO-OWNER<span class="o">]</span>/<span class="o">[</span>REPO-NAME<span class="o">]</span>
+</span></span><span class="line"><span class="cl">git push
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Push your local &#39;main&#39; branch to the GitHub repository</span>
 </span></span><span class="line"><span class="cl">git push -u origin main
 </span></span></code></pre></div><ol start="3">
@@ -563,9 +569,9 @@ After the command finishes, you need to move into your project&rsquo;s directory
 <p>After the push completes, refresh your repository page on GitHub. You should see all your Hugo files there!</p>
 </li>
 </ol>
-<h2 id="step-7-deploy-with-github-actions">
-  Step 7: Deploy with GitHub Actions
-  <a class="heading-link" href="#step-7-deploy-with-github-actions">
+<h2 id="step-7-deploy--with-github-actions">
+  Step 7: Deploy  with GitHub Actions
+  <a class="heading-link" href="#step-7-deploy--with-github-actions">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -662,17 +668,13 @@ After the command finishes, you need to move into your project&rsquo;s directory
 </span></span><span class="line"><span class="cl">        uses: actions/deploy-pages@v4  <span class="c1"># Updated to v4</span>
 </span></span></code></pre></div><p>After the action completes successfully, you need to tell GitHub to use the result of this action as your site&rsquo;s source.</p>
 <ul>
-<li>
-<p>Go to your repository&rsquo;s Settings.</p>
-</li>
-<li>
-<p>Click on Pages in the left sidebar.</p>
-</li>
-<li>
-<p>Under &ldquo;Build and deployment&rdquo;, for the Source, select GitHub Actions.</p>
-</li>
+<li>Go to your repository&rsquo;s Settings.</li>
+<li>Click on Pages in the left sidebar.</li>
+<li>Under &ldquo;Build and deployment&rdquo;, for the Source, select GitHub Actions.</li>
+<li>Go to Actions, General, Workflow permissions and put
+Read and write permissions ad save.
+That&rsquo;s it! Your site is now live!</li>
 </ul>
-<p>That&rsquo;s it! Your site is now live!</p>
 <h2 id="step-8-view-your-blog">
   Step 8: View Your Blog
   <a class="heading-link" href="#step-8-view-your-blog">
