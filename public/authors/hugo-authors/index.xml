@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Authors of Hugo on SecLice</title>
-    <link>https://hameza123.github.io/authors/hugo-authors/</link>
-    <description>Recent content in Authors of Hugo on SecLice</description>
+    <title>Authors of Hugo on SecLice1</title>
+    <link>http://localhost:1313/authors/hugo-authors/</link>
+    <description>Recent content in Authors of Hugo on SecLice1</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="https://hameza123.github.io/authors/hugo-authors/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/authors/hugo-authors/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
