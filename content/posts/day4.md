@@ -11,7 +11,7 @@ series = []
 +++
 
 ## Day 4: Installing Kibana
-
+Ressources : [MyDFIR Channel](https://www.youtube.com/@MyDFIR/videos)
 1. Download the Package
 
 	- Go to the official [Kibana](https://www.elastic.co/downloads/kibana) Download page.

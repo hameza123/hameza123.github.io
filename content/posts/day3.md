@@ -13,7 +13,7 @@ series = []
 
 
 ## Day 3: ELK Stack Istallation
-
+Ressources : [MyDFIR Channel](https://www.youtube.com/@MyDFIR/videos)
 ### Create private network
 
 1. Open VMware Fusion Preferences

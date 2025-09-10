@@ -11,7 +11,9 @@ series = []
 +++
 
 
-# 30-Day MyDFIR SOC Analyst Challenge
+# 30-Day MyDFIR SOC Analyst Challenge 
+
+Ressources : [MyDFIR Channel](https://www.youtube.com/@MyDFIR/videos)
 
 ## Objectives:
 

@@ -11,7 +11,7 @@ series = []
 +++
 
 ## Day 5: Windows Server 2022 Installation
-
+Ressources : [MyDFIR Channel](https://www.youtube.com/@MyDFIR/videos)
 ## Part 1: The Installation
 
 Go to [Windows Server 2022 ISO](https://www.microsoft.com/en-us/evalcenter/download-windows-server-2022) and select the **ISO** option for your desired edition (e.g., **Standard**), 

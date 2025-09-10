@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SOC on SecLice</title>
+    <link>http://localhost:1313/categories/soc/</link>
+    <description>Recent content in SOC on SecLice</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 10 Sep 2025 18:10:32 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/soc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Day 8: SOC Analyst Challenge </title>
+      <link>http://localhost:1313/posts/soc-analyst-challenge-day-8/</link>
+      <pubDate>Wed, 10 Sep 2025 18:10:32 +0100</pubDate>
+      <guid>http://localhost:1313/posts/soc-analyst-challenge-day-8/</guid>
+      <description>&lt;h2 id=&#34;day-8-what-is-sysmon&#34;&gt;&#xA;  Day 8: What is Sysmon?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#day-8-what-is-sysmon&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Ressources :&lt;a href=&#34;https://www.youtube.com/@MyDFIR/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MyDFIR Channel&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Of course. Here is a clear explanation of what Sysmon is.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Sysmon&lt;/strong&gt; (System Monitor) is a free, lightweight &lt;strong&gt;system service&lt;/strong&gt; and &lt;strong&gt;device driver&lt;/strong&gt; for Microsoft Windows, created by Microsoft. It&amp;rsquo;s part of the Windows Sysinternals suite of tools.&lt;/p&gt;&#xA;&lt;p&gt;Its primary purpose is not to &lt;em&gt;prevent&lt;/em&gt; attacks but to provide incredibly &lt;strong&gt;detailed, high-quality logs&lt;/strong&gt; about system activity. Think of it as a surveillance camera for your Windows operating system.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

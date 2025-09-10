@@ -184,7 +184,7 @@
             </span>
             <span class="reading-time">
               <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              3-minute read
+              4-minute read
             </span>
           </div>
           <div class="authors">
@@ -229,6 +229,7 @@
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
+<p>Ressources : <a href="https://www.youtube.com/@MyDFIR/videos"  class="external-link" target="_blank" rel="noopener">MyDFIR Channel</a></p>
 <h3 id="elastic-agent-and-fleet-server-a-centralized-management-revolution">
   <strong>Elastic Agent and Fleet Server: A Centralized Management Revolution</strong>
   <a class="heading-link" href="#elastic-agent-and-fleet-server-a-centralized-management-revolution">
@@ -320,7 +321,36 @@
   </a>
 </h3>
 <p>The entire architecture can be summarized in this data flow:</p>
-<img src="/images/fleet.png" style="display: block; margin: auto; max-width: 80%;" />
+<div class="mermaid">
+flowchart TD
+subgraph Elastic Stack Cloud
+Kibana
+Elasticsearch
+end
+
+subgraph Your Environment
+FleetServer[Fleet Server<br>Elastic Agent]
+end
+
+Agent1[Elastic Agent]
+Agent2[Elastic Agent]
+Agent3[Elastic Agent]
+
+Kibana -- manages policies --> FleetServer
+FleetServer -- delivers policies --> Agent1
+FleetServer -- delivers policies --> Agent2
+FleetServer -- delivers policies --> Agent3
+
+Agent1 -- sends data --> Elasticsearch
+Agent2 -- sends data --> Elasticsearch
+Agent3 -- sends data --> Elasticsearch
+
+Agent1 -- checks in for policies --> FleetServer
+Agent2 -- checks in for policies --> FleetServer
+Agent3 -- checks in for policies --> FleetServer
+
+</div>
+
 <p><strong>In summary:</strong></p>
 <ul>
 <li><strong>Elastic Agent</strong> is the worker that collects data on your hosts.</li>
@@ -391,6 +421,12 @@
 
   </main>
 
+  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js"
+    integrity="sha256-QdTG1YTLLTwD3b95jLqFxpQX9uYuJMNAtVZgwKX4oYU=" crossorigin="anonymous"></script>
+  <script>
+    mermaid.initialize({ startOnLoad: true });
+  </script>
   
 
   

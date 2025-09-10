@@ -11,7 +11,7 @@ series = []
 +++
 
 ## Day 6: Elastic Agent and Fleet Server Introduction
-
+Ressources : [MyDFIR Channel](https://www.youtube.com/@MyDFIR/videos)
 
 ### **Elastic Agent and Fleet Server: A Centralized Management Revolution**
 
@@ -62,8 +62,34 @@ This is the critical link between Fleet (in Kibana) and the Elastic Agents runni
 
 The entire architecture can be summarized in this data flow:
 
-<img src="/images/fleet.png" style="display: block; margin: auto; max-width: 80%;" />
+{{<mermaid>}}
+flowchart TD
+subgraph Elastic Stack Cloud
+Kibana
+Elasticsearch
+end
 
+subgraph Your Environment
+FleetServer[Fleet Server<br>Elastic Agent]
+end
+
+Agent1[Elastic Agent]
+Agent2[Elastic Agent]
+Agent3[Elastic Agent]
+
+Kibana -- manages policies --> FleetServer
+FleetServer -- delivers policies --> Agent1
+FleetServer -- delivers policies --> Agent2
+FleetServer -- delivers policies --> Agent3
+
+Agent1 -- sends data --> Elasticsearch
+Agent2 -- sends data --> Elasticsearch
+Agent3 -- sends data --> Elasticsearch
+
+Agent1 -- checks in for policies --> FleetServer
+Agent2 -- checks in for policies --> FleetServer
+Agent3 -- checks in for policies --> FleetServer
+{{</mermaid>}}
 
 **In summary:**
 *   **Elastic Agent** is the worker that collects data on your hosts.

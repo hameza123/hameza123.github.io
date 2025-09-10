@@ -379,17 +379,7 @@ Why using ELK stack:
 
 
 
-
-
-
-
-
-
-
-```bash
-wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-9.1.3-amd64.deb
-```
-
+ 
 ---  
 
 ## Day 5: Windows Server 2022 Installation
@@ -638,17 +628,6 @@ This modernized approach is the foundation for the Elastic Stack's capabilities 
 ---
 
 ## Day 7: Elastic Agent and Fleet Server Setup Tutorial
-
-Create ELK server
-
-go to kibana http://172.16.193.153:5601/app/fleet/agents
-
-create fleet server
-
-Successfully enrolled the Elastic Agent.
-
-Add agent windows server 2022
-
 
 ### **Architecture Overview**
 *   **ELK Server (IP: 172.16.193.153):** Runs Elasticsearch and Kibana. Fleet management is done here.

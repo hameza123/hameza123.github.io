@@ -184,7 +184,7 @@
             </span>
             <span class="reading-time">
               <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              0-minute read
+              3-minute read
             </span>
           </div>
           <div class="authors">
@@ -193,7 +193,9 @@
 
           <div class="categories">
   <i class="fa-solid fa-folder" aria-hidden="true"></i>
-    <a href="/categories/cybersecurity/">Cybersecurity</a></div>
+    <a href="/categories/soc/">SOC</a>
+      <span class="separator">•</span>
+    <a href="/categories/sysmon/">Sysmon</a></div>
 
           <div class="tags">
   <i class="fa-solid fa-tag" aria-hidden="true"></i>
@@ -222,7 +224,106 @@
 
       <div class="post-content">
         
-        
+        <h2 id="day-8-what-is-sysmon">
+  Day 8: What is Sysmon?
+  <a class="heading-link" href="#day-8-what-is-sysmon">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Ressources :<a href="https://www.youtube.com/@MyDFIR/"  class="external-link" target="_blank" rel="noopener">MyDFIR Channel</a></p>
+<p>Of course. Here is a clear explanation of what Sysmon is.</p>
+<p><strong>Sysmon</strong> (System Monitor) is a free, lightweight <strong>system service</strong> and <strong>device driver</strong> for Microsoft Windows, created by Microsoft. It&rsquo;s part of the Windows Sysinternals suite of tools.</p>
+<p>Its primary purpose is not to <em>prevent</em> attacks but to provide incredibly <strong>detailed, high-quality logs</strong> about system activity. Think of it as a surveillance camera for your Windows operating system.</p>
+<h3 id="core-purpose">
+  <strong>Core Purpose: &ldquo;What happened on this machine?&rdquo;</strong>
+  <a class="heading-link" href="#core-purpose">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>While Windows Event Log provides basic information, Sysmon gives security teams and system administrators <strong>deep, forensic-level visibility</strong> into what&rsquo;s happening on a system. It answers critical questions that native logs often can&rsquo;t.</p>
+<h4 id="what-makes-sysmon-powerful-its-key-features">
+  <strong>What Makes Sysmon Powerful (Its Key Features):</strong>
+  <a class="heading-link" href="#what-makes-sysmon-powerful-its-key-features">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li>
+<p><strong>Detailed Process Tracking:</strong></p>
+<ul>
+<li>Logs process creation with full command-line arguments.</li>
+<li>Records the parent process that spawned each new process.</li>
+<li>Hashes process images (MD5, SHA1, SHA256, IMPHASH).</li>
+<li>This is crucial for spotting suspicious chains of activity (e.g., <code>powershell.exe</code> spawned by an unknown script).</li>
+</ul>
+</li>
+<li>
+<p><strong>Network Connection Monitoring:</strong></p>
+<ul>
+<li>Logs all TCP and UDP connections made by processes.</li>
+<li>Records source and destination IP addresses, ports, and the process responsible.</li>
+<li>This helps identify unauthorized data exfiltration or command-and-control (C2) callbacks.</li>
+</ul>
+</li>
+<li>
+<p><strong>File and Registry Change Auditing:</strong></p>
+<ul>
+<li>Can monitor when specific files or registry keys are created, modified, or deleted.</li>
+<li>Extremely useful for detecting persistence mechanisms (e.g., malware adding a Run key).</li>
+</ul>
+</li>
+<li>
+<p><strong>Other Key Events:</strong> It also logs details for:</p>
+<ul>
+<li><strong>Driver and DLL loading.</strong></li>
+<li><strong>Named pipe creation.</strong></li>
+<li><strong>WMI permanent event subscriptions.</strong></li>
+<li><strong>Raw disk access.</strong></li>
+</ul>
+</li>
+</ol>
+<h3 id="how-does-it-work">
+  <strong>How Does It Work?</strong>
+  <a class="heading-link" href="#how-does-it-work">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li><strong>Installation:</strong> You download and install Sysmon on a Windows machine. It runs as a service and loads a driver to capture low-level system events.</li>
+<li><strong>Configuration:</strong> This is the most important part. By default, Sysmon logs <em>everything</em>, which is far too noisy. You use an <strong>XML configuration file</strong> to tell Sysmon exactly what events to log and, more importantly, what to <strong>ignore</strong>. Renowned security researchers like <strong>SwiftOnSecurity</strong> and <strong>Olaf Hartong</strong> have created excellent open-source configs that filter out normal noise and highlight potentially malicious activity.</li>
+<li><strong>Log Generation:</strong> Sysmon writes its logs to the <strong>Windows Event Viewer</strong> under <code>Applications and Services Logs/Microsoft/Windows/Sysmon/Operational</code>.</li>
+<li><strong>Collection &amp; Analysis:</strong> The logs are then collected by a SIEM (like Elasticsearch via Elastic Agent) where they can be correlated, analyzed, and alerted upon.</li>
+</ol>
+<div class="mermaid">
+flowchart LR
+A[Sysmon Installation<br>on Windows System] --> B{Configure with<br>XML Filter Rules};
+B --> C[Logs System Activity<br>Process, Network, File, Registry];
+C --> D[Writes Events to<br>Windows Event Log];
+D --> E[Elastic Agent<br>Collects Events];
+E --> F[Sent to SIEM<br>e.g., Elastic Stack];
+F --> G[Analysis, Alerting,<br>& Forensics];
+
+</div>
+
+<h3 id="why-is-sysmon-a-critical-security-tool">
+  <strong>Why is Sysmon a Critical Security Tool?</strong>
+  <a class="heading-link" href="#why-is-sysmon-a-critical-security-tool">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Visibility:</strong> It provides an unparalleled level of detail for investigating security incidents.</li>
+<li><strong>Detection:</strong> It dramatically improves the ability to detect advanced threats and lateral movement within a network that would otherwise go unnoticed.</li>
+<li><strong>Forensics:</strong> After a breach, Sysmon logs are invaluable for understanding the &ldquo;how&rdquo; and &ldquo;what&rdquo; of an attack, allowing you to trace the attacker&rsquo;s steps.</li>
+<li><strong>Free and Lightweight:</strong> It has a minimal performance impact and is completely free to use.</li>
+</ul>
+<p><strong>In summary: Sysmon is the de facto standard for enhancing visibility on Windows endpoints. It turns the typically noisy Windows Event Log into a powerful, targeted source of security intelligence.</strong> It is a foundational component of any mature security operations program.</p>
+
       </div>
 
 
@@ -285,6 +386,12 @@
 
   </main>
 
+  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js"
+    integrity="sha256-QdTG1YTLLTwD3b95jLqFxpQX9uYuJMNAtVZgwKX4oYU=" crossorigin="anonymous"></script>
+  <script>
+    mermaid.initialize({ startOnLoad: true });
+  </script>
   
 
   
