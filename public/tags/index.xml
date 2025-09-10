@@ -16,6 +16,27 @@
       <description></description>
     </item>
     <item>
+      <title>Challenge</title>
+      <link>http://localhost:1313/tags/challenge/</link>
+      <pubDate>Fri, 29 Aug 2025 10:56:37 +0100</pubDate>
+      <guid>http://localhost:1313/tags/challenge/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cybersecurity</title>
+      <link>http://localhost:1313/tags/cybersecurity/</link>
+      <pubDate>Fri, 29 Aug 2025 10:56:37 +0100</pubDate>
+      <guid>http://localhost:1313/tags/cybersecurity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ELK</title>
+      <link>http://localhost:1313/tags/elk/</link>
+      <pubDate>Fri, 29 Aug 2025 10:56:37 +0100</pubDate>
+      <guid>http://localhost:1313/tags/elk/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Github-Pages</title>
       <link>http://localhost:1313/tags/github-pages/</link>
       <pubDate>Fri, 29 Aug 2025 10:56:37 +0100</pubDate>
@@ -27,6 +48,20 @@
       <link>http://localhost:1313/tags/hugo/</link>
       <pubDate>Fri, 29 Aug 2025 10:56:37 +0100</pubDate>
       <guid>http://localhost:1313/tags/hugo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SOC</title>
+      <link>http://localhost:1313/tags/soc/</link>
+      <pubDate>Fri, 29 Aug 2025 10:56:37 +0100</pubDate>
+      <guid>http://localhost:1313/tags/soc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SOC Analyst</title>
+      <link>http://localhost:1313/tags/soc-analyst/</link>
+      <pubDate>Fri, 29 Aug 2025 10:56:37 +0100</pubDate>
+      <guid>http://localhost:1313/tags/soc-analyst/</guid>
       <description></description>
     </item>
     <item>

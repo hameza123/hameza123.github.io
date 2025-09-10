@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  30-Day MyDFIR SOC Analyst Challenge · SecLice
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="SecLice">
+<meta name="description" content="This challenge is designed to help aspiring SOC Analysts like you gain hands-on practical experience in just 30 days. If you&#39;re looking to build your confidence and skills in cybersecurity, you&#39;re in the right place.">
+<meta name="keywords" content="blog,Cybersecurity">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="30-Day MyDFIR SOC Analyst Challenge">
+  <meta name="twitter:description" content="This challenge is designed to help aspiring SOC Analysts like you gain hands-on practical experience in just 30 days. If you&#39;re looking to build your confidence and skills in cybersecurity, you&#39;re in the right place.">
+
+<meta property="og:url" content="http://localhost:1313/posts/soc/">
+  <meta property="og:site_name" content="SecLice">
+  <meta property="og:title" content="30-Day MyDFIR SOC Analyst Challenge">
+  <meta property="og:description" content="This challenge is designed to help aspiring SOC Analysts like you gain hands-on practical experience in just 30 days. If you&#39;re looking to build your confidence and skills in cybersecurity, you&#39;re in the right place.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-29T10:56:37+01:00">
+    <meta property="article:modified_time" content="2025-08-29T10:56:37+01:00">
+    <meta property="article:tag" content="SOC">
+    <meta property="article:tag" content="Cybersecurity">
+    <meta property="article:tag" content="SOC Analyst">
+    <meta property="article:tag" content="ELK">
+    <meta property="article:tag" content="Challenge">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/soc/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      SecLice
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/pt-br/">🇧🇷</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/soc/">
+              30-Day MyDFIR SOC Analyst Challenge
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-08-29T10:56:37&#43;01:00">
+                August 29, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              18-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/cybersecurity/">Cybersecurity</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/soc/">SOC</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/cybersecurity/">Cybersecurity</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/soc-analyst/">SOC Analyst</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/elk/">ELK</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/challenge/">Challenge</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="30-day-mydfir-soc-analyst-challenge">
+  30-Day MyDFIR SOC Analyst Challenge
+  <a class="heading-link" href="#30-day-mydfir-soc-analyst-challenge">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="objectives">
+  Objectives:
+  <a class="heading-link" href="#objectives">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li>how to draw a logical diagram</li>
+<li>how to setup ad configure ELK</li>
+<li>how to attack, detect and ivestigate</li>
+<li>how to create alerts ad dashboards</li>
+<li>how to setup and investigate ticketing system</li>
+</ul>
+<h2 id="day-1-create-diagrams-logical-setup-that-will-serve-as-the-foundation-for-this-30-day-challenge">
+  Day 1: Create diagrams, logical setup that will serve as the foundation for this 30-Day challenge
+  <a class="heading-link" href="#day-1-create-diagrams-logical-setup-that-will-serve-as-the-foundation-for-this-30-day-challenge">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<img src="/images/diagram.png" style="display: block; margin: auto; max-width: 70%;" />
+<hr>
+<h2 id="day-2-elk-stack-introduction">
+  Day 2: ELK Stack Introduction
+  <a class="heading-link" href="#day-2-elk-stack-introduction">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>First of all the &lsquo;E&rsquo; stands for <a href="https://www.elastic.co/elasticsearch"  class="external-link" target="_blank" rel="noopener">Elastic Search</a>. Elasticsearch is an open source, distributed search and analytics engine built for speed, scale, and AI applications. As a retrieval platform, it stores structured, unstructured, and vector data in real time — delivering fast hybrid and vector search, powering observability and security analytics, and enabling AI-driven applications with high performance, accuracy, and relevance.</p>
+<p>Then the &lsquo;L&rsquo; stands for <a href="https://www.elastic.co/logstash"  class="external-link" target="_blank" rel="noopener">Logstash</a>. Logstash dynamically ingests, transforms, and ships your data regardless of format or complexity. Derive structure from unstructured data with grok, decipher geo coordinates from IP addresses, anonymize or exclude sensitive fields, and ease overall processing, using Beats or Elastic Agents.</p>
+<p>Finally, the &lsquo;K&rsquo; is for <a href="https://www.elastic.co/kibana"  class="external-link" target="_blank" rel="noopener">Kibana</a>. Run data analytics at speed and scale for observability, security, and search with Kibana. Powerful analysis on any data from any source, from threat intelligence to search analytics, logs to application monitoring, and much more.</p>
+<p>Why using ELK stack:</p>
+<ul>
+<li>Centralized logging</li>
+<li>Flexibility (constomized ingestion)</li>
+<li>Visualization</li>
+<li>Scalability</li>
+<li>Ecosystem (many integrations and community)</li>
+<li>Siems</li>
+</ul>
+<hr>
+<h2 id="day-3-elk-stack-istallation">
+  Day 3: ELK Stack Istallation
+  <a class="heading-link" href="#day-3-elk-stack-istallation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="create-private-network">
+  Create private network
+  <a class="heading-link" href="#create-private-network">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>
+<p>Open VMware Fusion Preferences</p>
+<ul>
+<li>Launch VMware Fusion.</li>
+<li>From the menu bar, navigate to Window &gt; Virtual Machine Library.</li>
+<li>With the library open, go to the VMware Fusion menu in the menu bar and click Preferences&hellip;.</li>
+</ul>
+</li>
+<li>
+<p>Access the Network Settings</p>
+<p>In the Preferences window, click on the Network icon (it resembles a globe with a network cable).</p>
+</li>
+<li>
+<p>Unlock the Settings for Changes</p>
+<ul>
+<li>Click the lock icon in the bottom-left corner of the window.</li>
+<li>Enter your Mac&rsquo;s administrator password when prompted to allow changes.</li>
+</ul>
+</li>
+<li>
+<p>Create a New Custom Network</p>
+<ul>
+<li>Click the + (plus) button located below the list of existing networks.</li>
+<li>A new network entry (e.g., vmnet3) will appear in the list. Select it to configure its properties.</li>
+</ul>
+</li>
+<li>
+<p>Configure the &ldquo;Private Network&rdquo;</p>
+<p>With the new vmnet selected, configure the settings on the right-hand side:</p>
+<ul>
+<li>Name: Change the default name to Private Network.</li>
+<li>Subnet IP: You can keep the automatically generated address (e.g., 192.168.xxx.0) or define your own (e.g., 10.0.10.0).</li>
+<li>Subnet Mask: The default 255.255.255.0 is recommended for a standard Class C network.</li>
+<li>Ensure the checkbox for &ldquo;Provide addresses on this network via DHCP&rdquo; is selected. This is crucial for automatically assigning IP addresses to VMs.</li>
+</ul>
+</li>
+<li>
+<p>Apply the New Configuration</p>
+<p>Click the Apply button to save and activate your new &ldquo;Private Network&rdquo;.</p>
+</li>
+</ol>
+<h3 id="create-elk-server">
+  Create ELK server
+  <a class="heading-link" href="#create-elk-server">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>
+<p>Download Ubuntu Server ISO</p>
+<ul>
+<li>Open a web browser and go to the <a href="https://ubuntu.com/download/server"  class="external-link" target="_blank" rel="noopener">Ubuntu Server download page</a>.</li>
+<li>Download the latest LTS version (e.g., 64-bit PC (AMD64) server install image).</li>
+</ul>
+</li>
+<li>
+<p>Open VMware Fusion and Start Creation</p>
+<ul>
+<li>Launch VMware Fusion.</li>
+<li>From the menu bar, click File &gt; New.</li>
+<li>Alternatively, in the Virtual Machine Library, click the + button and choose New.</li>
+</ul>
+</li>
+<li>
+<p>Choose Installation Method</p>
+<ul>
+<li>Select Create a custom virtual machine and click Continue.</li>
+</ul>
+</li>
+<li>
+<p>Choose Operating System</p>
+<ul>
+<li>Select Linux as the guest operating system.</li>
+<li>From the Version dropdown, choose Ubuntu 64-bit.</li>
+<li>Click Continue.</li>
+</ul>
+</li>
+<li>
+<p>Select Firmware Type</p>
+<ul>
+<li>Choose UEFI (recommended) or BIOS (legacy) and click Continue.</li>
+</ul>
+</li>
+<li>
+<p>Choose Virtual Disk Type</p>
+<ul>
+<li>Select SCSI (recommended) and click Continue.</li>
+</ul>
+</li>
+<li>
+<p>Create a New Virtual Disk</p>
+<ul>
+<li>Ensure Create a new virtual disk is selected.</li>
+<li>Set the maximum disk size (e.g., 20 GB).</li>
+<li>Choose Split into multiple files (recommended for portability).</li>
+<li>Click Continue.</li>
+</ul>
+</li>
+<li>
+<p>Customize Settings Before Installation</p>
+<p>Before clicking Finish, ensure the checkbox for Power on this virtual machine after creation is unchecked.
+Click Customize Settings.</p>
+</li>
+<li>
+<p>Configure Virtual Machine Hardware</p>
+<p>A new settings window will open. Configure the following:</p>
+<p>9.1. General</p>
+<pre><code> - Name: Ubuntu Server (or your preferred name).
+</code></pre>
+<p>9.2. Processors &amp; Memory</p>
+<pre><code> - Processors: Assign at least 2 CPU cores.
+ - Memory: Assign at least 2048 MB (2 GB) of RAM.
+</code></pre>
+<p>9.3. Hard Disk (SCSI)</p>
+<pre><code> - You can adjust the disk size here if needed.
+</code></pre>
+<p>9.4. CD/DVD (IDE)</p>
+<pre><code> - Change the setting from Auto detect to Choose a disk or image....
+ - Navigate to and select the downloaded Ubuntu Server ISO file.
+ - Ensure Connect CD/DVD Drive is checked.
+</code></pre>
+<p>9.5. Network Adapter</p>
+<p>For a network connection, ensure the adapter is connected to:</p>
+<pre><code> - Bridged Network (to be like a separate device on your network), or
+ - Share with my Mac (NAT) for internet access.
+</code></pre>
+</li>
+<li>
+<p>Save and Start the Virtual Machine</p>
+<ul>
+<li>Close the settings window to save all configuration.</li>
+<li>In the Virtual Machine Library, select your new Ubuntu Server VM.</li>
+<li>Click the Play button to power it on.</li>
+</ul>
+</li>
+<li>
+<p>Install Ubuntu Server</p>
+<p>The VM will boot from the ISO and start the Ubuntu Server installer.
+Follow the on-screen instructions to complete the installation:</p>
+<ul>
+<li>Choose your language.</li>
+<li>Configure keyboard layout.</li>
+<li>Set up network connections (if needed).</li>
+<li>Configure storage (use the entire virtual disk).</li>
+<li>Set up your user profile and server name.</li>
+<li>Select which software to install (e.g., SSH server).</li>
+<li>When the installation is complete, the installer will prompt you to reboot.</li>
+</ul>
+</li>
+<li>
+<p>Final Reboot and Login</p>
+<p>The VM will reboot. Eject the installation media:</p>
+<ul>
+<li>Go to the VMware Fusion menu bar: Virtual Machine &gt; CD/DVD &gt; Disconnect ISO image.</li>
+<li>The VM will now boot from its new virtual hard disk.</li>
+<li>Log in with the username and password you created during installation.</li>
+</ul>
+</li>
+</ol>
+<h3 id="installing-elastic-search">
+  Installing Elastic Search
+  <a class="heading-link" href="#installing-elastic-search">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>
+<p>Download the Package</p>
+<ul>
+<li>Go to the official <a href="https://www.elastic.co/downloads/elasticsearch"  class="external-link" target="_blank" rel="noopener">Elasticsearch</a> Download page.</li>
+<li>Under &ldquo;Linux x86_64&rdquo;, right-click on the DEB package link and select Copy Link Address.</li>
+</ul>
+<p>The version number in the link might be different (e.g., 9.1.3).</p>
+</li>
+<li>
+<p>Download on Your Ubuntu Server</p>
+<p>Open a terminal on your Ubuntu server and use wget with the copied link to download the package.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-9.1.3-amd64.deb
+</span></span></code></pre></div></li>
+<li>
+<p>Install the Downloaded Package</p>
+<p>Use the dpkg command to install the package. This will set up Elasticsearch and its required directories.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dpkg -i elasticsearch-9.1.3-amd64.deb
+</span></span></code></pre></div></li>
+<li>
+<p>Modify the file elasticsearch.yml</p>
+<p>Go to /etc/elasticsearch, then elasticsearch.yml and modify this two lines on the network section:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">---------------------------------- Network -----------------------------------
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># By default Elasticsearch is only accessible on localhost. Set a different</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># address here to expose this node on the network:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">network.host: your ip address
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># By default Elasticsearch listens for HTTP traffic on the first free port it</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># finds starting at 9200. Set a specific HTTP port here:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">http.port: <span class="m">9200</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Reload systemd and Start Elasticsearch</p>
+<p>After installation, you must reload the systemd manager configuration to recognize the new service, then start it.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl daemon-reload
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> elasticsearch.service
+</span></span><span class="line"><span class="cl">sudo systemctl start elasticsearch.service
+</span></span></code></pre></div></li>
+<li>
+<p>Verify the Installation</p>
+<p>Check if the Elasticsearch service is running correctly.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl status elasticsearch.service
+</span></span></code></pre></div></li>
+</ol>
+<hr>
+<h2 id="day-4-installing-kibana">
+  Day 4: Installing Kibana
+  <a class="heading-link" href="#day-4-installing-kibana">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ol>
+<li>
+<p>Download the Package</p>
+<ul>
+<li>Go to the official <a href="https://www.elastic.co/downloads/kibana"  class="external-link" target="_blank" rel="noopener">Kibana</a> Download page.</li>
+<li>Under &ldquo;Linux x86_64&rdquo;, right-click on the DEB package link and select Copy Link Address.</li>
+</ul>
+<p>The version number in the link might be different (e.g., 9.1.3).</p>
+</li>
+<li>
+<p>Download on Your Ubuntu Server</p>
+<p>Open a terminal on your Ubuntu server and use wget with the copied link to download the package.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo wget https://artifacts.elastic.co/downloads/kibana/kibana-9.1.3-amd64.deb
+</span></span></code></pre></div></li>
+<li>
+<p>Install the Downloaded Package</p>
+<p>Use the dpkg command to install the package. This will set up Elasticsearch and its required directories.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dpkg -i kibana-9.1.3-amd64.deb 
+</span></span></code></pre></div></li>
+<li>
+<p>Configure Kibana</p>
+<p>Edit the Kibana configuration file to allow external connections and point to your Elasticsearch instance.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nano /etc/kibana/kibana.yml
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># =================== System: Kibana Server ===================</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Kibana is served by a back end server. This setting specifies the port to use.</span>
+</span></span><span class="line"><span class="cl">server.port: <span class="m">5601</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Specifies the address to which the Kibana server will bind. IP addresses and host names are both valid values.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># The default is &#39;localhost&#39;, which usually means remote machines will not be able to connect.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># To allow connections from remote users, set this parameter to a non-loopback address.</span>
+</span></span><span class="line"><span class="cl">server.host: your ip address
+</span></span></code></pre></div><p>Save the file and exit (Ctrl+X, then Y, then Enter).</p>
+</li>
+<li>
+<p>Enable and Start the Kibana Service</p>
+<p>After installation, you must reload the systemd manager configuration to recognize the new service, then start it.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl daemon-reload
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> kibana.service
+</span></span><span class="line"><span class="cl">sudo systemctl start kibana.service
+</span></span></code></pre></div></li>
+<li>
+<p>Verify the Installation</p>
+<p>Check if the Elasticsearch service is running correctly.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl status elasticsearch.service
+</span></span></code></pre></div></li>
+<li>
+<p>Generate the Kibana Enrollment Token</p>
+<p>Kibana needs a token to enroll itself with Elasticsearch&rsquo;s security features. Generate this token on the Elasticsearch server.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Navigate to the Elasticsearch bin directory and generate the token</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /usr/share/elasticsearch/bin
+</span></span><span class="line"><span class="cl">sudo ./elasticsearch-create-enrollment-token --scope kibana
+</span></span></code></pre></div><p>Copy the long token string that is output. You will need it for the next step.</p>
+</li>
+<li>
+<p>Complete Kibana Setup in the Web Browser</p>
+<pre><code> - Open a web browser on your host machine (e.g., your Mac).
+ - Navigate to http://&lt;your-ubuntu-server-ip&gt;:5601 (e.g., http://192.168.1.100:5601).
+ - You will be prompted for the Enrollment Token. Paste the token you copied in the previous step and click Enroll.
+</code></pre>
+<p>The setup process will now ask for a verification code. This code is generated on the Kibana server.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Navigate to the Kibana bin directory and generate the code</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /usr/share/kibana/bin
+</span></span><span class="line"><span class="cl">sudo ./kibana-verification-code
+</span></span></code></pre></div><p>Copy the 6-digit code that is displayed. Enter it in the browser window.</p>
+</li>
+<li>
+<p>Log in to Kibana</p>
+<p>You will now be prompted to log in.</p>
+<pre><code> - Username: elastic
+ - Password: Use the password you saved during the Elasticsearch installation. If you did not save it, you can reset it using the elasticsearch-reset-password tool.
+</code></pre>
+</li>
+<li>
+<p>Generate Encryption Keys</p>
+<p>For production-like environments, you should generate encryption keys for Kibana&rsquo;s saved objects and store them in its keystore.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Navigate to the Kibana bin directory</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /usr/share/kibana/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Generate the encryption keys. Copy the output.</span>
+</span></span><span class="line"><span class="cl">sudo ./kibana-encryption-keys generate
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Add each generated key to the Kibana keystore</span>
+</span></span><span class="line"><span class="cl">sudo ./kibana-keystore add xpack.encryptedSavedObjects.encryptionKey
+</span></span><span class="line"><span class="cl"><span class="c1"># Enter the value for xpack.encryptedSavedObjects.encryptionKey when prompted.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo ./kibana-keystore add xpack.reporting.encryptionKey
+</span></span><span class="line"><span class="cl"><span class="c1"># Enter the value for xpack.reporting.encryptionKey when prompted.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo ./kibana-keystore add xpack.security.encryptionKey
+</span></span><span class="line"><span class="cl"><span class="c1"># Enter the value for xpack.security.encryptionKey when prompted.</span>
+</span></span></code></pre></div><p>After all configuration, restart both services to ensure all changes take effect.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl restart kibana.service
+</span></span><span class="line"><span class="cl">sudo systemctl restart elasticsearch.service
+</span></span></code></pre></div><p>You have now successfully installed Kibana and connected it to your Elasticsearch node. You can access the Kibana dashboard at http://<your-ubuntu-server-ip>:5601 to begin visualizing your data.</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-9.1.3-amd64.deb
+</span></span></code></pre></div><hr>
+<h2 id="day-5-windows-server-2022-installation">
+  Day 5: Windows Server 2022 Installation
+  <a class="heading-link" href="#day-5-windows-server-2022-installation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h2 id="part-1-the-installation">
+  Part 1: The Installation
+  <a class="heading-link" href="#part-1-the-installation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Go to <a href="https://www.microsoft.com/en-us/evalcenter/download-windows-server-2022"  class="external-link" target="_blank" rel="noopener">Windows Server 2022 ISO</a> and select the <strong>ISO</strong> option for your desired edition (e.g., <strong>Standard</strong>),</p>
+<h3 id="1-open-vmware-fusion-and-start-creation">
+  1. Open VMware Fusion and Start Creation
+  <a class="heading-link" href="#1-open-vmware-fusion-and-start-creation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Launch <strong>VMware Fusion</strong>.</li>
+<li>From the menu bar, click <strong>File</strong> &gt; <strong>New</strong>.</li>
+<li>Click <strong>Create a custom virtual machine</strong>. This gives you full control over the configuration. Click <strong>Continue</strong>.</li>
+</ul>
+<h3 id="2-choose-operating-system">
+  2. Choose Operating System
+  <a class="heading-link" href="#2-choose-operating-system">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Select <strong>Windows</strong> as the guest operating system.</li>
+<li>From the Version dropdown, scroll down and select <strong>Windows Server 2022</strong> or <strong>Windows Server 2022 (64-bit)</strong>.</li>
+<li>Click <strong>Continue</strong>.</li>
+</ul>
+<h3 id="3-choose-firmware-type">
+  3. Choose Firmware Type
+  <a class="heading-link" href="#3-choose-firmware-type">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Select <strong>UEFI</strong> (Highly recommended for modern Windows systems). Click <strong>Continue</strong>.</li>
+</ul>
+<h3 id="4-choose-virtual-disk-type">
+  4. Choose Virtual Disk Type
+  <a class="heading-link" href="#4-choose-virtual-disk-type">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Select <strong>NVMe</strong> (recommended for performance) or <strong>SCSI</strong>. Click <strong>Continue</strong>.</li>
+</ul>
+<h3 id="5-create-a-new-virtual-disk">
+  5. Create a New Virtual Disk
+  <a class="heading-link" href="#5-create-a-new-virtual-disk">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Ensure <strong>Create a new virtual disk</strong> is selected.</li>
+<li>Set the maximum disk size. <strong>80 GB</strong> is a good starting point for a server with a GUI.</li>
+<li>Choose <strong>Split into multiple files</strong> (recommended for portability).</li>
+<li>Click <strong>Continue</strong>.</li>
+</ul>
+<h3 id="6-finalize-creation--configure-settings">
+  6. Finalize Creation &amp; Configure Settings
+  <a class="heading-link" href="#6-finalize-creation--configure-settings">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Before clicking Finish:</strong> Uncheck the box for <strong>Power on this virtual machine after creation</strong>.</li>
+<li>Click <strong>Customize Settings</strong>.</li>
+<li>A save dialog will appear. Name your VM (e.g., <code>Win-Server-2022</code>) and choose a location. Click <strong>Save</strong>.</li>
+</ul>
+<h3 id="7-configure-virtual-machine-hardware">
+  7. Configure Virtual Machine Hardware
+  <a class="heading-link" href="#7-configure-virtual-machine-hardware">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>A settings window will open. Configure the following key components:</p>
+<h4 id="71-processors--memory">
+  <strong>7.1. Processors &amp; Memory</strong>
+  <a class="heading-link" href="#71-processors--memory">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Processors:</strong> Assign at least <strong>2</strong> CPU cores. 4 or more is better for performance.</li>
+<li><strong>Memory:</strong> Assign at least <strong>4096 MB</strong> (4 GB) of RAM. <strong>8 GB (8192 MB) is strongly recommended</strong> for a smooth experience, especially with the Desktop Experience GUI.</li>
+</ul>
+<h4 id="72-hard-disk-nvme-or-scsi">
+  <strong>7.2. Hard Disk (NVMe or SCSI)</strong>
+  <a class="heading-link" href="#72-hard-disk-nvme-or-scsi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>You can adjust the size here if needed.</li>
+</ul>
+<h4 id="73-cddvd-ide---most-important-step">
+  <strong>7.3. CD/DVD (IDE) - MOST IMPORTANT STEP</strong>
+  <a class="heading-link" href="#73-cddvd-ide---most-important-step">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>Change the setting from <strong>Auto detect</strong> to <strong>Choose a disk or image&hellip;</strong>.</li>
+<li>Navigate to and select the downloaded <strong>Windows Server 2022 ISO</strong> file.</li>
+<li>Ensure <strong>Connect CD/DVD Drive</strong> is checked.</li>
+</ul>
+<h4 id="74-network-adapter">
+  <strong>7.4. Network Adapter</strong>
+  <a class="heading-link" href="#74-network-adapter">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>Ensure the adapter is connected to:
+<ul>
+<li><strong>Bridged Networking</strong> (Recommended): Gives the VM its own IP on your network, like a physical machine.</li>
+<li><strong>Share with my Mac</strong> (NAT): Hides the VM behind your Mac&rsquo;s IP. Good if you don&rsquo;t need direct network access.</li>
+</ul>
+</li>
+</ul>
+<h4 id="75-optional-add-a-serial-port-for-console-access">
+  <strong>7.5. (Optional) Add a Serial Port for Console Access</strong>
+  <a class="heading-link" href="#75-optional-add-a-serial-port-for-console-access">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>Click the <strong>+</strong> button at the bottom.</li>
+<li>Select <strong>Serial Port</strong>.</li>
+<li>Choose <strong>Output to named pipe</strong> and use the default path (e.g., <code>/tmp/win-server-serial</code>). Useful for headless management.</li>
+</ul>
+<h3 id="8-save-and-start-the-installation">
+  8. Save and Start the Installation
+  <a class="heading-link" href="#8-save-and-start-the-installation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Close the settings window to save the configuration.</li>
+<li>In the Virtual Machine Library, select your new <strong>Windows Server 2022</strong> VM.</li>
+<li>Click the <strong>Play</strong> button to power it on.</li>
+</ul>
+<h3 id="9-install-windows-server-2022">
+  9. Install Windows Server 2022
+  <a class="heading-link" href="#9-install-windows-server-2022">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The VM will boot from the ISO and start the Windows Server installer.</p>
+<ol>
+<li><strong>Language &amp; Preferences:</strong> Choose your language, time, and keyboard input. Click <strong>Next</strong>.</li>
+<li><strong>Install Now:</strong> Click the <strong>Install Now</strong> button.</li>
+<li><strong>Select OS Edition:</strong> Choose your edition (e.g., <strong>Windows Server 2022 Standard Evaluation (Desktop Experience)</strong> for a full GUI) and click <strong>Next</strong>.</li>
+<li><strong>License Terms:</strong> Accept the license terms and click <strong>Next</strong>.</li>
+<li><strong>Installation Type:</strong> Select <strong>Custom: Install Windows only (advanced)</strong>.</li>
+<li><strong>Disk Partitioning:</strong> You will see your virtual disk. Select it and click <strong>Next</strong>. The installer will automatically create the necessary partitions.</li>
+<li><strong>Wait for Installation:</strong> The OS files will copy and install. The VM will reboot several times automatically.</li>
+</ol>
+<h3 id="10-post-installation-setup">
+  10. Post-Installation Setup
+  <a class="heading-link" href="#10-post-installation-setup">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>After the install, the VM will boot into the Out-of-Box Experience (OOBE).</p>
+<ol>
+<li><strong>Administrator Password:</strong> You will be prompted to set a password for the built-in <strong>Administrator</strong> account. <strong>Create a strong password and store it securely.</strong></li>
+<li><strong>Ctrl+Alt+Delete:</strong> Press <strong>Ctrl+Alt+Delete</strong> to log in. In VMware Fusion, you can do this from the menu: <strong>Virtual Machine</strong> &gt; <strong>Send Ctrl-Alt-Del</strong>.</li>
+<li><strong>Login:</strong> Enter the password for the Administrator account.</li>
+</ol>
+<h3 id="11-install-vmware-tools-essential">
+  11. Install VMware Tools (Essential)
+  <a class="heading-link" href="#11-install-vmware-tools-essential">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>VMware Tools provides crucial drivers for better graphics, mouse performance, network, and shared folders.</p>
+<ul>
+<li>After logging in, a VMware Tools installation dialog might appear automatically. If it does, follow the prompts.</li>
+<li>If it doesn&rsquo;t, go to the VMware Fusion menu bar: <strong>Virtual Machine</strong> &gt; <strong>Install VMware Tools</strong>.</li>
+<li>Follow the on-screen instructions in the Windows VM to complete the installation. <strong>Reboot when prompted.</strong></li>
+</ul>
+<h3 id="12-configure-network-if-necessary">
+  12. Configure Network (If Necessary)
+  <a class="heading-link" href="#12-configure-network-if-necessary">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Open <strong>Server Manager</strong> &gt; <strong>Local Server</strong>.</li>
+<li>Click on the Ethernet link (e.g., &ldquo;Ethernet0&rdquo;) to configure network settings (static IP, DNS, etc.) if you are not using DHCP.</li>
+</ul>
+<h3 id="13-optional-activate-windows">
+  13. (Optional) Activate Windows
+  <a class="heading-link" href="#13-optional-activate-windows">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>If you have a product key, you can activate it via <strong>Settings</strong> &gt; <strong>Activation</strong>.</li>
+<li>If using the evaluation, you have a 180-day trial period.</li>
+</ul>
+<h2 id="initial-configuration-checklist">
+  Initial Configuration Checklist
+  <a class="heading-link" href="#initial-configuration-checklist">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Once logged in, perform these initial tasks:</p>
+<ul>
+<li><strong>Windows Update:</strong> Install all available updates.</li>
+<li><strong>Computer Name:</strong> Change the server&rsquo;s name in <strong>System Properties</strong>.</li>
+<li><strong>Join Domain (Optional):</strong> If you have an Active Directory domain, join the server to it.</li>
+<li><strong>Add Roles &amp; Features:</strong> Use Server Manager to install roles like AD DS, DNS, DHCP, IIS, etc.</li>
+</ul>
+<p>Your Windows Server 2022 virtual machine is now ready for use.</p>
+<h2 id="part-2-activate-rdp-on-windows-server-2022">
+  Part 2: Activate RDP on Windows Server 2022
+  <a class="heading-link" href="#part-2-activate-rdp-on-windows-server-2022">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="1-enable-remote-desktop">
+  1. Enable Remote Desktop
+  <a class="heading-link" href="#1-enable-remote-desktop">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>Log into your Windows Server 2022 VM.</li>
+<li>Open <strong>Server Manager</strong> (it usually opens automatically).</li>
+<li>In the left pane, click on <strong>Local Server</strong>.</li>
+<li>In the main properties pane, find the <strong>Remote Desktop</strong> property. It will likely say &ldquo;Disabled&rdquo;.</li>
+<li>Click on the word <strong>&ldquo;Disabled&rdquo;</strong>.</li>
+</ol>
+<h3 id="2-configure-remote-desktop-settings">
+  2. Configure Remote Desktop Settings
+  <a class="heading-link" href="#2-configure-remote-desktop-settings">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>A <strong>System Properties</strong> window will open to the &ldquo;Remote&rdquo; tab.</p>
+<ol>
+<li>Select the option: <strong>Allow remote connections to this computer</strong>.</li>
+<li><strong>Uncheck</strong> the box that says <strong>Allow connections only from computers running Remote Desktop with Network Level Authentication (recommended)</strong>.
+<ul>
+<li><em>We uncheck this initially for simpler troubleshooting. You can re-enable it later for better security once you confirm it works.</em></li>
+</ul>
+</li>
+<li>A warning pop-up will appear. Click <strong>OK</strong>.</li>
+<li>Click <strong>Apply</strong> and then <strong>OK</strong> to close the window.</li>
+</ol>
+<h3 id="3-configure-the-windows-firewall-crucial-step">
+  3. Configure the Windows Firewall (Crucial Step)
+  <a class="heading-link" href="#3-configure-the-windows-firewall-crucial-step">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The Windows Firewall is on by default and will block RDP connections if not configured.</p>
+<ol>
+<li>Press the <code>Win</code> key, type <strong>Windows Defender Firewall</strong>, and open it.</li>
+<li>In the left pane, click <strong>Advanced settings</strong>.</li>
+<li>In the <strong>Windows Defender Firewall with Advanced Security</strong> window, click on <strong>Inbound Rules</strong> in the left pane.</li>
+<li>In the list of rules, find the rules named <strong>Remote Desktop - User Mode (TCP-In)</strong> and <strong>Remote Desktop - User Mode (UDP-In)</strong>.</li>
+<li>For both of these rules, right-click each one and select <strong>Enable Rule</strong>. Ensure they are enabled for the &ldquo;Domain&rdquo; and &ldquo;Private&rdquo; profiles (you can also enable &ldquo;Public&rdquo; if needed, though it&rsquo;s less secure).</li>
+</ol>
+<h3 id="4-find-your-servers-ip-address">
+  4. Find Your Server&rsquo;s IP Address
+  <a class="heading-link" href="#4-find-your-servers-ip-address">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>You will need this IP address to connect from your Mac.</p>
+<ol>
+<li>Press <code>Win + R</code>, type <code>cmd</code>, and press Enter to open a Command Prompt.</li>
+<li>In the command prompt, type <code>ipconfig</code> and press Enter.</li>
+<li>Look for the <strong>IPv4 Address</strong> under your active network adapter (e.g., <code>Ethernet0</code>). It will look something like <code>192.168.1.150</code>.</li>
+<li><strong>Write this IP address down.</strong></li>
+</ol>
+<h2 id="part-3-test-rdp-from-your-mac-using-microsoft-remote-desktop">
+  Part 3: Test RDP from Your Mac using Microsoft Remote Desktop
+  <a class="heading-link" href="#part-3-test-rdp-from-your-mac-using-microsoft-remote-desktop">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="1-install-microsoft-remote-desktop">
+  1. Install Microsoft Remote Desktop
+  <a class="heading-link" href="#1-install-microsoft-remote-desktop">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The official Microsoft client is free on the Mac App Store.</p>
+<ol>
+<li>Open the <strong>App Store</strong> on your Mac.</li>
+<li>Search for <strong>&ldquo;Microsoft Remote Desktop&rdquo;</strong>.</li>
+<li>Click <strong>Get</strong> and then <strong>Install</strong>.</li>
+</ol>
+<h3 id="2-add-a-pc-connection">
+  2. Add a PC Connection
+  <a class="heading-link" href="#2-add-a-pc-connection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>
+<p>Open the <strong>Microsoft Remote Desktop</strong> app.</p>
+</li>
+<li>
+<p>Click the <strong>Add PC</strong> button.</p>
+</li>
+<li>
+<p>In the window that appears:</p>
+<ul>
+<li><strong>PC name:</strong> Enter the IP address of your Windows Server (e.g., <code>192.168.1.150</code>).</li>
+<li><strong>User account:</strong> Click the dropdown and select <strong>Add User Account&hellip;</strong>.
+<ul>
+<li>Enter the username: <code>Administrator</code></li>
+<li>Enter the password you set for the Administrator account during Windows Server setup.</li>
+<li>Click <strong>Add</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Leave other settings as default for now. Click <strong>Add</strong>.</p>
+</li>
+</ol>
+<h3 id="3-connect-to-your-server">
+  3. Connect to Your Server
+  <a class="heading-link" href="#3-connect-to-your-server">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>Back in the main window of the Remote Desktop app, you will see an icon for your server under &ldquo;My Desktops&rdquo;.</li>
+<li>Double-click on the icon to initiate the connection.</li>
+<li>You may see a certificate warning. Check the box <strong>&ldquo;Don&rsquo;t ask me again for connections to this computer&rdquo;</strong> and click <strong>Continue</strong>.</li>
+</ol>
+<h3 id="4-troubleshooting-connection-issues">
+  4. Troubleshooting Connection Issues
+  <a class="heading-link" href="#4-troubleshooting-connection-issues">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>If you cannot connect, check the following on the Windows Server VM:</p>
+<ul>
+<li><strong>Firewall:</strong> Double-check that the <strong>Remote Desktop - User Mode (TCP-In)</strong> rule is enabled in the Windows Firewall&rsquo;s Inbound Rules.</li>
+<li><strong>IP Address:</strong> Ensure you are using the correct IPv4 address from <code>ipconfig</code>.</li>
+<li><strong>Network Type:</strong> Ensure your VM&rsquo;s network adapter in VMware Fusion is set to <strong>Bridged</strong> (not &ldquo;NAT&rdquo;) for easiest connectivity. If using NAT, you may need to set up port forwarding.</li>
+<li><strong>RDP Setting:</strong> Go back to the System Properties &gt; Remote tab and ensure <strong>&ldquo;Allow remote connections&hellip;&rdquo;</strong> is selected.</li>
+</ul>
+<p>Your connection from the Mac should still work, as the Microsoft Remote Desktop client supports NLA.</p>
+<hr>
+<h2 id="day-6-elastic-agent-and-fleet-server-introduction">
+  Day 6: Elastic Agent and Fleet Server Introduction
+  <a class="heading-link" href="#day-6-elastic-agent-and-fleet-server-introduction">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="elastic-agent-and-fleet-server-a-centralized-management-revolution">
+  <strong>Elastic Agent and Fleet Server: A Centralized Management Revolution</strong>
+  <a class="heading-link" href="#elastic-agent-and-fleet-server-a-centralized-management-revolution">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="1-the-problem-they-solve">
+  <strong>1. The Problem They Solve</strong>
+  <a class="heading-link" href="#1-the-problem-they-solve">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Traditionally, collecting logs, metrics, and security data from servers involved installing multiple lightweight data shippers (like Beats: Filebeat, Metricbeat, Winlogbeat, etc.) and managing each one individually. This approach became complex and hard to maintain at scale:</p>
+<ul>
+<li><strong>Management Overhead:</strong> Updating configuration files across thousands of servers.</li>
+<li><strong>Resource Usage:</strong> Running multiple independent processes.</li>
+<li><strong>Orchestration Complexity:</strong> Coordinating many different agents.</li>
+</ul>
+<h4 id="2-the-solution-a-single-unified-agent">
+  <strong>2. The Solution: A Single, Unified Agent</strong>
+  <a class="heading-link" href="#2-the-solution-a-single-unified-agent">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><strong>Elastic Agent</strong> is a single, unified agent that you can deploy to your hosts (servers, containers, laptops) to collect data and send it to the Elastic Stack.</p>
+<ul>
+<li><strong>All-in-One:</strong> It consolidates the functionality of all the individual Beats and more into one agent.</li>
+<li><strong>Centralized Management:</strong> Its configuration is not managed on the host itself but is <strong>centrally controlled from Kibana</strong> via a feature called <strong>Fleet</strong>.</li>
+<li><strong>Policy-Driven:</strong> You define a <strong>policy</strong> (what data to collect, what to do with it) in Kibana, and Fleet pushes that policy to all your Elastic Agents automatically.</li>
+</ul>
+<h4 id="3-the-brain-fleet-in-kibana">
+  <strong>3. The Brain: Fleet in Kibana</strong>
+  <a class="heading-link" href="#3-the-brain-fleet-in-kibana">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><strong>Fleet</strong> is the web-based UI inside Kibana where you manage your entire fleet of Elastic Agents.</p>
+<ul>
+<li>You add <strong>integrations</strong> (pre-built packages for collecting data from sources like Nginx, AWS, MySQL, Windows Event Logs, etc.).</li>
+<li>You create <strong>agent policies</strong> that combine these integrations and define settings like the output (where to send data).</li>
+<li>You get a full overview of all your agents: their status, version, and last check-in time.</li>
+</ul>
+<h4 id="4-the-coordinator-fleet-server">
+  <strong>4. The Coordinator: Fleet Server</strong>
+  <a class="heading-link" href="#4-the-coordinator-fleet-server">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This is the critical link between Fleet (in Kibana) and the Elastic Agents running on your hosts.</p>
+<ul>
+<li>
+<p><strong>Purpose:</strong> The Fleet Server acts as a <strong>secure communication gateway</strong>.</p>
+</li>
+<li>
+<p><strong>How it Works:</strong></p>
+<ol>
+<li>You install a Fleet Server (which is itself a specialized Elastic Agent) in your environment.</li>
+<li>All your other Elastic Agents do <strong>not</strong> talk directly to Kibana or Elasticsearch. Instead, they <strong>check in with the Fleet Server</strong>.</li>
+<li>The Fleet Server relays information <em>from</em> the agents <em>to</em> Kibana (e.g., agent status) and, most importantly, it delivers new policies <em>from</em> Kibana <em>to</em> the agents.</li>
+</ol>
+</li>
+<li>
+<p><strong>Deployment:</strong> The Fleet Server <strong>must</strong> be installed on a host that is highly available and has a low-latency connection to both your other agents and your Elasticsearch cluster. It&rsquo;s often installed on its own dedicated VM or a Kubernetes pod.</p>
+</li>
+</ul>
+<h3 id="why-this-architecture-is-powerful">
+  <strong>Why This Architecture is Powerful</strong>
+  <a class="heading-link" href="#why-this-architecture-is-powerful">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li><strong>Scalability:</strong> The Fleet Server handles the communication load, preventing your Elasticsearch cluster from being overwhelmed by thousands of agents checking in directly.</li>
+<li><strong>Security:</strong> Agents only need network access to the Fleet Server and Elasticsearch, not to Kibana. This reduces the attack surface.</li>
+<li><strong>Efficiency:</strong> Centralized management means you can change what data is collected across your entire infrastructure with just a few clicks in a web UI, without ever logging into a server.</li>
+<li><strong>Reliability:</strong> The agent is self-healing. If it gets into a bad state, it will automatically restart itself and reconnect to the Fleet Server.</li>
+</ol>
+<h3 id="visualizing-the-data-flow">
+  <strong>Visualizing the Data Flow</strong>
+  <a class="heading-link" href="#visualizing-the-data-flow">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The entire architecture can be summarized in this data flow:</p>
+<img src="/images/fleet.png" style="display: block; margin: auto; max-width: 80%;" />
+<p><strong>In summary:</strong></p>
+<ul>
+<li><strong>Elastic Agent</strong> is the worker that collects data on your hosts.</li>
+<li><strong>Fleet</strong> is the mission control center in Kibana.</li>
+<li><strong>Fleet Server</strong> is the dispatcher that ensures instructions from mission control reach the workers and that status updates from the workers get back.</li>
+</ul>
+<p>This modernized approach is the foundation for the Elastic Stack&rsquo;s capabilities in observability and security, enabling you to manage vast, distributed infrastructures with ease.</p>
+<hr>
+<h2 id="day-7-elastic-agent-and-fleet-server-setup-tutorial">
+  Day 7: Elastic Agent and Fleet Server Setup Tutorial
+  <a class="heading-link" href="#day-7-elastic-agent-and-fleet-server-setup-tutorial">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Create ELK server</p>
+<p>go to kibana http://172.16.193.153:5601/app/fleet/agents</p>
+<p>create fleet server</p>
+<p>Successfully enrolled the Elastic Agent.</p>
+<p>Add agent</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">$ProgressPreference</span> <span class="o">=</span> <span class="s1">&#39;SilentlyContinue&#39;</span>
+</span></span><span class="line"><span class="cl">Invoke-WebRequest -Uri https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-9.1.3-windows-x86_64.zip -OutFile elastic-agent-9.1.3-windows-x86_64.zip 
+</span></span><span class="line"><span class="cl">Expand-Archive .<span class="se">\e</span>lastic-agent-9.1.3-windows-x86_64.zip -DestinationPath .
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> elastic-agent-9.1.3-windows-x86_64
+</span></span><span class="line"><span class="cl">.<span class="se">\e</span>lastic-agent.exe install --url<span class="o">=</span>https://172.16.193.157:443 --enrollment-token<span class="o">=</span><span class="nv">Z010b001a0JHVVdzNjd5MkhicTY6VXBFbEZiVXFpRWJGREFwVEVSaXl1Zw</span><span class="o">==</span>
+</span></span></code></pre></div><h2 id="additional-resources">
+  Additional Resources:
+  <a class="heading-link" href="#additional-resources">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><a href="https://www.youtube.com/watch?v=zrmeOu8DYyw"  class="external-link" target="_blank" rel="noopener">Cloud Native Trainer with Mike</a></p>
+<p><a href="" >Git crash course </a></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2025
+     SecLice 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

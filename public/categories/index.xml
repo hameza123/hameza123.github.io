@@ -9,6 +9,13 @@
     <lastBuildDate>Fri, 29 Aug 2025 10:56:37 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Cybersecurity</title>
+      <link>http://localhost:1313/categories/cybersecurity/</link>
+      <pubDate>Fri, 29 Aug 2025 10:56:37 +0100</pubDate>
+      <guid>http://localhost:1313/categories/cybersecurity/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Web Development</title>
       <link>http://localhost:1313/categories/web-development/</link>
       <pubDate>Fri, 29 Aug 2025 10:56:37 +0100</pubDate>

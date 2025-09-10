@@ -475,7 +475,7 @@ You now have a fully functional blog hosted on GitHub Pages using Hugo! The setu
 
 - Easy content management with markdown
 
-- Happy blogging!
+Happy blogging!
 
 
 ## Additional Resources:

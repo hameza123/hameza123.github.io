@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/posts/soc/</loc>
+    <lastmod>2025-08-29T10:56:37+01:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/blog/</loc>
     <lastmod>2025-08-29T10:56:37+01:00</lastmod>
   </url><url>
@@ -18,7 +21,19 @@
                 href="http://localhost:1313/categories/"
                 />
   </url><url>
+    <loc>http://localhost:1313/tags/challenge/</loc>
+    <lastmod>2025-08-29T10:56:37+01:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/posts/github-pages/</loc>
+    <lastmod>2025-08-29T10:56:37+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/cybersecurity/</loc>
+    <lastmod>2025-08-29T10:56:37+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/cybersecurity/</loc>
+    <lastmod>2025-08-29T10:56:37+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/elk/</loc>
     <lastmod>2025-08-29T10:56:37+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/github-pages/</loc>
@@ -62,6 +77,12 @@
                 hreflang="en"
                 href="http://localhost:1313/"
                 />
+  </url><url>
+    <loc>http://localhost:1313/tags/soc/</loc>
+    <lastmod>2025-08-29T10:56:37+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/soc-analyst/</loc>
+    <lastmod>2025-08-29T10:56:37+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/static-site/</loc>
     <lastmod>2025-08-29T10:56:37+01:00</lastmod>
