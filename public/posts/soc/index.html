@@ -184,7 +184,7 @@
             </span>
             <span class="reading-time">
               <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              18-minute read
+              23-minute read
             </span>
           </div>
           
@@ -1113,13 +1113,221 @@ Follow the on-screen instructions to complete the installation:</p>
 <p>go to kibana http://172.16.193.153:5601/app/fleet/agents</p>
 <p>create fleet server</p>
 <p>Successfully enrolled the Elastic Agent.</p>
-<p>Add agent</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">$ProgressPreference</span> <span class="o">=</span> <span class="s1">&#39;SilentlyContinue&#39;</span>
-</span></span><span class="line"><span class="cl">Invoke-WebRequest -Uri https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-9.1.3-windows-x86_64.zip -OutFile elastic-agent-9.1.3-windows-x86_64.zip 
-</span></span><span class="line"><span class="cl">Expand-Archive .<span class="se">\e</span>lastic-agent-9.1.3-windows-x86_64.zip -DestinationPath .
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> elastic-agent-9.1.3-windows-x86_64
-</span></span><span class="line"><span class="cl">.<span class="se">\e</span>lastic-agent.exe install --url<span class="o">=</span>https://172.16.193.157:443 --enrollment-token<span class="o">=</span><span class="nv">Z010b001a0JHVVdzNjd5MkhicTY6VXBFbEZiVXFpRWJGREFwVEVSaXl1Zw</span><span class="o">==</span>
-</span></span></code></pre></div><h2 id="additional-resources">
+<p>Add agent windows server 2022</p>
+<h3 id="architecture-overview">
+  <strong>Architecture Overview</strong>
+  <a class="heading-link" href="#architecture-overview">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>ELK Server (IP: 172.16.193.153):</strong> Runs Elasticsearch and Kibana. Fleet management is done here.</li>
+<li><strong>Fleet Server Host (New VM):</strong> A dedicated server (Linux) that runs the Fleet Server component.</li>
+<li><strong>Windows Server 2022 Host (New VM):</strong> The server we want to monitor, which will run the Elastic Agent.</li>
+</ul>
+<hr>
+<h2 id="part-1-prerequisites---the-elk-server">
+  <strong>Part 1: Prerequisites - The ELK Server</strong>
+  <a class="heading-link" href="#part-1-prerequisites---the-elk-server">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Ensure your ELK server (<code>172.16.193.153</code>) is fully operational and accessible.</p>
+<ol>
+<li>Elasticsearch is running and healthy.</li>
+<li>Kibana is running on port <code>5601</code> and you can log in.</li>
+<li>The servers that will host the Fleet Server and Elastic Agent can reach the ELK server on port <code>9200</code> (Elasticsearch) and <code>5601</code> (Kibana).</li>
+</ol>
+<hr>
+<h2 id="part-2-configure-kibana-for-fleet--generate-fleet-server-policy">
+  <strong>Part 2: Configure Kibana for Fleet &amp; Generate Fleet Server Policy</strong>
+  <a class="heading-link" href="#part-2-configure-kibana-for-fleet--generate-fleet-server-policy">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="1-access-fleet-in-kibana">
+  <strong>1. Access Fleet in Kibana</strong>
+  <a class="heading-link" href="#1-access-fleet-in-kibana">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>Open your browser and go to: <code>http://172.16.193.153:5601</code>.</li>
+<li>Navigate to <strong>Fleet</strong>:
+<ul>
+<li>Click the main menu (☰) → <strong>Management</strong> → <strong>Fleet</strong>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-quick-initial-setup-if-prompted">
+  <strong>2. Quick Initial Setup (If prompted)</strong>
+  <a class="heading-link" href="#2-quick-initial-setup-if-prompted">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>If it&rsquo;s your first time in Fleet, you might be guided through a quick setup. The most critical step is to <strong>add an Elasticsearch output</strong>. It should already be configured to use your local Elasticsearch (<code>http://localhost:9200</code>). Verify this.</p>
+<h3 id="3-generate-a-fleet-server-policy">
+  <strong>3. Generate a Fleet Server Policy</strong>
+  <a class="heading-link" href="#3-generate-a-fleet-server-policy">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The Fleet Server <em>is</em> an Elastic Agent, so it needs a policy to run. We create this policy first.</p>
+<ol>
+<li>In Fleet, go to the <strong>Agent Policies</strong> tab.</li>
+<li>Click <strong>Create agent policy</strong>.</li>
+<li>Give it a descriptive name: <code>Fleet Server Policy</code>.</li>
+<li><strong>Toggle on</strong> <strong>&ldquo;Agent monitoring&rdquo;</strong> and <strong>&ldquo;Fleet Server&rdquo;</strong>.
+<ul>
+<li>Enabling &ldquo;Fleet Server&rdquo; is the key. This tells the agent to run the special Fleet Server service.</li>
+</ul>
+</li>
+<li><strong>Uncheck</strong> <strong>&ldquo;Collect system logs and metrics&rdquo;</strong>. We want this agent to be dedicated to running the Fleet Server, not collecting host data.</li>
+<li>Click <strong>Create policy</strong>.</li>
+</ol>
+<hr>
+<h2 id="part-3-set-up-the-fleet-server-host">
+  <strong>Part 3: Set Up the Fleet Server Host</strong>
+  <a class="heading-link" href="#part-3-set-up-the-fleet-server-host">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>You need a new server (Linux is recommended) dedicated to running the Fleet Server. It must have network connectivity to <em>both</em> the ELK server <em>and</em> the agents it will manage.</p>
+<h3 id="1-get-the-installation-command-for-fleet-server">
+  <strong>1. Get the Installation Command for Fleet Server</strong>
+  <a class="heading-link" href="#1-get-the-installation-command-for-fleet-server">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>In Kibana Fleet, go to the <strong>Agents</strong> tab.</li>
+<li>Click <strong>Add agent</strong>.</li>
+<li><strong>Select the Policy:</strong> Choose the <code>Fleet Server Policy</code> you just created from the dropdown.</li>
+<li><strong>Configure the Fleet Server host:</strong>
+<ul>
+<li>This is the most important step. In the <code>Fleet Server host</code> input box, you <strong>must</strong> specify the address that <strong>other agents will use to connect to this Fleet Server</strong>.</li>
+<li>If the server&rsquo;s IP is <code>172.16.193.154</code>, enter: <code>https://172.16.193.154:8220</code></li>
+<li><em>Remember this IP/hostname; you will need it for all agents.</em></li>
+</ul>
+</li>
+<li><strong>Select an Operating System:</strong> Select <strong>Linux</strong> (assuming your Fleet Server host is Linux).</li>
+<li><strong>Copy the Install Command:</strong> The command will look like the one below. <strong>Copy it.</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo curl -L -O https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-8.13.0-linux-x86_64.tar.gz
+</span></span><span class="line"><span class="cl">sudo tar xzvf elastic-agent-8.13.0-linux-x86_64.tar.gz
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> elastic-agent-8.13.0-linux-x86_64
+</span></span><span class="line"><span class="cl">sudo ./elastic-agent install --url<span class="o">=</span>https://172.16.193.153:8220 --fleet-server-es<span class="o">=</span>https://172.16.193.153:9200 --fleet-server-service-token<span class="o">=</span>AAEAAWVsYXN0aWMvZmxlZXQtc2VydmVyL3Rva2VuLTE3MTU5Nzc4MTk1MTC --fleet-server-policy<span class="o">=</span>fleet-server-policy --fleet-server-es-insecure --fleet-server-insecure-http
+</span></span></code></pre></div><h3 id="2-run-the-command-on-the-fleet-server-host">
+  <strong>2. Run the Command on the Fleet Server Host</strong>
+  <a class="heading-link" href="#2-run-the-command-on-the-fleet-server-host">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>SSH into your new Linux server (<code>172.16.193.154</code>).</li>
+<li><strong>Paste and run the entire command</strong> you copied from Kibana.</li>
+<li>The script will download, install, and enroll the Elastic Agent, which will then start the Fleet Server service.</li>
+</ol>
+<h3 id="3-verify-in-kibana">
+  <strong>3. Verify in Kibana</strong>
+  <a class="heading-link" href="#3-verify-in-kibana">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>Go back to the <strong>Fleet</strong> → <strong>Agents</strong> tab in Kibana.</li>
+<li>Within a minute, you should see a new agent enrolled. Its <strong>Status</strong> should be <strong>Healthy</strong>.</li>
+<li>Check the <strong>Host</strong> column – it should show the hostname of your Fleet Server host.</li>
+</ol>
+<hr>
+<h2 id="part-4-add-the-windows-server-2022-agent">
+  <strong>Part 4: Add the Windows Server 2022 Agent</strong>
+  <a class="heading-link" href="#part-4-add-the-windows-server-2022-agent">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Now we connect the Windows server to our new infrastructure.</p>
+<h3 id="1-get-the-installation-command-for-windows">
+  <strong>1. Get the Installation Command for Windows</strong>
+  <a class="heading-link" href="#1-get-the-installation-command-for-windows">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>In Kibana Fleet, go to the <strong>Agents</strong> tab.</li>
+<li>Click <strong>Add agent</strong>.</li>
+<li><strong>Select the Policy:</strong> Choose the default <strong>Elastic Cloud agent policy</strong> or create a new one (e.g., <code>windows-servers</code>).</li>
+<li><strong>Configure the Fleet Server host:</strong> This is critical. Enter the address of the Fleet Server you just set up: <code>https://172.16.193.154:8220</code></li>
+<li><strong>Select an Operating System:</strong> Select <strong>Windows</strong>.</li>
+<li><strong>Copy the Install Command:</strong> The command will be for PowerShell. <strong>Copy it.</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">curl </span><span class="n">-L</span> <span class="n">-O</span> <span class="n">https</span><span class="err">:</span><span class="p">//</span><span class="n">artifacts</span><span class="p">.</span><span class="py">elastic</span><span class="p">.</span><span class="n">co</span><span class="p">/</span><span class="n">downloads</span><span class="p">/</span><span class="n">beats</span><span class="p">/</span><span class="nb">elastic-agent</span><span class="p">/</span><span class="nb">elastic-agent</span><span class="p">-</span><span class="mf">8.13</span><span class="p">.</span><span class="mf">0</span><span class="n">-windows-x86_64</span><span class="p">.</span><span class="py">zip</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Expand-Archive</span> <span class="p">.\</span><span class="nb">elastic-agent</span><span class="p">-</span><span class="mf">8.13</span><span class="p">.</span><span class="mf">0</span><span class="n">-windows-x86_64</span><span class="p">.</span><span class="py">zip</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd elastic-agent</span><span class="p">-</span><span class="mf">8.13</span><span class="p">.</span><span class="mf">0</span><span class="n">-windows-x86_64</span>
+</span></span><span class="line"><span class="cl"><span class="p">.\</span><span class="nb">elastic-agent</span><span class="p">.</span><span class="py">exe</span> <span class="n">install</span> <span class="p">-</span><span class="n">-url</span><span class="p">=</span><span class="n">https</span><span class="err">:</span><span class="p">//</span><span class="mf">172.16</span><span class="p">.</span><span class="py">193</span><span class="p">.</span><span class="mf">154</span><span class="err">:</span><span class="mf">8220</span> <span class="p">-</span><span class="n">-enrollment-token</span><span class="p">=</span><span class="n">SFMyNTY</span><span class="p">...</span>
+</span></span></code></pre></div><h3 id="2-run-the-command-on-windows-server-2022">
+  <strong>2. Run the Command on Windows Server 2022</strong>
+  <a class="heading-link" href="#2-run-the-command-on-windows-server-2022">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>Log into your Windows Server 2022 VM.</li>
+<li>Open <strong>PowerShell as an Administrator</strong>.</li>
+<li><strong>Paste and run the entire command</strong> you copied from Kibana.</li>
+<li>The installer will download and install the Elastic Agent as a Windows service. It will enroll with the Fleet Server and receive its policy.</li>
+</ol>
+<h3 id="3-verify-in-kibana-and-check-data">
+  <strong>3. Verify in Kibana and Check Data</strong>
+  <a class="heading-link" href="#3-verify-in-kibana-and-check-data">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>Go back to the <strong>Fleet</strong> → <strong>Agents</strong> tab in Kibana.</li>
+<li>You should now see a second agent listed. Its <strong>Status</strong> should become <strong>Healthy</strong>.</li>
+<li>The <strong>Host</strong> column will show the hostname of your Windows server.</li>
+<li>To see data, go to <strong>Analytics</strong> → <strong>Discover</strong>. Select the <code>logs-*</code>, <code>metrics-*</code>, or <code>.ds-logs-system.syslog-*</code> data view to see logs and metrics from your Windows host.</li>
+</ol>
+<hr>
+<h2 id="troubleshooting--key-points">
+  <strong>Troubleshooting &amp; Key Points</strong>
+  <a class="heading-link" href="#troubleshooting--key-points">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li><strong>Firewalls are the #1 Enemy:</strong> Ensure all necessary ports are open:
+<ul>
+<li><strong>Fleet Server Host (<code>172.16.193.154</code>):</strong> Must allow <strong>INBOUND</strong> on port <code>8220</code> from all agents (and Kibana).</li>
+<li><strong>ELK Server (<code>172.16.193.153</code>):</strong> Must allow <strong>INBOUND</strong> on port <code>9200</code> from the Fleet Server and agents.</li>
+<li><strong>Agents:</strong> Must be able to reach the Fleet Server on <code>8220</code> and Elasticsearch on <code>9200</code>.</li>
+</ul>
+</li>
+<li><strong>Fleet Server Host Setting:</strong> The <code>Fleet Server host</code> value you set when adding an agent <strong>must be the address that the agent uses to reach the Fleet Server</strong>, which may be different from what Kibana uses.</li>
+<li><strong>Logs:</strong> If an agent isn&rsquo;t healthy, check its logs:
+<ul>
+<li><strong>Linux:</strong> <code>/opt/Elastic/Agent/data/elastic-agent.log</code></li>
+<li><strong>Windows:</strong> <code>C:\Program Files\Elastic\Agent\data\elastic-agent.log</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="additional-resources">
   Additional Resources:
   <a class="heading-link" href="#additional-resources">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>

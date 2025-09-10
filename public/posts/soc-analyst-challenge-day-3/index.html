@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Day 3: SOC Analyst Challenge  · SecLice
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="SecLice">
+<meta name="description" content="SOC Analyst Challenge, Day 3 ">
+<meta name="keywords" content="blog,Cybersecurity">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Day 3: SOC Analyst Challenge ">
+  <meta name="twitter:description" content="SOC Analyst Challenge, Day 3">
+
+<meta property="og:url" content="http://localhost:1313/posts/soc-analyst-challenge-day-3/">
+  <meta property="og:site_name" content="SecLice">
+  <meta property="og:title" content="Day 3: SOC Analyst Challenge ">
+  <meta property="og:description" content="SOC Analyst Challenge, Day 3">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-10T18:10:15+01:00">
+    <meta property="article:modified_time" content="2025-09-10T18:10:15+01:00">
+    <meta property="article:tag" content="SOC">
+    <meta property="article:tag" content="Cybersecurity">
+    <meta property="article:tag" content="SOC Analyst">
+    <meta property="article:tag" content="ELK">
+    <meta property="article:tag" content="Challenge">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/soc-analyst-challenge-day-3/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      SecLice
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/pt-br/">🇧🇷</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/soc-analyst-challenge-day-3/">
+              Day 3: SOC Analyst Challenge 
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-09-10T18:10:15&#43;01:00">
+                September 10, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              5-minute read
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa-solid fa-user" aria-hidden="true"></i>
+    <a href="/authors/seclice/">Seclice</a></div>
+
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/cybersecurity/">Cybersecurity</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/soc/">SOC</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/cybersecurity/">Cybersecurity</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/soc-analyst/">SOC Analyst</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/elk/">ELK</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/challenge/">Challenge</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h2 id="day-3-elk-stack-istallation">
+  Day 3: ELK Stack Istallation
+  <a class="heading-link" href="#day-3-elk-stack-istallation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="create-private-network">
+  Create private network
+  <a class="heading-link" href="#create-private-network">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>
+<p>Open VMware Fusion Preferences</p>
+<ul>
+<li>Launch VMware Fusion.</li>
+<li>From the menu bar, navigate to Window &gt; Virtual Machine Library.</li>
+<li>With the library open, go to the VMware Fusion menu in the menu bar and click Preferences&hellip;.</li>
+</ul>
+</li>
+<li>
+<p>Access the Network Settings</p>
+<p>In the Preferences window, click on the Network icon (it resembles a globe with a network cable).</p>
+</li>
+<li>
+<p>Unlock the Settings for Changes</p>
+<ul>
+<li>Click the lock icon in the bottom-left corner of the window.</li>
+<li>Enter your Mac&rsquo;s administrator password when prompted to allow changes.</li>
+</ul>
+</li>
+<li>
+<p>Create a New Custom Network</p>
+<ul>
+<li>Click the + (plus) button located below the list of existing networks.</li>
+<li>A new network entry (e.g., vmnet3) will appear in the list. Select it to configure its properties.</li>
+</ul>
+</li>
+<li>
+<p>Configure the &ldquo;Private Network&rdquo;</p>
+<p>With the new vmnet selected, configure the settings on the right-hand side:</p>
+<ul>
+<li>Name: Change the default name to Private Network.</li>
+<li>Subnet IP: You can keep the automatically generated address (e.g., 192.168.xxx.0) or define your own (e.g., 10.0.10.0).</li>
+<li>Subnet Mask: The default 255.255.255.0 is recommended for a standard Class C network.</li>
+<li>Ensure the checkbox for &ldquo;Provide addresses on this network via DHCP&rdquo; is selected. This is crucial for automatically assigning IP addresses to VMs.</li>
+</ul>
+</li>
+<li>
+<p>Apply the New Configuration</p>
+<p>Click the Apply button to save and activate your new &ldquo;Private Network&rdquo;.</p>
+</li>
+</ol>
+<h3 id="create-elk-server">
+  Create ELK server
+  <a class="heading-link" href="#create-elk-server">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>
+<p>Download Ubuntu Server ISO</p>
+<ul>
+<li>Open a web browser and go to the <a href="https://ubuntu.com/download/server"  class="external-link" target="_blank" rel="noopener">Ubuntu Server download page</a>.</li>
+<li>Download the latest LTS version (e.g., 64-bit PC (AMD64) server install image).</li>
+</ul>
+</li>
+<li>
+<p>Open VMware Fusion and Start Creation</p>
+<ul>
+<li>Launch VMware Fusion.</li>
+<li>From the menu bar, click File &gt; New.</li>
+<li>Alternatively, in the Virtual Machine Library, click the + button and choose New.</li>
+</ul>
+</li>
+<li>
+<p>Choose Installation Method</p>
+<ul>
+<li>Select Create a custom virtual machine and click Continue.</li>
+</ul>
+</li>
+<li>
+<p>Choose Operating System</p>
+<ul>
+<li>Select Linux as the guest operating system.</li>
+<li>From the Version dropdown, choose Ubuntu 64-bit.</li>
+<li>Click Continue.</li>
+</ul>
+</li>
+<li>
+<p>Select Firmware Type</p>
+<ul>
+<li>Choose UEFI (recommended) or BIOS (legacy) and click Continue.</li>
+</ul>
+</li>
+<li>
+<p>Choose Virtual Disk Type</p>
+<ul>
+<li>Select SCSI (recommended) and click Continue.</li>
+</ul>
+</li>
+<li>
+<p>Create a New Virtual Disk</p>
+<ul>
+<li>Ensure Create a new virtual disk is selected.</li>
+<li>Set the maximum disk size (e.g., 20 GB).</li>
+<li>Choose Split into multiple files (recommended for portability).</li>
+<li>Click Continue.</li>
+</ul>
+</li>
+<li>
+<p>Customize Settings Before Installation</p>
+<p>Before clicking Finish, ensure the checkbox for Power on this virtual machine after creation is unchecked.
+Click Customize Settings.</p>
+</li>
+<li>
+<p>Configure Virtual Machine Hardware</p>
+<p>A new settings window will open. Configure the following:</p>
+<p>9.1. General</p>
+<pre><code> - Name: Ubuntu Server (or your preferred name).
+</code></pre>
+<p>9.2. Processors &amp; Memory</p>
+<pre><code> - Processors: Assign at least 2 CPU cores.
+ - Memory: Assign at least 2048 MB (2 GB) of RAM.
+</code></pre>
+<p>9.3. Hard Disk (SCSI)</p>
+<pre><code> - You can adjust the disk size here if needed.
+</code></pre>
+<p>9.4. CD/DVD (IDE)</p>
+<pre><code> - Change the setting from Auto detect to Choose a disk or image....
+ - Navigate to and select the downloaded Ubuntu Server ISO file.
+ - Ensure Connect CD/DVD Drive is checked.
+</code></pre>
+<p>9.5. Network Adapter</p>
+<p>For a network connection, ensure the adapter is connected to:</p>
+<pre><code> - Bridged Network (to be like a separate device on your network), or
+ - Share with my Mac (NAT) for internet access.
+</code></pre>
+</li>
+<li>
+<p>Save and Start the Virtual Machine</p>
+<ul>
+<li>Close the settings window to save all configuration.</li>
+<li>In the Virtual Machine Library, select your new Ubuntu Server VM.</li>
+<li>Click the Play button to power it on.</li>
+</ul>
+</li>
+<li>
+<p>Install Ubuntu Server</p>
+<p>The VM will boot from the ISO and start the Ubuntu Server installer.
+Follow the on-screen instructions to complete the installation:</p>
+<ul>
+<li>Choose your language.</li>
+<li>Configure keyboard layout.</li>
+<li>Set up network connections (if needed).</li>
+<li>Configure storage (use the entire virtual disk).</li>
+<li>Set up your user profile and server name.</li>
+<li>Select which software to install (e.g., SSH server).</li>
+<li>When the installation is complete, the installer will prompt you to reboot.</li>
+</ul>
+</li>
+<li>
+<p>Final Reboot and Login</p>
+<p>The VM will reboot. Eject the installation media:</p>
+<ul>
+<li>Go to the VMware Fusion menu bar: Virtual Machine &gt; CD/DVD &gt; Disconnect ISO image.</li>
+<li>The VM will now boot from its new virtual hard disk.</li>
+<li>Log in with the username and password you created during installation.</li>
+</ul>
+</li>
+</ol>
+<h3 id="installing-elastic-search">
+  Installing Elastic Search
+  <a class="heading-link" href="#installing-elastic-search">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>
+<p>Download the Package</p>
+<ul>
+<li>Go to the official <a href="https://www.elastic.co/downloads/elasticsearch"  class="external-link" target="_blank" rel="noopener">Elasticsearch</a> Download page.</li>
+<li>Under &ldquo;Linux x86_64&rdquo;, right-click on the DEB package link and select Copy Link Address.</li>
+</ul>
+<p>The version number in the link might be different (e.g., 9.1.3).</p>
+</li>
+<li>
+<p>Download on Your Ubuntu Server</p>
+<p>Open a terminal on your Ubuntu server and use wget with the copied link to download the package.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-9.1.3-amd64.deb
+</span></span></code></pre></div></li>
+<li>
+<p>Install the Downloaded Package</p>
+<p>Use the dpkg command to install the package. This will set up Elasticsearch and its required directories.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dpkg -i elasticsearch-9.1.3-amd64.deb
+</span></span></code></pre></div></li>
+<li>
+<p>Modify the file elasticsearch.yml</p>
+<p>Go to /etc/elasticsearch, then elasticsearch.yml and modify this two lines on the network section:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">---------------------------------- Network -----------------------------------
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># By default Elasticsearch is only accessible on localhost. Set a different</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># address here to expose this node on the network:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">network.host: your ip address
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># By default Elasticsearch listens for HTTP traffic on the first free port it</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># finds starting at 9200. Set a specific HTTP port here:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">http.port: <span class="m">9200</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Reload systemd and Start Elasticsearch</p>
+<p>After installation, you must reload the systemd manager configuration to recognize the new service, then start it.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl daemon-reload
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> elasticsearch.service
+</span></span><span class="line"><span class="cl">sudo systemctl start elasticsearch.service
+</span></span></code></pre></div></li>
+<li>
+<p>Verify the Installation</p>
+<p>Check if the Elasticsearch service is running correctly.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl status elasticsearch.service
+</span></span></code></pre></div></li>
+</ol>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2025
+     SecLice 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
