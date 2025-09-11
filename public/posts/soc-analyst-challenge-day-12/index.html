@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Day 12: SOC Analyst Challenge  · SecLice
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="SecLice">
+<meta name="description" content="SOC Analyst Challenge, Day 12 ">
+<meta name="keywords" content="blog,Cybersecurity">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Day 12: SOC Analyst Challenge ">
+  <meta name="twitter:description" content="SOC Analyst Challenge, Day 12">
+
+<meta property="og:url" content="http://localhost:1313/posts/soc-analyst-challenge-day-12/">
+  <meta property="og:site_name" content="SecLice">
+  <meta property="og:title" content="Day 12: SOC Analyst Challenge ">
+  <meta property="og:description" content="SOC Analyst Challenge, Day 12">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-11T09:35:13+01:00">
+    <meta property="article:modified_time" content="2025-09-11T09:35:13+01:00">
+    <meta property="article:tag" content="SOC">
+    <meta property="article:tag" content="Cybersecurity">
+    <meta property="article:tag" content="SOC Analyst">
+    <meta property="article:tag" content="ELK">
+    <meta property="article:tag" content="Challenge">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/soc-analyst-challenge-day-12/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      SecLice
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/pt-br/">🇧🇷</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/soc-analyst-challenge-day-12/">
+              Day 12: SOC Analyst Challenge 
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-09-11T09:35:13&#43;01:00">
+                September 11, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa-solid fa-user" aria-hidden="true"></i>
+    <a href="/authors/seclice/">Seclice</a></div>
+
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/soc/">SOC</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/soc/">SOC</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/cybersecurity/">Cybersecurity</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/soc-analyst/">SOC Analyst</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/elk/">ELK</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/challenge/">Challenge</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h2 id="day-12-ubuntu-server-2402-installation-ssh-server">
+  Day 12: Ubuntu Server 24.02 Installation (SSH-server)
+  <a class="heading-link" href="#day-12-ubuntu-server-2402-installation-ssh-server">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Ressources :<a href="https://www.youtube.com/@MyDFIR/"  class="external-link" target="_blank" rel="noopener">MyDFIR Channel</a></p>
+<h3 id="prerequisites">
+  <strong>Prerequisites</strong>
+  <a class="heading-link" href="#prerequisites">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li><strong>VMware Fusion:</strong></li>
+<li><strong>Ubuntu Server ISO:</strong> Download the latest <strong>24.04 LTS</strong> version from the official <a href="https://ubuntu.com/download/server"  class="external-link" target="_blank" rel="noopener">Ubuntu Download page</a>.</li>
+</ol>
+<h3 id="step-1-create-a-new-virtual-machine">
+  <strong>Step 1: Create a New Virtual Machine</strong>
+  <a class="heading-link" href="#step-1-create-a-new-virtual-machine">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>Open <strong>VMware Fusion</strong>.</li>
+<li>From the menu bar, click <strong>File &gt; New</strong>.</li>
+<li>Select <strong>Create a custom virtual machine</strong>. Click <strong>Continue</strong>.</li>
+<li><strong>Choose Operating System:</strong>
+<ul>
+<li>Select <strong>Linux</strong>.</li>
+<li>From the Version dropdown, choose <strong>Ubuntu 64-bit</strong>.</li>
+<li>Click <strong>Continue</strong>.</li>
+</ul>
+</li>
+<li><strong>Choose Firmware:</strong> Select <strong>UEFI</strong> (recommended). Click <strong>Continue</strong>.</li>
+<li><strong>Virtual Disk:</strong> Choose <strong>SCSI</strong> (recommended). Click <strong>Continue</strong>.</li>
+<li><strong>Create Disk:</strong> Select <strong>Create a new virtual disk</strong>. Set the size (e.g., <strong>25 GB</strong> is a good minimum). Choose <strong>Split into multiple files</strong>. Click <strong>Continue</strong>.</li>
+</ol>
+<h3 id="step-2-configure-hardware">
+  <strong>Step 2: Configure Hardware <em>Before</em> Installation</strong>
+  <a class="heading-link" href="#step-2-configure-hardware">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Crucial Step:</strong> <em>Before</em> clicking Finish, you must configure the VM to boot from the ISO.</p>
+<ol>
+<li><strong>Uncheck</strong> the box for <strong>&ldquo;Power on this virtual machine after creation&rdquo;</strong>.</li>
+<li>Click <strong>Customize Settings</strong>.</li>
+<li>Name your VM (e.g., <code>ubuntu-server-24.04</code>) and choose a save location. Click <strong>Save</strong>.</li>
+</ol>
+<p>A settings window will open. Configure the following:</p>
+<ul>
+<li><strong>Processors &amp; Memory:</strong> Assign at least <strong>2 CPU cores</strong> and <strong>2048 MB (2 GB)</strong> of RAM. 4 GB is better if available.</li>
+<li><strong>CD/DVD (IDE):</strong> Change from &ldquo;Auto detect&rdquo; to <strong>&ldquo;Choose a disk or image&hellip;&rdquo;</strong>. Navigate to and select the downloaded Ubuntu Server 24.04 ISO file. Ensure <strong>&ldquo;Connect CD/DVD Drive&rdquo;</strong> is checked.</li>
+<li><strong>Network Adapter:</strong> Ensure it is connected (e.g., <strong>Bridged Networking</strong> or <strong>Share with my Mac (NAT)</strong>).</li>
+</ul>
+<p><strong>Close the settings window</strong> to save.</p>
+<h3 id="step-3-install-ubuntu-server-2404">
+  <strong>Step 3: Install Ubuntu Server 24.04</strong>
+  <a class="heading-link" href="#step-3-install-ubuntu-server-2404">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>In the Virtual Machine Library, select your new VM and click the <strong>Play</strong> button.</li>
+<li>The VM will boot into the Ubuntu Server installer.</li>
+<li><strong>Language:</strong> Select your language and press <code>Enter</code>.</li>
+<li><strong>Keyboard Configuration:</strong> Choose your keyboard layout and variant.</li>
+<li><strong>Installer Version:</strong> Choose the default <strong>&ldquo;Ubuntu Server&rdquo;</strong> and press <code>Enter</code>.</li>
+<li><strong>Network Connections:</strong> The installer should automatically detect your network. You can configure a static IP later if needed. Select &ldquo;Done&rdquo;.</li>
+<li><strong>Proxy:</strong> If you use a network proxy, enter it here. Otherwise, leave blank. Select &ldquo;Done&rdquo;.</li>
+<li><strong>Ubuntu Archive Mirror:</strong> Use the default mirror. Select &ldquo;Done&rdquo;.</li>
+<li><strong>Storage Configuration:</strong>
+<ul>
+<li>The installer will likely present your virtual disk. Select it and press <code>Enter</code>.</li>
+<li>Choose the default <strong>&ldquo;Use an entire disk&rdquo;</strong> layout.</li>
+<li>Confirm the storage configuration and select <strong>&ldquo;Done&rdquo;</strong>.</li>
+</ul>
+</li>
+<li><strong>Profile Setup:</strong>
+<ul>
+<li><strong>Your name:</strong> Enter your full name.</li>
+<li><strong>Your server&rsquo;s name:</strong> Choose a hostname (e.g., <code>ubuntu-server</code>).</li>
+<li><strong>Pick a username:</strong> Create your username (e.g., <code>admin</code>).</li>
+<li><strong>Choose a password:</strong> Set a strong password.</li>
+<li><strong>Confirm your password:</strong> Re-enter the password.</li>
+<li>Select &ldquo;Done&rdquo;.</li>
+</ul>
+</li>
+<li><strong>SSH Setup:</strong>
+<ul>
+<li><strong>Important:</strong> Check the box for <strong>&ldquo;Install OpenSSH server&rdquo;</strong>. This allows you to connect to the server remotely.</li>
+<li>You can also import SSH keys from GitHub or Launchpad for more secure authentication.</li>
+<li>Select &ldquo;Done&rdquo;.</li>
+</ul>
+</li>
+<li><strong>Featured Server Snaps:</strong> You can browse and select optional software to install (e.g., Docker, Kubernetes). For a minimal setup, just select &ldquo;Done&rdquo;.</li>
+<li><strong>Wait for Installation:</strong> The system will now install the base system and all selected packages. This will take a few minutes.</li>
+<li><strong>Reboot:</strong> When prompted, choose <strong>&ldquo;Reboot Now&rdquo;</strong>.</li>
+</ol>
+<h3 id="step-4-post-installation-setup">
+  <strong>Step 4: Post-Installation Setup</strong>
+  <a class="heading-link" href="#step-4-post-installation-setup">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>After rebooting, the VM will prompt you to remove the installation media.
+<ul>
+<li>Go to the VMware Fusion menu: <strong>Virtual Machine &gt; CD/DVD &gt; Disconnect ISO image</strong>.</li>
+<li>Press <code>Enter</code> in the VM window to continue booting.</li>
+</ul>
+</li>
+<li><strong>Login:</strong> You will see the console login prompt. Log in with the username and password you created.</li>
+</ol>
+<h3 id="step-5-install-vmware-tools-open-vm-tools">
+  <strong>Step 5: Install VMware Tools (Open-VM-Tools)</strong>
+  <a class="heading-link" href="#step-5-install-vmware-tools-open-vm-tools">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>VMware Tools provides essential drivers for better performance, graphics, and mouse integration.</p>
+<ol>
+<li>
+<p>Update the package list:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update
+</span></span></code></pre></div></li>
+<li>
+<p>Install the open-source VMware Tools package:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install open-vm-tools
+</span></span></code></pre></div></li>
+<li>
+<p>Reboot the server to activate the tools:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo reboot
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="step-6-first-steps-on-your-new-server">
+  <strong>Step 6: First Steps on Your New Server</strong>
+  <a class="heading-link" href="#step-6-first-steps-on-your-new-server">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li><strong>Update the System:</strong> Always update after a fresh install:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update <span class="o">&amp;&amp;</span> sudo apt upgrade -y
+</span></span></code></pre></div></li>
+<li><strong>Find Your IP Address:</strong> To connect via SSH from your Mac.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ip a
+</span></span></code></pre></div>Look for the <code>inet</code> address under <code>ens160</code> or <code>eth0</code> (e.g., <code>192.168.1.150</code>).</li>
+<li><strong>Connect via SSH (from your Mac Terminal):</strong>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh your_username@your_server_ip
+</span></span></code></pre></div>Example: <code>ssh admin@192.168.1.150</code></li>
+</ol>
+<p>Your Ubuntu Server 24.04 LTS installation on VMware Fusion is now complete and ready for use.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2025
+     SecLice 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

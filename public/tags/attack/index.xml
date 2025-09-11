@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Attack on SecLice</title>
+    <link>http://localhost:1313/tags/attack/</link>
+    <description>Recent content in Attack on SecLice</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 11 Sep 2025 09:35:10 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/attack/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Day 11: SOC Analyst Challenge </title>
+      <link>http://localhost:1313/posts/soc-analyst-challenge-day-11/</link>
+      <pubDate>Thu, 11 Sep 2025 09:35:10 +0100</pubDate>
+      <guid>http://localhost:1313/posts/soc-analyst-challenge-day-11/</guid>
+      <description>&lt;h2 id=&#34;day-10-elasticsearch-ingest-data-tutorial&#34;&gt;&#xA;  Day 10: Elasticsearch Ingest Data Tutorial&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#day-10-elasticsearch-ingest-data-tutorial&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Ressources :&lt;a href=&#34;https://www.youtube.com/@MyDFIR/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MyDFIR Channel&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;what-is-a-brute-force-attack&#34;&gt;&#xA;  &lt;strong&gt;What is a Brute Force Attack?&lt;/strong&gt;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#what-is-a-brute-force-attack&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;A &lt;strong&gt;Brute Force Attack&lt;/strong&gt; is a simple yet powerful hacking method where an attacker tries to gain access to a system, account, or encrypted file by systematically trying every possible combination of credentials (like passwords or encryption keys) until the correct one is found.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
