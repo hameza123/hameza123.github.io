@@ -6,21 +6,56 @@
     <description>Recent content on SecLice</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 11 Sep 2025 09:35:25 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 12 Sep 2025 19:12:58 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Day 10: SOC Analyst Challenge </title>
-      <link>http://localhost:1313/posts/soc-analyst-challenge-day-10/</link>
-      <pubDate>Thu, 11 Sep 2025 09:35:25 +0100</pubDate>
-      <guid>http://localhost:1313/posts/soc-analyst-challenge-day-10/</guid>
-      <description>&lt;h2 id=&#34;day-10-elasticsearch-ingest-data-tutorial&#34;&gt;&#xA;  Day 10: Elasticsearch Ingest Data Tutorial&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#day-10-elasticsearch-ingest-data-tutorial&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Ressources :&lt;a href=&#34;https://www.youtube.com/@MyDFIR/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MyDFIR Channel&lt;/a&gt;&lt;/p&gt;</description>
+      <title></title>
+      <link>http://localhost:1313/posts/day20/</link>
+      <pubDate>Fri, 12 Sep 2025 19:12:58 +0100</pubDate>
+      <guid>http://localhost:1313/posts/day20/</guid>
+      <description></description>
     </item>
     <item>
-      <title>Day 10: SOC Analyst Challenge </title>
-      <link>http://localhost:1313/posts/soc-analyst-challenge-day-10/</link>
+      <title></title>
+      <link>http://localhost:1313/posts/day19/</link>
+      <pubDate>Fri, 12 Sep 2025 19:12:54 +0100</pubDate>
+      <guid>http://localhost:1313/posts/day19/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/day18/</link>
+      <pubDate>Fri, 12 Sep 2025 19:12:51 +0100</pubDate>
+      <guid>http://localhost:1313/posts/day18/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/day17/</link>
+      <pubDate>Fri, 12 Sep 2025 19:12:47 +0100</pubDate>
+      <guid>http://localhost:1313/posts/day17/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/day16/</link>
+      <pubDate>Fri, 12 Sep 2025 19:12:44 +0100</pubDate>
+      <guid>http://localhost:1313/posts/day16/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Day 15: SOC Analyst Challenge </title>
+      <link>http://localhost:1313/posts/soc-analyst-challenge-day-15/</link>
+      <pubDate>Thu, 11 Sep 2025 09:35:25 +0100</pubDate>
+      <guid>http://localhost:1313/posts/soc-analyst-challenge-day-15/</guid>
+      <description>&lt;h2 id=&#34;day-15-remote-desktop-protocol-introduction&#34;&gt;&#xA;  Day 15: Remote Desktop Protocol Introduction&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#day-15-remote-desktop-protocol-introduction&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Ressources :&lt;a href=&#34;https://www.youtube.com/@MyDFIR/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MyDFIR Channel&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Remote Desktop Protocol (RDP)&lt;/strong&gt; is a proprietary protocol developed by Microsoft that provides a user with a graphical interface to connect to another computer over a network connection. The user employs RDP client software for this purpose, while the other computer must run RDP server software.&lt;/p&gt;&#xA;&lt;p&gt;In simple terms, it allows you to &lt;strong&gt;sit in front of one computer and see and control the desktop of a remote computer&lt;/strong&gt; as if you were physically sitting in front of it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Day 14: SOC Analyst Challenge </title>
+      <link>http://localhost:1313/posts/soc-analyst-challenge-day-14/</link>
       <pubDate>Thu, 11 Sep 2025 09:35:21 +0100</pubDate>
-      <guid>http://localhost:1313/posts/soc-analyst-challenge-day-10/</guid>
-      <description>&lt;h2 id=&#34;day-10-elasticsearch-ingest-data-tutorial&#34;&gt;&#xA;  Day 10: Elasticsearch Ingest Data Tutorial&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#day-10-elasticsearch-ingest-data-tutorial&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Ressources :&lt;a href=&#34;https://www.youtube.com/@MyDFIR/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MyDFIR Channel&lt;/a&gt;&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/soc-analyst-challenge-day-14/</guid>
+      <description>&lt;h2 id=&#34;day-14-how-to-create-alerts-and-dashboards-in-kibana&#34;&gt;&#xA;  Day 14: How To Create Alerts and Dashboards in Kibana&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#day-14-how-to-create-alerts-and-dashboards-in-kibana&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Ressources :&lt;a href=&#34;https://www.youtube.com/@MyDFIR/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MyDFIR Channel&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;part-1-creating-alerts-kibana-alerting&#34;&gt;&#xA;  &lt;strong&gt;Part 1: Creating Alerts (Kibana Alerting)&lt;/strong&gt;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#part-1-creating-alerts-kibana-alerting&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Alerts automatically notify you when specific conditions are met in your data.&lt;/p&gt;&#xA;&lt;h4 id=&#34;scenario-alert-on-failed-ssh-login-attempts&#34;&gt;&#xA;  &lt;strong&gt;Scenario: Alert on Failed SSH Login Attempts&lt;/strong&gt;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#scenario-alert-on-failed-ssh-login-attempts&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h4&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s create an alert that triggers after 5 failed SSH attempts from a single source IP within 5 minutes.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Day 13: SOC Analyst Challenge </title>

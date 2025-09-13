@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Day 16: SOC Analyst Challenge  · SecLice
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="SecLice">
+<meta name="description" content="SOC Analyst Challenge, Day 16 ">
+<meta name="keywords" content="blog,Cybersecurity">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Day 16: SOC Analyst Challenge ">
+  <meta name="twitter:description" content="SOC Analyst Challenge, Day 16">
+
+<meta property="og:url" content="http://localhost:1313/posts/soc-analyst-challenge-day-16/">
+  <meta property="og:site_name" content="SecLice">
+  <meta property="og:title" content="Day 16: SOC Analyst Challenge ">
+  <meta property="og:description" content="SOC Analyst Challenge, Day 16">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-12T19:12:44+01:00">
+    <meta property="article:modified_time" content="2025-09-12T19:12:44+01:00">
+    <meta property="article:tag" content="SOC">
+    <meta property="article:tag" content="Cybersecurity">
+    <meta property="article:tag" content="SOC Analyst">
+    <meta property="article:tag" content="ELK">
+    <meta property="article:tag" content="Challenge">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/soc-analyst-challenge-day-16/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      SecLice
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/pt-br/">🇧🇷</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/soc-analyst-challenge-day-16/">
+              Day 16: SOC Analyst Challenge 
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-09-12T19:12:44&#43;01:00">
+                September 12, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa-solid fa-user" aria-hidden="true"></i>
+    <a href="/authors/seclice/">Seclice</a></div>
+
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/soc/">SOC</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/soc/">SOC</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/cybersecurity/">Cybersecurity</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/soc-analyst/">SOC Analyst</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/elk/">ELK</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/challenge/">Challenge</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h2 id="day-16-how-to-create-alerts-and-dashboards-in-kibana-24">
+  Day 16: How To Create Alerts and Dashboards in Kibana 2/4
+  <a class="heading-link" href="#day-16-how-to-create-alerts-and-dashboards-in-kibana-24">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Ressources :<a href="https://www.youtube.com/@MyDFIR/"  class="external-link" target="_blank" rel="noopener">MyDFIR Channel</a></p>
+<h3 id="part-1-creating-alerts-kibana-alerting">
+  <strong>Part 1: Creating Alerts (Kibana Alerting)</strong>
+  <a class="heading-link" href="#part-1-creating-alerts-kibana-alerting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Alerts automatically notify you when specific conditions are met in your data.</p>
+<h4 id="scenario-alert-on-failed-ssh-login-attempts">
+  <strong>Scenario: Alert on Failed SSH Login Attempts</strong>
+  <a class="heading-link" href="#scenario-alert-on-failed-ssh-login-attempts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Let&rsquo;s create an alert that triggers after 5 failed SSH attempts from a single source IP within 5 minutes.</p>
+<ol>
+<li>
+<p><strong>Navigate to Alerting:</strong></p>
+<ul>
+<li>In Kibana, go to <strong>Management &gt; Observability &gt; Alerting</strong> (in newer versions) or <strong>Stack Management &gt; Kibana &gt; Alerting</strong>.</li>
+<li>Click on the <strong>Rules</strong> tab and then <strong>Create rule</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Define the Rule:</strong></p>
+<ul>
+<li><strong>Rule name:</strong> <code>Alert: Multiple Failed SSH Logins</code></li>
+<li><strong>Rule type:</strong> Select <strong>Elasticsearch query</strong>. This is the most common type.</li>
+</ul>
+</li>
+<li>
+<p><strong>Define the Query (The Condition):</strong></p>
+<ul>
+<li><strong>Index:</strong> Select your SSH data index pattern (e.g., <code>logs-ssh*</code>).</li>
+<li><strong>Query DSL (KQL):</strong> Write a query to find failed SSH attempts.
+<pre tabindex="0"><code class="language-kql" data-lang="kql">event.action: &#34;failed-login&#34; or message: &#34;Failed password&#34;
+</code></pre></li>
+<li><strong>Time window:</strong> Set this to <strong>5 minutes</strong>. The rule will run every 5 mins and check the last 5 mins of data.</li>
+</ul>
+</li>
+<li>
+<p><strong>Set the Trigger Condition:</strong></p>
+<ul>
+<li>This defines <em>when</em> the alert fires.</li>
+<li>Set <strong>Alert me when:</strong> <code>Number of documents</code> ; <strong>is above</strong> ; <code>5</code>.</li>
+<li><strong>Group over:</strong> <code>source.ip</code> (This is the key! It creates a separate alert <em>for each unique source IP</em> that meets the condition).</li>
+</ul>
+</li>
+<li>
+<p><strong>Add Actions (The Notification):</strong></p>
+<ul>
+<li>Click <strong>Add action</strong>.</li>
+<li><strong>Action type:</strong> Choose how you want to be notified (e.g., <strong>Email</strong>, <strong>Slack</strong>, <strong>Microsoft Teams</strong>, <strong>Index</strong>).</li>
+<li><strong>Configure the action:</strong>
+<ul>
+<li>For <strong>Email:</strong> Fill in the recipient(s) and a subject/message. You can use variables like <code>{{context.message}}</code>.</li>
+<li>For <strong>Index:</strong> This is very powerful. It writes the alert data to a new Elasticsearch index, creating a permanent audit log of all alerts. You can call the index <code>.alerts-ssh-bruteforce</code>.</li>
+</ul>
+</li>
+<li><strong>Message example for email:</strong>
+<pre tabindex="0"><code>Alert: Possible SSH Brute Force Attack!
+IP Address {{context.group}} has generated {{context.value}} failed login attempts in the last 5 minutes.
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>Review and Save:</strong> Click <strong>Save</strong> to activate the rule.</p>
+</li>
+</ol>
+<p>Your alert is now live! Kibana will run this check every 5 minutes and notify you via the action you configured whenever the condition is met.</p>
+<h3 id="part-2-creating-dashboards">
+  <strong>Part 2: Creating Dashboards</strong>
+  <a class="heading-link" href="#part-2-creating-dashboards">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Dashboards are visual summaries of your data, built from individual visualizations.</p>
+<h4 id="scenario-create-a-security-overview-dashboard">
+  <strong>Scenario: Create a Security Overview Dashboard</strong>
+  <a class="heading-link" href="#scenario-create-a-security-overview-dashboard">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li>
+<p><strong>Navigate to Dashboards:</strong></p>
+<ul>
+<li>Go to <strong>Analytics &gt; Dashboards</strong>.</li>
+<li>Click <strong>Create dashboard</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Create Visualizations for Your Dashboard:</strong>
+You&rsquo;ll create them one by one and add them to the dashboard.</p>
+<p><strong>a. A Lens Chart: SSH Logins Over Time</strong></p>
+<ul>
+<li>Click <strong>Create visualization</strong> or <strong>Edit</strong> on the dashboard &gt; <strong>Create new</strong>.</li>
+<li>Choose <strong>Lens</strong>.</li>
+<li>Select your SSH data view (e.g., <code>logs-ssh*</code>).</li>
+<li><strong>Drag and drop:</strong>
+<ul>
+<li><code>@timestamp</code> to the <strong>Horizontal axis</strong>.</li>
+<li><code>event.action</code> to the <strong>Vertical axis</strong>. Lens will automatically choose <strong>Count</strong>.</li>
+<li><code>event.action</code> to <strong>Breakdown by</strong>. This will split the bar chart into colors for <code>successful-login</code>, <code>failed-login</code>, etc.</li>
+</ul>
+</li>
+<li>Click <strong>Save and return</strong> and name it <code>SSH Login Activity</code>.</li>
+</ul>
+<p><strong>b. A Metric: Total Failed Logins (Last 24h)</strong></p>
+<ul>
+<li><strong>Create new visualization</strong>, choose <strong>Lens</strong>.</li>
+<li>Select your data view.</li>
+<li>Change the chart type to <strong>Metric</strong>.</li>
+<li>Drag <code>event.action</code> into the workspace. Add a filter: <code>event.action: &quot;failed-login&quot;</code>.</li>
+<li>Click <strong>Save and return</strong> and name it <code>Failed Logins (24h)</code>.</li>
+</ul>
+<p><strong>c. A Top Source IPs for Failed Logins</strong></p>
+<ul>
+<li><strong>Create new visualization</strong>, choose <strong>Data Table</strong> (or use Lens).</li>
+<li>Select your data view.</li>
+<li>Set a filter: <code>event.action: &quot;failed-login&quot;</code>.</li>
+<li>For the <strong>Aggregation</strong>, choose <strong>Terms</strong> and select the field <code>source.ip</code>.</li>
+<li>For the <strong>Size</strong>, set to 10. Order by <strong>metric: Count</strong> Descending.</li>
+<li>Click <strong>Save and return</strong> and name it <code>Top IPs - Failed Logins</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Build the Dashboard:</strong></p>
+<ul>
+<li>Go back to your blank dashboard.</li>
+<li>Click <strong>Edit</strong> &gt; <strong>Add</strong> &gt; <strong>Existing</strong>.</li>
+<li>Select all the visualizations you just created (<code>SSH Login Activity</code>, <code>Failed Logins (24h)</code>, <code>Top IPs - Failed Logins</code>) and click <strong>Add</strong>.</li>
+<li>Drag and resize the panels to organize them logically.</li>
+</ul>
+</li>
+<li>
+<p><strong>Add a Time Filter:</strong></p>
+<ul>
+<li>In the dashboard toolbar, click <strong>Add filter</strong>.</li>
+<li>Create a filter for the <code>@timestamp</code> field. A common choice is to set a default filter of <strong>Last 24 hours</strong>.</li>
+<li>This allows you to easily change the time range for the entire dashboard.</li>
+</ul>
+</li>
+<li>
+<p><strong>Save the Dashboard:</strong></p>
+<ul>
+<li>Click <strong>Save</strong> in the top toolbar and give it a name, e.g., <code>Security Overview - SSH</code>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="key-concepts-to-remember">
+  <strong>Key Concepts to Remember</strong>
+  <a class="heading-link" href="#key-concepts-to-remember">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Alerts</strong> are built on <strong>rules</strong> that run on a schedule, checking a <strong>query</strong> with a <strong>threshold</strong>.</li>
+<li><strong>Group by</strong> (like <code>source.ip</code>) is crucial for creating precise, actionable alerts.</li>
+<li><strong>Dashboards</strong> are built from individual <strong>visualizations</strong> (Lens, Maps, Data Tables).</li>
+<li><strong>Lens</strong> is the most intuitive and powerful tool for building most charts.</li>
+<li>Always set a <strong>time filter</strong> on your dashboards for context.</li>
+</ul>
+<p>You now have a functioning alert system for brute-force attacks and a visual dashboard to monitor authentication activity. You can apply these exact same principles to create alerts for any other event (Windows Defender detections, Sysmon process creation, etc.) and add them to your dashboard.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2025
+     SecLice 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

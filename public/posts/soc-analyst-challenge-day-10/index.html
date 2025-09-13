@@ -29,8 +29,8 @@
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-09-11T09:35:13+01:00">
-    <meta property="article:modified_time" content="2025-09-11T09:35:13+01:00">
+    <meta property="article:published_time" content="2025-09-10T20:09:49+01:00">
+    <meta property="article:modified_time" content="2025-09-10T20:09:49+01:00">
     <meta property="article:tag" content="SOC">
     <meta property="article:tag" content="Cybersecurity">
     <meta property="article:tag" content="SOC Analyst">
@@ -178,13 +178,13 @@
           <div class="date">
             <span class="posted-on">
               <i class="fa-solid fa-calendar" aria-hidden="true"></i>
-              <time datetime="2025-09-11T09:35:13&#43;01:00">
-                September 11, 2025
+              <time datetime="2025-09-10T20:09:49&#43;01:00">
+                September 10, 2025
               </time>
             </span>
             <span class="reading-time">
               <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              One-minute read
+              4-minute read
             </span>
           </div>
           <div class="authors">
@@ -232,6 +232,177 @@
   </a>
 </h2>
 <p>Ressources :<a href="https://www.youtube.com/@MyDFIR/"  class="external-link" target="_blank" rel="noopener">MyDFIR Channel</a></p>
+<p>This tutorial covers how to ingest specific Windows Event Logs (Sysmon and filtered Windows Defender) using Elastic Agent integrations.</p>
+<h4 id="part-1-add-the-custom-log-integration-for-sysmon">
+  <strong>Part 1: Add the Custom Log Integration for Sysmon</strong>
+  <a class="heading-link" href="#part-1-add-the-custom-log-integration-for-sysmon">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li>
+<p><strong>Navigate to Integrations:</strong> In Kibana (<code>http://172.16.193.153:5601</code>), go to <strong>Management &gt; Integrations</strong>.</p>
+</li>
+<li>
+<p><strong>Browse for Integration:</strong> In the search bar, type <strong>&ldquo;costum windows event logs&rdquo;</strong>.</p>
+</li>
+<li>
+<p><strong>Add Custom Logs:</strong></p>
+<ul>
+<li>On the Custom Logs integration page, click <strong>Add costum windows event logs</strong>.</li>
+<li>Give the integration a descriptive name (e.g., <code>Sysmon Custom Collection</code>), and a description.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Channel Name:</strong></p>
+<ul>
+<li>
+<p><strong>Open Event Viewer:</strong>
+*   Press <code>Win + R</code>, type <code>eventvwr.msc</code>, and press Enter.</p>
+</li>
+<li>
+<p><strong>Navigate to the Sysmon Log:</strong>
+*   In the left-hand pane, expand <strong>Applications and Services Logs</strong> &gt; <strong>Microsoft</strong> &gt; <strong>Windows</strong>.
+*   Scroll down and find the folder named <strong>Sysmon</strong>.
+*   Click on it, then select the <strong>Operational</strong> log.</p>
+</li>
+<li>
+<p><strong>Copy the Full Log Name:</strong>
+*   In the <strong>Actions</strong> pane on the right, click on <strong>Properties</strong> for the &ldquo;Operational&rdquo; log.
+*   In the Properties window, the <strong>Full Name</strong> field contains the exact string you need to use.
+*   <strong>Select and copy</strong> this entire text.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Select the Agent Policy you assigned to your Windows server (e.g., <code>windows-servers</code>).</strong></p>
+</li>
+<li>
+<p><strong>Save and Deploy:</strong> Click <strong>Save and continue</strong>. The new integration will be added to your agent policy. The Elastic Agent on your Windows server will automatically receive the updated policy within a few minutes.</p>
+</li>
+</ol>
+<h4 id="part-2-add-windows-defender-integration-with-specific-event-ids">
+  <strong>Part 2: Add Windows Defender Integration with Specific Event IDs</strong>
+  <a class="heading-link" href="#part-2-add-windows-defender-integration-with-specific-event-ids">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li>
+<p><strong>Browse for Integration:</strong> Go back to <strong>Integrations</strong> and search for <strong>&ldquo;Add costum windows event logs&rdquo;</strong>.</p>
+</li>
+<li>
+<p><strong>Add Integration:</strong> Click on <strong>Add costum windows event logs</strong>.</p>
+</li>
+<li>
+<p><strong>Add Custom Logs:</strong></p>
+<ul>
+<li>On the Custom Logs integration page, click <strong>Add costum windows event logs</strong>.</li>
+<li>Give the integration a descriptive name (e.g., <code>defender Custom Collection</code>), and a description.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Channel Name:</strong></p>
+<ul>
+<li>
+<p><strong>Open Event Viewer:</strong>
+*   Press <code>Win + R</code>, type <code>eventvwr.msc</code>, and press Enter.</p>
+</li>
+<li>
+<p><strong>Navigate to the Sysmon Log:</strong>
+*   In the left-hand pane, expand <strong>Applications and Services Logs</strong> &gt; <strong>Microsoft</strong> &gt; <strong>Windows</strong>.
+*   Scroll down and find the folder named <strong>windows defender</strong>.
+*   Click on it, then select the <strong>Operational</strong> log.</p>
+</li>
+<li>
+<p><strong>Copy the Full Log Name:</strong>
+*   In the <strong>Actions</strong> pane on the right, click on <strong>Properties</strong> for the &ldquo;Operational&rdquo; log.
+*   In the Properties window, the <strong>Full Name</strong> field contains the exact string you need to use.
+*   <strong>Select and copy</strong> this entire text.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>On <strong>Advanced options</strong> add <strong>1116,1117,5001</strong> on <strong>Event ID</strong>, we dont need all the noise made by defender so we will add just this three logs.</p>
+<p><strong>What These Event IDs Mean:</strong></p>
+<ul>
+<li><strong>Event ID 1116:</strong> <strong>Malware detected but not remediated.</strong> This is critical for identifying active threats that Defender could not automatically remove, requiring manual intervention.</li>
+<li><strong>Event ID 1117:</strong> <strong>Malware successfully remediated.</strong> Important for confirmation that a threat was cleaned and for tracking infection rates.</li>
+<li><strong>Event ID 5001:</strong> <strong>Antivirus protection was turned off.</strong> This is a huge red flag for potential malicious activity, as attackers often disable security software.</li>
+</ul>
+</li>
+<li>
+<p><strong>Select the Agent Policy you assigned to your Windows server (e.g., <code>windows-servers</code>).</strong></p>
+</li>
+<li>
+<p><strong>Save and Deploy:</strong> Click <strong>Save and continue</strong>.</p>
+</li>
+</ol>
+<h4 id="part-3-restart-the-elastic-agent-best-practice">
+  <strong>Part 3: Restart the Elastic Agent (Best Practice)</strong>
+  <a class="heading-link" href="#part-3-restart-the-elastic-agent-best-practice">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>To ensure the new configuration is loaded cleanly, restart the Elastic Agent service on your Windows Server 2022.</p>
+<ol>
+<li>Open <strong>PowerShell as an Administrator</strong>.</li>
+<li>Run the restart command:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Restart-Service</span> <span class="n">-Name</span> <span class="n">ElasticAgent</span>
+</span></span></code></pre></div></li>
+<li>Verify the service is running again:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Get-Service</span> <span class="n">-Name</span> <span class="n">ElasticAgent</span>
+</span></span></code></pre></div></li>
+</ol>
+<h4 id="part-4-verify-data-in-discover">
+  <strong>Part 4: Verify Data in Discover</strong>
+  <a class="heading-link" href="#part-4-verify-data-in-discover">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This is the crucial step to confirm everything is working.</p>
+<ol>
+<li>
+<p>In Kibana, go to <strong>Analytics &gt; Discover</strong>.</p>
+</li>
+<li>
+<p><strong>Select the correct data view:</strong> Use the dropdown to select <code>logs-*</code>.</p>
+</li>
+<li>
+<p><strong>Search for Sysmon Events:</strong> In the search bar, use the KQL (Kibana Query Language) to find the classic Sysmon Process Creation event:</p>
+<pre tabindex="0"><code>winlog.event_id : 1
+</code></pre><ul>
+<li>You should see a list of events.</li>
+<li>In the results, look for the field <code>winlog.provider</code>. For Sysmon events, this will be <strong><code>Microsoft-Windows-Sysmon</code></strong>.</li>
+<li>Expand an event to see the rich, parsed data in the <code>winlog.event_data</code> field (e.g., <code>Image</code>, <code>CommandLine</code>, <code>ParentImage</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Search for Defender Events:</strong> Now, search for one of your specific Defender events:</p>
+<pre tabindex="0"><code>winlog.event_id : (1116 or 1117 or 5001) 
+</code></pre><ul>
+<li>You might see results for these specific events (but not a must until its generated). The <code>winlog.provider</code> for these will be <strong><code>Microsoft-Windows-Windows Defender</code></strong> or similar.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="what-you-have-achieved">
+  <strong>What You Have Achieved:</strong>
+  <a class="heading-link" href="#what-you-have-achieved">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Targeted Data Collection:</strong> You are no longer collecting all Windows events, only the most valuable security events from Sysmon and a curated list from Windows Defender.</li>
+<li><strong>Structured Parsing:</strong> By using the <strong>Windows Event Log</strong> processor, you have automatically parsed complex XML into searchable, filterable fields in Elasticsearch. This is essential for building effective dashboards and alerts.</li>
+<li><strong>Optimized Performance:</strong> Filtering at the collection level (e.g., specific Event IDs) reduces the volume of data ingested, saving storage and improving performance.</li>
+</ul>
+<p>Your setup is now perfectly configured for advanced security monitoring and threat hunting. The next step is to use this data to create <strong>detection rules</strong> in Elastic Security and build <strong>dashboards</strong> in Kibana.</p>
 
       </div>
 

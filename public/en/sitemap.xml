@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/posts/day15/</loc>
-    <lastmod>2025-09-11T09:35:25+01:00</lastmod>
+    <loc>http://localhost:1313/posts/day20/</loc>
+    <lastmod>2025-09-12T19:12:58+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-09-11T09:35:25+01:00</lastmod>
+    <lastmod>2025-09-12T19:12:58+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -19,7 +19,7 @@
                 />
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-09-11T09:35:25+01:00</lastmod>
+    <lastmod>2025-09-12T19:12:58+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -31,20 +31,20 @@
                 href="http://localhost:1313/"
                 />
   </url><url>
-    <loc>http://localhost:1313/posts/day14/</loc>
-    <lastmod>2025-09-11T09:35:21+01:00</lastmod>
+    <loc>http://localhost:1313/posts/day19/</loc>
+    <lastmod>2025-09-12T19:12:54+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/day13/</loc>
-    <lastmod>2025-09-11T09:35:17+01:00</lastmod>
+    <loc>http://localhost:1313/posts/day18/</loc>
+    <lastmod>2025-09-12T19:12:51+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/day12/</loc>
-    <lastmod>2025-09-11T09:35:13+01:00</lastmod>
+    <loc>http://localhost:1313/posts/day17/</loc>
+    <lastmod>2025-09-12T19:12:47+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/day11/</loc>
-    <lastmod>2025-09-11T09:35:10+01:00</lastmod>
+    <loc>http://localhost:1313/posts/day16/</loc>
+    <lastmod>2025-09-12T19:12:44+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/authors/</loc>
-    <lastmod>2025-09-10T20:09:49+01:00</lastmod>
+    <lastmod>2025-09-11T09:35:25+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -57,7 +57,7 @@
                 />
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-09-10T20:09:49+01:00</lastmod>
+    <lastmod>2025-09-11T09:35:25+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -70,34 +70,31 @@
                 />
   </url><url>
     <loc>http://localhost:1313/tags/challenge/</loc>
-    <lastmod>2025-09-10T20:09:49+01:00</lastmod>
+    <lastmod>2025-09-11T09:35:25+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/cybersecurity/</loc>
-    <lastmod>2025-09-10T20:09:49+01:00</lastmod>
+    <lastmod>2025-09-11T09:35:25+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/soc-analyst-challenge-day-10/</loc>
-    <lastmod>2025-09-10T20:09:49+01:00</lastmod>
+    <loc>http://localhost:1313/posts/soc-analyst-challenge-day-15/</loc>
+    <lastmod>2025-09-11T09:35:25+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/elk/</loc>
-    <lastmod>2025-09-10T20:09:49+01:00</lastmod>
+    <lastmod>2025-09-11T09:35:25+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/authors/seclice/</loc>
-    <lastmod>2025-09-10T20:09:49+01:00</lastmod>
+    <lastmod>2025-09-11T09:35:25+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/soc/</loc>
-    <lastmod>2025-09-10T20:09:49+01:00</lastmod>
+    <lastmod>2025-09-11T09:35:25+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/soc/</loc>
-    <lastmod>2025-09-10T20:09:49+01:00</lastmod>
+    <lastmod>2025-09-11T09:35:25+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/soc-analyst/</loc>
-    <lastmod>2025-09-10T20:09:49+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/sysmon/</loc>
-    <lastmod>2025-09-10T20:09:49+01:00</lastmod>
+    <lastmod>2025-09-11T09:35:25+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-09-10T20:09:49+01:00</lastmod>
+    <lastmod>2025-09-11T09:35:25+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -108,6 +105,36 @@
                 hreflang="en"
                 href="http://localhost:1313/tags/"
                 />
+  </url><url>
+    <loc>http://localhost:1313/posts/soc-analyst-challenge-day-14/</loc>
+    <lastmod>2025-09-11T09:35:21+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/soc-analyst-challenge-day-13/</loc>
+    <lastmod>2025-09-11T09:35:17+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/elastic-agent/</loc>
+    <lastmod>2025-09-11T09:35:17+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/elastic-agent/</loc>
+    <lastmod>2025-09-11T09:35:17+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/soc-analyst-challenge-day-12/</loc>
+    <lastmod>2025-09-11T09:35:13+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/attack/</loc>
+    <lastmod>2025-09-11T09:35:10+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/brute-force-/</loc>
+    <lastmod>2025-09-11T09:35:10+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/soc-analyst-challenge-day-11/</loc>
+    <lastmod>2025-09-11T09:35:10+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/soc-analyst-challenge-day-10/</loc>
+    <lastmod>2025-09-10T20:09:49+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/sysmon/</loc>
+    <lastmod>2025-09-10T20:09:49+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/soc-analyst-challenge-day-9/</loc>
     <lastmod>2025-09-10T20:09:45+01:00</lastmod>

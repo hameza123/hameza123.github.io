@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Day 20: SOC Analyst Challenge  · SecLice
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="SecLice">
+<meta name="description" content="SOC Analyst Challenge, Day 20 ">
+<meta name="keywords" content="blog,Cybersecurity">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Day 20: SOC Analyst Challenge ">
+  <meta name="twitter:description" content="SOC Analyst Challenge, Day 20">
+
+<meta property="og:url" content="http://localhost:1313/posts/soc-analyst-challenge-day-20/">
+  <meta property="og:site_name" content="SecLice">
+  <meta property="og:title" content="Day 20: SOC Analyst Challenge ">
+  <meta property="og:description" content="SOC Analyst Challenge, Day 20">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-12T19:12:58+01:00">
+    <meta property="article:modified_time" content="2025-09-12T19:12:58+01:00">
+    <meta property="article:tag" content="SOC">
+    <meta property="article:tag" content="Cybersecurity">
+    <meta property="article:tag" content="SOC Analyst">
+    <meta property="article:tag" content="ELK">
+    <meta property="article:tag" content="Challenge">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/soc-analyst-challenge-day-20/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      SecLice
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/pt-br/">🇧🇷</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/soc-analyst-challenge-day-20/">
+              Day 20: SOC Analyst Challenge 
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-09-12T19:12:58&#43;01:00">
+                September 12, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              7-minute read
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa-solid fa-user" aria-hidden="true"></i>
+    <a href="/authors/seclice/">Seclice</a></div>
+
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/soc/">SOC</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/soc/">SOC</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/cybersecurity/">Cybersecurity</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/soc-analyst/">SOC Analyst</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/elk/">ELK</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/challenge/">Challenge</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h2 id="day-20-mythic-server-setup-tutorial">
+  Day 20: Mythic Server Setup Tutorial
+  <a class="heading-link" href="#day-20-mythic-server-setup-tutorial">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Ressources :<a href="https://www.youtube.com/@MyDFIR/"  class="external-link" target="_blank" rel="noopener">MyDFIR Channel</a></p>
+<p>Of course. Here is a comprehensive tutorial for setting up a Mythic C2 server on a Linux host.</p>
+<hr>
+<h3 id="mythic-c2-server-setup-tutorial">
+  <strong>Mythic C2 Server Setup Tutorial</strong>
+  <a class="heading-link" href="#mythic-c2-server-setup-tutorial">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="what-is-mythic">
+  <strong>What is Mythic?</strong>
+  <a class="heading-link" href="#what-is-mythic">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Mythic is a sophisticated, cross-platform, red teaming Command and Control (C2) framework. Its unique microservices architecture allows for high customization, making it a powerful tool for penetration testers and security researchers.</p>
+<h4 id="prerequisites">
+  <strong>Prerequisites</strong>
+  <a class="heading-link" href="#prerequisites">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li><strong>A Ubuntu Server (Recommended):</strong> 20.04 or 22.04 LTS. A fresh VM with <strong>at least 2 vCPUs, 4 GB RAM, and 20 GB disk</strong> is ideal.</li>
+<li><strong>Install Docker &amp; Docker-Compose:</strong> Mythic is deployed using Docker containers.</li>
+</ol>
+<hr>
+<h3 id="step-1-install-docker-and-docker-compose">
+  <strong>Step 1: Install Docker and Docker-Compose</strong>
+  <a class="heading-link" href="#step-1-install-docker-and-docker-compose">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>First, update your system and install the necessary Docker packages.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Update the package list</span>
+</span></span><span class="line"><span class="cl">sudo apt update
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Install prerequisites</span>
+</span></span><span class="line"><span class="cl">sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Add Docker&#39;s official GPG key</span>
+</span></span><span class="line"><span class="cl">curl -fsSL https://download.docker.com/linux/ubuntu/gpg <span class="p">|</span> sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Add the Docker repository</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> stable&#34;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Update again and install Docker</span>
+</span></span><span class="line"><span class="cl">sudo apt update
+</span></span><span class="line"><span class="cl">sudo apt install -y docker-ce docker-ce-cli containerd.io
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Add your user to the docker group to run commands without sudo</span>
+</span></span><span class="line"><span class="cl">sudo usermod -aG docker <span class="nv">$USER</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># You will need to log out and back in for this to take effect.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Install Docker Compose plugin</span>
+</span></span><span class="line"><span class="cl">sudo apt install -y docker-compose-plugin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Verify installations</span>
+</span></span><span class="line"><span class="cl">docker --version
+</span></span><span class="line"><span class="cl">docker compose version
+</span></span></code></pre></div><hr>
+<h3 id="step-2-install-mythic">
+  <strong>Step 2: Install Mythic</strong>
+  <a class="heading-link" href="#step-2-install-mythic">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>With Docker ready, you can now install Mythic.</p>
+<ol>
+<li>
+<p><strong>Clone the Mythic Repository:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/its-a-feature/Mythic.git
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> Mythic
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Run the Mythic Installer:</strong>
+This script will build the core Mythic containers.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ./install_docker_ubuntu.sh
+</span></span></code></pre></div><ul>
+<li>Follow the prompts. You can typically choose the default options.</li>
+<li>This process will take several minutes as it downloads and builds Docker images.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="step-3-start-mythic-and-access-the-web-interface">
+  <strong>Step 3: Start Mythic and Access the Web Interface</strong>
+  <a class="heading-link" href="#step-3-start-mythic-and-access-the-web-interface">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>
+<p><strong>Start the Mythic Server:</strong>
+From within the <code>Mythic</code> directory, run:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo docker compose up -d
+</span></span></code></pre></div><p>The <code>-d</code> flag runs the containers in the background.</p>
+</li>
+<li>
+<p><strong>Check Container Status:</strong>
+Ensure all containers are running without errors.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo docker compose logs --tail<span class="o">=</span><span class="m">50</span> mythic_server
+</span></span><span class="line"><span class="cl">sudo docker compose ps
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Access the Web UI:</strong></p>
+<ul>
+<li>Open a web browser on your local machine.</li>
+<li>Navigate to <strong><code>https://&lt;your-server-ip&gt;:7443</code></strong>
+<ul>
+<li>Example: <code>https://192.168.1.150:7443</code></li>
+</ul>
+</li>
+<li>You will see a security warning because Mythic uses a self-signed certificate. This is normal for a lab. <strong>Proceed anyway</strong> (in Chrome, click &ldquo;Advanced&rdquo; -&gt; &ldquo;Proceed to&hellip;&rdquo;).</li>
+</ul>
+</li>
+<li>
+<p><strong>Log In:</strong></p>
+<ul>
+<li><strong>Default Username:</strong> <code>mythic_admin</code></li>
+<li><strong>Default Password:</strong> The password was generated during installation. You can find it in the logs:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo docker compose logs mythic_server <span class="p">|</span> grep <span class="s2">&#34;Default password&#34;</span>
+</span></span></code></pre></div></li>
+<li><strong>You will be forced to change the password on first login.</strong></li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>Of course. You&rsquo;ve provided the concise, correct commands. Let&rsquo;s break them down into a clear, step-by-step tutorial based on your instructions.</p>
+<h3 id="mythic-c2-server-setup-quick--correct-method">
+  <strong>Mythic C2 Server Setup: Quick &amp; Correct Method</strong>
+  <a class="heading-link" href="#mythic-c2-server-setup-quick--correct-method">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>This tutorial assumes you are on a fresh Ubuntu 22.04/24.04 server.</p>
+<hr>
+<h4 id="step-1-install-prerequisites-git--docker">
+  <strong>Step 1: Install Prerequisites (Git &amp; Docker)</strong>
+  <a class="heading-link" href="#step-1-install-prerequisites-git--docker">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Mythic requires Docker to be installed first.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Update the system</span>
+</span></span><span class="line"><span class="cl">sudo apt update <span class="o">&amp;&amp;</span> sudo apt upgrade -y
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Install Git and other helpers</span>
+</span></span><span class="line"><span class="cl">sudo apt install -y git
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Install Docker using the official script (this is the recommended method)</span>
+</span></span><span class="line"><span class="cl">curl -fsSL https://get.docker.com -o get-docker.sh
+</span></span><span class="line"><span class="cl">sudo sh get-docker.sh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Add your user to the &#39;docker&#39; group to run commands without sudo</span>
+</span></span><span class="line"><span class="cl">sudo usermod -aG docker <span class="nv">$USER</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># You MUST log out and back in for this to take effect, or run the next commands with &#39;sudo&#39;.</span>
+</span></span></code></pre></div><hr>
+<h4 id="step-2-clone-and-install-mythic">
+  <strong>Step 2: Clone and Install Mythic</strong>
+  <a class="heading-link" href="#step-2-clone-and-install-mythic">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This downloads the Mythic code and runs its installation script.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 1. Clone the Mythic repository from GitHub</span>
+</span></span><span class="line"><span class="cl">git clone https://github.com/its-a-feature/Mythic.git
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 2. Change into the Mythic directory</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> Mythic
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 3. Run the Mythic installation script for Ubuntu</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># This script installs dependencies and builds the core containers.</span>
+</span></span><span class="line"><span class="cl">./install_docker_ubuntu.sh
+</span></span></code></pre></div><ul>
+<li>During the script, you will be prompted to set a <code>MYTHIC_ADMIN_PASSWORD</code>. <strong>Choose a strong password and remember it.</strong> If you don&rsquo;t set one, a random password will be generated (check logs for it).</li>
+<li>The script will also ask if you want to include example payloads. You can say <code>no</code> for a minimal install; you can add them later from the UI.</li>
+</ul>
+<hr>
+<h4 id="step-3-start-the-mythic-server">
+  <strong>Step 3: Start the Mythic Server</strong>
+  <a class="heading-link" href="#step-3-start-the-mythic-server">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>After installation, use the Mythic CLI to start all the Docker containers.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># From the /Mythic directory, start the Mythic server in the background</span>
+</span></span><span class="line"><span class="cl">./mythic-cli start
+</span></span></code></pre></div><ul>
+<li>The <code>mythic-cli</code> is a helpful script for managing the Mythic environment.</li>
+<li>This command will take a moment to start all the microservices.</li>
+</ul>
+<hr>
+<h4 id="step-4-access-the-web-interface">
+  <strong>Step 4: Access the Web Interface</strong>
+  <a class="heading-link" href="#step-4-access-the-web-interface">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Once the containers are running, you can access the Mythic control panel.</p>
+<ol>
+<li>
+<p>Open a web browser on your computer.</p>
+</li>
+<li>
+<p>Navigate to:</p>
+<pre tabindex="0"><code>https://&lt;YOUR_SERVER_IP&gt;:7443
+</code></pre><ul>
+<li>Replace <code>&lt;YOUR_SERVER_IP&gt;</code> with the actual IP address of your Ubuntu server (e.g., <code>192.168.1.150</code>, <code>172.16.193.154</code>).</li>
+<li><strong>Use <code>https://</code></strong> and the port <strong><code>:7443</code></strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>You will see a security warning</strong> because Mythic uses a self-signed SSL certificate. This is expected for a lab setup.</p>
+<ul>
+<li>In Chrome, click <strong>&ldquo;Advanced&rdquo;</strong> and then <strong>&ldquo;Proceed to&hellip;&rdquo;</strong>.</li>
+<li>In Firefox, click <strong>&ldquo;Accept the Risk and Continue&rdquo;</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Log in to the dashboard:</strong></p>
+<ul>
+<li><strong>Username:</strong> <code>mythic_admin</code></li>
+<li><strong>Password:</strong> The password you set during the <code>./install_docker_ubuntu.sh</code> script. If you didn&rsquo;t set one, find it in the logs with:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./mythic-cli logs mythic_server <span class="p">|</span> grep <span class="s2">&#34;Default password&#34;</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ol>
+<p>You are now in the Mythic UI. The next steps are to install a Payload Type (like Apollo for Windows), create a listener, and generate a payload.</p>
+<hr>
+<h3 id="essential-management-commands">
+  <strong>Essential Management Commands</strong>
+  <a class="heading-link" href="#essential-management-commands">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Keep these commands handy in your Mythic directory (<code>/Mythic</code>):</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Command</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>./mythic-cli start</code></td>
+          <td style="text-align: left">Start all Mythic containers</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>./mythic-cli stop</code></td>
+          <td style="text-align: left">Stop all Mythic containers</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>./mythic-cli status</code></td>
+          <td style="text-align: left">Check the status of all containers</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>./mythic-cli logs &lt;name&gt;</code></td>
+          <td style="text-align: left">View logs for a specific container (e.g., <code>mythic_server</code>, <code>apollo</code>)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>./mythic-cli install github &lt;url&gt;</code></td>
+          <td style="text-align: left">Install a payload/agent from a GitHub URL</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>./mythic-cli --help</code></td>
+          <td style="text-align: left">Show all available commands</td>
+      </tr>
+  </tbody>
+</table>
+<p>Your Mythic C2 server is now operational. Remember, this setup is for <strong>educational and authorized testing purposes only</strong> within a controlled lab environment.</p>
+<hr>
+<h3 id="step-4-install-a-payload-type-agent">
+  <strong>Step 4: Install a Payload Type (Agent)</strong>
+  <a class="heading-link" href="#step-4-install-a-payload-type-agent">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Mythic is modular. Out of the box, it doesn&rsquo;t come with any agents (called &ldquo;Payload Types&rdquo;). You must install them.</p>
+<ol>
+<li><strong>In the Mythic UI,</strong> go to <strong>Settings -&gt; Payload Types</strong>.</li>
+<li>You will see a list of available agents. Popular choices include:
+<ul>
+<li><strong>Apollo:</strong> A powerful, feature-rich agent written in .NET.</li>
+<li><strong>Athena:</strong> A modern, cross-platform agent written in Rust.</li>
+<li><strong>Poseidon:</strong> A Python-based agent.</li>
+</ul>
+</li>
+<li>Click <strong>Install</strong> next to your desired agent(s). This will trigger Docker to build the new container for that agent. This will take a few minutes.</li>
+</ol>
+<p>You can monitor the build process via the logs:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo docker compose logs -f --tail<span class="o">=</span><span class="m">20</span> &lt;payload_type_name&gt;  <span class="c1"># e.g., apollo</span>
+</span></span></code></pre></div><hr>
+<h3 id="step-5-create-an-agent-and-generate-a-payload">
+  <strong>Step 5: Create an Agent and Generate a Payload</strong>
+  <a class="heading-link" href="#step-5-create-an-agent-and-generate-a-payload">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Now, generate an executable that you can deploy on a target machine.</p>
+<ol>
+<li>
+<p><strong>Create a Payload:</strong></p>
+<ul>
+<li>In the Mythic UI, go to <strong>Payloads -&gt; Create Payload</strong>.</li>
+<li><strong>Select the Payload Type</strong> you installed (e.g., <code>apollo</code>).</li>
+<li><strong>Choose a C2 Profile:</strong> For simplicity, start with <code>http</code> or <code>dynamic_http</code>.</li>
+<li><strong>Select the Operating System</strong> for your target (e.g., Windows).</li>
+<li>Click <strong>Create</strong>. Mythic will generate the payload.</li>
+</ul>
+</li>
+<li>
+<p><strong>Download the Payload:</strong></p>
+<ul>
+<li>Once generated, you will be redirected to the payload page.</li>
+<li>Click the <strong>Download</strong> button to get the executable (e.g., a <code>.exe</code> for Windows).</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="step-6-listen-for-connections">
+  <strong>Step 6: Listen for Connections</strong>
+  <a class="heading-link" href="#step-6-listen-for-connections">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Before executing the payload, you need to set up a listener for it to call back to.</p>
+<ol>
+<li><strong>Go to Listeners -&gt; Create Listener</strong>.</li>
+<li><strong>Select a C2 Profile:</strong> Choose the same one you used for the payload (e.g., <code>http</code>).</li>
+<li><strong>Configure the Listener:</strong>
+<ul>
+<li><strong>Name:</strong> Give it a descriptive name (e.g., <code>My-HTTP-Listener</code>).</li>
+<li><strong>Host:</strong> This should be the <strong>IP address of your Mythic server</strong> that the agent can reach (e.g., <code>192.168.1.150</code>). <strong>Do not use <code>localhost</code> or <code>127.0.0.1</code> here.</strong></li>
+</ul>
+</li>
+<li>Click <strong>Start Listener</strong>.</li>
+</ol>
+<hr>
+<h3 id="step-7-test-the-agent">
+  <strong>Step 7: Test the Agent</strong>
+  <a class="heading-link" href="#step-7-test-the-agent">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li><strong>Transfer</strong> the downloaded payload to your target test machine (e.g., a Windows VM).</li>
+<li><strong>Execute the payload</strong> on the target machine.</li>
+<li><strong>Check for Callback:</strong>
+<ul>
+<li>In the Mythic UI, go to <strong>Operators -&gt; Active Connections</strong>.</li>
+<li>You should see a new agent check-in appear in the table. You can now interact with it.</li>
+</ul>
+</li>
+</ol>
+<h3 id="basic-mythic-commands">
+  <strong>Basic Mythic Commands</strong>
+  <a class="heading-link" href="#basic-mythic-commands">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>To stop, start, or update Mythic, use these commands from the <code>Mythic</code> directory:</p>
+<ul>
+<li><strong>Stop Mythic:</strong> <code>sudo docker compose down</code></li>
+<li><strong>Start Mythic:</strong> <code>sudo docker compose up -d</code></li>
+<li><strong>View Logs:</strong> <code>sudo docker compose logs -f --tail=50 &lt;container_name&gt;</code></li>
+<li><strong>Update Mythic:</strong> <code>git pull</code> followed by <code>sudo ./install_docker_ubuntu.sh</code> and <code>sudo docker compose up -d</code></li>
+</ul>
+<p><strong>Important Security Note:</strong> This setup is for a <strong>lab environment only</strong>. Exposing Mythic to the internet without proper hardening and obfuscation (e.g., using domain fronting, custom C2 profiles) will lead to quick detection.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2025
+     SecLice 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

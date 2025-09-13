@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Command and Control Introduction on SecLice</title>
+    <link>http://localhost:1313/categories/command-and-control-introduction/</link>
+    <description>Recent content in Command and Control Introduction on SecLice</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 12 Sep 2025 19:12:51 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/command-and-control-introduction/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Day 18: SOC Analyst Challenge </title>
+      <link>http://localhost:1313/posts/soc-analyst-challenge-day-18/</link>
+      <pubDate>Fri, 12 Sep 2025 19:12:51 +0100</pubDate>
+      <guid>http://localhost:1313/posts/soc-analyst-challenge-day-18/</guid>
+      <description>&lt;h2 id=&#34;day-15--command-and-control-introduction&#34;&gt;&#xA;  Day 15:  Command and Control Introduction&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#day-15--command-and-control-introduction&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Ressources :&lt;a href=&#34;https://www.youtube.com/@MyDFIR/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MyDFIR Channel&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Of course. Here is a clear and structured introduction to Command and Control (C2).&lt;/p&gt;&#xA;&lt;h3 id=&#34;what-is-command-and-control-c2&#34;&gt;&#xA;  &lt;strong&gt;What is Command and Control (C2)?&lt;/strong&gt;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#what-is-command-and-control-c2&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Command and Control (C2)&lt;/strong&gt;, also known as &lt;strong&gt;C&amp;amp;C&lt;/strong&gt; or &lt;strong&gt;C2&lt;/strong&gt;, is the infrastructure that cyber attackers use to maintain remote communication and control over compromised devices within a target network.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
