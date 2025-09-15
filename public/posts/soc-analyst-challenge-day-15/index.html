@@ -29,8 +29,8 @@
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-09-12T19:12:51+01:00">
-    <meta property="article:modified_time" content="2025-09-12T19:12:51+01:00">
+    <meta property="article:published_time" content="2025-09-11T09:35:25+01:00">
+    <meta property="article:modified_time" content="2025-09-11T09:35:25+01:00">
     <meta property="article:tag" content="SOC">
     <meta property="article:tag" content="Cybersecurity">
     <meta property="article:tag" content="SOC Analyst">
@@ -178,13 +178,13 @@
           <div class="date">
             <span class="posted-on">
               <i class="fa-solid fa-calendar" aria-hidden="true"></i>
-              <time datetime="2025-09-12T19:12:51&#43;01:00">
-                September 12, 2025
+              <time datetime="2025-09-11T09:35:25&#43;01:00">
+                September 11, 2025
               </time>
             </span>
             <span class="reading-time">
               <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              One-minute read
+              4-minute read
             </span>
           </div>
           <div class="authors">
@@ -222,14 +222,88 @@
 
       <div class="post-content">
         
-        <h2 id="day-15--command-and-control-introduction">
-  Day 15:  Command and Control Introduction
-  <a class="heading-link" href="#day-15--command-and-control-introduction">
+        <h2 id="day-15-remote-desktop-protocol-introduction">
+  Day 15: Remote Desktop Protocol Introduction
+  <a class="heading-link" href="#day-15-remote-desktop-protocol-introduction">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
 <p>Ressources :<a href="https://www.youtube.com/@MyDFIR/"  class="external-link" target="_blank" rel="noopener">MyDFIR Channel</a></p>
+<p><strong>Remote Desktop Protocol (RDP)</strong> is a proprietary protocol developed by Microsoft that provides a user with a graphical interface to connect to another computer over a network connection. The user employs RDP client software for this purpose, while the other computer must run RDP server software.</p>
+<p>In simple terms, it allows you to <strong>sit in front of one computer and see and control the desktop of a remote computer</strong> as if you were physically sitting in front of it.</p>
+<h3 id="key-characteristics--how-it-works">
+  <strong>Key Characteristics &amp; How It Works</strong>
+  <a class="heading-link" href="#key-characteristics--how-it-works">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Client-Server Model:</strong> RDP functions on a client-server architecture. The computer being accessed is the <em>server</em> (host), and the computer requesting access is the <em>client</em>.</li>
+<li><strong>Graphical Interface:</strong> It transmits the graphical user interface (GUI) of the remote computer to the client and sends back keyboard and mouse inputs from the client to the server.</li>
+<li><strong>Network Efficiency:</strong> RDP is designed to be efficient over network connections. It doesn&rsquo;t constantly stream a video of the remote screen. Instead, it:
+<ol>
+<li>Transmits the initial screen.</li>
+<li>Then only sends <em>changes</em> to the screen (e.g., updated windows, mouse movements).</li>
+<li>Compresses and encrypts the data before sending it.</li>
+</ol>
+</li>
+<li><strong>Port:</strong> By default, RDP uses <strong>TCP port 3389</strong>.</li>
+</ul>
+<div class="mermaid">
+flowchart TD
+    A[RDP Client<br>Your Local Machine] -->|1. Encrypted Session<br>Initiated on Port 3389| B[RDP Server<br>Remote Windows Machine]
+    B -->|2. Sends Graphical<br>Display Output| A
+    A -->|3. Sends Keyboard<br>& Mouse Input| B
+
+</div>
+
+<h3 id="common-uses-of-rdp">
+  <strong>Common Uses of RDP</strong>
+  <a class="heading-link" href="#common-uses-of-rdp">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li><strong>Remote Administration:</strong> System administrators use RDP to manage servers and workstations remotely without needing physical access to the machine. This is its most common enterprise use.</li>
+<li><strong>Remote Work and Support:</strong> Employees can access their office computers from home. IT support staff can also take control of a user&rsquo;s computer to troubleshoot problems remotely.</li>
+<li><strong>Virtual Desktop Infrastructure (VDI):</strong> Technologies like Windows Virtual Desktop use RDP as the underlying protocol to deliver centralized virtual desktops and applications to users.</li>
+</ol>
+<h3 id="security-risks-of-rdp">
+  <strong>Security Risks of RDP</strong>
+  <a class="heading-link" href="#security-risks-of-rdp">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>While incredibly useful, RDP is a frequent target for attackers. Understanding its risks is crucial:</p>
+<ul>
+<li><strong>Brute Force Attacks:</strong> This is the most common threat. Attackers use automated tools to try thousands of username/password combinations against RDP servers exposed to the internet until they guess the correct credentials.</li>
+<li><strong>Vulnerabilities:</strong> Like any complex software, the RDP service itself has had critical security vulnerabilities in the past (e.g., BlueKeep). If unpatched, these can be exploited for remote code execution.</li>
+<li><strong>Credential Theft:</strong> If an RDP session is compromised, attackers can steal login credentials stored on that system.</li>
+<li><strong>Lateral Movement:</strong> Once an attacker gains access to one machine via RDP, they can use it as a foothold to attack other systems on the same internal network.</li>
+</ul>
+<h3 id="best-practices-for-securing-rdp">
+  <strong>Best Practices for Securing RDP</strong>
+  <a class="heading-link" href="#best-practices-for-securing-rdp">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Never expose RDP directly to the public internet without additional security layers.</strong></p>
+<ol>
+<li><strong>Use a VPN:</strong> The single most effective security measure. Require users to connect to a Virtual Private Network (VPN) first, then use RDP to connect to the internal machine. This hides port 3389 from the entire internet.</li>
+<li><strong>Network Level Authentication (NLA):</strong> <strong>Always enable NLA.</strong> It requires the user to authenticate themselves before a full RDP session is established, which helps protect against denial-of-service and brute-force attacks.</li>
+<li><strong>Strong Password Policies:</strong> Enforce long, complex, and unique passwords for all accounts that have RDP access. Avoid using the built-in Administrator account for RDP.</li>
+<li><strong>Change the Default Port:</strong> Consider changing the default RDP port (3389) to a different number. This doesn&rsquo;t provide real security but reduces noise from automated scanners.</li>
+<li><strong>Firewall Rules:</strong> Restrict RDP access at the firewall level. Only allow connections from specific, trusted IP addresses (e.g., your office&rsquo;s public IP).</li>
+<li><strong>Account Lockout Policies:</strong> Implement account lockout policies that lock an account after a small number of failed login attempts (e.g., 5 attempts), slowing down brute-force attacks.</li>
+<li><strong>Keep Systems Patched:</strong> Ensure both the client and server operating systems are always up-to-date with the latest security patches.</li>
+<li><strong>Use <a href="https://www.shodan.io/"  class="external-link" target="_blank" rel="noopener">Shodan</a> or <a href="https://search.censys.io/"  class="external-link" target="_blank" rel="noopener">Censys</a>:</strong> to make sure you have no critical services exposed.</li>
+</ol>
+<p><strong>In summary, RDP is an indispensable tool for remote management and access, but its power also makes it a prime target for attackers. Its use must always be accompanied by strong security measures, with a VPN being the most critical one.</strong></p>
 
       </div>
 
@@ -293,6 +367,12 @@
 
   </main>
 
+  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js"
+    integrity="sha256-QdTG1YTLLTwD3b95jLqFxpQX9uYuJMNAtVZgwKX4oYU=" crossorigin="anonymous"></script>
+  <script>
+    mermaid.initialize({ startOnLoad: true });
+  </script>
   
 
   

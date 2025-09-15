@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+   · SecLice
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="SecLice">
+<meta name="description" content="Of course. Here is a comprehensive tutorial for setting up osTicket, a popular open-source help desk ticketing system, on your Windows Server 2022.
+
+  osTicket Setup Tutorial on Windows Server 2022
+  
+    
+    Link to heading
+  
+
+
+  Prerequisites
+  
+    
+    Link to heading
+  
+
+
+A Windows Server 2022 machine with internet access.
+Administrator access to the server.
+A web browser on the server.
+
+
+
+  Part 1: Install Web Server (IIS) and Application Request Routing (ARR)
+  
+    
+    Link to heading
+  
+
+osTicket requires a web server (IIS) with PHP and MySQL support.">
+<meta name="keywords" content="blog,Cybersecurity">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SecLice">
+  <meta name="twitter:description" content="Of course. Here is a comprehensive tutorial for setting up osTicket, a popular open-source help desk ticketing system, on your Windows Server 2022.
+osTicket Setup Tutorial on Windows Server 2022 Link to heading Prerequisites Link to heading A Windows Server 2022 machine with internet access. Administrator access to the server. A web browser on the server. Part 1: Install Web Server (IIS) and Application Request Routing (ARR) Link to heading osTicket requires a web server (IIS) with PHP and MySQL support.">
+
+<meta property="og:url" content="http://localhost:1313/posts/day24/">
+  <meta property="og:site_name" content="SecLice">
+  <meta property="og:title" content="SecLice">
+  <meta property="og:description" content="Of course. Here is a comprehensive tutorial for setting up osTicket, a popular open-source help desk ticketing system, on your Windows Server 2022.
+osTicket Setup Tutorial on Windows Server 2022 Link to heading Prerequisites Link to heading A Windows Server 2022 machine with internet access. Administrator access to the server. A web browser on the server. Part 1: Install Web Server (IIS) and Application Request Routing (ARR) Link to heading osTicket requires a web server (IIS) with PHP and MySQL support.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-13T18:15:27+01:00">
+    <meta property="article:modified_time" content="2025-09-13T18:15:27+01:00">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/day24/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      SecLice
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/pt-br/">🇧🇷</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/day24/">
+              
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-09-13T18:15:27&#43;01:00">
+                September 13, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <p>Of course. Here is a comprehensive tutorial for setting up osTicket, a popular open-source help desk ticketing system, on your Windows Server 2022.</p>
+<h3 id="osticket-setup-tutorial-on-windows-server-2022">
+  <strong>osTicket Setup Tutorial on Windows Server 2022</strong>
+  <a class="heading-link" href="#osticket-setup-tutorial-on-windows-server-2022">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="prerequisites">
+  <strong>Prerequisites</strong>
+  <a class="heading-link" href="#prerequisites">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>A Windows Server 2022 machine with internet access.</li>
+<li>Administrator access to the server.</li>
+<li>A web browser on the server.</li>
+</ul>
+<hr>
+<h3 id="part-1-install-web-server-iis-and-application-request-routing-arr">
+  <strong>Part 1: Install Web Server (IIS) and Application Request Routing (ARR)</strong>
+  <a class="heading-link" href="#part-1-install-web-server-iis-and-application-request-routing-arr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>osTicket requires a web server (IIS) with PHP and MySQL support.</p>
+<ol>
+<li>
+<p><strong>Open Server Manager.</strong></p>
+</li>
+<li>
+<p>Click <strong>Add roles and features</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Next</strong> until you reach the &ldquo;Server Roles&rdquo; section.</p>
+</li>
+<li>
+<p>Expand <strong>Web Server (IIS)</strong> and select the following:</p>
+<ul>
+<li><strong>Web Server &gt; Common HTTP Features &gt; Default Document</strong></li>
+<li><strong>Web Server &gt; Common HTTP Features &gt; Directory Browsing</strong></li>
+<li><strong>Web Server &gt; Common HTTP Features &gt; HTTP Errors</strong></li>
+<li><strong>Web Server &gt; Common HTTP Features &gt; Static Content</strong></li>
+<li><strong>Web Server &gt; Performance &gt; Static Content Compression</strong></li>
+<li><strong>Web Server &gt; Application Development &gt; CGI</strong></li>
+<li><strong>Web Server &gt; Application Development &gt; ISAPI Extensions</strong></li>
+<li><strong>Web Server &gt; Application Development &gt; ISAPI Filters</strong></li>
+</ul>
+</li>
+<li>
+<p>Click <strong>Next</strong> and then <strong>Install</strong>. Wait for the installation to complete.</p>
+</li>
+<li>
+<p><strong>Install Application Request Routing (ARR) for URL Rewrite:</strong></p>
+<ul>
+<li>Download and install the <strong>Microsoft URL Rewrite Module</strong> from the official Microsoft site. Search for &ldquo;URL Rewrite IIS download&rdquo;.</li>
+<li>Download and install <strong>Application Request Routing</strong> from the official Microsoft site.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="part-2-install-php">
+  <strong>Part 2: Install PHP</strong>
+  <a class="heading-link" href="#part-2-install-php">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>osTicket is written in PHP, so we need to install the PHP manager and runtime.</p>
+<ol>
+<li>
+<p><strong>Install PHP Manager for IIS:</strong></p>
+<ul>
+<li>Download the latest <code>PHP Manager for IIS</code> from the <a href="https://github.com/phpmanager/phpmanager/releases/"  class="external-link" target="_blank" rel="noopener">official GitHub page</a>.</li>
+<li>Run the downloaded <code>.msi</code> file to install it.</li>
+</ul>
+</li>
+<li>
+<p><strong>Install PHP:</strong></p>
+<ul>
+<li>Download the <strong>non-thread-safe</strong> (NTS) x64 version of PHP 8.1 from <a href="https://windows.php.net/download/"  class="external-link" target="_blank" rel="noopener">windows.php.net/download</a>. (osTicket v1.18+ supports PHP 8.1).</li>
+<li>Create a folder for PHP on your system drive, e.g., <code>C:\PHP</code>.</li>
+<li>Extract the contents of the downloaded ZIP file into this folder.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure PHP in IIS:</strong></p>
+<ul>
+<li>Open <strong>Internet Information Services (IIS) Manager</strong>.</li>
+<li>On the left, select your server.</li>
+<li>Double-click <strong>PHP Manager</strong>.</li>
+<li>Click on <strong>Register new PHP version</strong>.</li>
+<li>Browse to the <code>php-cgi.exe</code> file inside your PHP folder (e.g., <code>C:\PHP\php-cgi.exe</code>) and click <strong>OK</strong>.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="part-3-install-mysql-database">
+  <strong>Part 3: Install MySQL (Database)</strong>
+  <a class="heading-link" href="#part-3-install-mysql-database">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>osTicket needs a database to store tickets, users, and settings.</p>
+<ol>
+<li>
+<p><strong>Download MySQL Installer:</strong></p>
+<ul>
+<li>Go to <a href="https://dev.mysql.com/downloads/installer/"  class="external-link" target="_blank" rel="noopener">dev.mysql.com/downloads/installer</a>.</li>
+<li>Download the MySQL Web Installer.</li>
+</ul>
+</li>
+<li>
+<p><strong>Run the Installer:</strong></p>
+<ul>
+<li>Choose <strong>Server only</strong> as the setup type.</li>
+<li>Follow the prompts. When you get to <strong>Accounts and Roles</strong>, set a strong <strong>root password</strong>. <strong>Remember this password!</strong></li>
+<li>Complete the installation.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="part-4-install-and-configure-osticket">
+  <strong>Part 4: Install and Configure osTicket</strong>
+  <a class="heading-link" href="#part-4-install-and-configure-osticket">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>
+<p><strong>Download osTicket:</strong></p>
+<ul>
+<li>Visit <a href="https://osticket.com/download/"  class="external-link" target="_blank" rel="noopener">osticket.com/download</a> and get the latest version (e.g., <code>osTicket-v1.18.zip</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Extract and Copy Files:</strong></p>
+<ul>
+<li>Extract the ZIP file.</li>
+<li>Copy the <strong><code>upload</code></strong> folder to <code>C:\inetpub\wwwroot</code>.</li>
+<li>Rename the folder from <code>upload</code> to <code>osticket</code>. Your path should now be <code>C:\inetpub\wwwroot\osticket</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Set Folder Permissions:</strong></p>
+<ul>
+<li>Navigate to <code>C:\inetpub\wwwroot\osticket</code>.</li>
+<li>Right-click the <code>osticket</code> folder, select <strong>Properties &gt; Security &gt; Edit &gt; Add</strong>.</li>
+<li>Type <code>IIS_IUSRS</code>, click <strong>Check Names</strong>, then <strong>OK</strong>.</li>
+<li>Give this group <strong>Modify</strong> permissions. Click <strong>OK</strong>.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="part-5-final-configuration-in-iis">
+  <strong>Part 5: Final Configuration in IIS</strong>
+  <a class="heading-link" href="#part-5-final-configuration-in-iis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>
+<p><strong>Create a Site in IIS Manager:</strong></p>
+<ul>
+<li>In IIS Manager, right-click <strong>Sites &gt; Add Website</strong>.</li>
+<li><strong>Site name:</strong> <code>osTicket</code></li>
+<li><strong>Physical path:</strong> <code>C:\inetpub\wwwroot\osticket</code></li>
+<li><strong>Binding:</strong> Leave the Type as <code>http</code> and Port as <code>80</code>. You can also set a host name if you have one.</li>
+<li>Click <strong>OK</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Set Default Document:</strong></p>
+<ul>
+<li>In IIS, click on your new <code>osTicket</code> site.</li>
+<li>Double-click <strong>Default Document</strong>.</li>
+<li>Make sure <code>index.php</code> is in the list. If not, add it.</li>
+</ul>
+</li>
+<li>
+<p><strong>Enable URL Rewrite:</strong></p>
+<ul>
+<li>Click on your <code>osTicket</code> site.</li>
+<li>Open the <code>URL Rewrite</code> feature.</li>
+<li>If there&rsquo;s no rule, you may need to create one later based on osTicket&rsquo;s requirements.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="part-6-run-the-osticket-web-installer">
+  <strong>Part 6: Run the osTicket Web Installer</strong>
+  <a class="heading-link" href="#part-6-run-the-osticket-web-installer">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>
+<p><strong>Open your browser</strong> on the server and go to <code>http://localhost/osticket/</code>.</p>
+</li>
+<li>
+<p>The osTicket installer screen will appear.</p>
+</li>
+<li>
+<p><strong>Click Continue</strong> and follow the on-screen steps:</p>
+<ul>
+<li>
+<p><strong>Database Settings:</strong></p>
+<ul>
+<li><strong>MySQL Database:</strong> <code>osticket</code></li>
+<li><strong>MySQL Username:</strong> <code>root</code></li>
+<li><strong>MySQL Password:</strong> <em>[The root password you set during MySQL installation]</em></li>
+<li><strong>MySQL Host:</strong> <code>localhost</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Site Settings:</strong></p>
+<ul>
+<li><strong>Help Desk Name:</strong> Your Company Name</li>
+<li><strong>Default Email:</strong> The email address where help desk emails will be received.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Complete the Installation.</strong> The installer will set up the database and create the configuration file.</p>
+</li>
+<li>
+<p><strong>Delete the Setup Folder:</strong></p>
+<ul>
+<li>After successful installation, a critical security step is to delete the setup directory.</li>
+<li>Navigate to <code>C:\inetpub\wwwroot\osticket\setup\</code> and <strong>delete the entire <code>setup</code> folder</strong>.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="part-7-access-your-help-desk">
+  <strong>Part 7: Access Your Help Desk</strong>
+  <a class="heading-link" href="#part-7-access-your-help-desk">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Admin Panel:</strong> Go to <code>http://localhost/osticket/scp</code> and log in with the default admin credentials created during setup.</li>
+<li><strong>Client Portal:</strong> Go to <code>http://localhost/osticket/</code> to submit new tickets.</li>
+</ul>
+<p>Your osTicket help desk is now ready for use! You can further configure email settings, add agents, and customize workflows from the admin panel.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2025
+     SecLice 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

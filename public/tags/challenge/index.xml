@@ -6,8 +6,43 @@
     <description>Recent content in Challenge on SecLice</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 11 Sep 2025 09:35:25 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 12 Sep 2025 19:12:58 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/challenge/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Day 20: SOC Analyst Challenge </title>
+      <link>http://localhost:1313/posts/soc-analyst-challenge-day-20/</link>
+      <pubDate>Fri, 12 Sep 2025 19:12:58 +0100</pubDate>
+      <guid>http://localhost:1313/posts/soc-analyst-challenge-day-20/</guid>
+      <description>&lt;h2 id=&#34;day-20-mythic-server-setup-tutorial&#34;&gt;&#xA;  Day 20: Mythic Server Setup Tutorial&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#day-20-mythic-server-setup-tutorial&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Ressources :&lt;a href=&#34;https://www.youtube.com/@MyDFIR/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MyDFIR Channel&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Of course. Here is a comprehensive tutorial for setting up a Mythic C2 server on a Linux host.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;mythic-c2-server-setup-tutorial&#34;&gt;&#xA;  &lt;strong&gt;Mythic C2 Server Setup Tutorial&lt;/strong&gt;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#mythic-c2-server-setup-tutorial&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;h4 id=&#34;what-is-mythic&#34;&gt;&#xA;  &lt;strong&gt;What is Mythic?&lt;/strong&gt;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#what-is-mythic&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h4&gt;&#xA;&lt;p&gt;Mythic is a sophisticated, cross-platform, red teaming Command and Control (C2) framework. Its unique microservices architecture allows for high customization, making it a powerful tool for penetration testers and security researchers.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Day 19: SOC Analyst Challenge </title>
+      <link>http://localhost:1313/posts/soc-analyst-challenge-day-19/</link>
+      <pubDate>Fri, 12 Sep 2025 19:12:54 +0100</pubDate>
+      <guid>http://localhost:1313/posts/soc-analyst-challenge-day-19/</guid>
+      <description>&lt;h2 id=&#34;day-19-how-to-create-an-attack-diagram&#34;&gt;&#xA;  Day 19: How To Create an Attack Diagram&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#day-19-how-to-create-an-attack-diagram&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Ressources :&lt;a href=&#34;https://www.youtube.com/@MyDFIR/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MyDFIR Channel&lt;/a&gt;&lt;/p&gt;&#xA;&lt;img src=&#34;http://localhost:1313/images/Attack-Diagram.png&#34; style=&#34;display: block; margin: auto; max-width: 70%;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title>Day 18: SOC Analyst Challenge </title>
+      <link>http://localhost:1313/posts/soc-analyst-challenge-day-18/</link>
+      <pubDate>Fri, 12 Sep 2025 19:12:51 +0100</pubDate>
+      <guid>http://localhost:1313/posts/soc-analyst-challenge-day-18/</guid>
+      <description>&lt;h2 id=&#34;day-15--command-and-control-introduction&#34;&gt;&#xA;  Day 15:  Command and Control Introduction&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#day-15--command-and-control-introduction&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Ressources :&lt;a href=&#34;https://www.youtube.com/@MyDFIR/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MyDFIR Channel&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Of course. Here is a clear and structured introduction to Command and Control (C2).&lt;/p&gt;&#xA;&lt;h3 id=&#34;what-is-command-and-control-c2&#34;&gt;&#xA;  &lt;strong&gt;What is Command and Control (C2)?&lt;/strong&gt;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#what-is-command-and-control-c2&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Command and Control (C2)&lt;/strong&gt;, also known as &lt;strong&gt;C&amp;amp;C&lt;/strong&gt; or &lt;strong&gt;C2&lt;/strong&gt;, is the infrastructure that cyber attackers use to maintain remote communication and control over compromised devices within a target network.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Day 17: SOC Analyst Challenge </title>
+      <link>http://localhost:1313/posts/soc-analyst-challenge-day-17/</link>
+      <pubDate>Fri, 12 Sep 2025 19:12:47 +0100</pubDate>
+      <guid>http://localhost:1313/posts/soc-analyst-challenge-day-17/</guid>
+      <description>&lt;h2 id=&#34;day-17&#34;&gt;&#xA;  Day 17:&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#day-17&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Ressources :&lt;a href=&#34;https://www.youtube.com/@MyDFIR/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MyDFIR Channel&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Day 16: SOC Analyst Challenge </title>
+      <link>http://localhost:1313/posts/soc-analyst-challenge-day-16/</link>
+      <pubDate>Fri, 12 Sep 2025 19:12:44 +0100</pubDate>
+      <guid>http://localhost:1313/posts/soc-analyst-challenge-day-16/</guid>
+      <description>&lt;h2 id=&#34;day-16-how-to-create-alerts-and-dashboards-in-kibana-24&#34;&gt;&#xA;  Day 16: How To Create Alerts and Dashboards in Kibana 2/4&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#day-16-how-to-create-alerts-and-dashboards-in-kibana-24&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Ressources :&lt;a href=&#34;https://www.youtube.com/@MyDFIR/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MyDFIR Channel&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;part-1-creating-alerts-kibana-alerting&#34;&gt;&#xA;  &lt;strong&gt;Part 1: Creating Alerts (Kibana Alerting)&lt;/strong&gt;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#part-1-creating-alerts-kibana-alerting&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Alerts automatically notify you when specific conditions are met in your data.&lt;/p&gt;&#xA;&lt;h4 id=&#34;scenario-alert-on-failed-ssh-login-attempts&#34;&gt;&#xA;  &lt;strong&gt;Scenario: Alert on Failed SSH Login Attempts&lt;/strong&gt;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#scenario-alert-on-failed-ssh-login-attempts&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h4&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s create an alert that triggers after 5 failed SSH attempts from a single source IP within 5 minutes.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Day 15: SOC Analyst Challenge </title>
       <link>http://localhost:1313/posts/soc-analyst-challenge-day-15/</link>

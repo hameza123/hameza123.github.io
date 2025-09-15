@@ -184,7 +184,7 @@
             </span>
             <span class="reading-time">
               <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              7-minute read
+              3-minute read
             </span>
           </div>
           <div class="authors">
@@ -230,8 +230,7 @@
   </a>
 </h2>
 <p>Ressources :<a href="https://www.youtube.com/@MyDFIR/"  class="external-link" target="_blank" rel="noopener">MyDFIR Channel</a></p>
-<p>Of course. Here is a comprehensive tutorial for setting up a Mythic C2 server on a Linux host.</p>
-<hr>
+<p><strong>Important Security Note:</strong> This setup is for a <strong>lab environment only</strong>. Exposing Mythic to the internet without proper hardening and obfuscation (e.g., using domain fronting, custom C2 profiles) will lead to quick detection.</p>
 <h3 id="mythic-c2-server-setup-tutorial">
   <strong>Mythic C2 Server Setup Tutorial</strong>
   <a class="heading-link" href="#mythic-c2-server-setup-tutorial">
@@ -258,7 +257,6 @@
 <li><strong>A Ubuntu Server (Recommended):</strong> 20.04 or 22.04 LTS. A fresh VM with <strong>at least 2 vCPUs, 4 GB RAM, and 20 GB disk</strong> is ideal.</li>
 <li><strong>Install Docker &amp; Docker-Compose:</strong> Mythic is deployed using Docker containers.</li>
 </ol>
-<hr>
 <h3 id="step-1-install-docker-and-docker-compose">
   <strong>Step 1: Install Docker and Docker-Compose</strong>
   <a class="heading-link" href="#step-1-install-docker-and-docker-compose">
@@ -268,33 +266,19 @@
 </h3>
 <p>First, update your system and install the necessary Docker packages.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Update the package list</span>
-</span></span><span class="line"><span class="cl">sudo apt update
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Install prerequisites</span>
-</span></span><span class="line"><span class="cl">sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Add Docker&#39;s official GPG key</span>
-</span></span><span class="line"><span class="cl">curl -fsSL https://download.docker.com/linux/ubuntu/gpg <span class="p">|</span> sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Add the Docker repository</span>
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> stable&#34;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+</span></span><span class="line"><span class="cl">sudo apt update <span class="o">&amp;&amp;</span> apt-get upgrade
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Update again and install Docker</span>
 </span></span><span class="line"><span class="cl">sudo apt update
-</span></span><span class="line"><span class="cl">sudo apt install -y docker-ce docker-ce-cli containerd.io
+</span></span><span class="line"><span class="cl">sudo apt install -y docker-compose
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Add your user to the docker group to run commands without sudo</span>
-</span></span><span class="line"><span class="cl">sudo usermod -aG docker <span class="nv">$USER</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># You will need to log out and back in for this to take effect.</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Install Docker Compose plugin</span>
-</span></span><span class="line"><span class="cl">sudo apt install -y docker-compose-plugin
+</span></span><span class="line"><span class="cl">sudo usermod -aG docker <span class="nv">$USER</span><span class="c1"># You will need to log out and back in for this to take effect.</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Verify installations</span>
 </span></span><span class="line"><span class="cl">docker --version
 </span></span><span class="line"><span class="cl">docker compose version
-</span></span></code></pre></div><hr>
-<h3 id="step-2-install-mythic">
+</span></span></code></pre></div><h3 id="step-2-install-mythic">
   <strong>Step 2: Install Mythic</strong>
   <a class="heading-link" href="#step-2-install-mythic">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
@@ -312,111 +296,13 @@
 <p><strong>Run the Mythic Installer:</strong>
 This script will build the core Mythic containers.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ./install_docker_ubuntu.sh
+</span></span><span class="line"><span class="cl">sudo make
 </span></span></code></pre></div><ul>
 <li>Follow the prompts. You can typically choose the default options.</li>
 <li>This process will take several minutes as it downloads and builds Docker images.</li>
 </ul>
 </li>
 </ol>
-<hr>
-<h3 id="step-3-start-mythic-and-access-the-web-interface">
-  <strong>Step 3: Start Mythic and Access the Web Interface</strong>
-  <a class="heading-link" href="#step-3-start-mythic-and-access-the-web-interface">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
-<ol>
-<li>
-<p><strong>Start the Mythic Server:</strong>
-From within the <code>Mythic</code> directory, run:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo docker compose up -d
-</span></span></code></pre></div><p>The <code>-d</code> flag runs the containers in the background.</p>
-</li>
-<li>
-<p><strong>Check Container Status:</strong>
-Ensure all containers are running without errors.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo docker compose logs --tail<span class="o">=</span><span class="m">50</span> mythic_server
-</span></span><span class="line"><span class="cl">sudo docker compose ps
-</span></span></code></pre></div></li>
-<li>
-<p><strong>Access the Web UI:</strong></p>
-<ul>
-<li>Open a web browser on your local machine.</li>
-<li>Navigate to <strong><code>https://&lt;your-server-ip&gt;:7443</code></strong>
-<ul>
-<li>Example: <code>https://192.168.1.150:7443</code></li>
-</ul>
-</li>
-<li>You will see a security warning because Mythic uses a self-signed certificate. This is normal for a lab. <strong>Proceed anyway</strong> (in Chrome, click &ldquo;Advanced&rdquo; -&gt; &ldquo;Proceed to&hellip;&rdquo;).</li>
-</ul>
-</li>
-<li>
-<p><strong>Log In:</strong></p>
-<ul>
-<li><strong>Default Username:</strong> <code>mythic_admin</code></li>
-<li><strong>Default Password:</strong> The password was generated during installation. You can find it in the logs:
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo docker compose logs mythic_server <span class="p">|</span> grep <span class="s2">&#34;Default password&#34;</span>
-</span></span></code></pre></div></li>
-<li><strong>You will be forced to change the password on first login.</strong></li>
-</ul>
-</li>
-</ol>
-<hr>
-<p>Of course. You&rsquo;ve provided the concise, correct commands. Let&rsquo;s break them down into a clear, step-by-step tutorial based on your instructions.</p>
-<h3 id="mythic-c2-server-setup-quick--correct-method">
-  <strong>Mythic C2 Server Setup: Quick &amp; Correct Method</strong>
-  <a class="heading-link" href="#mythic-c2-server-setup-quick--correct-method">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
-<p>This tutorial assumes you are on a fresh Ubuntu 22.04/24.04 server.</p>
-<hr>
-<h4 id="step-1-install-prerequisites-git--docker">
-  <strong>Step 1: Install Prerequisites (Git &amp; Docker)</strong>
-  <a class="heading-link" href="#step-1-install-prerequisites-git--docker">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h4>
-<p>Mythic requires Docker to be installed first.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Update the system</span>
-</span></span><span class="line"><span class="cl">sudo apt update <span class="o">&amp;&amp;</span> sudo apt upgrade -y
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Install Git and other helpers</span>
-</span></span><span class="line"><span class="cl">sudo apt install -y git
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Install Docker using the official script (this is the recommended method)</span>
-</span></span><span class="line"><span class="cl">curl -fsSL https://get.docker.com -o get-docker.sh
-</span></span><span class="line"><span class="cl">sudo sh get-docker.sh
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Add your user to the &#39;docker&#39; group to run commands without sudo</span>
-</span></span><span class="line"><span class="cl">sudo usermod -aG docker <span class="nv">$USER</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># You MUST log out and back in for this to take effect, or run the next commands with &#39;sudo&#39;.</span>
-</span></span></code></pre></div><hr>
-<h4 id="step-2-clone-and-install-mythic">
-  <strong>Step 2: Clone and Install Mythic</strong>
-  <a class="heading-link" href="#step-2-clone-and-install-mythic">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h4>
-<p>This downloads the Mythic code and runs its installation script.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 1. Clone the Mythic repository from GitHub</span>
-</span></span><span class="line"><span class="cl">git clone https://github.com/its-a-feature/Mythic.git
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 2. Change into the Mythic directory</span>
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> Mythic
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 3. Run the Mythic installation script for Ubuntu</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># This script installs dependencies and builds the core containers.</span>
-</span></span><span class="line"><span class="cl">./install_docker_ubuntu.sh
-</span></span></code></pre></div><ul>
-<li>During the script, you will be prompted to set a <code>MYTHIC_ADMIN_PASSWORD</code>. <strong>Choose a strong password and remember it.</strong> If you don&rsquo;t set one, a random password will be generated (check logs for it).</li>
-<li>The script will also ask if you want to include example payloads. You can say <code>no</code> for a minimal install; you can add them later from the UI.</li>
-</ul>
-<hr>
 <h4 id="step-3-start-the-mythic-server">
   <strong>Step 3: Start the Mythic Server</strong>
   <a class="heading-link" href="#step-3-start-the-mythic-server">
@@ -431,7 +317,6 @@ Ensure all containers are running without errors.</p>
 <li>The <code>mythic-cli</code> is a helpful script for managing the Mythic environment.</li>
 <li>This command will take a moment to start all the microservices.</li>
 </ul>
-<hr>
 <h4 id="step-4-access-the-web-interface">
   <strong>Step 4: Access the Web Interface</strong>
   <a class="heading-link" href="#step-4-access-the-web-interface">
@@ -463,14 +348,11 @@ Ensure all containers are running without errors.</p>
 <p><strong>Log in to the dashboard:</strong></p>
 <ul>
 <li><strong>Username:</strong> <code>mythic_admin</code></li>
-<li><strong>Password:</strong> The password you set during the <code>./install_docker_ubuntu.sh</code> script. If you didn&rsquo;t set one, find it in the logs with:
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./mythic-cli logs mythic_server <span class="p">|</span> grep <span class="s2">&#34;Default password&#34;</span>
-</span></span></code></pre></div></li>
+<li><strong>Password:</strong> The password is in the file the <code>.env</code></li>
+<li>Search for <code>~/Mythic# cat .env | grep MYTHIC_ADMIN_PASSWORD</code></li>
 </ul>
 </li>
 </ol>
-<p>You are now in the Mythic UI. The next steps are to install a Payload Type (like Apollo for Windows), create a listener, and generate a payload.</p>
-<hr>
 <h3 id="essential-management-commands">
   <strong>Essential Management Commands</strong>
   <a class="heading-link" href="#essential-management-commands">
@@ -514,109 +396,6 @@ Ensure all containers are running without errors.</p>
   </tbody>
 </table>
 <p>Your Mythic C2 server is now operational. Remember, this setup is for <strong>educational and authorized testing purposes only</strong> within a controlled lab environment.</p>
-<hr>
-<h3 id="step-4-install-a-payload-type-agent">
-  <strong>Step 4: Install a Payload Type (Agent)</strong>
-  <a class="heading-link" href="#step-4-install-a-payload-type-agent">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
-<p>Mythic is modular. Out of the box, it doesn&rsquo;t come with any agents (called &ldquo;Payload Types&rdquo;). You must install them.</p>
-<ol>
-<li><strong>In the Mythic UI,</strong> go to <strong>Settings -&gt; Payload Types</strong>.</li>
-<li>You will see a list of available agents. Popular choices include:
-<ul>
-<li><strong>Apollo:</strong> A powerful, feature-rich agent written in .NET.</li>
-<li><strong>Athena:</strong> A modern, cross-platform agent written in Rust.</li>
-<li><strong>Poseidon:</strong> A Python-based agent.</li>
-</ul>
-</li>
-<li>Click <strong>Install</strong> next to your desired agent(s). This will trigger Docker to build the new container for that agent. This will take a few minutes.</li>
-</ol>
-<p>You can monitor the build process via the logs:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo docker compose logs -f --tail<span class="o">=</span><span class="m">20</span> &lt;payload_type_name&gt;  <span class="c1"># e.g., apollo</span>
-</span></span></code></pre></div><hr>
-<h3 id="step-5-create-an-agent-and-generate-a-payload">
-  <strong>Step 5: Create an Agent and Generate a Payload</strong>
-  <a class="heading-link" href="#step-5-create-an-agent-and-generate-a-payload">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
-<p>Now, generate an executable that you can deploy on a target machine.</p>
-<ol>
-<li>
-<p><strong>Create a Payload:</strong></p>
-<ul>
-<li>In the Mythic UI, go to <strong>Payloads -&gt; Create Payload</strong>.</li>
-<li><strong>Select the Payload Type</strong> you installed (e.g., <code>apollo</code>).</li>
-<li><strong>Choose a C2 Profile:</strong> For simplicity, start with <code>http</code> or <code>dynamic_http</code>.</li>
-<li><strong>Select the Operating System</strong> for your target (e.g., Windows).</li>
-<li>Click <strong>Create</strong>. Mythic will generate the payload.</li>
-</ul>
-</li>
-<li>
-<p><strong>Download the Payload:</strong></p>
-<ul>
-<li>Once generated, you will be redirected to the payload page.</li>
-<li>Click the <strong>Download</strong> button to get the executable (e.g., a <code>.exe</code> for Windows).</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h3 id="step-6-listen-for-connections">
-  <strong>Step 6: Listen for Connections</strong>
-  <a class="heading-link" href="#step-6-listen-for-connections">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
-<p>Before executing the payload, you need to set up a listener for it to call back to.</p>
-<ol>
-<li><strong>Go to Listeners -&gt; Create Listener</strong>.</li>
-<li><strong>Select a C2 Profile:</strong> Choose the same one you used for the payload (e.g., <code>http</code>).</li>
-<li><strong>Configure the Listener:</strong>
-<ul>
-<li><strong>Name:</strong> Give it a descriptive name (e.g., <code>My-HTTP-Listener</code>).</li>
-<li><strong>Host:</strong> This should be the <strong>IP address of your Mythic server</strong> that the agent can reach (e.g., <code>192.168.1.150</code>). <strong>Do not use <code>localhost</code> or <code>127.0.0.1</code> here.</strong></li>
-</ul>
-</li>
-<li>Click <strong>Start Listener</strong>.</li>
-</ol>
-<hr>
-<h3 id="step-7-test-the-agent">
-  <strong>Step 7: Test the Agent</strong>
-  <a class="heading-link" href="#step-7-test-the-agent">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
-<ol>
-<li><strong>Transfer</strong> the downloaded payload to your target test machine (e.g., a Windows VM).</li>
-<li><strong>Execute the payload</strong> on the target machine.</li>
-<li><strong>Check for Callback:</strong>
-<ul>
-<li>In the Mythic UI, go to <strong>Operators -&gt; Active Connections</strong>.</li>
-<li>You should see a new agent check-in appear in the table. You can now interact with it.</li>
-</ul>
-</li>
-</ol>
-<h3 id="basic-mythic-commands">
-  <strong>Basic Mythic Commands</strong>
-  <a class="heading-link" href="#basic-mythic-commands">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
-<p>To stop, start, or update Mythic, use these commands from the <code>Mythic</code> directory:</p>
-<ul>
-<li><strong>Stop Mythic:</strong> <code>sudo docker compose down</code></li>
-<li><strong>Start Mythic:</strong> <code>sudo docker compose up -d</code></li>
-<li><strong>View Logs:</strong> <code>sudo docker compose logs -f --tail=50 &lt;container_name&gt;</code></li>
-<li><strong>Update Mythic:</strong> <code>git pull</code> followed by <code>sudo ./install_docker_ubuntu.sh</code> and <code>sudo docker compose up -d</code></li>
-</ul>
-<p><strong>Important Security Note:</strong> This setup is for a <strong>lab environment only</strong>. Exposing Mythic to the internet without proper hardening and obfuscation (e.g., using domain fronting, custom C2 profiles) will lead to quick detection.</p>
 
       </div>
 

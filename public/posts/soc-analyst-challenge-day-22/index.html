@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Day 22: SOC Analyst Challenge  · SecLice
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="SecLice">
+<meta name="description" content="SOC Analyst Challenge, Day 22">
+<meta name="keywords" content="blog,Cybersecurity">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Day 22: SOC Analyst Challenge ">
+  <meta name="twitter:description" content="SOC Analyst Challenge, Day 22">
+
+<meta property="og:url" content="http://localhost:1313/posts/soc-analyst-challenge-day-22/">
+  <meta property="og:site_name" content="SecLice">
+  <meta property="og:title" content="Day 22: SOC Analyst Challenge ">
+  <meta property="og:description" content="SOC Analyst Challenge, Day 22">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-13T18:15:23+01:00">
+    <meta property="article:modified_time" content="2025-09-13T18:15:23+01:00">
+    <meta property="article:tag" content="SOC">
+    <meta property="article:tag" content="Cybersecurity">
+    <meta property="article:tag" content="SOC Analyst">
+    <meta property="article:tag" content="ELK">
+    <meta property="article:tag" content="Challenge">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/soc-analyst-challenge-day-22/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      SecLice
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/pt-br/">🇧🇷</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/soc-analyst-challenge-day-22/">
+              Day 22: SOC Analyst Challenge 
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-09-13T18:15:23&#43;01:00">
+                September 13, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa-solid fa-user" aria-hidden="true"></i>
+    <a href="/authors/seclice/">Seclice</a></div>
+
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/soc/">SOC</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/soc/">SOC</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/cybersecurity/">Cybersecurity</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/soc-analyst/">SOC Analyst</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/elk/">ELK</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/challenge/">Challenge</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h2 id="day-22-how-to-create-alerts-and-dashboards-in-kibana">
+  Day 22: How To Create Alerts and Dashboards in Kibana
+  <a class="heading-link" href="#day-22-how-to-create-alerts-and-dashboards-in-kibana">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Ressources :<a href="https://www.youtube.com/@MyDFIR/"  class="external-link" target="_blank" rel="noopener">MyDFIR Channel</a></p>
+<h3 id="part-1-creating-the-alerts">
+  <strong>Part 1: Creating the Alerts</strong>
+  <a class="heading-link" href="#part-1-creating-the-alerts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>We will create three individual alert rules based on your queries.</p>
+<h4 id="alert-1-suspicious-apollo-process-creation">
+  <strong>Alert 1: Suspicious Apollo Process Creation</strong>
+  <a class="heading-link" href="#alert-1-suspicious-apollo-process-creation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li>Go to <strong>Management &gt; Observability &gt; Alerting &gt; Rules</strong>.</li>
+<li>Click <strong>Create rule</strong>.</li>
+<li><strong>Rule name:</strong> <code>Alert: Suspicious Apollo Execution</code></li>
+<li><strong>Rule type:</strong> <code>Elasticsearch query</code>.</li>
+<li><strong>Index:</strong> <code>logs-*</code> or <code>winlogbeat-*</code>.</li>
+<li><strong>Query (KQL):</strong>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">event.code: &#34;1&#34; and event.provider: &#34;Microsoft-Windows-Sysmon&#34; and winlog.event_data.OriginalFileName: &#34;Appollo.exe&#34;
+</code></pre></li>
+<li><strong>Time window:</strong> <code>5m</code> (Run every 5 minutes, check last 5 minutes of data).</li>
+<li><strong>Trigger condition:</strong> <code>Number of documents</code> ; <code>is above</code> ; <code>0</code>.</li>
+<li><strong>Add Action:</strong> Configure an email, Slack message, or log to an index. Use a message like:
+<pre tabindex="0"><code>Alert: Apollo Agent Executed on {{context.hits.0.winlog.computer_name}}.
+User: {{context.hits.0.winlog.event_data.User}}
+Command Line: {{context.hits.0.winlog.event_data.CommandLine}}
+</code></pre></li>
+<li><strong>Click Save.</strong></li>
+</ol>
+<h4 id="alert-2-process-creation-from-powershell-or-cmd">
+  <strong>Alert 2: Process Creation from PowerShell or CMD</strong>
+  <a class="heading-link" href="#alert-2-process-creation-from-powershell-or-cmd">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li><strong>Create a new rule.</strong></li>
+<li><strong>Rule name:</strong> <code>Alert: Process from Shell Parent</code></li>
+<li><strong>Rule type:</strong> <code>Elasticsearch query</code>.</li>
+<li><strong>Query (KQL):</strong>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">event.code: 1 and event.provider: &#34;Microsoft-Windows-Sysmon&#34; and
+(winlog.event_data.ParentImage: &#34;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe&#34; or
+ winlog.event_data.ParentImage: &#34;C:\\Windows\\system32\\cmd.exe&#34;)
+</code></pre><em>Note: Using <code>ParentImage</code> is often more reliable than <code>ParentCommandLine</code> for this specific case.</em></li>
+<li><strong>Time window:</strong> <code>5m</code>.</li>
+<li><strong>Trigger condition:</strong> <code>Number of documents</code> ; <code>is above</code> ; <code>5</code> (Adjust based on your environment&rsquo;s noise).</li>
+<li><strong>Group over:</strong> <code>winlog.computer_name</code> (Get separate alerts per host).</li>
+<li><strong>Add Action</strong> and <strong>Save.</strong></li>
+</ol>
+<h4 id="alert-3-windows-defender-antivirus-disabled">
+  <strong>Alert 3: Windows Defender Antivirus Disabled</strong>
+  <a class="heading-link" href="#alert-3-windows-defender-antivirus-disabled">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li><strong>Create a new rule.</strong></li>
+<li><strong>Rule name:</strong> <code>Alert: Windows Defender Disabled</code></li>
+<li><strong>Rule type:</strong> <code>Elasticsearch query</code>.</li>
+<li><strong>Query (KQL):</strong>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">event.code: 5001 and event.provider: &#34;Microsoft-Windows-Windows Defender&#34;
+</code></pre></li>
+<li><strong>Time window:</strong> <code>5m</code>.</li>
+<li><strong>Trigger condition:</strong> <code>Number of documents</code> ; <code>is above</code> ; <code>0</code>.</li>
+<li><strong>Add Action</strong> and <strong>Save.</strong></li>
+</ol>
+<hr>
+<h3 id="part-2-building-the-dashboard">
+  <strong>Part 2: Building the Dashboard</strong>
+  <a class="heading-link" href="#part-2-building-the-dashboard">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Now, let&rsquo;s create visualizations for your dashboard.</p>
+<h4 id="visualization-1-apollo-execution-events">
+  <strong>Visualization 1: Apollo Execution Events</strong>
+  <a class="heading-link" href="#visualization-1-apollo-execution-events">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li>Go to <strong>Analytics &gt; Dashboard &gt; Create dashboard</strong>.</li>
+<li>Click <strong>Create visualization</strong>.</li>
+<li>Choose <strong>Lens</strong>.</li>
+<li>Select your Windows data view (e.g., <code>logs-*</code>).</li>
+<li><strong>Configure:</strong>
+<ul>
+<li><strong>Vertical axis:</strong> <code>Count of records</code>.</li>
+<li><strong>Horizontal axis:</strong> <code>@timestamp</code> (with a <code>1d</code> interval for a trend line).</li>
+<li><strong>Breakdown by:</strong> <code>winlog.computer_name</code>.</li>
+<li><strong>Add a filter:</strong>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">event.code: &#34;1&#34; and event.provider: &#34;Microsoft-Windows-Sysmon&#34; and winlog.event_data.OriginalFileName: &#34;Appollo.exe&#34;
+</code></pre></li>
+</ul>
+</li>
+<li>Click <strong>Save and return</strong>. Name it: <code>Apollo Executions Over Time</code>.</li>
+</ol>
+<h4 id="visualization-2-top-parents-for-sysmon-event-id-1">
+  <strong>Visualization 2: Top Parents for Sysmon Event ID 1</strong>
+  <a class="heading-link" href="#visualization-2-top-parents-for-sysmon-event-id-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li><strong>Create new visualization</strong>, choose <strong>Data Table</strong>.</li>
+<li>Select your data view.</li>
+<li><strong>Metrics:</strong> <code>Count</code>.</li>
+<li><strong>Buckets &gt; Split rows:</strong>
+<ul>
+<li><strong>Aggregation:</strong> <code>Terms</code>.</li>
+<li><strong>Field:</strong> <code>winlog.event_data.ParentImage</code>.</li>
+<li><strong>Size:</strong> <code>10</code>.</li>
+</ul>
+</li>
+<li><strong>Add a filter:</strong>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">event.code: 1 and event.provider: &#34;Microsoft-Windows-Sysmon&#34;
+</code></pre></li>
+<li><strong>Save</strong> as <code>Top Parent Processes for Process Creation</code>.</li>
+</ol>
+<h4 id="visualization-3-sysmon-network-connections-initiated">
+  <strong>Visualization 3: Sysmon Network Connections (Initiated)</strong>
+  <a class="heading-link" href="#visualization-3-sysmon-network-connections-initiated">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li><strong>Create new visualization</strong>, choose <strong>Lens</strong>.</li>
+<li>Select your data view.</li>
+<li><strong>Configure:</strong>
+<ul>
+<li><strong>Vertical axis:</strong> <code>Count of records</code>.</li>
+<li><strong>Horizontal axis:</strong> <code>winlog.event_data.DestinationIp</code>.</li>
+<li><strong>Breakdown by:</strong> <code>winlog.event_data.Image</code>.</li>
+<li><strong>Add a filter:</strong>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">event.code: 3 and event.provider: &#34;Microsoft-Windows-Sysmon&#34; and winlog.event_data.Initiated: &#34;true&#34;
+</code></pre></li>
+</ul>
+</li>
+<li><strong>Save</strong> as <code>Outbound Network Connections by Destination IP</code>.</li>
+</ol>
+<h4 id="visualization-4-windows-defender-5001-events">
+  <strong>Visualization 4: Windows Defender 5001 Events</strong>
+  <a class="heading-link" href="#visualization-4-windows-defender-5001-events">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li><strong>Create new visualization</strong>, choose <strong>Data Table</strong>.</li>
+<li>Select your data view.</li>
+<li><strong>Metrics:</strong> <code>Count</code>.</li>
+<li><strong>Buckets &gt; Split rows:</strong>
+<ul>
+<li><strong>Aggregation:</strong> <code>Terms</code>.</li>
+<li><strong>Field:</strong> <code>host.hostname</code>.</li>
+<li><strong>Size:</strong> <code>10</code>.</li>
+</ul>
+</li>
+<li><strong>Add a filter:</strong>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">event.code: 5001 and event.provider: &#34;Microsoft-Windows-Windows Defender&#34;
+</code></pre></li>
+<li><strong>Save</strong> as <code>Hosts with Defender Disabled</code>.</li>
+</ol>
+<hr>
+<h3 id="part-3-assembling-the-dashboard">
+  <strong>Part 3: Assembling the Dashboard</strong>
+  <a class="heading-link" href="#part-3-assembling-the-dashboard">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>Go back to your dashboard.</li>
+<li>Click <strong>Edit &gt; Add</strong>.</li>
+<li>Select all the visualizations you just created:
+<ul>
+<li><code>Apollo Executions Over Time</code></li>
+<li><code>Top Parent Processes for Process Creation</code></li>
+<li><code>Outbound Network Connections by Destination IP</code></li>
+<li><code>Hosts with Defender Disabled</code></li>
+</ul>
+</li>
+<li><strong>Arrange the panels</strong> logically. For example:
+<ul>
+<li>Top row: <code>Apollo Executions</code> and <code>Defender Disabled</code> (your high-priority alerts).</li>
+<li>Bottom row: <code>Top Parent Processes</code> and <code>Network Connections</code> (trending data).</li>
+</ul>
+</li>
+<li><strong>Set a time filter</strong> at the top (e.g., &ldquo;Last 24 hours&rdquo;).</li>
+<li><strong>Click Save</strong> to save the dashboard. Name it <code>Windows Endpoint Security Overview</code>.</li>
+</ol>
+<p>This dashboard and alert setup will give you a powerful, real-time overview of critical security events on your Windows endpoints, directly based on the precise queries you provided.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2025
+     SecLice 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
