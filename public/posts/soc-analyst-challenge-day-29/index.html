@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Day 29:  Elastic Defend Setup Tutorial   · SecLice
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="SecLice">
+<meta name="description" content="SOC Analyst Challenge, Day 29">
+<meta name="keywords" content="blog,Cybersecurity">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Day 29:  Elastic Defend Setup Tutorial  ">
+  <meta name="twitter:description" content="SOC Analyst Challenge, Day 29">
+
+<meta property="og:url" content="http://localhost:1313/posts/soc-analyst-challenge-day-29/">
+  <meta property="og:site_name" content="SecLice">
+  <meta property="og:title" content="Day 29:  Elastic Defend Setup Tutorial  ">
+  <meta property="og:description" content="SOC Analyst Challenge, Day 29">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-13T18:15:41+01:00">
+    <meta property="article:modified_time" content="2025-09-13T18:15:41+01:00">
+    <meta property="article:tag" content="SOC">
+    <meta property="article:tag" content="Cybersecurity">
+    <meta property="article:tag" content="SOC Analyst">
+    <meta property="article:tag" content="ELK">
+    <meta property="article:tag" content="Challenge">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/soc-analyst-challenge-day-29/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      SecLice
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/pt-br/">🇧🇷</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/soc-analyst-challenge-day-29/">
+              Day 29:  Elastic Defend Setup Tutorial  
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-09-13T18:15:41&#43;01:00">
+                September 13, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa-solid fa-user" aria-hidden="true"></i>
+    <a href="/authors/seclice/">Seclice</a></div>
+
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/soc/">SOC</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/soc/">SOC</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/cybersecurity/">Cybersecurity</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/soc-analyst/">SOC Analyst</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/elk/">ELK</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/challenge/">Challenge</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h2 id="day-29-elastic-defend-setup-tutorial">
+  Day 29: Elastic Defend Setup Tutorial
+  <a class="heading-link" href="#day-29-elastic-defend-setup-tutorial">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Ressources :<a href="https://www.youtube.com/@MyDFIR/"  class="external-link" target="_blank" rel="noopener">MyDFIR Channel</a></p>
+<h3 id="what-is-elastic-defend">
+  <strong>What is Elastic Defend?</strong>
+  <a class="heading-link" href="#what-is-elastic-defend">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Elastic Defend is a security integration that transforms the standard Elastic Agent into a powerful EDR tool. It provides:</p>
+<ul>
+<li><strong>Advanced Threat Prevention:</strong> Blocks malicious processes and behaviors.</li>
+<li><strong>Endpoint Visibility:</strong> Detailed process, file, network, and registry auditing.</li>
+<li><strong>Detection &amp; Response:</strong> Built-in detection rules for common attack techniques.</li>
+</ul>
+<h3 id="prerequisites">
+  <strong>Prerequisites</strong>
+  <a class="heading-link" href="#prerequisites">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>A running <strong>Elastic Stack</strong> (Elasticsearch &amp; Kibana) version 8.0+.</li>
+<li>A <strong>Fleet Server</strong> already set up and running.</li>
+<li>Administrator access on the endpoints you want to protect (Windows, macOS, or Linux).</li>
+</ul>
+<h3 id="setup-tutorial">
+  <strong>Setup Tutorial</strong>
+  <a class="heading-link" href="#setup-tutorial">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="part-1-enable-and-configure-elastic-defend-in-kibana">
+  <strong>Part 1: Enable and Configure Elastic Defend in Kibana</strong>
+  <a class="heading-link" href="#part-1-enable-and-configure-elastic-defend-in-kibana">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li>
+<p><strong>Access Fleet:</strong></p>
+<ul>
+<li>Log in to Kibana.</li>
+<li>Navigate to <strong>Management &gt; Integrations</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Add the Elastic Defend Integration:</strong></p>
+<ul>
+<li>In the Fleet tab, go to <strong>Integrations</strong>.</li>
+<li>Search for <strong>&ldquo;Elastic Defend&rdquo;</strong>.</li>
+<li>Click on the integration and then click <strong>Add Elastic Defend</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure the Integration:</strong></p>
+<ul>
+<li><strong>Select a policy:</strong> Choose an existing agent policy (e.g., <code>your-win-server</code>) or create a new one (e.g., <code>edr-windows-policy</code>).</li>
+<li><strong>Configuration options:</strong> This is where you set the security level.</li>
+<li>Click <strong>Save and continue</strong>.</li>
+</ul>
+</li>
+</ol>
+<h4 id="part-2-verify-data-ingestion-and-explore-security-features">
+  <strong>Part 2: Verify Data Ingestion and Explore Security Features</strong>
+  <a class="heading-link" href="#part-2-verify-data-ingestion-and-explore-security-features">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li>
+<p><strong>Check for Data:</strong></p>
+<ul>
+<li>Go to <strong>Analytics &gt; Discover</strong>.</li>
+<li>Select the <code>logs-*</code> data view.</li>
+<li>Search for data from your endpoint:
+<pre tabindex="0"><code class="language-kql" data-lang="kql">agent.name : &#34;your-windows-hostname&#34; and event.module : &#34;endpoint&#34;
+</code></pre></li>
+<li>You should see process creation, network events, and file events flowing in.</li>
+</ul>
+</li>
+<li>
+<p><strong>Explore the Security App:</strong></p>
+<ul>
+<li>Navigate to <strong>Security &gt; Hosts</strong>.</li>
+<li>You should see your endpoint listed. Click on it to see a detailed overview of its security posture, including running processes, events, and potential alerts.</li>
+</ul>
+</li>
+</ol>
+<h3 id="part-3-key-features-and-how-to-use-them">
+  <strong>Part 3: Key Features and How to Use Them</strong>
+  <a class="heading-link" href="#part-3-key-features-and-how-to-use-them">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="1-hosts-overview-security--manage--endpoints">
+  <strong>1. Hosts Overview (Security &gt; manage &gt; Endpoints)</strong>
+  <a class="heading-link" href="#1-hosts-overview-security--manage--endpoints">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>View all endpoints enrolled in Elastic Defend.</li>
+<li>See their risk scores, last seen time, and operating system.</li>
+<li>Click on any host to investigate its activity.</li>
+</ul>
+<h4 id="2-alerts-security--alerts">
+  <strong>2. Alerts (Security &gt; Alerts)</strong>
+  <a class="heading-link" href="#2-alerts-security--alerts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>This is where Elastic Defend&rsquo;s built-in detection rules display potential threats.</li>
+<li>Alerts are automatically generated based on malicious behavior (e.g., ransomware, suspicious process injection, etc.).</li>
+</ul>
+<h4 id="3-timeline-security--timeline">
+  <strong>3. Timeline (Security &gt; Timeline)</strong>
+  <a class="heading-link" href="#3-timeline-security--timeline">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>This is your investigation workspace.</li>
+<li>You can create new timelines to manually investigate events or open existing ones from alerts.</li>
+<li>Correlate process, network, and file events to understand the full attack chain.</li>
+</ul>
+<h4 id="4-management-security--management">
+  <strong>4. Management (Security &gt; Management)</strong>
+  <a class="heading-link" href="#4-management-security--management">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Trusted Applications:</strong> Define processes that are allowed to run to avoid false positives.</li>
+<li><strong>Event Filters:</strong> Exclude noisy but benign events from generating alerts.</li>
+<li><strong>Blocklist:</strong> Define specific processes, hashes, or URLs that should always be blocked.</li>
+</ul>
+<h4 id="5-live-terminal-interactive-response">
+  <strong>5. Live Terminal (Interactive Response)</strong>
+  <a class="heading-link" href="#5-live-terminal-interactive-response">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>For advanced users, Elastic Defend allows you to open a live shell on the endpoint directly from Kibana.</li>
+<li><strong>Access:</strong> Go to <strong>Security &gt; manage &gt; action and click</strong>… &gt; <strong>Respond</strong>.</li>
+<li><strong>This allows you to run commands</strong> like <code>ps</code> (Linux/macOS) or <code>tasklist</code> (Windows) to investigate in real-time.</li>
+</ul>
+<h3 id="example-investigation-looking-for-a-suspicious-process">
+  <strong>Example Investigation: Looking for a Suspicious Process</strong>
+  <a class="heading-link" href="#example-investigation-looking-for-a-suspicious-process">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li><strong>Go to Security &gt; Hosts</strong> and select your endpoint.</li>
+<li>In the &ldquo;Events&rdquo; section, filter for <code>event.action: &quot;process_started&quot;</code>.</li>
+<li>Look for unfamiliar processes, especially those with unusual parent processes or running from temporary folders (<code>C:\Users\*\AppData\Local\Temp\</code>).</li>
+<li>If you find something, click on the event and select <strong>&ldquo;Take action&rdquo;</strong> &gt; <strong>&ldquo;Add to blocklist&rdquo;</strong> to prevent it from ever running again.</li>
+</ol>
+<h3 id="troubleshooting">
+  <strong>Troubleshooting</strong>
+  <a class="heading-link" href="#troubleshooting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>No data in Discover?</strong> Check the agent&rsquo;s status in Fleet. Ensure the policy has the Elastic Defend integration.</li>
+<li><strong>&ldquo;Unauthorized&rdquo; errors?</strong> The agent likely doesn&rsquo;t have the correct permissions. Ensure it was installed as Administrator/root.</li>
+<li><strong>Performance issues?</strong> The <code>Prevent</code> mode uses more resources than <code>Detect</code> mode. Adjust your policy settings.</li>
+</ul>
+<p>By following these steps, you have deployed a modern, powerful EDR solution that provides deep visibility and protection for your endpoints, all centrally managed from your Kibana dashboard.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2025
+     SecLice 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

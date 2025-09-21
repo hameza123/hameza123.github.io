@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Day 26: Investigate SSH Brute Force Attack · SecLice
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="SecLice">
+<meta name="description" content="SOC Analyst Challenge, Day 26">
+<meta name="keywords" content="blog,Cybersecurity">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Day 26: Investigate SSH Brute Force Attack">
+  <meta name="twitter:description" content="SOC Analyst Challenge, Day 26">
+
+<meta property="og:url" content="http://localhost:1313/posts/soc-analyst-challenge-day-26/">
+  <meta property="og:site_name" content="SecLice">
+  <meta property="og:title" content="Day 26: Investigate SSH Brute Force Attack">
+  <meta property="og:description" content="SOC Analyst Challenge, Day 26">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-13T18:15:33+01:00">
+    <meta property="article:modified_time" content="2025-09-13T18:15:33+01:00">
+    <meta property="article:tag" content="SOC">
+    <meta property="article:tag" content="Cybersecurity">
+    <meta property="article:tag" content="SOC Analyst">
+    <meta property="article:tag" content="ELK">
+    <meta property="article:tag" content="Challenge">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/soc-analyst-challenge-day-26/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      SecLice
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/pt-br/">🇧🇷</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/soc-analyst-challenge-day-26/">
+              Day 26: Investigate SSH Brute Force Attack
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-09-13T18:15:33&#43;01:00">
+                September 13, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa-solid fa-user" aria-hidden="true"></i>
+    <a href="/authors/seclice/">Seclice</a></div>
+
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/soc/">SOC</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/soc/">SOC</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/cybersecurity/">Cybersecurity</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/soc-analyst/">SOC Analyst</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/elk/">ELK</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/challenge/">Challenge</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h2 id="day-26-investigate-ssh-brute-force-attack">
+  Day 26: Investigate SSH Brute Force Attack
+  <a class="heading-link" href="#day-26-investigate-ssh-brute-force-attack">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Ressources :<a href="https://www.youtube.com/@MyDFIR/"  class="external-link" target="_blank" rel="noopener">MyDFIR Channel</a></p>
+<h3 id="investigation-guide-ssh-brute-force-attack-in-kibana">
+  <strong>Investigation Guide: SSH Brute Force Attack in Kibana</strong>
+  <a class="heading-link" href="#investigation-guide-ssh-brute-force-attack-in-kibana">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>This process involves using Kibana&rsquo;s Discover app and its powerful KQL (Kibana Query Language) to find evidence of the attack, identify the source, and understand its scope.</p>
+<h3 id="1-find-the-evidence-in-discover">
+  <strong>1. Find the Evidence in Discover</strong>
+  <a class="heading-link" href="#1-find-the-evidence-in-discover">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>First, you need to locate the failed login attempts.</p>
+<ol>
+<li><strong>Go to Discover:</strong> Navigate to <strong>Analytics &gt; Discover</strong>.</li>
+<li><strong>Select the Correct Data View:</strong> Ensure you have the right data view selected (e.g., <code>logs-*</code> or <code>logs-ssh*</code>).</li>
+<li><strong>Apply a Time Filter:</strong> Set the time range to the last 24 hours or when you suspect the attack occurred.</li>
+</ol>
+<h4 id="key-search-queries-kql">
+  <strong>Key Search Queries (KQL):</strong>
+  <a class="heading-link" href="#key-search-queries-kql">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>
+<p><strong>Find All Failed SSH Login Attempts:</strong></p>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">system.auth.ssh.event : &#34;Failed&#34; 
+</code></pre><p>or, if the field is different:</p>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">message: &#34;Invalid user&#34;
+</code></pre></li>
+<li>
+<p><strong>Find Authentication Failures from a Specific IP:</strong> (Replace <code>172.16.193.160</code> with the IP you found)</p>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">source.ip: 172.16.193.160 and message: &#34;Invalid user&#34;
+</code></pre></li>
+</ul>
+<h3 id="2-analyze-the-attack-pattern">
+  <strong>2. Analyze the Attack Pattern</strong>
+  <a class="heading-link" href="#2-analyze-the-attack-pattern">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Once you have the results, use Kibana&rsquo;s features to analyze the pattern.</p>
+<ol>
+<li><strong>Visualize the Volume:</strong> Click the <strong>Auto-refresh</strong> button to see if events are still pouring in live.</li>
+<li><strong>Identify the Top Attacker IP:</strong>
+<ul>
+<li>In the <strong>Available fields</strong> list on the left, find <code>source.ip</code>.</li>
+<li>Click the <strong>Visualize</strong> lens icon next to it. This will show you a bar chart of the top IPs by number of events.</li>
+<li>The IP with the highest count is your likely attacker.</li>
+</ul>
+</li>
+<li><strong>See Targeted Usernames:</strong> Do the same for the <code>user.name</code> field. This will show you which usernames the attacker is trying to guess.</li>
+<li><strong>Check the Timeline:</strong> Use the <code>@timestamp</code> field to see if the attack is ongoing or happened in a specific burst.</li>
+</ol>
+<h3 id="3-create-a-detection-visualization--dashboard">
+  <strong>3. Create a Detection Visualization / Dashboard</strong>
+  <a class="heading-link" href="#3-create-a-detection-visualization--dashboard">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>For ongoing monitoring, create a visualization to track this.</p>
+<ol>
+<li>Click <strong>Create visualization</strong> and choose <strong>Lens</strong>.</li>
+<li><strong>Configure the Visualization:</strong>
+<ul>
+<li><strong>Vertical axis:</strong> <code>Count of records</code> (this will be the number of failed attempts).</li>
+<li><strong>Horizontal axis:</strong> <code>@timestamp</code> (with an interval like <code>1 hour</code> or <code>30 minutes</code>).</li>
+<li><strong>Breakdown by:</strong> <code>source.ip</code> (to color-code the attacks by source IP).</li>
+</ul>
+</li>
+<li>Add a filter to only show failed logins:
+<pre tabindex="0"><code class="language-kql" data-lang="kql">system.auth.ssh.event : &#34;Failed&#34; 
+</code></pre></li>
+<li>Save this visualization with a name like <code>SSH Failed Logins Over Time</code>.</li>
+</ol>
+<h3 id="4-crucial-check-for-success">
+  <strong>4. (Crucial) Check for Success</strong>
+  <a class="heading-link" href="#4-crucial-check-for-success">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The goal of a brute force attack is to eventually succeed. You must check if the attacker guessed a password.</p>
+<ol>
+<li><strong>Search for Successful Logins from the Attacker&rsquo;s IP:</strong>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">source.ip: &#34;172.16.193.160&#34; and system.auth.ssh.event : &#34;Accepted&#34;  
+</code></pre></li>
+<li><strong>Search for Successful Logins for Targeted Users:</strong> Look for successful logins for the usernames that were being brute-forced, especially from any IP, not just the attacker&rsquo;s. The attacker may have succeeded and then logged in from a different machine.
+<pre tabindex="0"><code class="language-kql" data-lang="kql">user.name: &#34;root&#34; and system.auth.ssh.event : &#34;Accepted&#34;  
+</code></pre></li>
+</ol>
+<h3 id="5-triage--response-actions">
+  <strong>5. Triage &amp; Response Actions</strong>
+  <a class="heading-link" href="#5-triage--response-actions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>If you confirm a successful login, act immediately.</p>
+<ol>
+<li><strong>Contain:</strong> Immediately block the attacker&rsquo;s IP address at the firewall.
+<ul>
+<li>On Ubuntu: <code>sudo ufw deny from 172.16.193.160</code></li>
+</ul>
+</li>
+<li><strong>Identify:</strong> Determine which server was compromised from the <code>host.name</code> or <code>host.ip</code> field in the successful login event.</li>
+<li><strong>Investigate:</strong> On the compromised server:
+<ul>
+<li>Check the command history for the compromised user: <code>cat ~/.bash_history</code>.</li>
+<li>Look for unknown processes: <code>ps auxf</code>.</li>
+<li>Check for unauthorized SSH keys: <code>cat ~/.ssh/authorized_keys</code>.</li>
+</ul>
+</li>
+<li><strong>Eradicate:</strong> Reset the password for the compromised user account. Rotate any SSH keys.</li>
+</ol>
+<h3 id="6-proactive-defense-create-an-alert">
+  <strong>6. Proactive Defense: Create an Alert</strong>
+  <a class="heading-link" href="#6-proactive-defense-create-an-alert">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Automate the detection for next time.</p>
+<ol>
+<li>Go to <strong>Management &gt; Observability &gt; Alerting &gt; Rules</strong> and create a new rule.</li>
+<li><strong>Rule type:</strong> <code>Elasticsearch query</code>.</li>
+<li><strong>Index:</strong> <code>logs-*</code></li>
+<li><strong>Query (KQL):</strong>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">system.auth.ssh.event : &#34;Failed&#34;  
+</code></pre></li>
+<li><strong>Trigger condition:</strong> <code>Number of documents</code> ; <code>is above</code> ; <code>50</code> ; <code>over the last</code> ; <code>5 minutes</code>.</li>
+<li><strong>Group by:</strong> <code>source.ip</code> (This creates a separate alert for each attacking IP).</li>
+<li><strong>Add an Action:</strong> Configure the Osticket server.</li>
+</ol>
+<h3 id="summary-of-investigation-queries">
+  <strong>Summary of Investigation Queries</strong>
+  <a class="heading-link" href="#summary-of-investigation-queries">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Purpose</th>
+          <th style="text-align: left">KQL Query</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>Find Failed Attempts</strong></td>
+          <td style="text-align: left"><code>system.auth.ssh.event : &quot;Failed&quot; </code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Find Attacks from a Specific IP</strong></td>
+          <td style="text-align: left"><code>source.ip: &quot;172.16.193.160&quot; and system.auth.ssh.event : &quot;Failed&quot;</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Check for &ldquo;Invalid User&rdquo;</strong></td>
+          <td style="text-align: left"><code>message: &quot;Invalid user</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Check for Attacker&rsquo;s Success</strong></td>
+          <td style="text-align: left"><code>source.ip: &quot;172.16.193.160&quot; and system.auth.ssh.event : &quot;Accepted&quot;</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Check for Any Success on Targeted Users</strong></td>
+          <td style="text-align: left"><code>user.name: (root) and esystem.auth.ssh.event : &quot;Accepted&quot;</code></td>
+      </tr>
+  </tbody>
+</table>
+<p>By following this process, you can move from detecting an attack, to analyzing its scope, to responding to it, and finally to automating its detection in the future.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2025
+     SecLice 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

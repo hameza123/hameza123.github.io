@@ -23,32 +23,32 @@
       <description></description>
     </item>
     <item>
-      <title></title>
-      <link>http://localhost:1313/posts/day28/</link>
+      <title>Day 28: Investigate Mythic Agent</title>
+      <link>http://localhost:1313/posts/soc-analyst-challenge-day-28/</link>
       <pubDate>Sat, 13 Sep 2025 18:15:38 +0100</pubDate>
-      <guid>http://localhost:1313/posts/day28/</guid>
-      <description></description>
+      <guid>http://localhost:1313/posts/soc-analyst-challenge-day-28/</guid>
+      <description>&lt;h2 id=&#34;day-28-investigate-mythic-agent&#34;&gt;&#xA;  Day 28: Investigate Mythic Agent&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#day-28-investigate-mythic-agent&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Ressources :&lt;a href=&#34;https://www.youtube.com/@MyDFIR/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MyDFIR Channel&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Of course. Investigating a Mythic agent, often called a &amp;ldquo;callback,&amp;rdquo; is a critical skill for both red teamers (to ensure their tooling is working) and blue teamers (to detect intrusions). Here&amp;rsquo;s a comprehensive guide on how to investigate it.&lt;/p&gt;&#xA;&lt;h3 id=&#34;how-to-investigate-a-mythic-agent-callback&#34;&gt;&#xA;  &lt;strong&gt;How to Investigate a Mythic Agent (Callback)&lt;/strong&gt;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#how-to-investigate-a-mythic-agent-callback&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Investigation happens from two perspectives: the &lt;strong&gt;Operator&lt;/strong&gt; (attacker) in the Mythic UI and the &lt;strong&gt;Analyst&lt;/strong&gt; (defender) on the target endpoint.&lt;/p&gt;</description>
     </item>
     <item>
-      <title></title>
-      <link>http://localhost:1313/posts/day27/</link>
+      <title>Day 27: Investigate RDP Brute Force Attack</title>
+      <link>http://localhost:1313/posts/soc-analyst-challenge-day-27/</link>
       <pubDate>Sat, 13 Sep 2025 18:15:35 +0100</pubDate>
-      <guid>http://localhost:1313/posts/day27/</guid>
-      <description></description>
+      <guid>http://localhost:1313/posts/soc-analyst-challenge-day-27/</guid>
+      <description>&lt;h2 id=&#34;day-26-investigate-rdp-brute-force-attack&#34;&gt;&#xA;  Day 26: Investigate RDP Brute Force Attack&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#day-26-investigate-rdp-brute-force-attack&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Ressources :&lt;a href=&#34;https://www.youtube.com/@MyDFIR/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MyDFIR Channel&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
-      <title></title>
-      <link>http://localhost:1313/posts/day26/</link>
+      <title>Day 26: Investigate SSH Brute Force Attack</title>
+      <link>http://localhost:1313/posts/soc-analyst-challenge-day-26/</link>
       <pubDate>Sat, 13 Sep 2025 18:15:33 +0100</pubDate>
-      <guid>http://localhost:1313/posts/day26/</guid>
-      <description></description>
+      <guid>http://localhost:1313/posts/soc-analyst-challenge-day-26/</guid>
+      <description>&lt;h2 id=&#34;day-26-investigate-ssh-brute-force-attack&#34;&gt;&#xA;  Day 26: Investigate SSH Brute Force Attack&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#day-26-investigate-ssh-brute-force-attack&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Ressources :&lt;a href=&#34;https://www.youtube.com/@MyDFIR/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MyDFIR Channel&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Day 24: osTicket Setup Tutorial on Windows Server 2022</title>
-      <link>http://localhost:1313/posts/soc-analyst-challenge-day-24/</link>
+      <title>Day 25: osTicket &#43; ELK Integration</title>
+      <link>http://localhost:1313/posts/soc-analyst-challenge-day-25/</link>
       <pubDate>Sat, 13 Sep 2025 18:15:30 +0100</pubDate>
-      <guid>http://localhost:1313/posts/soc-analyst-challenge-day-24/</guid>
-      <description></description>
+      <guid>http://localhost:1313/posts/soc-analyst-challenge-day-25/</guid>
+      <description>&lt;h2 id=&#34;day-25--osticket--elk-integration&#34;&gt;&#xA;  Day 25:  osTicket + ELK Integration&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#day-25--osticket--elk-integration&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Ressources :&lt;a href=&#34;https://www.youtube.com/@MyDFIR/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MyDFIR Channel&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;i went to ip@osticket-serve/upload/scp/index.php/ &amp;gt; admin panel &amp;gt; manage &amp;gt; add API named elastic connector and i copied the key&lt;/p&gt;&#xA;&lt;p&gt;i went to elasticsearch &amp;gt; stack management &amp;gt; conector &amp;gt; free trial &amp;gt; webhook &amp;gt; configuration &amp;gt; post http://ip@osticket-serve/osticket/upload/api/tickets.xml , authentication none , header key : X-API-Key, value : the copied keycopied &amp;gt; test the body test from &lt;a href=&#34;https://github.com/osTicket/osTicket/blob/develop/setup/doc/api/tickets.md&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/osTicket/osTicket/blob/develop/setup/doc/api/tickets.md&lt;/a&gt; and run&#xA;the result shoud appear in the aget panel&lt;/p&gt;</description>
     </item>
     <item>
       <title>Day 24: osTicket Setup Tutorial on Windows Server 2022</title>

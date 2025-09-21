@@ -29,8 +29,8 @@
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-09-13T18:15:30+01:00">
-    <meta property="article:modified_time" content="2025-09-13T18:15:30+01:00">
+    <meta property="article:published_time" content="2025-09-13T18:15:27+01:00">
+    <meta property="article:modified_time" content="2025-09-13T18:15:27+01:00">
     <meta property="article:tag" content="SOC">
     <meta property="article:tag" content="Cybersecurity">
     <meta property="article:tag" content="SOC Analyst">
@@ -178,13 +178,13 @@
           <div class="date">
             <span class="posted-on">
               <i class="fa-solid fa-calendar" aria-hidden="true"></i>
-              <time datetime="2025-09-13T18:15:30&#43;01:00">
+              <time datetime="2025-09-13T18:15:27&#43;01:00">
                 September 13, 2025
               </time>
             </span>
             <span class="reading-time">
               <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              0-minute read
+              2-minute read
             </span>
           </div>
           <div class="authors">
@@ -222,7 +222,139 @@
 
       <div class="post-content">
         
-        
+        <h2 id="day-24-osticket-setup-tutorial-on-windows-server-2022">
+  Day 24: osTicket Setup Tutorial on Windows Server 2022
+  <a class="heading-link" href="#day-24-osticket-setup-tutorial-on-windows-server-2022">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Ressources :<a href="https://www.youtube.com/@MyDFIR/"  class="external-link" target="_blank" rel="noopener">MyDFIR Channel</a></p>
+<h3 id="prerequisite-install-xampp--osticket">
+  <strong>Prerequisite: Install XAMPP &amp; osTicket</strong>
+  <a class="heading-link" href="#prerequisite-install-xampp--osticket">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>Install <strong>XAMPP</strong> to <code>C:\xampp</code>.</li>
+<li>Download <strong>osTicket</strong>, extract it, and rename the <code>upload</code> folder to <code>osticket</code> in <code>C:\xampp\htdocs\</code>.</li>
+</ol>
+<h3 id="part-1-install-xampp">
+  <strong>Part 1: Install XAMPP</strong>
+  <a class="heading-link" href="#part-1-install-xampp">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li><strong>Download XAMPP</strong> from <a href="https://www.apachefriends.org/index.html"  class="external-link" target="_blank" rel="noopener">https://www.apachefriends.org/index.html</a> (PHP 8.x version).</li>
+<li><strong>Run the Installer.</strong> Install to <code>C:\xampp</code>. Select <strong>Apache, MySQL, PHP, and phpMyAdmin</strong>.</li>
+<li><strong>Start the Services.</strong> Open the <strong>XAMPP Control Panel</strong> and start <strong>Apache</strong> and <strong>MySQL</strong>.</li>
+</ol>
+<h3 id="part-2-modify-mysql-root-and-pma-accounts-for-network-access">
+  <strong>Part 2: Modify MySQL root and pma Accounts for Network Access</strong>
+  <a class="heading-link" href="#part-2-modify-mysql-root-and-pma-accounts-for-network-access">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>This step is optional for a lab but good practice. It secures your database.</p>
+<ol>
+<li>
+<p>Go to <code>http://localhost/phpmyadmin/</code>.</p>
+</li>
+<li>
+<p>Click on the <strong>User accounts</strong> tab.</p>
+</li>
+<li>
+<p>Find the <strong>root</strong> user with the <strong>Server</strong> listed as <code>localhost</code>. Click <strong>Edit privileges</strong>.</p>
+</li>
+<li>
+<p>Click the <strong>Login Information</strong> tab.</p>
+</li>
+<li>
+<p><strong>Change the password:</strong> Enter a strong new password. <strong>Remember this password.</strong></p>
+</li>
+<li>
+<p><strong>Change the host:</strong> To allow connections from your network, change <code>localhost</code> to <code>ip@windows-server</code> (which means &ldquo;any host&rdquo;). <strong>Warning: This is less secure for production.</strong> Find your server&rsquo;s IP address using <code>ipconfig</code> in Command Prompt.</p>
+</li>
+<li>
+<p>Click <strong>Go</strong>. Repeat these steps for the <code>pma</code> (phpMyAdmin) user if it exists.</p>
+</li>
+</ol>
+<h3 id="part-3-create-the-database">
+  <strong>Part 3: Create the Database</strong>
+  <a class="heading-link" href="#part-3-create-the-database">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>In <strong>phpMyAdmin</strong>, click the <strong>Databases</strong> tab.</li>
+<li>Under <strong>Create database</strong>, enter the name <code>osticket</code>.</li>
+<li>Set the Collation to <code>utf8_general_ci</code>.</li>
+<li>Click <strong>Create</strong>.</li>
+</ol>
+<h3 id="part-4-install-osticket-files">
+  <strong>Part 4: Install osTicket Files</strong>
+  <a class="heading-link" href="#part-4-install-osticket-files">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li><strong>Download osTicket</strong> from <a href="https://osticket.com/download/"  class="external-link" target="_blank" rel="noopener">https://osticket.com/download/</a>.</li>
+<li><strong>Extract</strong> the ZIP file.</li>
+<li>Copy the <strong><code>upload</code></strong> folder to <code>C:\xampp\htdocs\</code>.</li>
+<li>Rename the folder from <code>upload</code> to <code>osticket</code>.</li>
+</ol>
+<h3 id="part-5-set-file-permissions">
+  <strong>Part 5: Set File Permissions</strong>
+  <a class="heading-link" href="#part-5-set-file-permissions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li><strong>Open Command Prompt as Administrator.</strong></li>
+<li>Navigate to the osTicket directory:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"><span class="k">cd</span> C:\xampp\htdocs\osticket
+</span></span></code></pre></div></li>
+<li><strong>Rename the config file:</strong>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">icacis include\ost-config php /reset
+</span></span></code></pre></div><ul>
+<li>What this does: The /reset flag replaces all existing permissions on the file with the default inherited permissions. This securely locks the configuration file, preventing it from being easily modified by the web server, which is the correct final state.</li>
+</ul>
+</li>
+</ol>
+<h3 id="part-6-run-the-osticket-web-installer">
+  <strong>Part 6: Run the osTicket Web Installer</strong>
+  <a class="heading-link" href="#part-6-run-the-osticket-web-installer">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>From a browser on your network, go to: <code>http://&lt;YOUR-SERVER-IP&gt;/osticket/</code>.</li>
+<li><strong>Complete the installation form:</strong>
+<ul>
+<li><strong>Database Settings:</strong>
+<ul>
+<li><strong>MySQL Database:</strong> <code>osticket</code></li>
+<li><strong>MySQL Username:</strong> <code>root</code></li>
+<li><strong>MySQL Password:</strong> <em>The new password you set in Part 2.</em></li>
+<li><strong>MySQL Host:</strong> <code>ip@windows-server</code></li>
+</ul>
+</li>
+<li>Fill out the <strong>Site Settings</strong> and admin user details.</li>
+<li>Click <strong>Install Now!</strong>.</li>
+</ul>
+</li>
+</ol>
+<p>Your osTicket installation is now complete and more secure. The key fixes were using the correct <code>icacls</code> command and remembering the new database password during the web setup.</p>
+
       </div>
 
 

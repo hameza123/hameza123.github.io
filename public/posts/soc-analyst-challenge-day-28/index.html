@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Day 28: Investigate Mythic Agent · SecLice
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="SecLice">
+<meta name="description" content="SOC Analyst Challenge, Day 28">
+<meta name="keywords" content="blog,Cybersecurity">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Day 28: Investigate Mythic Agent">
+  <meta name="twitter:description" content="SOC Analyst Challenge, Day 28">
+
+<meta property="og:url" content="http://localhost:1313/posts/soc-analyst-challenge-day-28/">
+  <meta property="og:site_name" content="SecLice">
+  <meta property="og:title" content="Day 28: Investigate Mythic Agent">
+  <meta property="og:description" content="SOC Analyst Challenge, Day 28">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-13T18:15:38+01:00">
+    <meta property="article:modified_time" content="2025-09-13T18:15:38+01:00">
+    <meta property="article:tag" content="SOC">
+    <meta property="article:tag" content="Cybersecurity">
+    <meta property="article:tag" content="SOC Analyst">
+    <meta property="article:tag" content="ELK">
+    <meta property="article:tag" content="Challenge">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/soc-analyst-challenge-day-28/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      SecLice
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/pt-br/">🇧🇷</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/soc-analyst-challenge-day-28/">
+              Day 28: Investigate Mythic Agent
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-09-13T18:15:38&#43;01:00">
+                September 13, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa-solid fa-user" aria-hidden="true"></i>
+    <a href="/authors/seclice/">Seclice</a></div>
+
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/soc/">SOC</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/soc/">SOC</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/cybersecurity/">Cybersecurity</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/soc-analyst/">SOC Analyst</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/elk/">ELK</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/challenge/">Challenge</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h2 id="day-28-investigate-mythic-agent">
+  Day 28: Investigate Mythic Agent
+  <a class="heading-link" href="#day-28-investigate-mythic-agent">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Ressources :<a href="https://www.youtube.com/@MyDFIR/"  class="external-link" target="_blank" rel="noopener">MyDFIR Channel</a></p>
+<h3 id="investigation-guide-mythic-c2-activity-in-kibana">
+  <strong>Investigation Guide: Mythic C2 Activity in Kibana</strong>
+  <a class="heading-link" href="#investigation-guide-mythic-c2-activity-in-kibana">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Mythic is designed to be stealthy, but no C2 framework is invisible. Its activity generates logs that can be detected with careful analysis.</p>
+<h3 id="1-investigate-the-agent-deployment-initial-execution">
+  <strong>1. Investigate the Agent Deployment (Initial Execution)</strong>
+  <a class="heading-link" href="#1-investigate-the-agent-deployment-initial-execution">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The first step is finding how the agent (e.g., Apollo, Athena) was executed.</p>
+<h4 id="key-search-queries-kql---sysmon-events">
+  <strong>Key Search Queries (KQL - Sysmon Events):</strong>
+  <a class="heading-link" href="#key-search-queries-kql---sysmon-events">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>
+<p><strong>Look for Unusual Process Creation (Sysmon Event ID 1):</strong> Focus on the parent process.</p>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">event.code: 1 and not process.parent.name: (&#34;explorer.exe&#34; or &#34;svchost.exe&#34; or &#34;services.exe&#34; or &#34;msiexec.exe&#34; or &#34;winword.exe&#34; or &#34;excel.exe&#34;)
+</code></pre><p>This finds processes spawned by something other than common, legitimate parents.</p>
+</li>
+<li>
+<p><strong>Find Processes with No Parent Command Line: (A Big Red Flag):</strong></p>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">  event.code: 1 and winlog.event_data.ParentCommandLine: &#34;-&#34;
+</code></pre></li>
+<li>
+<p><strong>Search for Specific Mythic Agent Names:</strong> Agents often have default names.</p>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">   event.code: 1 and winlog.event_data.Product: (&#34;Apollo&#34; or &#34;Athena&#34; or &#34;Poseidon&#34; or &#34;Sandcat&#34; or &#34;Mythic&#34;)
+</code></pre></li>
+<li>
+<p><strong>Look for LOLBin Execution:</strong> Mythic often uses living-off-the-land binaries (LOLBins) for execution.</p>
+</li>
+</ul>
+<h3 id="2-investigate-network-patterns-c2-communication">
+  <strong>2. Investigate Network Patterns (C2 Communication)</strong>
+  <a class="heading-link" href="#2-investigate-network-patterns-c2-communication">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>This is often the most reliable detection method.</p>
+<h4 id="key-search-queries-kql---sysmonzeek-events">
+  <strong>Key Search Queries (KQL - Sysmon/Zeek Events):</strong>
+  <a class="heading-link" href="#key-search-queries-kql---sysmonzeek-events">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>
+<p><strong>Find Beaconing Patterns:</strong> Look for periodic, external connections.</p>
+<ul>
+<li>Add a filter for <code>domain</code> if you have threat intel on C2 domains.</li>
+</ul>
+</li>
+<li>
+<p><strong>Find Connections to Unknown Ports:</strong> Mythic can use non-standard ports for HTTP/HTTPS.</p>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">event.code: 3 and not destination.port: (80 or 443 or  53 or 21 or 25 or 110 or 143 or 993 or 995) // Common legitimate ports
+</code></pre></li>
+<li>
+<p><strong>JA3/S Hashing (SSL Fingerprinting):</strong> This is a powerful way to detect C2 tools.</p>
+</li>
+<li>
+<p><strong>DNS Tunneling Detection:</strong> If Mythic uses DNS over HTTPS (DoH) or other profiles.</p>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">dns.question.type: &#34;AAAA&#34; and dns.question.name: &#34;*.mydomain.com&#34;
+</code></pre></li>
+</ul>
+<h3 id="3-investigate-post-exploitation-activity">
+  <strong>3. Investigate Post-Exploitation Activity</strong>
+  <a class="heading-link" href="#3-investigate-post-exploitation-activity">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Once an agent is running, it will exhibit specific behaviors.</p>
+<h4 id="key-search-queries-kql">
+  <strong>Key Search Queries (KQL):</strong>
+  <a class="heading-link" href="#key-search-queries-kql">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>
+<p><strong>Discovery Commands:</strong> The first thing an operator does is explore.</p>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">event.code: 1 and winlog.event_data.OriginalFileName: (&#34;whoami.exe&#34; or &#34;hostname.exe&#34; or &#34;net.exe&#34; or &#34;ipconfig.exe&#34; or &#34;nltest.exe&#34; or &#34;systeminfo.exe&#34;) and winlog.event_data.ParentImage: (&#34;C:\Windows\System32\cmd.exe&#34; or &#34;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe&#34;)
+</code></pre></li>
+<li>
+<p><strong>Credential Access:</strong> A common objective.</p>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">event.code: 1 and process.name: 
+  (&#34;lsass.exe&#34;, &#34;mimikatz.exe&#34;, &#34;sekurlsa::logonpasswords&#34;) 
+or message: &#34;lsass&#34;
+</code></pre></li>
+<li>
+<p><strong>Lateral Movement Attempts:</strong></p>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">(event.code: 3 and winlog.wmicevent_data.DestinationPort: (445 or 3389 or 135 or 5985 or 5986)) // SMB, RDP, WMI, WinRM
+or (event.code: 1 and process.name: (&#34;wmic.exe&#34;, &#34;sc.exe&#34;, &#34;psexec.exe&#34;))
+</code></pre></li>
+</ul>
+<h3 id="4-pivoting-and-correlation">
+  <strong>4. Pivoting and Correlation</strong>
+  <a class="heading-link" href="#4-pivoting-and-correlation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>When you find a suspicious event, pivot to see the full scope.</p>
+<ol>
+<li>
+<p><strong>Find all activity for a Process GUID:</strong> If you find a suspicious process, use its <code>process.guid</code> to find everything it did.</p>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">process.guid: &#34;{3BB25086-E897-68CA-900B-000000000100}&#34;
+</code></pre></li>
+<li>
+<p><strong>Find all activity for a Logon ID:</strong> If you find a compromised user, find all their actions.</p>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">winlog.event_data.LogonId: &#34;0xea2f1&#34;
+</code></pre></li>
+<li>
+<p><strong>Find all network connections for a Process ID:</strong></p>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">event.code: 3 and process.pid: 4076
+</code></pre></li>
+</ol>
+<h3 id="5-building-a-detection-dashboard">
+  <strong>5. Building a Detection Dashboard</strong>
+  <a class="heading-link" href="#5-building-a-detection-dashboard">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Create a dashboard with these visualizations for at-a-glance monitoring:</p>
+<ol>
+<li><strong>Outbound Connections to Rare Ports:</strong> A table of <code>winlog.wmicevent_data.DestinationPort</code> for non-standard ports.</li>
+<li><strong>Processes with Uncommon Parents:</strong> A count of events matching the first KQL query.</li>
+<li><strong>Top  Hashes for  Traffic:</strong> A table of <code>winlog.event_data.Hashes</code>.</li>
+<li><strong>Geomap of External Connections:</strong> Plot <code>destination.geo.location</code> on a world map to see connections to suspicious countries.</li>
+</ol>
+<div class="mermaid">
+flowchart TD
+    A[Suspicious Process<br>Sysmon ID 1] --> B{Pivot}
+    B --> C[Find all network connections<br>for Process GUID]
+    B --> D[Find all child processes<br>of the initial suspect]
+    C --> E[Analyze JA3 Hash &<br>Destination IP/Domain]
+    D --> F[Review commands executed<br>via LOLBins]
+    E --> G[Confirm C2 Infrastructure<br>IoC]
+    F --> G
+    G --> H[Incident Confirmed]
+
+</div>
+
+<h3 id="summary-the-mythic-investigation-checklist">
+  <strong>Summary: The Mythic Investigation Checklist</strong>
+  <a class="heading-link" href="#summary-the-mythic-investigation-checklist">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Phase</th>
+          <th style="text-align: left">What to Look For</th>
+          <th style="text-align: left">Key KQL / Fields</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>Initial Execution</strong></td>
+          <td style="text-align: left">Unusual parent processes, named payloads</td>
+          <td style="text-align: left"><code>event.code: 1</code>, <code>process.parent.name</code>, <code>process.name</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>C2 Communication</strong></td>
+          <td style="text-align: left">Beaconing, non-standard ports, JA3 hashes</td>
+          <td style="text-align: left"><code>event.code: 3</code>, <code>destination.port</code>, <code>tls.ja3.hash</code>, <code>dns.question.name</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Post-Exploitation</strong></td>
+          <td style="text-align: left">Discovery commands, credential access, lateral movement</td>
+          <td style="text-align: left"><code>winlog.event_data.OriginalFileName: (&quot;whoami.exe&quot;, &quot;net.exe&quot;)</code>, <code>winlog.wmicevent_data.DestinationPort: 445</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Pivoting</strong></td>
+          <td style="text-align: left">Full activity of a process or user</td>
+          <td style="text-align: left"><code>process.guid</code>, <code>winlog.event_data.LogonId</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>The most important step is pivoting.</strong> A single suspicious event is an indicator; a chain of related events from the same source is evidence of a compromise. By correlating process creation, network activity, and security events, you can uncover even sophisticated C2 frameworks like Mythic.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2025
+     SecLice 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js"
+    integrity="sha256-QdTG1YTLLTwD3b95jLqFxpQX9uYuJMNAtVZgwKX4oYU=" crossorigin="anonymous"></script>
+  <script>
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
