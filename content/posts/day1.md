@@ -27,5 +27,5 @@ Ressources : [MyDFIR Channel](https://www.youtube.com/@MyDFIR/videos)
 
 ## Day 1: Create diagrams, logical setup that will serve as the foundation for this 30-Day challenge
 
-<img src="/images/diagram.png" style="display: block; margin: auto; max-width: 70%;" />
+<img src="/images/diagram1.png" style="display: block; margin: auto; max-width: 70%;" />
 
