@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-08-29T10:56:37+01:00
 title = "30-Day MyDFIR SOC Analyst Challenge"
 description = "This challenge is designed to help aspiring SOC Analysts like you gain hands-on practical experience in just 30 days. If you're looking to build your confidence and skills in cybersecurity, you're in the right place."
