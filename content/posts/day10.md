@@ -1,7 +1,7 @@
 +++ 
 draft = false
 date = 2025-09-10T20:09:49+01:00
-title = "Day 10: SOC Analyst Challenge "
+title = "Elasticsearch Ingest Data Tutorial, Day 10 "
 description = "SOC Analyst Challenge, Day 10 "
 slug = "SOC Analyst Challenge, Day 10 "
 authors = "Seclice"

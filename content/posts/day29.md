@@ -1,7 +1,7 @@
 +++ 
 draft = false
 date = 2025-09-13T18:15:41+01:00
-title = "Day 29:  Elastic Defend Setup Tutorial  "
+title = "Elastic Defend Setup Tutorial  , Day 29 "
 description = "SOC Analyst Challenge, Day 29"
 slug = "SOC Analyst Challenge, Day 29"
 authors = "Seclice"

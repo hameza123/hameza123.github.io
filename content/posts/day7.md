@@ -1,7 +1,7 @@
 +++ 
 draft = false
 date = 2025-09-10T18:10:26+01:00
-title = "Day 7: SOC Analyst Challenge "
+title = "Elastic Agent and Fleet Server Setup Tutorial, Day 7"
 description = "SOC Analyst Challenge, Day 7 "
 slug = "SOC Analyst Challenge, Day 7 "
 authors = "Seclice"

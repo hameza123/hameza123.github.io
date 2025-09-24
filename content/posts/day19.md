@@ -1,7 +1,7 @@
 +++ 
 draft = false
 date = 2025-09-12T19:12:54+01:00
-title = "Day 19: SOC Analyst Challenge "
+title = "Attack Diagram, Day 19"
 description = "SOC Analyst Challenge, Day 19 "
 slug = "SOC Analyst Challenge, Day 19"
 authors = "Seclice"

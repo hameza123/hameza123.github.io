@@ -1,7 +1,7 @@
 +++ 
 draft = false
 date = 2025-09-10T20:09:45+01:00
-title = "Day 9: SOC Analyst Challenge "
+title = "Sysmon Setup Tutorial, Day 9 "
 description = "SOC Analyst Challenge, Day 9 "
 slug = "SOC Analyst Challenge, Day 9 "
 authors = "Seclice"

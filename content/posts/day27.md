@@ -1,7 +1,7 @@
 +++ 
 draft = false
 date = 2025-09-13T18:15:35+01:00
-title = "Day 27: Investigate RDP Brute Force Attack"
+title = "Investigate RDP Brute Force Attack, Day 27 "
 description = "SOC Analyst Challenge, Day 27"
 slug = "SOC Analyst Challenge, Day 27"
 authors = "Seclice"

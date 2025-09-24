@@ -1,7 +1,7 @@
 +++ 
 draft = false
 date = 2025-09-11T09:35:25+01:00
-title = "Day 15: SOC Analyst Challenge "
+title = "Remote Desktop Protocol Introduction, Day 15  "
 description = "SOC Analyst Challenge, Day 15 "
 slug = "SOC Analyst Challenge, Day 15"
 authors = "Seclice"

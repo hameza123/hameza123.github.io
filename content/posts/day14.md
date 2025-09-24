@@ -1,7 +1,7 @@
 +++ 
 draft = false
 date = 2025-09-11T09:35:21+01:00
-title = "Day 14: SOC Analyst Challenge "
+title = "How To Create Alerts and Dashboards in Kibana, Day 14  "
 description = "SOC Analyst Challenge, Day 14 "
 slug = "SOC Analyst Challenge, Day 14 "
 authors = "Seclice"

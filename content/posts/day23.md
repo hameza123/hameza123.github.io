@@ -1,7 +1,7 @@
 +++ 
 draft = false
 date = 2025-09-13T18:15:25+01:00
-title = "Day 23: What is a Ticketing System? "
+title = "What is a Ticketing System?, Day 23"
 description = "SOC Analyst Challenge, Day 23"
 slug = "SOC Analyst Challenge, Day 23"
 authors = "Seclice"
@@ -11,7 +11,7 @@ series = []
 +++
 
 
-## Day 23: What is a Ticketing System?*
+## Day 23: What is a Ticketing System?
 Ressources :[MyDFIR Channel](https://www.youtube.com/@MyDFIR/)
 
 A **ticketing system** (also known as a help desk system or issue tracking system) is a software tool designed to manage, track, and resolve requests, problems, or tasks in a structured and efficient way. Every new request is logged as a unique "ticket," which becomes a central record for all communication, history, and actions related to that specific issue.

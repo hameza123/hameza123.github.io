@@ -1,7 +1,7 @@
 +++ 
 draft = false
 date = 2025-09-10T18:10:20+01:00
-title = "Day 5: SOC Analyst Challenge "
+title = " Installing Kibana, Day 5 "
 description = "SOC Analyst Challenge, Day 5 "
 slug = "SOC Analyst Challenge, Day 5 "
 authors = "Seclice"

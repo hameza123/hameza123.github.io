@@ -1,7 +1,7 @@
 +++ 
 draft = false
 date = 2025-09-12T19:12:51+01:00
-title = "Day 18: SOC Analyst Challenge "
+title = "Command and Control Introduction, Day 18  "
 description = "SOC Analyst Challenge, Day 18 "
 slug = "SOC Analyst Challenge, Day 18"
 authors = "Seclice"
