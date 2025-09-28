@@ -198,13 +198,6 @@
       <description>&lt;h2 id=&#34;day-2-elk-stack-introduction&#34;&gt;&#xA;  Day 2: ELK Stack Introduction&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#day-2-elk-stack-introduction&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Ressources : &lt;a href=&#34;https://www.youtube.com/@MyDFIR/videos&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MyDFIR Channel&lt;/a&gt;&#xA;First of all the &amp;lsquo;E&amp;rsquo; stands for &lt;a href=&#34;https://www.elastic.co/elasticsearch&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Elastic Search&lt;/a&gt;. Elasticsearch is an open source, distributed search and analytics engine built for speed, scale, and AI applications. As a retrieval platform, it stores structured, unstructured, and vector data in real time — delivering fast hybrid and vector search, powering observability and security analytics, and enabling AI-driven applications with high performance, accuracy, and relevance.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Security Project</title>
-      <link>http://localhost:1313/projects/vwervwer/</link>
-      <pubDate>Wed, 10 Sep 2025 18:10:11 +0100</pubDate>
-      <guid>http://localhost:1313/projects/vwervwer/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Create diagrams, logical setup , Day 1 </title>
       <link>http://localhost:1313/posts/soc-analyst-challenge-day-1/</link>
       <pubDate>Wed, 10 Sep 2025 18:10:03 +0100</pubDate>
