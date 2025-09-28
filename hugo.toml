@@ -199,6 +199,11 @@ weight = 3
 url = "projects/"
 
 [[languages.en.menu.main]]
+name = "Ressources"
+weight = 4
+url = "ressources/"
+
+[[languages.en.menu.main]]
 name = "Contact me"
 weight = 5
 url = "contact/"

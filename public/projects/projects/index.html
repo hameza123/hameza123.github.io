@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  How To Install an IDS (Snort) · SecLice
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="SecLice">
+<meta name="description" content="This guide will walk you through installing and configuring Snort, a powerful open-source Intrusion Detection System">
+<meta name="keywords" content="blog,Cybersecurity">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="How To Install an IDS (Snort)">
+  <meta name="twitter:description" content="This guide will walk you through installing and configuring Snort, a powerful open-source Intrusion Detection System">
+
+<meta property="og:url" content="http://localhost:1313/projects/projects/">
+  <meta property="og:site_name" content="SecLice">
+  <meta property="og:title" content="How To Install an IDS (Snort)">
+  <meta property="og:description" content="This guide will walk you through installing and configuring Snort, a powerful open-source Intrusion Detection System">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2025-09-28T11:21:55+01:00">
+    <meta property="article:modified_time" content="2025-09-28T11:21:55+01:00">
+    <meta property="article:tag" content="Snort">
+    <meta property="article:tag" content="SOC Analyst">
+    <meta property="article:tag" content="IDS">
+    <meta property="article:tag" content="Challenge">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/projects/projects/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      SecLice
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/ressources/">Ressources</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/pt-br/">🇧🇷</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:1313/projects/projects/">
+          How To Install an IDS (Snort)
+        </a>
+      </h1>
+    </header>
+
+    <h1 id="snort-3-installation-guide---complete-walkthrough">
+  Snort 3 Installation Guide - Complete Walkthrough
+  <a class="heading-link" href="#snort-3-installation-guide---complete-walkthrough">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Great! You have a comprehensive Snort 3 installation script. Let me organize this into a complete, step-by-step guide with explanations and improvements.</p>
+<h2 id="prerequisites-setup">
+  Prerequisites Setup
+  <a class="heading-link" href="#prerequisites-setup">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="system-preparation">
+  System Preparation
+  <a class="heading-link" href="#system-preparation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Update system first</span>
+</span></span><span class="line"><span class="cl">sudo apt update <span class="o">&amp;&amp;</span> sudo apt upgrade -y
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Install all prerequisites in one command (fixed version)</span>
+</span></span><span class="line"><span class="cl">sudo apt-get install -y build-essential autotools-dev libdumbnet-dev libluajit-5.1-dev <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>libpcap-dev zlib1g-dev pkg-config libhwloc-dev cmake liblzma-dev openssl libssl-dev <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>cpputest libsqlite3-dev libtool uuid-dev git autoconf bison flex libcmocka-dev <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>libnetfilter-queue-dev libunwind-dev libmnl-dev ethtool libjemalloc-dev
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create working directory</span>
+</span></span><span class="line"><span class="cl">mkdir ~/snort
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ~/snort
+</span></span></code></pre></div><h2 id="dependency-installation">
+  Dependency Installation
+  <a class="heading-link" href="#dependency-installation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="step-1-install-pcre">
+  Step 1: Install PCRE
+  <a class="heading-link" href="#step-1-install-pcre">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> ~/snort
+</span></span><span class="line"><span class="cl">wget https://sourceforge.net/projects/pcre/files/pcre/8.45/pcre-8.45.tar.gz
+</span></span><span class="line"><span class="cl">tar -xzvf pcre-8.45.tar.gz
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> pcre-8.45
+</span></span><span class="line"><span class="cl">./configure
+</span></span><span class="line"><span class="cl">make
+</span></span><span class="line"><span class="cl">sudo make install
+</span></span></code></pre></div><h3 id="step-2-install-gperftools">
+  Step 2: Install gperftools
+  <a class="heading-link" href="#step-2-install-gperftools">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> ~/snort
+</span></span><span class="line"><span class="cl">wget https://github.com/gperftools/gperftools/releases/download/gperftools-2.9.1/gperftools-2.9.1.tar.gz
+</span></span><span class="line"><span class="cl">tar xzvf gperftools-2.9.1.tar.gz
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> gperftools-2.9.1
+</span></span><span class="line"><span class="cl">./configure
+</span></span><span class="line"><span class="cl">make
+</span></span><span class="line"><span class="cl">sudo make install
+</span></span></code></pre></div><h3 id="step-3-install-ragel">
+  Step 3: Install Ragel
+  <a class="heading-link" href="#step-3-install-ragel">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> ~/snort
+</span></span><span class="line"><span class="cl">wget http://www.colm.net/files/ragel/ragel-6.10.tar.gz
+</span></span><span class="line"><span class="cl">tar -xzvf ragel-6.10.tar.gz
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ragel-6.10
+</span></span><span class="line"><span class="cl">./configure
+</span></span><span class="line"><span class="cl">make
+</span></span><span class="line"><span class="cl">sudo make install
+</span></span></code></pre></div><h3 id="step-4-download-boost-c-libraries">
+  Step 4: Download Boost C++ Libraries
+  <a class="heading-link" href="#step-4-download-boost-c-libraries">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> ~/snort
+</span></span><span class="line"><span class="cl">wget https://boostorg.jfrog.io/artifactory/main/release/1.77.0/source/boost_1_77_0.tar.gz
+</span></span><span class="line"><span class="cl">tar -xvzf boost_1_77_0.tar.gz
+</span></span></code></pre></div><h3 id="step-5-install-hyperscan">
+  Step 5: Install Hyperscan
+  <a class="heading-link" href="#step-5-install-hyperscan">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> ~/snort
+</span></span><span class="line"><span class="cl">wget https://github.com/intel/hyperscan/archive/refs/tags/v5.4.2.tar.gz
+</span></span><span class="line"><span class="cl">tar -xvzf v5.4.2.tar.gz
+</span></span><span class="line"><span class="cl">mkdir ~/snort/hyperscan-5.4.2-build
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> hyperscan-5.4.2-build/
+</span></span><span class="line"><span class="cl">cmake -DCMAKE_INSTALL_PREFIX<span class="o">=</span>/usr/local -DBOOST_ROOT<span class="o">=</span>~/snort/boost_1_77_0/ ../hyperscan-5.4.2
+</span></span><span class="line"><span class="cl">make
+</span></span><span class="line"><span class="cl">sudo make install
+</span></span></code></pre></div><h3 id="step-6-install-flatbuffers">
+  Step 6: Install FlatBuffers
+  <a class="heading-link" href="#step-6-install-flatbuffers">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> ~/snort
+</span></span><span class="line"><span class="cl">wget https://github.com/google/flatbuffers/archive/refs/tags/v2.0.0.tar.gz -O flatbuffers-v2.0.0.tar.gz
+</span></span><span class="line"><span class="cl">tar -xzvf flatbuffers-v2.0.0.tar.gz
+</span></span><span class="line"><span class="cl">mkdir flatbuffers-build
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> flatbuffers-build
+</span></span><span class="line"><span class="cl">cmake ../flatbuffers-2.0.0
+</span></span><span class="line"><span class="cl">make
+</span></span><span class="line"><span class="cl">sudo make install
+</span></span></code></pre></div><h3 id="step-7-install-data-acquisition-daq">
+  Step 7: Install Data Acquisition (DAQ)
+  <a class="heading-link" href="#step-7-install-data-acquisition-daq">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> ~/snort
+</span></span><span class="line"><span class="cl">wget https://github.com/snort3/libdaq/archive/refs/tags/v3.0.13.tar.gz -O libdaq-3.0.13.tar.gz
+</span></span><span class="line"><span class="cl">tar -xzvf libdaq-3.0.13.tar.gz
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> libdaq-3.0.13
+</span></span><span class="line"><span class="cl">./bootstrap
+</span></span><span class="line"><span class="cl">./configure
+</span></span><span class="line"><span class="cl">make
+</span></span><span class="line"><span class="cl">sudo make install
+</span></span></code></pre></div><h3 id="step-8-update-shared-libraries">
+  Step 8: Update Shared Libraries
+  <a class="heading-link" href="#step-8-update-shared-libraries">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ldconfig
+</span></span></code></pre></div><h2 id="snort-3-installation">
+  Snort 3 Installation
+  <a class="heading-link" href="#snort-3-installation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="step-9-install-snort-3">
+  Step 9: Install Snort 3
+  <a class="heading-link" href="#step-9-install-snort-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> ~/snort
+</span></span><span class="line"><span class="cl">wget https://github.com/snort3/snort3/archive/refs/tags/3.1.74.0.tar.gz -O snort3-3.1.74.0.tar.gz
+</span></span><span class="line"><span class="cl">tar -xzvf snort3-3.1.74.0.tar.gz
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> snort3-3.1.74.0
+</span></span><span class="line"><span class="cl">./configure_cmake.sh --prefix<span class="o">=</span>/usr/local --enable-jemalloc
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> build
+</span></span><span class="line"><span class="cl">make -j<span class="k">$(</span>nproc<span class="k">)</span>  <span class="c1"># Use all CPU cores for faster compilation</span>
+</span></span><span class="line"><span class="cl">sudo make install
+</span></span></code></pre></div><h2 id="test">
+  test:
+  <a class="heading-link" href="#test">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>/usr/local/bin/snort -V
+snort -c /usr/local/etc/snort/snort.lua</p>
+<h2 id="network-configuration">
+  Network Configuration
+  <a class="heading-link" href="#network-configuration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="step-10-disable-lrogro-important-for-packet-capture">
+  Step 10: Disable LRO/GRO (Important for packet capture)
+  <a class="heading-link" href="#step-10-disable-lrogro-important-for-packet-capture">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>ethtool -k ens32 | grep receive-offload</p>
+<p><strong>Option 1: Manual (temporary)</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Replace &#39;eth0&#39; with your network interface</span>
+</span></span><span class="line"><span class="cl">sudo ethtool -K eth0 gro off
+</span></span><span class="line"><span class="cl">sudo ethtool -K eth0 lro off
+</span></span></code></pre></div><p><strong>Option 2: Create a systemd service (permanent)</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nano /etc/systemd/system/ethtool.service
+</span></span></code></pre></div><p>Add the following content (replace <code>eth0</code> with your interface):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[Unit]</span>
+</span></span><span class="line"><span class="cl"><span class="na">Description</span><span class="o">=</span><span class="s">Ethtool Configuration for Network Interface</span>
+</span></span><span class="line"><span class="cl"><span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[Service]</span>
+</span></span><span class="line"><span class="cl"><span class="na">Type</span><span class="o">=</span><span class="s">oneshot</span>
+</span></span><span class="line"><span class="cl"><span class="na">ExecStart</span><span class="o">=</span><span class="s">/sbin/ethtool -K ens33 gro off</span>
+</span></span><span class="line"><span class="cl"><span class="na">ExecStart</span><span class="o">=</span><span class="s">/sbin/ethtool -K ens33 lro off</span>
+</span></span><span class="line"><span class="cl"><span class="na">RemainAfterExit</span><span class="o">=</span><span class="s">yes</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[Install]</span>
+</span></span><span class="line"><span class="cl"><span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+</span></span></code></pre></div><p>Enable the service:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl daemon-reload
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> ethtool.service
+</span></span><span class="line"><span class="cl">sudo systemctl start ethtool.service
+</span></span></code></pre></div><h2 id="create--rules">
+  create  rules:
+  <a class="heading-link" href="#create--rules">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>mkdir /usr/local/etc/rules/
+nano /usr/local/etc/rules/local.rules</p>
+<p>alert icmp any any -&gt; any any (msg :&ldquo;icmp detected&rdquo;; sid:1000001;)</p>
+<p>snort -c /usr/local/etc/snort/snort.lua  -R /usr/local/etc/rules/local.rules</p>
+<p>snort -c /usr/local/etc/snort/snort.lua  -R /usr/local/etc/rules/local.rules -i en33 -A alert_fast</p>
+<p>nano /usr/local/etc/snort/snort.lua
+HOME_NET = &lsquo;any&rsquo;
+include = &ldquo;/usr/local/etc/rules/local.rules&rdquo;,
+snort -c /usr/local/etc/snort/snort.lua  -i en33 -A alert_fast</p>
+<h2 id="rule-management-with-pulledpork3">
+  Rule Management with PulledPork3
+  <a class="heading-link" href="#rule-management-with-pulledpork3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="step-11-install-pulledpork3-for-rule-updates">
+  Step 11: Install PulledPork3 for Rule Updates
+  <a class="heading-link" href="#step-11-install-pulledpork3-for-rule-updates">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> ~/snort
+</span></span><span class="line"><span class="cl">git clone https://github.com/shirkdog/pulledpork3.git
+</span></span><span class="line"><span class="cl">sudo mkdir -p /usr/local/bin/pulledpork3
+</span></span><span class="line"><span class="cl">sudo cp pulledpork3/pulledpork.py /usr/local/bin/pulledpork3/
+</span></span><span class="line"><span class="cl">sudo cp -r pulledpork3/lib/ /usr/local/bin/pulledpork3/
+</span></span><span class="line"><span class="cl">sudo chmod +x /usr/local/bin/pulledpork3/pulledpork.py
+</span></span><span class="line"><span class="cl">sudo mkdir -p /usr/local/etc/pulledpork3
+</span></span><span class="line"><span class="cl">sudo cp pulledpork3/etc/pulledpork.conf /usr/local/etc/pulledpork3/
+</span></span></code></pre></div><h3 id="-pulledpork3-configuration">
+  . PulledPork3 Configuration
+  <a class="heading-link" href="#-pulledpork3-configuration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>/usr/local/bin/pulledpork3/pulledpork.py -V
+nano /usr/local/etc/pulledpork3/pulledpork.conf
+registered_ruleset = true
+oinkcode = xxxxx
+snort_path = /usr/local/bin/snort
+local_rules = /usr/local/etc/rules/local.rules</p>
+<p>/usr/local/bin/pulledpork3/pulledpork.py -c /usr/local/etc/pulledpork3/pulledpork.conf</p>
+<p>nano /usr/local/etc/snort/snort.lua
+include = &ldquo;/usr/local/etc/rules/pulledpork.rules&rdquo;,</p>
+<p>snort -c /usr/local/etc/snort/snort.lua &ndash;plugin-path &ldquo;/usr/local/etc/so_rules/&rdquo; -i en33 -A alert_fast</p>
+<p>nano /usr/local/bin/pulledpork3/pulledpork.py
+RULESET_URL_SNORT_REGISTERED = &lsquo;<a href="https://snort.org/rules/snortrules-snapshot-31470.tar.gz%27"  class="external-link" target="_blank" rel="noopener">https://snort.org/rules/snortrules-snapshot-31470.tar.gz'</a></p>
+<p>/usr/local/bin/pulledpork3/pulledpork.py -c /usr/local/etc/pulledpork3/pulledpork.conf</p>
+<p>snort -c /usr/local/etc/snort/snort.lua &ndash;plugin-path &ldquo;/usr/local/etc/so_rules/&rdquo;</p>
+<p>wget <a href="https://www.malware-traffic-analysis.net/2022/02/23/2022-02-23-traffic-analysis-exercise.pcap.zip"  class="external-link" target="_blank" rel="noopener">https://www.malware-traffic-analysis.net/2022/02/23/2022-02-23-traffic-analysis-exercise.pcap.zip</a>
+unzip 2022-02-23-traffic-analysis-exercise.pcap.zip
+password infected_20220323</p>
+<p>snort -c /usr/local/etc/snort/snort.lua &ndash;plugin-path &ldquo;/usr/local/etc/so_rules/&rdquo; -r  2022-02-23-traffic-analysis-exercise.pcap -A alert_fast -q &gt; reslt</p>
+<p>cat reslt | cut -d &ldquo;]&rdquo; -f 3 | cut -d &ldquo;[&rdquo; -f 1 | cut -d &lsquo;&quot;&rsquo; -f 2 | sort | uniq -c |sort -nr</p>
+<p>grep -i malware reslt</p>
+<p>sudo mkdir -p /usr/local/etc/snort/appid
+sudo mkdir -p /var/log/snort
+sudo chmod 755 /usr/local/etc/snort/appid
+sudo chmod 755 /var/log/snort</p>
+<h1 id="comprehensive-monitoring-with-logging">
+  Comprehensive monitoring with logging
+  <a class="heading-link" href="#comprehensive-monitoring-with-logging">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>sudo snort -c /usr/local/etc/snort/snort.lua <br>
+-i ens33 <br>
+-A alert_fast <br>
+-l /var/log/snort <br>
+&ndash;plugin-path /usr/local/etc/so_rules/ <br>
+&ndash;daq afpacket <br>
+&ndash;daq-mode passive</p>
+<h1 id="generate-test-traffic-in-another-terminal">
+  Generate test traffic (in another terminal)
+  <a class="heading-link" href="#generate-test-traffic-in-another-terminal">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h1 id="icmp-ping-will-trigger-sid1000001">
+  ICMP ping (will trigger sid:1000001)
+  <a class="heading-link" href="#icmp-ping-will-trigger-sid1000001">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>ping -c 3 google.com</p>
+<h1 id="http-traffic-will-trigger-sid1000002">
+  HTTP traffic (will trigger sid:1000002)
+  <a class="heading-link" href="#http-traffic-will-trigger-sid1000002">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>curl <a href="http://google.com"  class="external-link" target="_blank" rel="noopener">http://google.com</a></p>
+<h1 id="dns-query-will-trigger-sid1000004">
+  DNS query (will trigger sid:1000004)
+  <a class="heading-link" href="#dns-query-will-trigger-sid1000004">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>nslookup google.com</p>
+<pre tabindex="0"><code>-- Advanced logging configuration
+alert_csv = 
+{
+    file = true,
+    fields = &#34;action pkt_num gid sid rev msg service src_addr src_port dst_addr dst_port&#34;, separator = &#34;,&#34;
+}
+
+alert_fast = 
+{
+    file = true,
+    packet = true,  -- Include packet data
+    limit = 10000   -- Max alerts per file
+}
+
+packet_log =
+{
+    file = true,
+    limit = 100,    -- Max packets to log
+    units = megs    -- Or &#39;bytes&#39;, &#39;pkts&#39;
+}
+
+-- Rotate logs automatically
+log_rotate =
+{
+    size = 100,     -- MB
+    count = 10      -- Keep 10 files
+}
+</code></pre><h1 id="excellent-youve-successfully-installed-and-configured-snort-3-let-me-organize-your-working-setup-and-provide-some-enhancements">
+  Excellent! You&rsquo;ve successfully installed and configured Snort 3. Let me organize your working setup and provide some enhancements.
+  <a class="heading-link" href="#excellent-youve-successfully-installed-and-configured-snort-3-let-me-organize-your-working-setup-and-provide-some-enhancements">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="your-current-snort-3-setup---complete-configuration">
+  Your Current Snort 3 Setup - Complete Configuration
+  <a class="heading-link" href="#your-current-snort-3-setup---complete-configuration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="-what-youve-successfully-installed">
+  ✅ What You&rsquo;ve Successfully Installed:
+  <a class="heading-link" href="#-what-youve-successfully-installed">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Snort 3.1.74.0</strong> - Latest version</li>
+<li><strong>All dependencies</strong> (Hyperscan, FlatBuffers, DAQ, etc.)</li>
+<li><strong>Rule management</strong> with PulledPork3</li>
+<li><strong>Network configuration</strong> with LRO/GRO disabled</li>
+<li><strong>Working ruleset</strong> with malware detection capabilities</li>
+</ul>
+<h2 id="organized-configuration-files">
+  Organized Configuration Files
+  <a class="heading-link" href="#organized-configuration-files">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="current-snortlua-configuration">
+  Current snort.lua Configuration:
+  <a class="heading-link" href="#current-snortlua-configuration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-lua" data-lang="lua"><span class="line"><span class="cl"><span class="c1">-- /usr/local/etc/snort/snort.lua</span>
+</span></span><span class="line"><span class="cl"><span class="n">HOME_NET</span> <span class="o">=</span> <span class="s1">&#39;any&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">alert</span> <span class="o">=</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">modules</span> <span class="o">=</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">log_pkts</span> <span class="o">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ips</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mode</span> <span class="o">=</span> <span class="n">tap</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">variables</span> <span class="o">=</span> <span class="n">default_variables</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">include</span> <span class="o">=</span> <span class="s2">&#34;/usr/local/etc/rules/local.rules&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="n">include</span> <span class="o">=</span> <span class="s2">&#34;/usr/local/etc/rules/pulledpork.rules&#34;</span><span class="p">,</span>
+</span></span></code></pre></div><h3 id="enhanced-snortlua-configuration">
+  Enhanced snort.lua Configuration:
+  <a class="heading-link" href="#enhanced-snortlua-configuration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-lua" data-lang="lua"><span class="line"><span class="cl"><span class="c1">-- /usr/local/etc/snort/snort.lua (Enhanced version)</span>
+</span></span><span class="line"><span class="cl"><span class="n">HOME_NET</span> <span class="o">=</span> <span class="s1">&#39;192.168.1.0/24&#39;</span>  <span class="c1">-- Adjust to your network</span>
+</span></span><span class="line"><span class="cl"><span class="n">EXTERNAL_NET</span> <span class="o">=</span> <span class="s1">&#39;any&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">alert</span> <span class="o">=</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">modules</span> <span class="o">=</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">log_pkts</span> <span class="o">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ips</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mode</span> <span class="o">=</span> <span class="n">tap</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">variables</span> <span class="o">=</span> <span class="n">default_variables</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">-- Rule includes</span>
+</span></span><span class="line"><span class="cl"><span class="n">include</span> <span class="o">=</span> <span class="s2">&#34;/usr/local/etc/rules/local.rules&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">include</span> <span class="o">=</span> <span class="s2">&#34;/usr/local/etc/rules/pulledpork.rules&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">-- Performance tuning</span>
+</span></span><span class="line"><span class="cl"><span class="n">profiler</span> <span class="o">=</span> <span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">perf_monitor</span> <span class="o">=</span> <span class="p">{</span> <span class="p">}</span>
+</span></span></code></pre></div><h2 id="working-commands-summary">
+  Working Commands Summary
+  <a class="heading-link" href="#working-commands-summary">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="basic-snort-operations">
+  Basic Snort Operations:
+  <a class="heading-link" href="#basic-snort-operations">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Test configuration</span>
+</span></span><span class="line"><span class="cl">snort -c /usr/local/etc/snort/snort.lua --warn-all
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Run on live traffic</span>
+</span></span><span class="line"><span class="cl">snort -c /usr/local/etc/snort/snort.lua -i ens33 -A alert_fast
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Analyze PCAP file</span>
+</span></span><span class="line"><span class="cl">snort -c /usr/local/etc/snort/snort.lua --plugin-path <span class="s2">&#34;/usr/local/etc/so_rules/&#34;</span> -r file.pcap -A alert_fast -q
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Daemon mode (for production)</span>
+</span></span><span class="line"><span class="cl">snort -c /usr/local/etc/snort/snort.lua -i ens33 -D
+</span></span></code></pre></div><h3 id="your-malware-analysis-command-improved">
+  Your Malware Analysis Command (Improved):
+  <a class="heading-link" href="#your-malware-analysis-command-improved">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Analyze malware traffic</span>
+</span></span><span class="line"><span class="cl">snort -c /usr/local/etc/snort/snort.lua --plugin-path <span class="s2">&#34;/usr/local/etc/so_rules/&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -r 2022-02-23-traffic-analysis-exercise.pcap -A alert_fast -q &gt; results.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Analyze results</span>
+</span></span><span class="line"><span class="cl">cat results.txt <span class="p">|</span> cut -d <span class="s2">&#34;]&#34;</span> -f <span class="m">3</span> <span class="p">|</span> cut -d <span class="s2">&#34;[&#34;</span> -f <span class="m">1</span> <span class="p">|</span> cut -d <span class="s1">&#39;&#34;&#39;</span> -f <span class="m">2</span> <span class="p">|</span> sort <span class="p">|</span> uniq -c <span class="p">|</span> sort -nr
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Search for specific threats</span>
+</span></span><span class="line"><span class="cl">grep -i <span class="s2">&#34;malware\|trojan\|virus\|exploit&#34;</span> results.txt
+</span></span></code></pre></div><h2 id="enhanced-rule-management">
+  Enhanced Rule Management
+  <a class="heading-link" href="#enhanced-rule-management">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="improved-pulledpork3-configuration">
+  Improved PulledPork3 Configuration:
+  <a class="heading-link" href="#improved-pulledpork3-configuration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># /usr/local/etc/pulledpork3/pulledpork.conf (enhanced)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">registered_ruleset</span> <span class="o">=</span> <span class="nb">true</span>
+</span></span><span class="line"><span class="cl"><span class="nv">oinkcode</span> <span class="o">=</span> xxxxx  <span class="c1"># Your actual oinkcode</span>
+</span></span><span class="line"><span class="cl"><span class="nv">snort_path</span> <span class="o">=</span> /usr/local/bin/snort
+</span></span><span class="line"><span class="cl"><span class="nv">local_rules</span> <span class="o">=</span> /usr/local/etc/rules/local.rules
+</span></span><span class="line"><span class="cl"><span class="nv">rule_url</span> <span class="o">=</span> https://snort.org/rules/snortrules-snapshot-31470.tar.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Additional settings</span>
+</span></span><span class="line"><span class="cl"><span class="nv">distro</span> <span class="o">=</span> Ubuntu-20-4
+</span></span><span class="line"><span class="cl"><span class="nv">config_path</span> <span class="o">=</span> /usr/local/etc/snort/snort.lua
+</span></span><span class="line"><span class="cl"><span class="nv">sid_msg</span> <span class="o">=</span> /usr/local/etc/snort/sid-msg.map
+</span></span><span class="line"><span class="cl"><span class="nv">sid_msg_version</span> <span class="o">=</span> <span class="m">2</span>
+</span></span></code></pre></div><h3 id="automated-rule-updates-cron-job">
+  Automated Rule Updates (Cron Job):
+  <a class="heading-link" href="#automated-rule-updates-cron-job">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Create daily rule update script</span>
+</span></span><span class="line"><span class="cl">sudo nano /usr/local/bin/update_snort_rules.sh
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1"># /usr/local/bin/update_snort_rules.sh</span>
+</span></span><span class="line"><span class="cl">/usr/local/bin/pulledpork3/pulledpork.py -c /usr/local/etc/pulledpork3/pulledpork.conf
+</span></span><span class="line"><span class="cl">systemctl reload snort  <span class="c1"># If running as service</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo chmod +x /usr/local/bin/update_snort_rules.sh
+</span></span><span class="line"><span class="cl"><span class="c1"># Add to crontab for daily updates at 2 AM</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;0 2 * * * root /usr/local/bin/update_snort_rules.sh&#34;</span> <span class="p">|</span> sudo tee -a /etc/crontab
+</span></span></code></pre></div><h2 id="production-service-setup">
+  Production Service Setup
+  <a class="heading-link" href="#production-service-setup">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="create-systemd-service">
+  Create Systemd Service:
+  <a class="heading-link" href="#create-systemd-service">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nano /etc/systemd/system/snort3.service
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[Unit]</span>
+</span></span><span class="line"><span class="cl"><span class="na">Description</span><span class="o">=</span><span class="s">Snort 3 IDS/IPS</span>
+</span></span><span class="line"><span class="cl"><span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[Service]</span>
+</span></span><span class="line"><span class="cl"><span class="na">Type</span><span class="o">=</span><span class="s">simple</span>
+</span></span><span class="line"><span class="cl"><span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/local/bin/snort -c /usr/local/etc/snort/snort.lua -i ens33 -A alert_fast</span>
+</span></span><span class="line"><span class="cl"><span class="na">ExecReload</span><span class="o">=</span><span class="s">/bin/kill -HUP $MAINPID</span>
+</span></span><span class="line"><span class="cl"><span class="na">Restart</span><span class="o">=</span><span class="s">on-failure</span>
+</span></span><span class="line"><span class="cl"><span class="na">RestartSec</span><span class="o">=</span><span class="s">5</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[Install]</span>
+</span></span><span class="line"><span class="cl"><span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl daemon-reload
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> snort3
+</span></span><span class="line"><span class="cl">sudo systemctl start snort3
+</span></span></code></pre></div><h2 id="advanced-monitoring--logging">
+  Advanced Monitoring &amp; Logging
+  <a class="heading-link" href="#advanced-monitoring--logging">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="real-time-alert-monitoring">
+  Real-time Alert Monitoring:
+  <a class="heading-link" href="#real-time-alert-monitoring">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Follow alerts in real-time</span>
+</span></span><span class="line"><span class="cl">tail -f /var/log/snort/alert_fast.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Comprehensive logging setup</span>
+</span></span><span class="line"><span class="cl">sudo mkdir -p /var/log/snort/<span class="o">{</span>alerts,archived,stats<span class="o">}</span>
+</span></span></code></pre></div><h3 id="enhanced-local-rules">
+  Enhanced Local Rules:
+  <a class="heading-link" href="#enhanced-local-rules">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># /usr/local/etc/rules/local.rules (enhanced)</span>
+</span></span><span class="line"><span class="cl">alert icmp any any -&gt; any any <span class="o">(</span>msg:<span class="s2">&#34;ICMP Ping Detected&#34;</span><span class="p">;</span> sid:1000001<span class="p">;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">alert tcp any any -&gt; any <span class="m">22</span> <span class="o">(</span>msg:<span class="s2">&#34;SSH Connection Attempt&#34;</span><span class="p">;</span> sid:1000002<span class="p">;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">alert tcp any any -&gt; any <span class="m">80</span> <span class="o">(</span>msg:<span class="s2">&#34;HTTP Traffic&#34;</span><span class="p">;</span> sid:1000003<span class="p">;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">alert tcp any any -&gt; any <span class="m">443</span> <span class="o">(</span>msg:<span class="s2">&#34;HTTPS Traffic&#34;</span><span class="p">;</span> sid:1000004<span class="p">;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">alert udp any any -&gt; any <span class="m">53</span> <span class="o">(</span>msg:<span class="s2">&#34;DNS Query&#34;</span><span class="p">;</span> sid:1000005<span class="p">;</span><span class="o">)</span>
+</span></span></code></pre></div><h2 id="performance-optimization">
+  Performance Optimization
+  <a class="heading-link" href="#performance-optimization">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="memory-and-cpu-optimization">
+  Memory and CPU Optimization:
+  <a class="heading-link" href="#memory-and-cpu-optimization">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Check Snort performance</span>
+</span></span><span class="line"><span class="cl">snort -c /usr/local/etc/snort/snort.lua --mem-check
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Optimize based on your hardware</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Add to snort.lua:</span>
+</span></span><span class="line"><span class="cl"><span class="nv">max_pdu</span> <span class="o">=</span> <span class="m">1460</span>
+</span></span><span class="line"><span class="cl"><span class="nv">max_rule_metadata</span> <span class="o">=</span> <span class="m">32768</span>
+</span></span></code></pre></div><h2 id="security-hardening">
+  Security Hardening
+  <a class="heading-link" href="#security-hardening">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="file-permissions">
+  File Permissions:
+  <a class="heading-link" href="#file-permissions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo chown -R root:root /usr/local/etc/snort/
+</span></span><span class="line"><span class="cl">sudo chmod -R <span class="m">644</span> /usr/local/etc/snort/
+</span></span><span class="line"><span class="cl">sudo chmod <span class="m">755</span> /usr/local/etc/snort/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo chown -R root:root /var/log/snort/
+</span></span><span class="line"><span class="cl">sudo chmod -R <span class="m">644</span> /var/log/snort/
+</span></span></code></pre></div><h2 id="testing-your-setup">
+  Testing Your Setup
+  <a class="heading-link" href="#testing-your-setup">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="comprehensive-test-suite">
+  Comprehensive Test Suite:
+  <a class="heading-link" href="#comprehensive-test-suite">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 1. Configuration test</span>
+</span></span><span class="line"><span class="cl">snort -c /usr/local/etc/snort/snort.lua --warn-all
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 2. Rule loading test</span>
+</span></span><span class="line"><span class="cl">snort -c /usr/local/etc/snort/snort.lua --plugin-path <span class="s2">&#34;/usr/local/etc/so_rules/&#34;</span> --rule-test
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 3. Live traffic test (30 seconds)</span>
+</span></span><span class="line"><span class="cl">timeout 30s snort -c /usr/local/etc/snort/snort.lua -i ens33 -A alert_fast
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 4. PCAP analysis test</span>
+</span></span><span class="line"><span class="cl">snort -c /usr/local/etc/snort/snort.lua -r test.pcap -A alert_fast -q
+</span></span></code></pre></div><h2 id="next-steps-for-your-ids">
+  Next Steps for Your IDS
+  <a class="heading-link" href="#next-steps-for-your-ids">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ol>
+<li><strong>Integrate with SIEM</strong> (ELK Stack, Splunk)</li>
+<li><strong>Set up automated responses</strong> (block IPs with iptables)</li>
+<li><strong>Implement log rotation</strong> and long-term storage</li>
+<li><strong>Create custom rules</strong> for your specific environment</li>
+<li><strong>Set up alert notifications</strong> (email, Slack, etc.)</li>
+</ol>
+<p>Your Snort 3 installation is now fully operational! The malware traffic analysis exercise demonstrates that your IDS is correctly detecting threats. You have a production-ready intrusion detection system.</p>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2025
+     SecLice 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
