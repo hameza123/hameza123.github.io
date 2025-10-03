@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Seclice on SecLice</title>
+    <title>SecLice</title>
     <link>http://localhost:1313/authors/seclice/</link>
-    <description>Recent content in Seclice on SecLice</description>
+    <description>Recent content on SecLice</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 13 Sep 2025 18:15:41 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 30 Sep 2025 08:42:28 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/authors/seclice/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Identity and Access Management</title>
+      <link>http://localhost:1313/posts/iam/</link>
+      <pubDate>Tue, 30 Sep 2025 08:42:28 +0100</pubDate>
+      <guid>http://localhost:1313/posts/iam/</guid>
+      <description>&lt;h3 id=&#34;identity-and-access-management-the-digital-bouncer-for-your-organization&#34;&gt;&#xA;  &lt;strong&gt;Identity and Access Management: The Digital Bouncer for Your Organization&lt;/strong&gt;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#identity-and-access-management-the-digital-bouncer-for-your-organization&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;In today&amp;rsquo;s interconnected digital world, the perimeter of an organization is no longer just its office walls. It extends to cloud servers, SaaS applications, and employee devices scattered across the globe. In this landscape, the fundamental question of security has shifted from &amp;ldquo;How do we keep people out?&amp;rdquo; to &amp;ldquo;&lt;strong&gt;How do we let the right people in, at the right time, for the right reasons?&lt;/strong&gt;&amp;rdquo;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Elastic Defend Setup Tutorial  , Day 29 </title>
       <link>http://localhost:1313/posts/soc-analyst-challenge-day-29/</link>

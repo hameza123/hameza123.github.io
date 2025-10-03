@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Creating Bootable Windows 11 USB on macOS · SecLice
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="SecLice">
+<meta name="description" content="Complete Step-by-Step Guide: Creating Bootable Windows 11 USB on macOS ">
+<meta name="keywords" content="blog,Cybersecurity">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Creating Bootable Windows 11 USB on macOS">
+  <meta name="twitter:description" content="Complete Step-by-Step Guide: Creating Bootable Windows 11 USB on macOS">
+
+<meta property="og:url" content="http://localhost:1313/posts/complete-step-by-step-guide-creating-bootable-windows-11-usb-on-macos/">
+  <meta property="og:site_name" content="SecLice">
+  <meta property="og:title" content="Creating Bootable Windows 11 USB on macOS">
+  <meta property="og:description" content="Complete Step-by-Step Guide: Creating Bootable Windows 11 USB on macOS">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-03T19:07:13+01:00">
+    <meta property="article:modified_time" content="2025-10-03T19:07:13+01:00">
+    <meta property="article:tag" content="Win11">
+    <meta property="article:tag" content="Macos">
+    <meta property="article:tag" content="Usb">
+    <meta property="article:tag" content="Boot">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/complete-step-by-step-guide-creating-bootable-windows-11-usb-on-macos/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      SecLice
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/ressources/">Ressources</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/pt-br/">🇧🇷</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/complete-step-by-step-guide-creating-bootable-windows-11-usb-on-macos/">
+              Creating Bootable Windows 11 USB on macOS
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-10-03T19:07:13&#43;01:00">
+                October 3, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa-solid fa-user" aria-hidden="true"></i>
+    <a href="/authors/seclice/">SecLice</a></div>
+
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/guide/">Guide</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/win11/">Win11</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/macos/">Macos</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/usb/">Usb</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/boot/">Boot</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="complete-step-by-step-guide-creating-bootable-windows-11-usb-on-macos">
+  Complete Step-by-Step Guide: Creating Bootable Windows 11 USB on macOS
+  <a class="heading-link" href="#complete-step-by-step-guide-creating-bootable-windows-11-usb-on-macos">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="prerequisites">
+  Prerequisites
+  <a class="heading-link" href="#prerequisites">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li>Windows 11 ISO file</li>
+<li>USB drive (16GB or larger recommended)</li>
+<li>macOS computer</li>
+<li>Administrator access</li>
+</ul>
+<hr>
+<h2 id="step-1-download-windows-11-iso">
+  Step 1: Download Windows 11 ISO
+  <a class="heading-link" href="#step-1-download-windows-11-iso">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ol>
+<li>Go to <a href="https://www.microsoft.com/software-download/windows11"  class="external-link" target="_blank" rel="noopener">Microsoft Windows 11 Download Page</a></li>
+<li>Download the Windows 11 ISO file</li>
+<li>Save it to your Downloads folder</li>
+</ol>
+<h2 id="step-2-mount-the-iso-file">
+  Step 2: Mount the ISO File
+  <a class="heading-link" href="#step-2-mount-the-iso-file">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Double-click the ISO file in Finder, or use this command:</span>
+</span></span><span class="line"><span class="cl">hdiutil mount ~/Downloads/Win11_23H2_English_x64.iso
+</span></span></code></pre></div><ul>
+<li>Note the mounted volume name (usually something like &ldquo;CCCOMA_X64FRE_EN-US_DV9&rdquo;)</li>
+<li>Let&rsquo;s call this <code>SOURCE_VOLUME</code></li>
+</ul>
+<h2 id="step-3-identify-your-usb-drive">
+  Step 3: Identify Your USB Drive
+  <a class="heading-link" href="#step-3-identify-your-usb-drive">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">diskutil list
+</span></span></code></pre></div><p><strong>Example Output:</strong></p>
+<pre tabindex="0"><code>/dev/disk0 (internal, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *500.1 GB   disk0
+   
+/dev/disk2 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *15.5 GB    disk2
+   1:                 DOS_FAT_32 UNTITLED                15.5 GB    disk2s1
+</code></pre><p><strong>Identify your USB drive:</strong></p>
+<ul>
+<li>Look for the external physical disk with your USB&rsquo;s size</li>
+<li><strong>Important:</strong> Note the disk identifier (e.g., <code>/dev/disk2</code>)</li>
+<li><strong>Warning:</strong> Using the wrong disk will erase your data!</li>
+</ul>
+<h2 id="step-4-unmount-the-usb-drive">
+  Step 4: Unmount the USB Drive
+  <a class="heading-link" href="#step-4-unmount-the-usb-drive">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Replace disk2 with your actual USB disk identifier</span>
+</span></span><span class="line"><span class="cl">diskutil unmountDisk /dev/disk2
+</span></span></code></pre></div><h2 id="step-5-format-the-usb-drive">
+  Step 5: Format the USB Drive
+  <a class="heading-link" href="#step-5-format-the-usb-drive">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="option-a-exfat-recommended---no-file-size-limits">
+  Option A: exFAT (Recommended - No File Size Limits)
+  <a class="heading-link" href="#option-a-exfat-recommended---no-file-size-limits">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">diskutil eraseDisk ExFAT <span class="s2">&#34;WIN11&#34;</span> MBR /dev/disk2
+</span></span></code></pre></div><h3 id="option-b-fat32-older-bios-compatibility">
+  Option B: FAT32 (Older BIOS Compatibility)
+  <a class="heading-link" href="#option-b-fat32-older-bios-compatibility">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">diskutil eraseDisk MS-DOS <span class="s2">&#34;WIN11&#34;</span> MBR /dev/disk2
+</span></span></code></pre></div><p><strong>Wait for the format to complete</strong> - you&rsquo;ll see a message like:</p>
+<pre tabindex="0"><code>Finished erase on disk2
+</code></pre><h2 id="step-6-copy-windows-files">
+  Step 6: Copy Windows Files
+  <a class="heading-link" href="#step-6-copy-windows-files">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="if-using-exfat-option-a---simple-copy">
+  If using exFAT (Option A - Simple Copy):
+  <a class="heading-link" href="#if-using-exfat-option-a---simple-copy">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Copy all files from ISO to USB</span>
+</span></span><span class="line"><span class="cl">rsync -avh --progress <span class="s2">&#34;/Volumes/CCCOMA_X64FRE_EN-US_DV9/&#34;</span> <span class="s2">&#34;/Volumes/WIN11/&#34;</span>
+</span></span></code></pre></div><h3 id="if-using-fat32-option-b---split-large-files">
+  If using FAT32 (Option B - Split Large Files):
+  <a class="heading-link" href="#if-using-fat32-option-b---split-large-files">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># First, copy all files except the large install.wim</span>
+</span></span><span class="line"><span class="cl">rsync -avh --progress --exclude<span class="o">=</span><span class="s2">&#34;sources/install.wim&#34;</span> <span class="s2">&#34;/Volumes/CCCOMA_X64FRE_EN-US_DV9/&#34;</span> <span class="s2">&#34;/Volumes/WIN11/&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Install wimlib for file splitting</span>
+</span></span><span class="line"><span class="cl">brew install wimlib
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Split the large install.wim file into smaller parts</span>
+</span></span><span class="line"><span class="cl">wimlib-imagex split <span class="s2">&#34;/Volumes/CCCOMA_X64FRE_EN-US_DV9/sources/install.wim&#34;</span> <span class="s2">&#34;/Volumes/WIN11/sources/install.swm&#34;</span> <span class="m">3800</span>
+</span></span></code></pre></div><h2 id="step-7-make-usb-bootable">
+  Step 7: Make USB Bootable
+  <a class="heading-link" href="#step-7-make-usb-bootable">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="for-uefi-systems-most-modern-computers">
+  For UEFI Systems (Most Modern Computers):
+  <a class="heading-link" href="#for-uefi-systems-most-modern-computers">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Install bootmgfw.efi to make USB UEFI bootable</span>
+</span></span><span class="line"><span class="cl">sudo cp <span class="s2">&#34;/Volumes/CCCOMA_X64FRE_EN-US_DV9/efi/boot/bootx64.efi&#34;</span> <span class="s2">&#34;/Volumes/WIN11/efi/boot/bootx64.efi&#34;</span>
+</span></span></code></pre></div><h3 id="for-legacy-bios-systems">
+  For Legacy BIOS Systems:
+  <a class="heading-link" href="#for-legacy-bios-systems">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Make the partition active</span>
+</span></span><span class="line"><span class="cl">sudo fdisk -e /dev/disk2
+</span></span><span class="line"><span class="cl"><span class="c1"># At the fdisk prompt, type:</span>
+</span></span><span class="line"><span class="cl">print          <span class="c1"># View partitions</span>
+</span></span><span class="line"><span class="cl">flag <span class="m">1</span>         <span class="c1"># Set partition 1 as active</span>
+</span></span><span class="line"><span class="cl">write          <span class="c1"># Write changes</span>
+</span></span><span class="line"><span class="cl">quit           <span class="c1"># Exit</span>
+</span></span></code></pre></div><p><strong>But you can try without this step, I didn&rsquo;t do it and it works just fine for me</strong></p>
+<h2 id="step-8-verify-the-usb-contents">
+  Step 8: Verify the USB Contents
+  <a class="heading-link" href="#step-8-verify-the-usb-contents">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Check the USB structure</span>
+</span></span><span class="line"><span class="cl">ls -la <span class="s2">&#34;/Volumes/WIN11/&#34;</span>
+</span></span></code></pre></div><p><strong>You should see these key folders/files:</strong></p>
+<pre tabindex="0"><code>/efi/
+/sources/
+/boot/
+/bootmgr
+/setup.exe
+</code></pre><h2 id="step-9-eject-the-usb-safely">
+  Step 9: Eject the USB Safely
+  <a class="heading-link" href="#step-9-eject-the-usb-safely">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Eject the Windows ISO</span>
+</span></span><span class="line"><span class="cl">hdiutil unmount <span class="s2">&#34;/Volumes/CCCOMA_X64FRE_EN-US_DV9&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Eject the USB drive</span>
+</span></span><span class="line"><span class="cl">diskutil eject /dev/disk2
+</span></span></code></pre></div><h2 id="step-10-test-the-bootable-usb">
+  Step 10: Test the Bootable USB
+  <a class="heading-link" href="#step-10-test-the-bootable-usb">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ol>
+<li><strong>Insert USB into target Windows computer</strong></li>
+<li><strong>Restart the computer</strong></li>
+<li><strong>Enter BIOS/UEFI settings</strong> (usually F2, F12, Del, or Esc during boot)</li>
+<li><strong>Change boot order</strong> to boot from USB first</li>
+<li><strong>Save and exit</strong> - Windows setup should start</li>
+</ol>
+<hr>
+<h2 id="troubleshooting">
+  Troubleshooting
+  <a class="heading-link" href="#troubleshooting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="common-issues">
+  Common Issues:
+  <a class="heading-link" href="#common-issues">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>1. &ldquo;No bootable device&rdquo; error:</strong></p>
+<ul>
+<li>Try recreating with FAT32 instead of exFAT</li>
+<li>Ensure MBR partition scheme is used</li>
+<li>Check if target computer supports UEFI/Legacy boot</li>
+</ul>
+<p><strong>2. File too large for FAT32:</strong></p>
+<ul>
+<li>Use exFAT format instead</li>
+<li>Or ensure wimlib split the install.wim properly</li>
+</ul>
+<p><strong>3. USB not showing in boot menu:</strong></p>
+<ul>
+<li>Try different USB port (USB 2.0 often works better)</li>
+<li>Recreate with <code>GPT</code> instead of <code>MBR</code> for UEFI systems:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">diskutil eraseDisk ExFAT <span class="s2">&#34;WIN11&#34;</span> GPT /dev/disk2
+</span></span></code></pre></div></li>
+</ul>
+<p><strong>4. &ldquo;Windows cannot be installed to this disk&rdquo;:</strong></p>
+<ul>
+<li>The USB might not be properly bootable</li>
+<li>Recreate using the exact steps above</li>
+</ul>
+<hr>
+<h2 id="complete-script-version">
+  Complete Script Version
+  <a class="heading-link" href="#complete-script-version">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Save this as <code>create-win11-usb.sh</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;=== Windows 11 USB Creator for macOS ===&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Get source volume</span>
+</span></span><span class="line"><span class="cl"><span class="nb">read</span> -p <span class="s2">&#34;Enter Windows ISO mounted volume path: &#34;</span> SOURCE_VOLUME
+</span></span><span class="line"><span class="cl"><span class="nb">read</span> -p <span class="s2">&#34;Enter USB disk identifier (e.g., disk2): &#34;</span> USB_DISK
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;WARNING: This will erase ALL data on /dev/</span><span class="nv">$USB_DISK</span><span class="s2">!&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">read</span> -p <span class="s2">&#34;Continue? (y/N): &#34;</span> CONFIRM
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[[</span> <span class="nv">$CONFIRM</span> !<span class="o">=</span> <span class="s2">&#34;y&#34;</span> <span class="o">&amp;&amp;</span> <span class="nv">$CONFIRM</span> !<span class="o">=</span> <span class="s2">&#34;Y&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Operation cancelled.&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Step 1: Unmounting USB drive...&#34;</span>
+</span></span><span class="line"><span class="cl">diskutil unmountDisk /dev/<span class="nv">$USB_DISK</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Step 2: Formatting as exFAT...&#34;</span>
+</span></span><span class="line"><span class="cl">diskutil eraseDisk ExFAT <span class="s2">&#34;WIN11&#34;</span> MBR /dev/<span class="nv">$USB_DISK</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Step 3: Waiting for drive to mount...&#34;</span>
+</span></span><span class="line"><span class="cl">sleep <span class="m">5</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Step 4: Copying Windows files...&#34;</span>
+</span></span><span class="line"><span class="cl">rsync -avh --progress <span class="s2">&#34;</span><span class="nv">$SOURCE_VOLUME</span><span class="s2">/&#34;</span> <span class="s2">&#34;/Volumes/WIN11/&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Step 5: Making USB bootable...&#34;</span>
+</span></span><span class="line"><span class="cl">sudo cp <span class="s2">&#34;</span><span class="nv">$SOURCE_VOLUME</span><span class="s2">/efi/boot/bootx64.efi&#34;</span> <span class="s2">&#34;/Volumes/WIN11/efi/boot/bootx64.efi&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Step 6: Ejecting drives...&#34;</span>
+</span></span><span class="line"><span class="cl">hdiutil unmount <span class="s2">&#34;</span><span class="nv">$SOURCE_VOLUME</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">diskutil eject /dev/<span class="nv">$USB_DISK</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;=== SUCCESS: Windows 11 USB created! ===&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;USB is ready for use. Insert into target computer and boot from USB.&#34;</span>
+</span></span></code></pre></div><p>Make it executable and run:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">chmod +x create-win11-usb.sh
+</span></span><span class="line"><span class="cl">./create-win11-usb.sh
+</span></span></code></pre></div><p>This detailed guide should help you create a bootable Windows 11 USB drive successfully from macOS.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2025
+     SecLice 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

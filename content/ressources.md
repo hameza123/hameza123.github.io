@@ -32,6 +32,9 @@ draft = "false"
 [**CIS Benchmarks**](https://www.cisecurity.org/cis-benchmarks) : Security configuration benchmarks  
 [**Lynis**](https://cisofy.com/lynis) : Security auditing tool  
 [**OpenVAS**](https://www.openvas.org) : Vulnerability scanner  
+[**Snorpy**](https://snorpy.cyb3rs3c.net) : A Web Based Snort Rule Creator / Maker for Building Simple Snort Rules
+[malware-traffic-analysis](https://www.malware-traffic-analysis.net) : A site for sharing packet capture (pcap) files and malware samples.
+
 
 ## Threat Intelligence
 [**CISA KEV**](https://www.cisa.gov/known-exploited-vulnerabilities) : Known exploited vulnerabilities  

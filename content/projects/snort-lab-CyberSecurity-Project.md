@@ -1,5 +1,5 @@
 +++
-draft = false
+draft = true
 date = '2025-09-28T11:21:55+01:00'
 title = "How To Install an IDS (Snort)"
 description = "This guide will walk you through installing and configuring Snort, a powerful open-source Intrusion Detection System"
