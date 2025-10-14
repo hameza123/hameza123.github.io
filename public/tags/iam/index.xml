@@ -6,8 +6,15 @@
     <description>Recent content in Iam on SecLice</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 05 Oct 2025 13:30:30 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 14 Oct 2025 09:14:59 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/iam/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Protocol OAuth 2.0 </title>
+      <link>http://localhost:1313/posts/auth/</link>
+      <pubDate>Tue, 14 Oct 2025 09:14:59 +0100</pubDate>
+      <guid>http://localhost:1313/posts/auth/</guid>
+      <description>&lt;h3 id=&#34;oauth-20-the-protocol-that-lets-you-log-in-without-a-password&#34;&gt;&#xA;  &lt;strong&gt;OAuth 2.0: The Protocol That Lets You Log In Without a Password&lt;/strong&gt;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#oauth-20-the-protocol-that-lets-you-log-in-without-a-password&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;If you&amp;rsquo;ve ever used your Google account to sign into a service like Spotify or used your Facebook profile to log into a shopping site, you&amp;rsquo;ve experienced OAuth 2.0 in action. It&amp;rsquo;s the silent, behind-the-scenes protocol that powers secure, password-free access across the modern web and mobile apps.&lt;/p&gt;&#xA;&lt;p&gt;But what exactly is it, and how does it work? Let&amp;rsquo;s break it down.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Keycloak : Part 4</title>
       <link>http://localhost:1313/projects/keycloak4/</link>

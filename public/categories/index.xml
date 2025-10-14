@@ -6,8 +6,22 @@
     <description>Recent content in Categories on SecLice</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 13 Oct 2025 08:08:03 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 14 Oct 2025 09:14:59 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IAM</title>
+      <link>http://localhost:1313/categories/iam/</link>
+      <pubDate>Tue, 14 Oct 2025 09:14:59 +0100</pubDate>
+      <guid>http://localhost:1313/categories/iam/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>OAuth2</title>
+      <link>http://localhost:1313/categories/oauth2/</link>
+      <pubDate>Tue, 14 Oct 2025 09:14:59 +0100</pubDate>
+      <guid>http://localhost:1313/categories/oauth2/</guid>
+      <description></description>
+    </item>
     <item>
       <title>FlareVM</title>
       <link>http://localhost:1313/categories/flarevm/</link>
@@ -41,13 +55,6 @@
       <link>http://localhost:1313/categories/guide/</link>
       <pubDate>Fri, 03 Oct 2025 19:07:13 +0100</pubDate>
       <guid>http://localhost:1313/categories/guide/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>IAM</title>
-      <link>http://localhost:1313/categories/iam/</link>
-      <pubDate>Tue, 30 Sep 2025 08:42:28 +0100</pubDate>
-      <guid>http://localhost:1313/categories/iam/</guid>
       <description></description>
     </item>
     <item>

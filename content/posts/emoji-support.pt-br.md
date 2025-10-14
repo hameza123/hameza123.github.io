@@ -1,4 +1,5 @@
 +++
+draft = true
 authors = ["Programador Solitário"]
 title = "Suporte a Emojis"
 date = "2023-07-07"

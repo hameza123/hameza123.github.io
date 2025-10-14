@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  The Protocol OAuth 2.0  · SecLice
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="SecLice">
+<meta name="description" content="A comprehensive article on OAuth 2.0, designed to be understandable for both beginners and those needing a refresher. ">
+<meta name="keywords" content="blog,Cybersecurity">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Protocol OAuth 2.0 ">
+  <meta name="twitter:description" content="A comprehensive article on OAuth 2.0, designed to be understandable for both beginners and those needing a refresher.">
+
+<meta property="og:url" content="http://localhost:1313/posts/auth/">
+  <meta property="og:site_name" content="SecLice">
+  <meta property="og:title" content="The Protocol OAuth 2.0 ">
+  <meta property="og:description" content="A comprehensive article on OAuth 2.0, designed to be understandable for both beginners and those needing a refresher.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-14T09:14:59+01:00">
+    <meta property="article:modified_time" content="2025-10-14T09:14:59+01:00">
+    <meta property="article:tag" content="Oauth2">
+    <meta property="article:tag" content="Iam">
+    <meta property="article:tag" content="Authentication">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/auth/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      SecLice
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/ressources/">Ressources</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/pt-br/">🇧🇷</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/auth/">
+              The Protocol OAuth 2.0 
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-10-14T09:14:59&#43;01:00">
+                October 14, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa-solid fa-user" aria-hidden="true"></i>
+    <a href="/authors/seclice/">Seclice</a></div>
+
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/oauth2/">OAuth2</a>
+      <span class="separator">•</span>
+    <a href="/categories/iam/">IAM</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/oauth2/">Oauth2</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/iam/">Iam</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/authentication/">Authentication</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h3 id="oauth-20-the-protocol-that-lets-you-log-in-without-a-password">
+  <strong>OAuth 2.0: The Protocol That Lets You Log In Without a Password</strong>
+  <a class="heading-link" href="#oauth-20-the-protocol-that-lets-you-log-in-without-a-password">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>If you&rsquo;ve ever used your Google account to sign into a service like Spotify or used your Facebook profile to log into a shopping site, you&rsquo;ve experienced OAuth 2.0 in action. It&rsquo;s the silent, behind-the-scenes protocol that powers secure, password-free access across the modern web and mobile apps.</p>
+<p>But what exactly is it, and how does it work? Let&rsquo;s break it down.</p>
+<h4 id="what-is-oauth-20-and-what-it">
+  <strong>What is OAuth 2.0? (And What It&rsquo;s Not)</strong>
+  <a class="heading-link" href="#what-is-oauth-20-and-what-it">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>At its core, <strong>OAuth 2.0 is an authorization framework</strong>. It allows a third-party application to access a user&rsquo;s resources on another service, <strong>without the user having to share their password.</strong></p>
+<p>This is a critical distinction:</p>
+<ul>
+<li><strong>Authentication (AuthN)</strong> is about proving <em>&ldquo;who you are.&rdquo;</em> (e.g., logging in with a username and password).</li>
+<li><strong>Authorization (AuthZ)</strong> is about granting permission <em>&ldquo;what you can do.&rdquo;</em> (e.g., allowing a photo printing service to access your Google Photos).</li>
+</ul>
+<p>OAuth 2.0 is primarily about <strong>authorization</strong>. It&rsquo;s not an authentication protocol, although it&rsquo;s often used as a building block for authentication systems like <strong>OpenID Connect (OIDC)</strong>.</p>
+<p><strong>Why is this so important?</strong></p>
+<ol>
+<li><strong>Security:</strong> You don&rsquo;t have to trust the third-party app with your sensitive password.</li>
+<li><strong>User Control:</strong> You can see exactly what permissions (or &ldquo;scopes&rdquo;) an app is requesting (e.g., &ldquo;Read your email,&rdquo; &ldquo;Access your contacts&rdquo;) and grant or revoke access at any time from the main service (like your Google or Facebook dashboard).</li>
+<li><strong>Convenience:</strong> No need to create and remember a new password for every single service.</li>
+</ol>
+<h4 id="the-key-players-the-oauth-20-roles">
+  <strong>The Key Players: The OAuth 2.0 Roles</strong>
+  <a class="heading-link" href="#the-key-players-the-oauth-20-roles">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>To understand the flow, you need to know the four main roles:</p>
+<ol>
+<li><strong>Resource Owner:</strong> That&rsquo;s <strong>you</strong>, the user. You own the data and have the power to grant access.</li>
+<li><strong>Client:</strong> The <strong>third-party application</strong> that wants to access your data (e.g., &ldquo;Spotify.com&rdquo;).</li>
+<li><strong>Resource Server:</strong> The <strong>API</strong> that holds the user&rsquo;s data (e.g., Google&rsquo;s servers that store your photos).</li>
+<li><strong>Authorization Server:</strong> The server that authenticates the user and issues <strong>access tokens</strong> after getting their consent. (This is often the same as the Resource Server in practice, like Google).</li>
+</ol>
+<h4 id="the-classic-analogy-the-hotel-key-card">
+  <strong>The Classic Analogy: The Hotel Key Card</strong>
+  <a class="heading-link" href="#the-classic-analogy-the-hotel-key-card">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Imagine you&rsquo;re staying at a hotel (the <strong>Client</strong>).</p>
+<ol>
+<li>You (the <strong>Resource Owner</strong>) go to the front desk.</li>
+<li>The front desk clerk (the <strong>Authorization Server</strong>) verifies your identity with your passport (your password).</li>
+<li>You are then granted a key card (the <strong>Access Token</strong>).</li>
+<li>This key card gives you access to your specific room (your <strong>Resources</strong>) for a limited time. You can&rsquo;t access the master key storage or the staff lounge—only what you&rsquo;re authorized for.</li>
+</ol>
+<p>The hotel doesn&rsquo;t give you the master key (your password); it gives you a limited-scope, temporary token.</p>
+<h4 id="the-oauth-20-flow-in-6-steps">
+  <strong>The OAuth 2.0 Flow in 6 Steps</strong>
+  <a class="heading-link" href="#the-oauth-20-flow-in-6-steps">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Let&rsquo;s use the example of &ldquo;PrintMyPhotos.com&rdquo; wanting to access your pictures from &ldquo;Google Photos.&rdquo;</p>
+<ol>
+<li><strong>User Initiates Login:</strong> You click &ldquo;Sign in with Google&rdquo; on PrintMyPhotos.com.</li>
+<li><strong>Authorization Request:</strong> The PrintMyPhotos app redirects your browser to Google&rsquo;s Authorization Server. It sends along its ID and the permissions it needs (e.g., <code>read:photos</code>).</li>
+<li><strong>User Authentication &amp; Consent:</strong> Google prompts you to log in (if you aren&rsquo;t already). It then shows you a screen saying, &ldquo;PrintMyPhotos wants to access your photos. Allow/Deny?&rdquo;</li>
+<li><strong>Authorization Grant:</strong> If you click &ldquo;Allow,&rdquo; Google redirects you back to PrintMyPhotos.com with a special, one-time-use code called an <strong>Authorization Code</strong>.</li>
+<li><strong>Token Exchange:</strong> PrintMyPhotos.com (from its secure server) takes this code, along with its own secret key, and sends it back to Google&rsquo;s Authorization Server. In return, Google sends back an <strong>Access Token</strong>.</li>
+<li><strong>Accessing the Resource:</strong> Now, whenever PrintMyPhotos.com needs to fetch your photos, it sends this Access Token with its request to the Google Photos API (the <strong>Resource Server</strong>). The API verifies the token and, if valid, returns the requested photos.</li>
+</ol>
+<h4 id="common-grant-types-flows">
+  <strong>Common Grant Types (Flows)</strong>
+  <a class="heading-link" href="#common-grant-types-flows">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>OAuth 2.0 has different &ldquo;flows&rdquo; for different types of applications:</p>
+<ul>
+<li><strong>Authorization Code Flow:</strong> The most secure and common flow, used by web applications that have a server-side component. This is the flow described above.</li>
+<li><strong>Authorization Code Flow with PKCE (pronounced &ldquo;pixie&rdquo;):</strong> An enhanced version of the Authorization Code flow for mobile apps and single-page applications (SPAs) that cannot securely store a client secret.</li>
+<li><strong>Client Credentials Flow:</strong> Used for machine-to-machine (M2M) authentication where no user is present. For example, a backend service accessing another API.</li>
+<li><strong>Implicit Flow (Deprecated):</strong> Previously used for browser-only apps, but now considered insecure and superseded by the PKCE flow.</li>
+</ul>
+<h4 id="conclusion-the-invisible-guardian">
+  <strong>Conclusion: The Invisible Guardian</strong>
+  <a class="heading-link" href="#conclusion-the-invisible-guardian">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>OAuth 2.0 has become the bedrock of modern digital identity and API security. By separating the roles of authentication and authorization, it creates a more secure, user-centric, and seamless experience across the internet. It empowers you, the user, to connect your digital world without compromising your most sensitive credentials.</p>
+<p>The next time you &ldquo;Sign in with X,&rdquo; you&rsquo;ll know that a sophisticated and secure handshake is happening in the background, all thanks to OAuth 2.0.</p>
+<hr>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2025
+     SecLice 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

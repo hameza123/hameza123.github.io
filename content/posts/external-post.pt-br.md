@@ -1,4 +1,5 @@
 +++
+draft = true
 authors = ["Programador Solitário"]
 date = "2023-07-06"
 title = "Página Externa: Wiki Hugo Coder"
