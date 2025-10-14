@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Remnux: Linux Toolkit for Malware Analysis · SecLice
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="SecLice">
+<meta name="description" content="This guide will walk you through installing and configuring remnux, a powerful Vm for Malware Analysis ">
+<meta name="keywords" content="blog,Cybersecurity">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Remnux: Linux Toolkit for Malware Analysis">
+  <meta name="twitter:description" content="This guide will walk you through installing and configuring remnux, a powerful Vm for Malware Analysis">
+
+<meta property="og:url" content="http://localhost:1313/posts/remnux/">
+  <meta property="og:site_name" content="SecLice">
+  <meta property="og:title" content="Remnux: Linux Toolkit for Malware Analysis">
+  <meta property="og:description" content="This guide will walk you through installing and configuring remnux, a powerful Vm for Malware Analysis">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-12T16:35:09+01:00">
+    <meta property="article:modified_time" content="2025-10-12T16:35:09+01:00">
+    <meta property="article:tag" content="Remux">
+    <meta property="article:tag" content="SOC Analyst">
+    <meta property="article:tag" content="Malware">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/remnux/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      SecLice
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/ressources/">Ressources</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/pt-br/">🇧🇷</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/remnux/">
+              Remnux: Linux Toolkit for Malware Analysis
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-10-12T16:35:09&#43;01:00">
+                October 12, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              2-minute read
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa-solid fa-user" aria-hidden="true"></i>
+    <a href="/authors/seclice/">Seclice</a></div>
+
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/remnux/">Remnux</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/remux/">Remux</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/soc-analyst/">SOC Analyst</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/malware/">Malware</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h3 id="what-is-remnux">
+  What is REMnux:
+  <a class="heading-link" href="#what-is-remnux">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>REMnuxEMnux is a Linux toolkit for reverse-engineering and analyzing malicious software. REMnux provides a curated collection of free tools created by the community. Analysts can use it to investigate malware without having to find, install, and configure the tools.</p>
+<h3 id="install-remnux">
+  Install REMnux:
+  <a class="heading-link" href="#install-remnux">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Get the Virtual Appliance
+The easiest way to get the REMnux distro is to download the REMnux virtual appliance in the OVA format, import it into your hypervisor, then run the upgrade command to make sure it&rsquo;s up-to-date.</p>
+<p><strong>Step 1</strong>: <a href="https://docs.remnux.org/install-distro/get-virtual-appliance"  class="external-link" target="_blank" rel="noopener">Download the Virtual Appliance File</a></p>
+<p>The REMnux virtual appliance approximately 5 GB. It comes as an industry-standard OVA file, which you can import into your virtualization software. It&rsquo;s based on Ubuntu 20.04 (Focal).
+thers is two options : <strong>Virtualbox OVA</strong> if you are using it ofcourse, otherwise you ca use general <strong>General OVA</strong></p>
+<p><strong>Step 2</strong>: Confirm the Hash the OVA File</p>
+<p>Validate the SHA-256 hash of the downloaded file using a tool such as sha256sum or shasum to make sure it matches this expected value</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># You should be in the same folder where you download the OVA file.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># For macOS </span>
+</span></span><span class="line"><span class="cl">shasum -a <span class="m">256</span> remnux-v7-focal.ova
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># for Windows</span>
+</span></span><span class="line"><span class="cl">Get-FileHash remnux-v7-focal.ova
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># For Linux </span>
+</span></span><span class="line"><span class="cl">shasum -a <span class="m">256</span> remnux-v7-focal.ova
+</span></span></code></pre></div><p><strong>Step 3</strong>: Import the OVA File</p>
+<p>If possible, upgrade your virtualization software to the latest version. Then, use it to import the downloaded OVA file. By just double click onn it, and the irtualization software  will guide throw the steps.</p>
+<p><strong>Step 4</strong>: Start the REMnux Virtual Machine</p>
+<p>Once you start your REMnux virtual machine, it will automatically log you into the REMnux environment.
+There is no logon screen for accessing the REMnux environment, because analysts generally use REMnux on a system to which physical access is already restricted. When you need to elevate your privileges or access the REMnux virtual appliance remotely, note the follow default credentials:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Username: remnux
+</span></span><span class="line"><span class="cl">Password: malware
+</span></span></code></pre></div><p><strong>Step 5</strong>: Consider Special Hypervisor Requirements</p>
+<p>If something wet wrong you can check the <a href="https://docs.remnux.org/install-distro/get-virtual-appliance#hypervisor-requirements"  class="external-link" target="_blank" rel="noopener">documetation</a></p>
+<p><strong>Step 6</strong>: Upgrade the REMnux Virtual Machine</p>
+<p>After installing the REMnux virtual machine, run the following command inside the VM as a regular, non-root user to upgrade it to the latest version of the distro:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">remnux upgrade
+</span></span><span class="line"><span class="cl">remnux update
+</span></span></code></pre></div><p><strong>Step 7</strong>: Take a Snapshot of the Virtual Machine
+Consider taking a snapshot of your REMnux virtual machine, so you can return it to a known good state if the need arises.</p>
+<p>Now, you are ready to use your Malware Analysis Machine.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2025
+     SecLice 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Remnux on SecLice</title>
+    <link>http://localhost:1313/categories/remnux/</link>
+    <description>Recent content in Remnux on SecLice</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 12 Oct 2025 16:35:09 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/remnux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Remnux: Linux Toolkit for Malware Analysis</title>
+      <link>http://localhost:1313/posts/remnux/</link>
+      <pubDate>Sun, 12 Oct 2025 16:35:09 +0100</pubDate>
+      <guid>http://localhost:1313/posts/remnux/</guid>
+      <description>&lt;h3 id=&#34;what-is-remnux&#34;&gt;&#xA;  What is REMnux:&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#what-is-remnux&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;REMnuxEMnux is a Linux toolkit for reverse-engineering and analyzing malicious software. REMnux provides a curated collection of free tools created by the community. Analysts can use it to investigate malware without having to find, install, and configure the tools.&lt;/p&gt;&#xA;&lt;h3 id=&#34;install-remnux&#34;&gt;&#xA;  Install REMnux:&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#install-remnux&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Get the Virtual Appliance&#xA;The easiest way to get the REMnux distro is to download the REMnux virtual appliance in the OVA format, import it into your hypervisor, then run the upgrade command to make sure it&amp;rsquo;s up-to-date.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

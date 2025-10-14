@@ -6,8 +6,36 @@
     <description>Recent content in SOC Analyst on SecLice</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 28 Sep 2025 11:21:55 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 13 Oct 2025 08:08:03 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/soc-analyst/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FlareVM: Windows Toolkit for Malware Analysis</title>
+      <link>http://localhost:1313/posts/flarevm/</link>
+      <pubDate>Mon, 13 Oct 2025 08:08:03 +0100</pubDate>
+      <guid>http://localhost:1313/posts/flarevm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Remnux: Linux Toolkit for Malware Analysis</title>
+      <link>http://localhost:1313/posts/remnux/</link>
+      <pubDate>Sun, 12 Oct 2025 16:35:09 +0100</pubDate>
+      <guid>http://localhost:1313/posts/remnux/</guid>
+      <description>&lt;h3 id=&#34;what-is-remnux&#34;&gt;&#xA;  What is REMnux:&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#what-is-remnux&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;REMnuxEMnux is a Linux toolkit for reverse-engineering and analyzing malicious software. REMnux provides a curated collection of free tools created by the community. Analysts can use it to investigate malware without having to find, install, and configure the tools.&lt;/p&gt;&#xA;&lt;h3 id=&#34;install-remnux&#34;&gt;&#xA;  Install REMnux:&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#install-remnux&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Get the Virtual Appliance&#xA;The easiest way to get the REMnux distro is to download the REMnux virtual appliance in the OVA format, import it into your hypervisor, then run the upgrade command to make sure it&amp;rsquo;s up-to-date.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Keycloak : Part 2</title>
+      <link>http://localhost:1313/projects/keycloak2/</link>
+      <pubDate>Sun, 05 Oct 2025 10:57:30 +0100</pubDate>
+      <guid>http://localhost:1313/projects/keycloak2/</guid>
+      <description>&lt;h1 id=&#34;keycloak-workshop-part-2---hands-on-setup--core-concepts&#34;&gt;&#xA;  Keycloak Workshop: Part 2 - Hands-On Setup &amp;amp; Core Concepts&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#keycloak-workshop-part-2---hands-on-setup--core-concepts&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Excellent! This is a great foundation for Part 2 of your Keycloak workshop. Let me help you expand this into a comprehensive lesson structure.&lt;/p&gt;&#xA;&lt;p&gt;Major Topics&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;What is Keycloak?&lt;/li&gt;&#xA;&lt;li&gt;How to install&lt;/li&gt;&#xA;&lt;li&gt;Keycloak realms, users, &amp;amp; groups&lt;/li&gt;&#xA;&lt;li&gt;Clients &amp;amp; Roles&lt;/li&gt;&#xA;&lt;li&gt;Protocol mappers &amp;amp; scopes&lt;/li&gt;&#xA;&lt;li&gt;Intro to IdPs and more ..&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;keycloak-workshop-part-2---setup--core-concepts&#34;&gt;&#xA;  Keycloak Workshop: Part 2 - Setup &amp;amp; Core Concepts&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#keycloak-workshop-part-2---setup--core-concepts&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;h2 id=&#34;workshop-overview&#34;&gt;&#xA;  Workshop Overview&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#workshop-overview&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;In this session, we&amp;rsquo;ll move from theory to practice by setting up Keycloak and exploring its fundamental components through hands-on exercises.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Keycloak : Part 1</title>
+      <link>http://localhost:1313/projects/keycloak/</link>
+      <pubDate>Sun, 05 Oct 2025 10:47:41 +0100</pubDate>
+      <guid>http://localhost:1313/projects/keycloak/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Keycloak&lt;/strong&gt; is a powerful, open-source Identity and Access Management (IAM) solution. Think of it as a service you can use to handle everything related to user authentication (logging in), authorization (what they&amp;rsquo;re allowed to do), and user management.&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s a top-tier project under the Red Hat umbrella and is widely used in enterprise environments.&lt;/p&gt;&#xA;&lt;h3 id=&#34;core-concepts-of-keycloak&#34;&gt;&#xA;  Core Concepts of Keycloak&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#core-concepts-of-keycloak&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;To understand Keycloak, you need to know its fundamental building blocks:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>How To Install an IDS (Snort)</title>
       <link>http://localhost:1313/projects/projects/</link>

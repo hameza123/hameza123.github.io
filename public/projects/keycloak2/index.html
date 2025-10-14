@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Keycloak : Part 2 · SecLice
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="SecLice">
+<meta name="description" content="Keycloak open-source Identity and Access Management (IAM) solution">
+<meta name="keywords" content="blog,Cybersecurity">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Keycloak : Part 2">
+  <meta name="twitter:description" content="Keycloak open-source Identity and Access Management (IAM) solution">
+
+<meta property="og:url" content="http://localhost:1313/projects/keycloak2/">
+  <meta property="og:site_name" content="SecLice">
+  <meta property="og:title" content="Keycloak : Part 2">
+  <meta property="og:description" content="Keycloak open-source Identity and Access Management (IAM) solution">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2025-10-05T10:57:30+01:00">
+    <meta property="article:modified_time" content="2025-10-05T10:57:30+01:00">
+    <meta property="article:tag" content="Keycloak">
+    <meta property="article:tag" content="SOC Analyst">
+    <meta property="article:tag" content="Iam">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/projects/keycloak2/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      SecLice
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/ressources/">Ressources</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/pt-br/">🇧🇷</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:1313/projects/keycloak2/">
+          Keycloak : Part 2
+        </a>
+      </h1>
+    </header>
+
+    <h1 id="keycloak-workshop-part-2---hands-on-setup--core-concepts">
+  Keycloak Workshop: Part 2 - Hands-On Setup &amp; Core Concepts
+  <a class="heading-link" href="#keycloak-workshop-part-2---hands-on-setup--core-concepts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Excellent! This is a great foundation for Part 2 of your Keycloak workshop. Let me help you expand this into a comprehensive lesson structure.</p>
+<p>Major Topics</p>
+<ul>
+<li>What is Keycloak?</li>
+<li>How to install</li>
+<li>Keycloak realms, users, &amp; groups</li>
+<li>Clients &amp; Roles</li>
+<li>Protocol mappers &amp; scopes</li>
+<li>Intro to IdPs and more ..</li>
+</ul>
+<h1 id="keycloak-workshop-part-2---setup--core-concepts">
+  Keycloak Workshop: Part 2 - Setup &amp; Core Concepts
+  <a class="heading-link" href="#keycloak-workshop-part-2---setup--core-concepts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="workshop-overview">
+  Workshop Overview
+  <a class="heading-link" href="#workshop-overview">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>In this session, we&rsquo;ll move from theory to practice by setting up Keycloak and exploring its fundamental components through hands-on exercises.</p>
+<h2 id="prerequisites">
+  Prerequisites
+  <a class="heading-link" href="#prerequisites">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li>Basic understanding of authentication concepts</li>
+<li>Java 11+ installed on your system</li>
+<li>Git installed</li>
+<li>A modern web browser</li>
+</ul>
+<hr>
+<h2 id="section-1-keycloak-installation--initial-setup">
+  Section 1: Keycloak Installation &amp; Initial Setup
+  <a class="heading-link" href="#section-1-keycloak-installation--initial-setup">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="step-1-download-and-extract-keycloak">
+  Step 1: Download and Extract Keycloak
+  <a class="heading-link" href="#step-1-download-and-extract-keycloak">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Download Keycloak (if not already done)</span>
+</span></span><span class="line"><span class="cl">wget https://github.com/keycloak/keycloak/releases/download/21.0.0/keycloak-21.0.0.zip
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Extract the archive</span>
+</span></span><span class="line"><span class="cl">unzip keycloak-21.0.0.zip
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> keycloak-21.0.0/bin
+</span></span></code></pre></div><h3 id="step-2-start-keycloak-in-development-mode">
+  Step 2: Start Keycloak in Development Mode
+  <a class="heading-link" href="#step-2-start-keycloak-in-development-mode">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Start Keycloak in development mode (auto-configures for testing)</span>
+</span></span><span class="line"><span class="cl">./kc.sh start-dev
+</span></span></code></pre></div><p><strong>What happens in development mode:</strong></p>
+<ul>
+<li>Uses H2 embedded database</li>
+<li>Auto-creates admin user</li>
+<li>Enables development features</li>
+<li>Disables some security constraints for testing</li>
+</ul>
+<h3 id="step-3-access-keycloak-admin-console">
+  Step 3: Access Keycloak Admin Console
+  <a class="heading-link" href="#step-3-access-keycloak-admin-console">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>Open your browser and navigate to: <code>http://localhost:8080</code></li>
+<li>You should see the Keycloak welcome page</li>
+<li>Click &ldquo;Administration Console&rdquo;</li>
+</ol>
+<h3 id="step-4-create-admin-account">
+  Step 4: Create Admin Account
+  <a class="heading-link" href="#step-4-create-admin-account">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Create your initial admin credentials:
+<ul>
+<li>Username: <code>admin</code> (or your choice)</li>
+<li>Password: <code>admin123</code> (use a strong password in production!)</li>
+<li>Confirm password</li>
+</ul>
+</li>
+</ul>
+<p><strong>Security Note:</strong> In production, always use strong, unique passwords!</p>
+<hr>
+<h2 id="section-2-understanding-keycloak-realms">
+  Section 2: Understanding Keycloak Realms
+  <a class="heading-link" href="#section-2-understanding-keycloak-realms">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="what-is-a-realm">
+  What is a Realm?
+  <a class="heading-link" href="#what-is-a-realm">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>A <strong>realm</strong> in Keycloak is a security boundary that contains:</p>
+<ul>
+<li>Users</li>
+<li>Groups</li>
+<li>Clients</li>
+<li>Roles</li>
+<li>And other security configurations</li>
+</ul>
+<p>Think of it as a <strong>tenant</strong> or <strong>workspace</strong> for your applications.</p>
+<hr>
+<h2 id="section-3-two-setup-methods---choose-your-path">
+  Section 3: Two Setup Methods - Choose Your Path
+  <a class="heading-link" href="#section-3-two-setup-methods---choose-your-path">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="option-a-import-pre-configured-realm-recommended-for-beginners">
+  Option A: Import Pre-configured Realm (Recommended for Beginners)
+  <a class="heading-link" href="#option-a-import-pre-configured-realm-recommended-for-beginners">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Clone the workshop repository</span>
+</span></span><span class="line"><span class="cl">git clone https://github.com/andifalk/secure-oauth2-oidc-workshop.git oidc_workshop
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Import the realm configuration</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># In Keycloak Admin Console:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 1. Navigate to your realm</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 2. Go to Realm Settings → Import</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 3. Select file: oidc_workshop/setup/keycloak_realm_workshop.json</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 4. Choose &#34;Import&#34; strategy</span>
+</span></span></code></pre></div><p><strong>What this imports:</strong></p>
+<ul>
+<li>Pre-configured clients</li>
+<li>Sample users and roles</li>
+<li>Protocol mappers</li>
+<li>Ready-to-use configuration</li>
+</ul>
+<h3 id="option-b-manual-configuration-for-deep-learning">
+  Option B: Manual Configuration (For Deep Learning)
+  <a class="heading-link" href="#option-b-manual-configuration-for-deep-learning">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>We&rsquo;ll build everything from scratch to understand each component.</p>
+<ol>
+<li>
+<p><strong>Access Master Realm</strong>: You&rsquo;re currently in the <code>master</code> realm (for managing Keycloak itself)</p>
+</li>
+<li>
+<p><strong>Create New Realm</strong>:</p>
+<ul>
+<li>Click the current realm name (top-left dropdown)</li>
+<li>Click &ldquo;Create realm&rdquo;</li>
+<li>Name: <code>workshop-realm</code></li>
+<li>Click &ldquo;Create&rdquo;</li>
+</ul>
+</li>
+<li>
+<p><strong>Switch to Workshop Realm</strong>: Use the realm dropdown to switch to your new realm</p>
+</li>
+</ol>
+<h3 id="realm-configuration-options">
+  Realm Configuration Options
+  <a class="heading-link" href="#realm-configuration-options">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Tokens</strong>: Token expiration settings</li>
+<li><strong>Login</strong>: Authentication flows</li>
+<li><strong>Email</strong>: SMTP configuration</li>
+<li><strong>Themes</strong>: Customizing login pages</li>
+<li><strong>Security Defenses</strong>: Brute-force protection</li>
+</ul>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2025
+     SecLice 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

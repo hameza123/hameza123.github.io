@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Keycloak : Part 1 · SecLice
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="SecLice">
+<meta name="description" content="Keycloak open-source Identity and Access Management (IAM) solution">
+<meta name="keywords" content="blog,Cybersecurity">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Keycloak : Part 1">
+  <meta name="twitter:description" content="Keycloak open-source Identity and Access Management (IAM) solution">
+
+<meta property="og:url" content="http://localhost:1313/projects/keycloak/">
+  <meta property="og:site_name" content="SecLice">
+  <meta property="og:title" content="Keycloak : Part 1">
+  <meta property="og:description" content="Keycloak open-source Identity and Access Management (IAM) solution">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2025-10-05T10:47:41+01:00">
+    <meta property="article:modified_time" content="2025-10-05T10:47:41+01:00">
+    <meta property="article:tag" content="Keycloak">
+    <meta property="article:tag" content="SOC Analyst">
+    <meta property="article:tag" content="Iam">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/projects/keycloak/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      SecLice
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/ressources/">Ressources</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/pt-br/">🇧🇷</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:1313/projects/keycloak/">
+          Keycloak : Part 1
+        </a>
+      </h1>
+    </header>
+
+    <p><strong>Keycloak</strong> is a powerful, open-source Identity and Access Management (IAM) solution. Think of it as a service you can use to handle everything related to user authentication (logging in), authorization (what they&rsquo;re allowed to do), and user management.</p>
+<p>It&rsquo;s a top-tier project under the Red Hat umbrella and is widely used in enterprise environments.</p>
+<h3 id="core-concepts-of-keycloak">
+  Core Concepts of Keycloak
+  <a class="heading-link" href="#core-concepts-of-keycloak">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>To understand Keycloak, you need to know its fundamental building blocks:</p>
+<ol>
+<li>
+<p><strong>Realms:</strong> A realm is the top-level container for everything. You create a separate realm for each of your applications or for a set of related applications. By default, there&rsquo;s a &ldquo;Master&rdquo; realm for managing Keycloak itself. Users, roles, and clients are scoped to a specific realm and are not shared between realms.</p>
+</li>
+<li>
+<p><strong>Clients:</strong> In Keycloak terminology, a &ldquo;client&rdquo; is an application or service that you want to protect. This could be:</p>
+<ul>
+<li>A web application (e.g., built with React, Angular, Vue.js)</li>
+<li>A mobile app (iOS, Android)</li>
+<li>A backend API (e.g., a REST service built with Spring Boot, Node.js, etc.)</li>
+</ul>
+</li>
+<li>
+<p><strong>Users:</strong> These are the entities that can log in to your clients. They have credentials (like a password) and attributes (like email, first name, last name).</p>
+</li>
+<li>
+<p><strong>Roles:</strong> Roles define a type of user. You can assign roles to users (e.g., <code>admin</code>, <code>user</code>, <code>moderator</code>). Clients can also have their own specific roles.</p>
+</li>
+<li>
+<p><strong>Identity Providers &amp; Brokering:</strong> Keycloak can act as a broker. This means your users can log in using their existing accounts from other platforms like Google, GitHub, Facebook, or even another Keycloak instance. You don&rsquo;t have to manage their passwords.</p>
+</li>
+<li>
+<p><strong>User Federation:</strong> Instead of manually creating all users in Keycloak, you can connect it to an existing LDAP (like Active Directory) or a relational database. Keycloak will sync users from there.</p>
+</li>
+</ol>
+<h3 id="how-it-works-the-big-picture">
+  How It Works: The Big Picture
+  <a class="heading-link" href="#how-it-works-the-big-picture">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Let&rsquo;s imagine a typical login flow for a web application (<strong>OAuth 2.0 / OpenID Connect Flow</strong>):</p>
+<ol>
+<li><strong>User Attempts Access:</strong> A user clicks &ldquo;Login&rdquo; on your website (the <strong>Client</strong>).</li>
+<li><strong>Redirect to Keycloak:</strong> Your website redirects the user to the Keycloak login page of your <strong>Realm</strong>.</li>
+<li><strong>Authentication:</strong> The user enters their credentials (username/password) or logs in via a social provider like Google.</li>
+<li><strong>Redirect Back with Code:</strong> After successful login, Keycloak redirects the user back to your application with an <strong>Authorization Code</strong>.</li>
+<li><strong>Backend Exchange:</strong> Your application&rsquo;s backend securely exchanges this code with Keycloak for an <strong>Access Token</strong> (and often a <strong>Refresh Token</strong>).
+<ul>
+<li><strong>Access Token (JWT):</strong> A digitally signed token (usually a JSON Web Token) that contains information about the user (their ID, username, roles, etc.). Your frontend uses this to prove its identity to your backend API.</li>
+<li><strong>Refresh Token:</strong> Used to get a new Access Token when the old one expires.</li>
+</ul>
+</li>
+<li><strong>API Call:</strong> The frontend sends the Access Token in the <code>Authorization</code> header when making requests to your backend API.</li>
+<li><strong>API Verification:</strong> Your backend API verifies the signature of the Access Token (to ensure it&rsquo;s genuinely from your Keycloak server) and checks the user&rsquo;s roles/permissions before serving the request.</li>
+</ol>
+<p>This entire process means your application <strong>does not have to handle passwords directly</strong>, which is a huge security benefit.</p>
+<h3 id="key-features--why-youd-use-it">
+  Key Features &amp; Why You&rsquo;d Use It
+  <a class="heading-link" href="#key-features--why-youd-use-it">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Single Sign-On (SSO):</strong> A user logs in once and gains access to multiple applications (clients) without needing to log in again.</li>
+<li><strong>Standard Protocols:</strong> Built-in support for OpenID Connect, OAuth 2.0, and SAML 2.0, making it compatible with virtually any modern application.</li>
+<li><strong>Centralized User Management:</strong> Manage all your users, roles, and permissions in one place.</li>
+<li><strong>Social Login:</strong> Easily add &ldquo;Login with Google/GitHub/Facebook&rdquo; buttons.</li>
+<li><strong>Brute-Force Detection:</strong> Keycloak can temporarily or permanently lock user accounts after too many failed login attempts.</li>
+<li><strong>Theming:</strong> You can fully customize the login, account management, and email templates to match your company&rsquo;s branding.</li>
+<li><strong>Fine-Grained Authorization:</strong> Through adapters and policies, you can create complex permission rules.</li>
+</ul>
+<h3 id="alternatives">
+  Alternatives
+  <a class="heading-link" href="#alternatives">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Auth0:</strong> A popular commercial, cloud-based solution. Easier to start with, but can become expensive.</li>
+<li><strong>Okta:</strong> Another major commercial player, strong in enterprise SSO.</li>
+<li><strong>AWS Cognito:</strong> Amazon&rsquo;s managed IAM service, tightly integrated with the AWS ecosystem.</li>
+<li><strong>Ory Stack:</strong> A set of modern, open-source identity infrastructure (Kratos, Hydra, Keto).</li>
+</ul>
+<p><strong>In summary, Keycloak is an excellent choice if you need a robust, flexible, and open-source IAM solution and are willing to host and manage it yourself.</strong> It saves you from the complexity and security risks of building your own authentication system.</p>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2025
+     SecLice 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

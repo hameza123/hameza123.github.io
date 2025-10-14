@@ -33,7 +33,7 @@ draft = "false"
 [**Lynis**](https://cisofy.com/lynis) : Security auditing tool  
 [**OpenVAS**](https://www.openvas.org) : Vulnerability scanner  
 [**Snorpy**](https://snorpy.cyb3rs3c.net) : A Web Based Snort Rule Creator / Maker for Building Simple Snort Rules
-[malware-traffic-analysis](https://www.malware-traffic-analysis.net) : A site for sharing packet capture (pcap) files and malware samples.
+[**malware-traffic-analysis**](https://www.malware-traffic-analysis.net) : A site for sharing packet capture (pcap) files and malware samples.
 
 
 ## Threat Intelligence
@@ -51,6 +51,8 @@ draft = "false"
 [**NIST CSF**](https://www.nist.gov/cyberframework) : Cybersecurity Framework  
 [**CIS Controls**](https://www.cisecurity.org/controls) : Critical security controls  
 [**Reverse Shell Generator**](https://www.revshells.com) : Reverse shell payloads  
+[**bytebytego**](https://bytebytego.com/) : 
+[**neetcode**](https://neetcode.io/) : 
 
 ## Specialized Resources
 [**Cloud Security Alliance**](https://cloudsecurityalliance.org) : Cloud security  
@@ -69,5 +71,14 @@ draft = "false"
 [**CyberSecJobs**](https://cybersecjobs.com) : Cybersecurity job board  
 [**InfoSec Jobs**](https://www.infosec-jobs.com) : Information security jobs  
 [**Have I Been Pwned**](https://haveibeenpwned.com) : Breach notification service  
+
+https://www.netexec.wiki/
+https://github.com/swisskyrepo/PayloadsAllTheThings
+https://book.hacktricks.wiki/en/index.html
+
+
+
+
+
 
 *Always practice ethical hacking and only test systems you own or have permission to test.*

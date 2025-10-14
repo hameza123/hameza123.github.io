@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Keycloak : Part 3 · SecLice
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="SecLice">
+<meta name="description" content="A practical introduction to Keycloak OAuth 2.0 grant flows with real examples and security analysis">
+<meta name="keywords" content="blog,Cybersecurity">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Keycloak : Part 3">
+  <meta name="twitter:description" content="A practical introduction to Keycloak OAuth 2.0 grant flows with real examples and security analysis">
+
+<meta property="og:url" content="http://localhost:1313/projects/keycloak3/">
+  <meta property="og:site_name" content="SecLice">
+  <meta property="og:title" content="Keycloak : Part 3">
+  <meta property="og:description" content="A practical introduction to Keycloak OAuth 2.0 grant flows with real examples and security analysis">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2025-10-05T12:36:43+01:00">
+    <meta property="article:modified_time" content="2025-10-05T12:36:43+01:00">
+    <meta property="article:tag" content="Keycloak">
+    <meta property="article:tag" content="Oauth2">
+    <meta property="article:tag" content="Security">
+    <meta property="article:tag" content="Iam">
+    <meta property="article:tag" content="Authentication">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/projects/keycloak3/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      SecLice
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/ressources/">Ressources</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/pt-br/">🇧🇷</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:1313/projects/keycloak3/">
+          Keycloak : Part 3
+        </a>
+      </h1>
+    </header>
+
+    <h1 id="intro-lab-oauth-20-authorization-grant-flows">
+  Intro-Lab: OAuth 2.0 Authorization Grant Flows
+  <a class="heading-link" href="#intro-lab-oauth-20-authorization-grant-flows">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="lab-objectives">
+  Lab Objectives
+  <a class="heading-link" href="#lab-objectives">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li>Understand and practice OAuth 2.0 Client Credentials Grant</li>
+<li>Understand and practice Resource Owner Password Credentials Grant</li>
+<li>Analyze token responses and JWT contents</li>
+<li>Learn when to use each grant type</li>
+</ul>
+<blockquote>
+<p><strong>Prerequisites</strong>: Basic understanding of authentication concepts, Keycloak running locally, and curl installed.</p></blockquote>
+<p>In this lab, we&rsquo;ll explore three fundamental OAuth 2.0 grant types using Keycloak, complete with real token examples and security analysis.</p>
+<h2 id="-lab-setup">
+  🚀 Lab Setup
+  <a class="heading-link" href="#-lab-setup">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>First, ensure Keycloak is running with our workshop realm:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Start Keycloak in development mode</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> keycloak-21.0.0/bin
+</span></span><span class="line"><span class="cl">./kc.sh start-dev
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Access at: http://localhost:8080</span>
+</span></span></code></pre></div><hr>
+<h2 id="section-1-client-credentials-grant">
+  Section 1: Client Credentials Grant
+  <a class="heading-link" href="#section-1-client-credentials-grant">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="what-is-client-credentials-grant">
+  What is Client Credentials Grant?
+  <a class="heading-link" href="#what-is-client-credentials-grant">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Use Case</strong>: Machine-to-machine communication</li>
+<li><strong>When to Use</strong>: Service accounts, backend services, API-to-API communication</li>
+<li><strong>No User Involved</strong>: The client authenticates itself, not on behalf of a user</li>
+<li><strong>Security</strong>: Uses client ID and client secret</li>
+</ul>
+<h3 id="step-1-execute-client-credentials-grant">
+  Step 1: Execute Client Credentials Grant
+  <a class="heading-link" href="#step-1-execute-client-credentials-grant">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;Content-Type: application/x-www-form-urlencoded&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d <span class="s2">&#34;grant_type=client_credentials&amp;client_id=library-client&amp;client_secret=9584640c-3804-4dcd-997b-93593cfb9ea7&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  http://localhost:8080/realms/workshop/protocol/openid-connect/token
+</span></span></code></pre></div><h3 id="step-2-analyze-the-response">
+  Step 2: Analyze the Response
+  <a class="heading-link" href="#step-2-analyze-the-response">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;access_token&#34;</span><span class="p">:</span> <span class="s2">&#34;eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJscF9GY01aOEQ3VTZFRVVDaVp5V0FGMjFOY3dqWF9kZHdKNWEzZUNQTXdRIn0...&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;expires_in&#34;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;refresh_expires_in&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;token_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Bearer&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;not-before-policy&#34;</span><span class="p">:</span> <span class="mi">1571836504</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;scope&#34;</span><span class="p">:</span> <span class="s2">&#34;library_curator email profile&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="step-3-decode-and-analyze-the-jwt">
+  Step 3: Decode and Analyze the JWT
+  <a class="heading-link" href="#step-3-decode-and-analyze-the-jwt">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Let&rsquo;s break down the decoded <a href="https://www.jwt.io/"  class="external-link" target="_blank" rel="noopener">JWT</a> payload:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;exp&#34;</span><span class="p">:</span> <span class="mi">1759663790</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;iat&#34;</span><span class="p">:</span> <span class="mi">1759663490</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;jti&#34;</span><span class="p">:</span> <span class="s2">&#34;b9b8b1fa-83a7-4ccd-8996-19d458505cd6&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;iss&#34;</span><span class="p">:</span> <span class="s2">&#34;http://localhost:8080/realms/workshop&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;aud&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;library-service&#34;</span><span class="p">,</span> <span class="s2">&#34;account&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;sub&#34;</span><span class="p">:</span> <span class="s2">&#34;0cf623f4-a696-4452-b3c2-85a7b4e3d74b&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;typ&#34;</span><span class="p">:</span> <span class="s2">&#34;Bearer&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;azp&#34;</span><span class="p">:</span> <span class="s2">&#34;library-client&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;allowed-origins&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;http://localhost:9090&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;realm_access&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;roles&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;library_curator&#34;</span><span class="p">,</span> <span class="s2">&#34;offline_access&#34;</span><span class="p">,</span> <span class="s2">&#34;uma_authorization&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;resource_access&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;account&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;roles&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;manage-account&#34;</span><span class="p">,</span> <span class="s2">&#34;manage-account-links&#34;</span><span class="p">,</span> <span class="s2">&#34;view-profile&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;scope&#34;</span><span class="p">:</span> <span class="s2">&#34;library_curator email profile&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;clientHost&#34;</span><span class="p">:</span> <span class="s2">&#34;127.0.0.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;email_verified&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;clientId&#34;</span><span class="p">:</span> <span class="s2">&#34;library-client&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;preferred_username&#34;</span><span class="p">:</span> <span class="s2">&#34;service-account-library-client&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;service-account-library-client@placeholder.org&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="key-observations---client-credentials">
+  Key Observations - Client Credentials
+  <a class="heading-link" href="#key-observations---client-credentials">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Subject</strong>: <code>service-account-library-client</code> (not a human user)</li>
+<li><strong>Roles</strong>: <code>library_curator</code> - appropriate for service accounts</li>
+<li><strong>Token Lifetime</strong>: 300 seconds (5 minutes)</li>
+<li><strong>No Refresh Token</strong>: <code>refresh_expires_in: 0</code></li>
+<li><strong>Audience</strong>: <code>library-service</code> - intended for the library API</li>
+</ul>
+<p><strong>Security Notes</strong>:</p>
+<ul>
+<li>✅ No user credentials exposed</li>
+<li>✅ Simple for automated processes</li>
+<li>⚠️ Protect client secrets carefully</li>
+</ul>
+<hr>
+<h2 id="2-resource-owner-password-credentials-grant">
+  2. Resource Owner Password Credentials Grant
+  <a class="heading-link" href="#2-resource-owner-password-credentials-grant">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="use-case-legacy-application-migration">
+  Use Case: Legacy Application Migration
+  <a class="heading-link" href="#use-case-legacy-application-migration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>When to use</strong>: Trusted first-party applications where redirect flows aren&rsquo;t feasible.</p>
+<p><strong>Execute the flow</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;Content-Type: application/x-www-form-urlencoded&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d <span class="s2">&#34;grant_type=password&amp;username=bwayne&amp;password=wayne&amp;client_id=library-client&amp;client_secret=9584640c-3804-4dcd-997b-93593cfb9ea7&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  http://localhost:8080/realms/workshop/protocol/openid-connect/token
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">answer:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">{</span><span class="s2">&#34;access_token&#34;</span>:<span class="s2">&#34;eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJscF9GY01aOEQ3VTZFRVVDaVp5V0FGMjFOY3dqWF9kZHdKNWEzZUNQTXdRIn0.eyJleHAiOjE3NTk2NjQ5OTEsImlhdCI6MTc1OTY2NDY5MSwianRpIjoiZjhlZWJjY2EtZDY0NS00OGY0LWFiYzgtY2ZkZGJjNmM3ZDY3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy93b3Jrc2hvcCIsImF1ZCI6WyJsaWJyYXJ5LXNlcnZpY2UiLCJhY2NvdW50Il0sInN1YiI6ImUyMjdkODc5LTExMTYtNGI5YS04MWZmLTM2N2UwYmFkN2EwZSIsInR5cCI6IkJlYXJlciIsImF6cCI6ImxpYnJhcnktY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6ImZmYTUwMDY0LTU1YmItNDU0Mi1iOTBhLTg0ZGVmZGU4ZDdjYSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjkwOTAiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImxpYnJhcnlfdXNlciIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImxpYnJhcnlfdXNlciBlbWFpbCBwcm9maWxlIiwic2lkIjoiZmZhNTAwNjQtNTViYi00NTQyLWI5MGEtODRkZWZkZThkN2NhIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJCcnVjZSBXYXluZSIsImdyb3VwcyI6WyJsaWJyYXJ5X3VzZXIiXSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYndheW5lIiwiZ2l2ZW5fbmFtZSI6IkJydWNlIiwiZmFtaWx5X25hbWUiOiJXYXluZSIsImVtYWlsIjoiYnJ1Y2Uud2F5bmVAZXhhbXBsZS5jb20ifQ.PqJsi86vPNsv-WMt7vsnB1O8URbg0PwIYIw83yN5fB-ew05LDX5qgb64ZvjcyA7Nnor0q03009NRCBh9hlN_XfbIsNo1VBClue7QpSYzdtevCn1ZZq2HkQFPILC1oAIudT6VUYvTmLv1hrGKtxXaNagKfxy425gP1DehmlbCBzeYmLr8kCQ9F4MuiRk5bP8h7QbP5f2B9eqj1Kq60p5pWCbRpiMenv4IB6AdpLKpfL6-DzeGVPpbGDA-mKxw2a6SLHwu3F2WL2S5IOtJcRHoO1Cixb2Zynef8qznYr35T0dPvgUUg_OOyFeAm9tY3r6eEDLWnhRmLLqKzcjf-ZEo4w&#34;</span>,<span class="s2">&#34;expires_in&#34;</span>:300,<span class="s2">&#34;refresh_expires_in&#34;</span>:1800,<span class="s2">&#34;refresh_token&#34;</span>:<span class="s2">&#34;eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI0MzY0YTU1Ni1mMDY3LTRjMTYtYmQ0MS0zZDNlNDkwMzA4ZGEifQ.eyJleHAiOjE3NTk2NjY0OTEsImlhdCI6MTc1OTY2NDY5MSwianRpIjoiMDY2YzA0YjAtY2RkZS00OGM5LWI0ZDEtNDk0ZDUwMDgwNjhiIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy93b3Jrc2hvcCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9yZWFsbXMvd29ya3Nob3AiLCJzdWIiOiJlMjI3ZDg3OS0xMTE2LTRiOWEtODFmZi0zNjdlMGJhZDdhMGUiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoibGlicmFyeS1jbGllbnQiLCJzZXNzaW9uX3N0YXRlIjoiZmZhNTAwNjQtNTViYi00NTQyLWI5MGEtODRkZWZkZThkN2NhIiwic2NvcGUiOiJsaWJyYXJ5X3VzZXIgZW1haWwgcHJvZmlsZSIsInNpZCI6ImZmYTUwMDY0LTU1YmItNDU0Mi1iOTBhLTg0ZGVmZGU4ZDdjYSJ9.lziBfHQzo2L-qV-eaJ0SUsGmt8qxahX6J5cvT2_Nit8&#34;</span>,<span class="s2">&#34;token_type&#34;</span>:<span class="s2">&#34;Bearer&#34;</span>,<span class="s2">&#34;not-before-policy&#34;</span>:1571836504,<span class="s2">&#34;session_state&#34;</span>:<span class="s2">&#34;ffa50064-55bb-4542-b90a-84defde8d7ca&#34;</span>,<span class="s2">&#34;scope&#34;</span>:<span class="s2">&#34;library_user email profile&#34;</span><span class="o">}</span>
+</span></span></code></pre></div><p><strong>Key Differences from Client Credentials</strong>:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Aspect</th>
+          <th>Client Credentials</th>
+          <th>Password Grant</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Subject</strong></td>
+          <td>Service Account</td>
+          <td>User ID</td>
+      </tr>
+      <tr>
+          <td><strong>User Info</strong></td>
+          <td>Basic service data</td>
+          <td>Full profile</td>
+      </tr>
+      <tr>
+          <td><strong>Refresh Token</strong></td>
+          <td>Not provided</td>
+          <td>30-minute expiry</td>
+      </tr>
+      <tr>
+          <td><strong>Security</strong></td>
+          <td>No user credentials</td>
+          <td>Client sees passwords</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>User Profile in Token</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Bruce Wayne&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;preferred_username&#34;</span><span class="p">:</span> <span class="s2">&#34;bwayne&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;given_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Bruce&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;family_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Wayne&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;bruce.wayne@example.com&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>Security Warning</strong>:</p>
+<ul>
+<li>❌ Client sees user passwords</li>
+<li>❌ Vulnerable to phishing</li>
+<li>✅ Only use for trusted first-party apps</li>
+</ul>
+<hr>
+<h2 id="3-authorization-code-grant-recommended">
+  3. Authorization Code Grant (Recommended)
+  <a class="heading-link" href="#3-authorization-code-grant-recommended">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="use-case-modern-web-applications">
+  Use Case: Modern Web Applications
+  <a class="heading-link" href="#use-case-modern-web-applications">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>When to use</strong>: Web apps, SPAs, mobile applications - this is the <strong>recommended flow</strong> for user authentication.</p>
+<h3 id="step-by-step-flow">
+  Step-by-Step Flow
+  <a class="heading-link" href="#step-by-step-flow">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="step-1-initiate-authorization">
+  Step 1: Initiate Authorization
+  <a class="heading-link" href="#step-1-initiate-authorization">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Open this URL in your browser:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">http://localhost:8080/realms/workshop/protocol/openid-connect/auth?
+</span></span><span class="line"><span class="cl">  <span class="nv">response_type</span><span class="o">=</span>code<span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">client_id</span><span class="o">=</span>demo-client<span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">redirect_uri</span><span class="o">=</span>http://localhost:9095/client/callback
+</span></span></code></pre></div><h4 id="step-2-user-authentication">
+  Step 2: User Authentication
+  <a class="heading-link" href="#step-2-user-authentication">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>Login with: <code>bwayne</code> / <code>wayne</code></li>
+<li>You&rsquo;ll see an error (expected - callback URL doesn&rsquo;t exist)</li>
+</ul>
+<h4 id="step-3-extract-authorization-code">
+  Step 3: Extract Authorization Code
+  <a class="heading-link" href="#step-3-extract-authorization-code">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>From the browser address bar, copy the <code>code</code> parameter:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">http://localhost:9095/client/callback?
+</span></span><span class="line"><span class="cl">  <span class="nv">session_state</span><span class="o">=</span>1e242e3b-0cb1-4fef-9ef6-52dabecb1b76<span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">code</span><span class="o">=</span>8be25d0b-c083-4c3e-9fb4-9b4df182ab6d.1e242e3b-0cb1-4fef-9ef6-52dabecb1b76.58f0efec-2e91-4c63-823f-85280996f8a5
+</span></span></code></pre></div><h4 id="step-4-exchange-code-for-tokens">
+  Step 4: Exchange Code for Tokens
+  <a class="heading-link" href="#step-4-exchange-code-for-tokens">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;Content-Type: application/x-www-form-urlencoded&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d <span class="s2">&#34;grant_type=authorization_code&amp;
+</span></span></span><span class="line"><span class="cl"><span class="s2">      code=8be25d0b-c083-4c3e-9fb4-9b4df182ab6d.1e242e3b-0cb1-4fef-9ef6-52dabecb1b76.58f0efec-2e91-4c63-823f-85280996f8a5&amp;
+</span></span></span><span class="line"><span class="cl"><span class="s2">      redirect_uri=http://localhost:9095/client/callback&amp;
+</span></span></span><span class="line"><span class="cl"><span class="s2">      client_id=demo-client&amp;
+</span></span></span><span class="line"><span class="cl"><span class="s2">      client_secret=b3ec9d3f-d1ee-4a18-b4ba-05d832c15293&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  http://localhost:8080/realms/workshop/protocol/openid-connect/token
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">answer:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;access_token&#34;</span>:<span class="s2">&#34;eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJscF9GY01aOEQ3VTZFRVVDaVp5V0FGMjFOY3dqWF9kZHdKNWEzZUNQTXdRIn0.eyJleHAiOjE3NTk2NjUzNDgsImlhdCI6MTc1OTY2NTA0OCwiYXV0aF90aW1lIjoxNzU5NjY0OTk1LCJqdGkiOiI0ZGFhZjU3OC05YzE3LTQ5YWUtODM4ZS00Y2FkYTlmYjUyYjEiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvcmVhbG1zL3dvcmtzaG9wIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6ImUyMjdkODc5LTExMTYtNGI5YS04MWZmLTM2N2UwYmFkN2EwZSIsInR5cCI6IkJlYXJlciIsImF6cCI6ImRlbW8tY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6IjFlMjQyZTNiLTBjYjEtNGZlZi05ZWY2LTUyZGFiZWNiMWI3NiIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjkwOTUiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImxpYnJhcnlfdXNlciIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiIxZTI0MmUzYi0wY2IxLTRmZWYtOWVmNi01MmRhYmVjYjFiNzYiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmFtZSI6IkJydWNlIFdheW5lIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiYndheW5lIiwiZ2l2ZW5fbmFtZSI6IkJydWNlIiwiZmFtaWx5X25hbWUiOiJXYXluZSIsImVtYWlsIjoiYnJ1Y2Uud2F5bmVAZXhhbXBsZS5jb20ifQ.dLzKqujHpxgJZiPkGe5xRq-_Xhhhs_uIXquDtIHl4qFPoZLFdgrvIacmNlovttWjiQJMf-Yc2C_-Bpx2SRmxRLSohjMwPeTlXAGFushHa5n9timmBJmqJJlxD-GnUzQl8yyPx3QRbEPl2CO9jxHtZWuy-z9HkGBUBF5vQcp4ceIedNSlzHJYd_vF3W-IFlnIVFQOm6igCi0zQdLUIdoVZsoa6bl4dIKr6eXaMb8rsa_LVCVJIDTA5Nn06Gi0JzoVtBR58PVa6eik6NVQVaNt-BXx8O2ervutj1kUqMQD8iNDvSTfR3YsVYn3SRGRXZABAMl-dlGeTEIVApsJoJuZWw&#34;</span>,<span class="s2">&#34;expires_in&#34;</span>:300,<span class="s2">&#34;refresh_expires_in&#34;</span>:1800,<span class="s2">&#34;refresh_token&#34;</span>:<span class="s2">&#34;eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI0MzY0YTU1Ni1mMDY3LTRjMTYtYmQ0MS0zZDNlNDkwMzA4ZGEifQ.eyJleHAiOjE3NTk2NjY4NDgsImlhdCI6MTc1OTY2NTA0OCwianRpIjoiZTBjMWJkMTEtMmM5My00OTc1LTkzZTgtNTkzMWYxODMxYTc1IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy93b3Jrc2hvcCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9yZWFsbXMvd29ya3Nob3AiLCJzdWIiOiJlMjI3ZDg3OS0xMTE2LTRiOWEtODFmZi0zNjdlMGJhZDdhMGUiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoiZGVtby1jbGllbnQiLCJzZXNzaW9uX3N0YXRlIjoiMWUyNDJlM2ItMGNiMS00ZmVmLTllZjYtNTJkYWJlY2IxYjc2Iiwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwic2lkIjoiMWUyNDJlM2ItMGNiMS00ZmVmLTllZjYtNTJkYWJlY2IxYjc2In0.1JGrvkJSocbuaquFUq1aAvrZjZA94e7d6uzyQnZ41IM&#34;</span>,<span class="s2">&#34;token_type&#34;</span>:<span class="s2">&#34;Bearer&#34;</span>,<span class="s2">&#34;not-before-policy&#34;</span>:1571836504,<span class="s2">&#34;session_state&#34;</span>:<span class="s2">&#34;1e242e3b-0cb1-4fef-9ef6-52dabecb1b76&#34;</span>,<span class="s2">&#34;scope&#34;</span>:<span class="s2">&#34;email profile&#34;</span><span class="o">}</span>
+</span></span></code></pre></div><p><strong>Security Benefits</strong>:</p>
+<ul>
+<li>✅ Client never sees user credentials</li>
+<li>✅ Short-lived authorization codes (2 minutes in Keycloak)</li>
+<li>✅ Supports PKCE for public clients</li>
+<li>✅ Recommended by OAuth 2.1 specification</li>
+</ul>
+<h2 id="-security-best-practices">
+  🔐 Security Best Practices
+  <a class="heading-link" href="#-security-best-practices">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="grant-type-selection-guide">
+  Grant Type Selection Guide
+  <a class="heading-link" href="#grant-type-selection-guide">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Grant Type</th>
+          <th>Use Case</th>
+          <th>Security Level</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Authorization Code</strong></td>
+          <td>Web apps, mobile apps</td>
+          <td>✅✅✅ High</td>
+      </tr>
+      <tr>
+          <td><strong>Authorization Code + PKCE</strong></td>
+          <td>SPAs, mobile apps</td>
+          <td>✅✅✅✅ Highest</td>
+      </tr>
+      <tr>
+          <td><strong>Client Credentials</strong></td>
+          <td>Service accounts</td>
+          <td>✅✅ Medium</td>
+      </tr>
+      <tr>
+          <td><strong>Password Grant</strong></td>
+          <td>Legacy migration</td>
+          <td>✅ Low</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="key-security-takeaways">
+  Key Security Takeaways
+  <a class="heading-link" href="#key-security-takeaways">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li><strong>Never use Password Grant</strong> for third-party applications</li>
+<li><strong>Always validate tokens</strong> in your resource servers</li>
+<li><strong>Use short token lifetimes</strong> (5-15 minutes)</li>
+<li><strong>Implement proper refresh token rotation</strong></li>
+<li><strong>Store client secrets securely</strong> (never in source code)</li>
+</ol>
+<h2 id="-flow-comparison-summary">
+  📊 Flow Comparison Summary
+  <a class="heading-link" href="#-flow-comparison-summary">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Aspect</th>
+          <th>Client Credentials</th>
+          <th>Password Grant</th>
+          <th>Authorization Code</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>User Context</strong></td>
+          <td>No user</td>
+          <td>User credentials</td>
+          <td>User consent</td>
+      </tr>
+      <tr>
+          <td><strong>Security</strong></td>
+          <td>Medium</td>
+          <td>Low</td>
+          <td>High</td>
+      </tr>
+      <tr>
+          <td><strong>Use Case</strong></td>
+          <td>Service accounts</td>
+          <td>Legacy apps</td>
+          <td>Modern apps</td>
+      </tr>
+      <tr>
+          <td><strong>Complexity</strong></td>
+          <td>Simple</td>
+          <td>Simple</td>
+          <td>Moderate</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="-conclusion">
+  🎯 Conclusion
+  <a class="heading-link" href="#-conclusion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Understanding OAuth 2.0 grant types is crucial for implementing secure authentication. Key takeaways:</p>
+<ul>
+<li><strong>Use Authorization Code Flow</strong> for user-facing applications</li>
+<li><strong>Use Client Credentials</strong> for service-to-service communication</li>
+<li><strong>Avoid Password Grant</strong> except for specific legacy scenarios</li>
+<li><strong>Always consider security implications</strong> of each flow</li>
+</ul>
+<p>Keycloak makes implementing these flows straightforward while maintaining security best practices.</p>
+<hr>
+<h2 id="-learning-checkpoints">
+  ✅ Learning Checkpoints
+  <a class="heading-link" href="#-learning-checkpoints">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li>Can I explain when to use this grant type?</li>
+<li>Can I identify the security trade-offs?</li>
+<li>Can I execute the curl command successfully?</li>
+<li>Can I decode and understand the JWT contents?</li>
+</ul>
+<p><strong>Next Steps</strong>: In our next post, we&rsquo;ll explore OpenID Connect, social logins, and advanced Keycloak configurations.</p>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2025
+     SecLice 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

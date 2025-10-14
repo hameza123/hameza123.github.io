@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/authors/</loc>
-    <lastmod>2025-09-30T08:42:28+01:00</lastmod>
+    <lastmod>2025-10-13T08:08:03+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-09-30T08:42:28+01:00</lastmod>
+    <lastmod>2025-10-13T08:08:03+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -28,17 +28,20 @@
                 href="http://localhost:1313/categories/"
                 />
   </url><url>
-    <loc>http://localhost:1313/categories/iam/</loc>
-    <lastmod>2025-09-30T08:42:28+01:00</lastmod>
+    <loc>http://localhost:1313/categories/flarevm/</loc>
+    <lastmod>2025-10-13T08:08:03+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/iam/</loc>
-    <lastmod>2025-09-30T08:42:28+01:00</lastmod>
+    <loc>http://localhost:1313/tags/flarevm/</loc>
+    <lastmod>2025-10-13T08:08:03+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/iam/</loc>
-    <lastmod>2025-09-30T08:42:28+01:00</lastmod>
+    <loc>http://localhost:1313/posts/flarevm/</loc>
+    <lastmod>2025-10-13T08:08:03+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/malware/</loc>
+    <lastmod>2025-10-13T08:08:03+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-09-30T08:42:28+01:00</lastmod>
+    <lastmod>2025-10-13T08:08:03+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -50,8 +53,11 @@
                 href="http://localhost:1313/posts/"
                 />
   </url><url>
+    <loc>http://localhost:1313/authors/seclice/</loc>
+    <lastmod>2025-10-13T08:08:03+01:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-09-30T08:42:28+01:00</lastmod>
+    <lastmod>2025-10-13T08:08:03+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -63,11 +69,11 @@
                 href="http://localhost:1313/"
                 />
   </url><url>
-    <loc>http://localhost:1313/authors/seclice/</loc>
-    <lastmod>2025-09-30T08:42:28+01:00</lastmod>
+    <loc>http://localhost:1313/tags/soc-analyst/</loc>
+    <lastmod>2025-10-13T08:08:03+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-09-30T08:42:28+01:00</lastmod>
+    <lastmod>2025-10-13T08:08:03+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -79,10 +85,76 @@
                 href="http://localhost:1313/tags/"
                 />
   </url><url>
-    <loc>http://localhost:1313/tags/challenge/</loc>
-    <lastmod>2025-09-28T11:21:55+01:00</lastmod>
+    <loc>http://localhost:1313/categories/remnux/</loc>
+    <lastmod>2025-10-12T16:35:09+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/remnux/</loc>
+    <lastmod>2025-10-12T16:35:09+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/remux/</loc>
+    <lastmod>2025-10-12T16:35:09+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/authentication/</loc>
+    <lastmod>2025-10-05T13:30:30+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/cybersecurity/</loc>
+    <lastmod>2025-10-05T13:30:30+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/iam/</loc>
+    <lastmod>2025-10-05T13:30:30+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/keycloak/</loc>
+    <lastmod>2025-10-05T13:30:30+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/projects/keycloak4/</loc>
+    <lastmod>2025-10-05T13:30:30+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/oauth2/</loc>
+    <lastmod>2025-10-05T13:30:30+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/projects/</loc>
+    <lastmod>2025-10-05T13:30:30+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/security/</loc>
+    <lastmod>2025-10-05T13:30:30+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/tutorial/</loc>
+    <lastmod>2025-10-05T13:30:30+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/projects/keycloak3/</loc>
+    <lastmod>2025-10-05T12:36:43+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/projects/keycloak2/</loc>
+    <lastmod>2025-10-05T10:57:30+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/projects/keycloak/</loc>
+    <lastmod>2025-10-05T10:47:41+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/boot/</loc>
+    <lastmod>2025-10-03T19:07:13+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/complete-step-by-step-guide-creating-bootable-windows-11-usb-on-macos/</loc>
+    <lastmod>2025-10-03T19:07:13+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/guide/</loc>
+    <lastmod>2025-10-03T19:07:13+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/macos/</loc>
+    <lastmod>2025-10-03T19:07:13+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/usb/</loc>
+    <lastmod>2025-10-03T19:07:13+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/win11/</loc>
+    <lastmod>2025-10-03T19:07:13+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/iam/</loc>
+    <lastmod>2025-09-30T08:42:28+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/iam/</loc>
+    <lastmod>2025-09-30T08:42:28+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/challenge/</loc>
     <lastmod>2025-09-28T11:21:55+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/projects/projects/</loc>
@@ -91,13 +163,7 @@
     <loc>http://localhost:1313/tags/ids/</loc>
     <lastmod>2025-09-28T11:21:55+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/projects/</loc>
-    <lastmod>2025-09-28T11:21:55+01:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/snort/</loc>
-    <lastmod>2025-09-28T11:21:55+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/soc-analyst/</loc>
     <lastmod>2025-09-28T11:21:55+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/security-project-snort/</loc>
