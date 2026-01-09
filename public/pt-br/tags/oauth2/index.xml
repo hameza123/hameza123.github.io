@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OAuth2 on João Ninguém</title>
+    <link>http://localhost:1313/pt-br/tags/oauth2/</link>
+    <description>Recent content in OAuth2 on João Ninguém</description>
+    <generator>Hugo</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Tue, 14 Oct 2025 09:56:39 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/pt-br/tags/oauth2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> Le protocole OAuth 2.0 </title>
+      <link>http://localhost:1313/pt-br/posts/auth/</link>
+      <pubDate>Tue, 14 Oct 2025 09:56:39 +0100</pubDate>
+      <guid>http://localhost:1313/pt-br/posts/auth/</guid>
+      <description>&lt;h3 id=&#34;oauth-20--le-protocole-qui-vous-permet-de-vous-connecter-sans-mot-de-passe&#34;&gt;&#xA;  &lt;strong&gt;OAuth 2.0 : Le protocole qui vous permet de vous connecter sans mot de passe&lt;/strong&gt;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#oauth-20--le-protocole-qui-vous-permet-de-vous-connecter-sans-mot-de-passe&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link para o cabeçalho&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link para o cabeçalho&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Si vous avez déjà utilisé votre compte Google pour vous connecter à un service comme Spotify ou votre profil Facebook pour vous identifier sur un site de shopping, vous avez expérimenté OAuth 2.0 sans le savoir. C&amp;rsquo;est le protocole silencieux qui permet un accès sécurisé et sans mot de passe sur le web moderne et les applications mobiles.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

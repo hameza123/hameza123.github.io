@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+   Le protocole OAuth 2.0  · João Ninguém
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="João Ninguém">
+<meta name="description" content="un article complet sur OAuth 2.0, conçu pour être compréhensible par les débutants et ceux qui ont besoin d&#39;un rappel. ">
+<meta name="keywords" content="blog,desenvolvedor,pessoal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content=" Le protocole OAuth 2.0 ">
+  <meta name="twitter:description" content="un article complet sur OAuth 2.0, conçu pour être compréhensible par les débutants et ceux qui ont besoin d&#39;un rappel.">
+
+<meta property="og:url" content="http://localhost:1313/pt-br/posts/auth/">
+  <meta property="og:site_name" content="João Ninguém">
+  <meta property="og:title" content=" Le protocole OAuth 2.0 ">
+  <meta property="og:description" content="un article complet sur OAuth 2.0, conçu pour être compréhensible par les débutants et ceux qui ont besoin d&#39;un rappel.">
+  <meta property="og:locale" content="pt_br">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-14T09:56:39+01:00">
+    <meta property="article:modified_time" content="2025-10-14T09:56:39+01:00">
+    <meta property="article:tag" content="OAuth2">
+    <meta property="article:tag" content="IAM">
+    <meta property="article:tag" content="Authentication">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/pt-br/posts/auth/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/pt-br/">
+      João Ninguém
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/pt-br/about/">Sobre</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/pt-br/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/pt-br/projects/">Projetos</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/pt-br/contact/">Contato</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/auth/">🇬🇧</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/pt-br/posts/auth/">
+               Le protocole OAuth 2.0 
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-10-14T09:56:39&#43;01:00">
+                outubro 14, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              6 minutos de leitura
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa-solid fa-user" aria-hidden="true"></i>
+    <a href="/pt-br/authors/seclice/">Seclice</a></div>
+
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/pt-br/categories/oauth2/">OAuth2</a>
+      <span class="separator">•</span>
+    <a href="/pt-br/categories/iam/">IAM</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/pt-br/tags/oauth2/">OAuth2</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/pt-br/tags/iam/">IAM</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/pt-br/tags/authentication/">Authentication</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h3 id="oauth-20--le-protocole-qui-vous-permet-de-vous-connecter-sans-mot-de-passe">
+  <strong>OAuth 2.0 : Le protocole qui vous permet de vous connecter sans mot de passe</strong>
+  <a class="heading-link" href="#oauth-20--le-protocole-qui-vous-permet-de-vous-connecter-sans-mot-de-passe">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h3>
+<p>Si vous avez déjà utilisé votre compte Google pour vous connecter à un service comme Spotify ou votre profil Facebook pour vous identifier sur un site de shopping, vous avez expérimenté OAuth 2.0 sans le savoir. C&rsquo;est le protocole silencieux qui permet un accès sécurisé et sans mot de passe sur le web moderne et les applications mobiles.</p>
+<p>Mais qu&rsquo;est-ce que c&rsquo;est exactement, et comment ça fonctionne ? Décomposons-le ensemble.</p>
+<h4 id="qu">
+  <strong>Qu&rsquo;est-ce qu&rsquo;OAuth 2.0 ? (Et ce qu&rsquo;il n&rsquo;est PAS)</strong>
+  <a class="heading-link" href="#qu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h4>
+<p>Fondamentalement, <strong>OAuth 2.0 est un cadre d&rsquo;autorisation</strong>. Il permet à une application tierce d&rsquo;accéder aux ressources d&rsquo;un utilisateur sur un autre service, <strong>sans que l&rsquo;utilisateur ait à partager son mot de passe.</strong></p>
+<p>Cette distinction est cruciale :</p>
+<ul>
+<li><strong>L&rsquo;Authentification (AuthN)</strong> consiste à prouver <strong>&ldquo;qui vous êtes&rdquo;</strong>. (Ex: se connecter avec un nom d&rsquo;utilisateur et un mot de passe).</li>
+<li><strong>L&rsquo;Autorisation (AuthZ)</strong> consiste à accorder la permission <strong>&ldquo;ce que vous pouvez faire&rdquo;</strong>. (Ex: autoriser un service de tirage photo à accéder à vos Google Photos).</li>
+</ul>
+<p>OAuth 2.0 concerne principalement <strong>l&rsquo;autorisation</strong>. Ce n&rsquo;est pas un protocole d&rsquo;authentification, bien qu&rsquo;il soit souvent utilisé comme une brique de base pour des systèmes d&rsquo;authentification comme <strong>OpenID Connect (OIDC)</strong>.</p>
+<p><strong>Pourquoi est-ce si important ?</strong></p>
+<ol>
+<li><strong>Sécurité :</strong> Vous n&rsquo;avez pas à faire confiance à l&rsquo;application tierce avec votre mot de passe sensible.</li>
+<li><strong>Contrôle de l&rsquo;utilisateur :</strong> Vous pouvez voir exactement quelles permissions (ou &ldquo;portées&rdquo;) une application demande (ex: &ldquo;Lire vos emails&rdquo;, &ldquo;Accéder à vos contacts&rdquo;) et accorder ou révoquer cet accès à tout moment depuis le service principal (comme votre tableau de bord Google ou Facebook).</li>
+<li><strong>Commodité :</strong> Pas besoin de créer et de mémoriser un nouveau mot de passe pour chaque service.</li>
+</ol>
+<h4 id="les-acteurs-clés--les-rôles-dans-oauth-20">
+  <strong>Les acteurs clés : Les rôles dans OAuth 2.0</strong>
+  <a class="heading-link" href="#les-acteurs-cl%c3%a9s--les-r%c3%b4les-dans-oauth-20">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h4>
+<p>Pour comprendre le processus, vous devez connaître les quatre rôles principaux :</p>
+<ol>
+<li><strong>Propriétaire de la Ressource :</strong> C&rsquo;est <strong>vous</strong>, l&rsquo;utilisateur. Vous possédez les données et avez le pouvoir d&rsquo;accorder l&rsquo;accès.</li>
+<li><strong>Client :</strong> L&rsquo;<strong>application tierce</strong> qui veut accéder à vos données (ex: &ldquo;Spotify.com&rdquo;).</li>
+<li><strong>Serveur de Ressources :</strong> L&rsquo;<strong>API</strong> qui détient les données de l&rsquo;utilisateur (ex: les serveurs de Google qui stockent vos photos).</li>
+<li><strong>Serveur d&rsquo;Autorisation :</strong> Le serveur qui authentifie l&rsquo;utilisateur et délivre les <strong>jetons d&rsquo;accès</strong> après avoir obtenu son consentement. (Dans la pratique, c&rsquo;est souvent le même que le Serveur de Ressources, comme c&rsquo;est le cas pour Google).</li>
+</ol>
+<h4 id="l">
+  <strong>L&rsquo;Analogie Classique : La Carte de Chambre d&rsquo;Hôtel</strong>
+  <a class="heading-link" href="#l">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h4>
+<p>Imaginez que vous séjournez dans un hôtel (le <strong>Client</strong>).</p>
+<ol>
+<li>Vous (le <strong>Propriétaire de la Ressource</strong>) allez à la réception.</li>
+<li>Le réceptionniste (le <strong>Serveur d&rsquo;Autorisation</strong>) vérifie votre identité avec votre passeport (votre mot de passe).</li>
+<li>On vous remet alors une carte magnétique (le <strong>Jeton d&rsquo;Accès</strong>).</li>
+<li>Cette carte vous donne accès à votre chambre spécifique (vos <strong>Ressources</strong>) pour une durée limitée. Vous ne pouvez pas accéder au trousseau de clés principal ou au salon du personnel—seulement à ce pour quoi vous êtes autorisé.</li>
+</ol>
+<p>L&rsquo;hôtel ne vous donne pas la clé maîtresse (votre mot de passe) ; il vous donne un jeton temporaire aux permissions limitées.</p>
+<h4 id="le-flux-oauth-20-en-6-étapes">
+  <strong>Le Flux OAuth 2.0 en 6 Étapes</strong>
+  <a class="heading-link" href="#le-flux-oauth-20-en-6-%c3%a9tapes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h4>
+<p>Prenons l&rsquo;exemple de &ldquo;ImprimeMesPhotos.com&rdquo; qui veut accéder à vos images sur &ldquo;Google Photos&rdquo;.</p>
+<ol>
+<li><strong>L&rsquo;utilisateur Initie la Connexion :</strong> Vous cliquez sur &ldquo;Se connecter avec Google&rdquo; sur ImprimeMesPhotos.com.</li>
+<li><strong>Demande d&rsquo;Autorisation :</strong> L&rsquo;application ImprimeMesPhotos redirige votre navigateur vers le Serveur d&rsquo;Autorisation de Google. Elle envoie son identifiant et les permissions dont elle a besoin (ex: <code>read:photos</code>).</li>
+<li><strong>Authentification et Consentement de l&rsquo;Utilisateur :</strong> Google vous invite à vous connecter (si vous ne l&rsquo;êtes pas déjà). Il vous montre ensuite un écran disant : &ldquo;ImprimeMesPhotos veut accéder à vos photos. Autoriser/Refuser ?&rdquo;</li>
+<li><strong>Octroi d&rsquo;Autorisation :</strong> Si vous cliquez sur &ldquo;Autoriser&rdquo;, Google vous redirige vers ImprimeMesPhotos.com avec un code spécial à usage unique appelé <strong>Code d&rsquo;Autorisation</strong>.</li>
+<li><strong>Échange de Jetons :</strong> ImprimeMesPhotos.com (depuis son serveur sécurisé) prend ce code, ainsi que sa propre clé secrète, et le renvoie au Serveur d&rsquo;Autorisation de Google. En retour, Google renvoie un <strong>Jeton d&rsquo;Accès</strong>.</li>
+<li><strong>Accès à la Ressource :</strong> Désormais, chaque fois que ImprimeMesPhotos.com a besoin de récupérer vos photos, il envoie ce Jeton d&rsquo;Accès avec sa requête à l&rsquo;API Google Photos (le <strong>Serveur de Ressources</strong>). L&rsquo;API vérifie le jeton et, s&rsquo;il est valide, renvoie les photos demandées.</li>
+</ol>
+<div class="mermaid">
+
+ 
+sequenceDiagram
+    participant U as Utilisateur
+    participant C as Client
+    participant AS as Serveur d'Autorisation
+    participant RS as Serveur de Ressources
+
+    title: Flux OAuth 2.0 - Authorization Code
+
+    Note over U,C: Étape 1 : Initiation
+    U->>C: Clique sur "Se connecter avec X"
+
+    Note over C,AS: Étape 2 : Demande d'autorisation
+    C->>AS: Redirection vers /authorize
+    Note right of C: client_id, redirect_uri,<br>scope, response_type=code
+
+    Note over U,AS: Étape 3 : Authentification & Consentement
+    AS->>U: Page de connexion
+    U->>AS: Saisit ses identifiants
+    AS->>U: Page de consentement
+    U->>AS: Clique sur "Autoriser"
+
+    Note over AS,C: Étape 4 : Octroi d'autorisation
+    AS->>C: Redirection avec code
+    Note left of AS: code=A1B2C3...
+
+    Note over C,AS: Étape 5 : Échange de jetons
+    C->>AS: POST /token
+    Note right of C: code, client_id,<br>client_secret, redirect_uri
+    AS->>C: Réponse avec tokens
+    Note left of AS: access_token=XYZ789...<br>token_type=Bearer, expires_in=3600
+
+    Note over C,RS: Étape 6 : Accès aux ressources
+    C->>RS: GET /api/resources
+    Note right of C: Authorization: Bearer XYZ789...
+    RS->>C: 200 OK + données
+    
+    C->>U: Connexion réussie
+ 
+    
+
+</div>
+
+<h4 id="les-types-d">
+  <strong>Les Types d&rsquo;Octroi Courants (Flux)</strong>
+  <a class="heading-link" href="#les-types-d">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h4>
+<p>OAuth 2.0 a différents &ldquo;flux&rdquo; pour différents types d&rsquo;applications :</p>
+<ul>
+<li><strong>Flux &ldquo;Authorization Code&rdquo; (Code d&rsquo;Autorisation) :</strong> Le flux le plus sécurisé et le plus courant, utilisé par les applications web qui ont un composant côté serveur. C&rsquo;est le flux décrit ci-dessus.</li>
+<li><strong>Flux &ldquo;Authorization Code&rdquo; avec PKCE (prononcé &ldquo;pixie&rdquo;) :</strong> Une version améliorée du flux par code pour les applications mobiles et les applications à page unique (SPA) qui ne peuvent pas stocker de secret client de manière sécurisée.</li>
+<li><strong>Flux &ldquo;Client Credentials&rdquo; (Identifiants Client) :</strong> Utilisé pour l&rsquo;authentification de machine à machine (M2M) où aucun utilisateur n&rsquo;est présent. Par exemple, un service backend accédant à une autre API.</li>
+<li><strong>Flux &ldquo;Implicit&rdquo; (Implicite - Déprécié) :</strong> Utilisé auparavant pour les applications fonctionnant uniquement dans le navigateur, mais maintenant considéré comme non sécurisé et remplacé par le flux PKCE.</li>
+</ul>
+<h4 id="conclusion--le-gardien-invisible">
+  <strong>Conclusion : Le Gardien Invisible</strong>
+  <a class="heading-link" href="#conclusion--le-gardien-invisible">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h4>
+<p>OAuth 2.0 est devenu la pierre angulaire de l&rsquo;identité numérique moderne et de la sécurité des API. En séparant les rôles de l&rsquo;authentification et de l&rsquo;autorisation, il crée une expérience plus sécurisée, centrée sur l&rsquo;utilisateur et transparente à travers Internet. Il vous donne, en tant qu&rsquo;utilisateur, le pouvoir de connecter votre monde numérique sans compromettre vos identifiants les plus sensibles.</p>
+<p>La prochaine fois que vous cliquerez sur &ldquo;Se connecter avec X&rdquo;, vous saurez qu&rsquo;une poignée de main sophistiquée et sécurisée a lieu en arrière-plan, tout cela grâce à OAuth 2.0.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2025
+     João Ninguém 
+    ·
+    
+    Promovido por <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js"
+    integrity="sha256-QdTG1YTLLTwD3b95jLqFxpQX9uYuJMNAtVZgwKX4oYU=" crossorigin="anonymous"></script>
+  <script>
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

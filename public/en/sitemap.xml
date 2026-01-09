@@ -2,11 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/posts/openid/</loc>
+    <lastmod>2025-10-14T11:48:31+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/posts/openid/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/posts/openid/"
+                />
+  </url><url>
     <loc>http://localhost:1313/tags/authentication/</loc>
-    <lastmod>2025-10-14T09:14:59+01:00</lastmod>
+    <lastmod>2025-10-14T11:48:31+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/tags/authentication/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/authentication/"
+                />
   </url><url>
     <loc>http://localhost:1313/authors/</loc>
-    <lastmod>2025-10-14T09:14:59+01:00</lastmod>
+    <lastmod>2025-10-14T11:48:31+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -19,7 +42,7 @@
                 />
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-10-14T09:14:59+01:00</lastmod>
+    <lastmod>2025-10-14T11:48:31+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -32,19 +55,59 @@
                 />
   </url><url>
     <loc>http://localhost:1313/tags/iam/</loc>
-    <lastmod>2025-10-14T09:14:59+01:00</lastmod>
+    <lastmod>2025-10-14T11:48:31+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/tags/iam/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/iam/"
+                />
   </url><url>
     <loc>http://localhost:1313/categories/iam/</loc>
-    <lastmod>2025-10-14T09:14:59+01:00</lastmod>
+    <lastmod>2025-10-14T11:48:31+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/categories/iam/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/categories/iam/"
+                />
   </url><url>
-    <loc>http://localhost:1313/tags/oauth2/</loc>
-    <lastmod>2025-10-14T09:14:59+01:00</lastmod>
+    <loc>http://localhost:1313/categories/oidc/</loc>
+    <lastmod>2025-10-14T11:48:31+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/categories/oidc/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/categories/oidc/"
+                />
   </url><url>
-    <loc>http://localhost:1313/categories/oauth2/</loc>
-    <lastmod>2025-10-14T09:14:59+01:00</lastmod>
+    <loc>http://localhost:1313/tags/oidc/</loc>
+    <lastmod>2025-10-14T11:48:31+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/tags/oidc/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/oidc/"
+                />
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-10-14T09:14:59+01:00</lastmod>
+    <lastmod>2025-10-14T11:48:31+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -57,10 +120,20 @@
                 />
   </url><url>
     <loc>http://localhost:1313/authors/seclice/</loc>
-    <lastmod>2025-10-14T09:14:59+01:00</lastmod>
+    <lastmod>2025-10-14T11:48:31+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/authors/seclice/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/authors/seclice/"
+                />
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-10-14T09:14:59+01:00</lastmod>
+    <lastmod>2025-10-14T11:48:31+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -73,7 +146,7 @@
                 />
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-10-14T09:14:59+01:00</lastmod>
+    <lastmod>2025-10-14T11:48:31+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -85,8 +158,44 @@
                 href="http://localhost:1313/tags/"
                 />
   </url><url>
+    <loc>http://localhost:1313/tags/oauth2/</loc>
+    <lastmod>2025-10-14T09:14:59+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/tags/oauth2/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/oauth2/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/categories/oauth2/</loc>
+    <lastmod>2025-10-14T09:14:59+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/categories/oauth2/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/categories/oauth2/"
+                />
+  </url><url>
     <loc>http://localhost:1313/posts/auth/</loc>
     <lastmod>2025-10-14T09:14:59+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/posts/auth/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/posts/auth/"
+                />
   </url><url>
     <loc>http://localhost:1313/categories/flarevm/</loc>
     <lastmod>2025-10-13T08:08:03+01:00</lastmod>

@@ -6,8 +6,15 @@
     <description>Recent content in Seclice on SecLice</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 14 Oct 2025 09:14:59 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 14 Oct 2025 11:48:31 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/authors/seclice/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> OpenID Connect (OIDC)</title>
+      <link>http://localhost:1313/posts/openid/</link>
+      <pubDate>Tue, 14 Oct 2025 11:48:31 +0100</pubDate>
+      <guid>http://localhost:1313/posts/openid/</guid>
+      <description>&lt;h1 id=&#34;openid-connect-oidc-the-identity-layer-that-simplifies-modern-authentication&#34;&gt;&#xA;  &lt;strong&gt;OpenID Connect (OIDC): The Identity Layer That Simplifies Modern Authentication&lt;/strong&gt;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#openid-connect-oidc-the-identity-layer-that-simplifies-modern-authentication&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;&#xA;  &lt;strong&gt;Introduction&lt;/strong&gt;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#introduction&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;While OAuth 2.0 solves authorization, &lt;strong&gt;OpenID Connect (OIDC)&lt;/strong&gt; completes the picture by standardizing authentication. It&amp;rsquo;s the protocol that truly enables &amp;ldquo;Login with Google, Facebook, Microsoft&amp;hellip;&amp;rdquo; securely. In this article, we&amp;rsquo;ll explore how OIDC transforms OAuth 2.0 into a reliable authentication system.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-openid-connect&#34;&gt;&#xA;  &lt;strong&gt;What is OpenID Connect?&lt;/strong&gt;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#what-is-openid-connect&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;OpenID Connect is a simple &lt;strong&gt;identity layer&lt;/strong&gt; built on top of OAuth 2.0. While OAuth 2.0 answers &amp;ldquo;Can this application access my data?&amp;rdquo;, OIDC answers &amp;ldquo;&lt;strong&gt;Who is this user?&lt;/strong&gt;&amp;rdquo;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>The Protocol OAuth 2.0 </title>
       <link>http://localhost:1313/posts/auth/</link>

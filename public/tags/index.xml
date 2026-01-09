@@ -6,20 +6,27 @@
     <description>Recent content in Tags on SecLice</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 14 Oct 2025 09:14:59 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 14 Oct 2025 11:48:31 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Authentication</title>
       <link>http://localhost:1313/tags/authentication/</link>
-      <pubDate>Tue, 14 Oct 2025 09:14:59 +0100</pubDate>
+      <pubDate>Tue, 14 Oct 2025 11:48:31 +0100</pubDate>
       <guid>http://localhost:1313/tags/authentication/</guid>
       <description></description>
     </item>
     <item>
       <title>Iam</title>
       <link>http://localhost:1313/tags/iam/</link>
-      <pubDate>Tue, 14 Oct 2025 09:14:59 +0100</pubDate>
+      <pubDate>Tue, 14 Oct 2025 11:48:31 +0100</pubDate>
       <guid>http://localhost:1313/tags/iam/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>OIDC</title>
+      <link>http://localhost:1313/tags/oidc/</link>
+      <pubDate>Tue, 14 Oct 2025 11:48:31 +0100</pubDate>
+      <guid>http://localhost:1313/tags/oidc/</guid>
       <description></description>
     </item>
     <item>

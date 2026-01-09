@@ -6,8 +6,15 @@
     <description>Recent content in Authors on João Ninguém</description>
     <generator>Hugo</generator>
     <language>pt-br</language>
-    <lastBuildDate>Sun, 09 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Oct 2025 11:48:26 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/pt-br/authors/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Seclice</title>
+      <link>http://localhost:1313/pt-br/authors/seclice/</link>
+      <pubDate>Tue, 14 Oct 2025 11:48:26 +0100</pubDate>
+      <guid>http://localhost:1313/pt-br/authors/seclice/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Programador Solitário</title>
       <link>http://localhost:1313/pt-br/authors/programador-solit%C3%A1rio/</link>
