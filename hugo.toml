@@ -158,13 +158,13 @@ url = "https://gitlab.com/"
 name = "Twitter"
 icon = "fa-brands fa-x-twitter fa-2x"
 weight = 3
-url = "https://twitter.com/"
+url = "https://x.com/Cyberlice"
 
 [[params.social]]
 name = "LinkedIn"
 icon = "fa-brands fa-linkedin fa-2x"
 weight = 4
-url = "https://www.linkedin.com/"
+url = "https://www.linkedin.com/in/hamzarahmani1/"
 
 [[params.social]]
 name = "Medium"
@@ -176,7 +176,7 @@ url = "https://medium.com"
 name = "RSS"
 icon = "fa-solid fa-rss fa-2x"
 weight = 6
-url = "https://hameza123.github.io/seclice.github.io/"
+url = "https://hameza123.io/"
 rel = "alternate"
 type = "application/rss+xml"
 

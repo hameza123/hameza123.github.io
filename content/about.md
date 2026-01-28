@@ -21,13 +21,6 @@ Welcome to SecLice Insights, your trusted resource for navigating the complex wo
 
 I founded this blog with a simple goal: to demystify cybersecurity concepts and provide actionable advice that both professionals and everyday technology users can implement. Whether you're a seasoned security expert or just beginning your digital safety journey, you'll find valuable insights here.
 
-## My Background
-
-With over 3 years of experience in the cybersecurity industry, I've worked as:
-
-- Penetration Tester 
-- Security Consultant 
-- Cybersecurity Educator and Trainer
 
 
 ## What You'll Find Here

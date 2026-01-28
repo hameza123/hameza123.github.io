@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-10-03T19:07:13+01:00
 title = "Creating Bootable Windows 11 USB on macOS"
 description = "Complete Step-by-Step Guide: Creating Bootable Windows 11 USB on macOS "
