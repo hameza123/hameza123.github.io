@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-09-10T20:09:49+01:00
 title = "Elasticsearch Ingest Data Tutorial, Day 10 "
 description = "SOC Analyst Challenge, Day 10 "

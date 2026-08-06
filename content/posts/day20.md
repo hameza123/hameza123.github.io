@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-09-12T19:12:58+01:00
 title = "Mythic Server Setup Tutorial, Day 20 "
 description = "SOC Analyst Challenge, Day 20 "

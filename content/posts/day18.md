@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-09-12T19:12:51+01:00
 title = "Command and Control Introduction, Day 18  "
 description = "SOC Analyst Challenge, Day 18 "

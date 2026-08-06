@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-10-14T11:48:31+01:00
 title = " OpenID Connect (OIDC)"
 description = "OpenID Connect (OIDC): The Identity Layer That Simplifies Modern Authentication "

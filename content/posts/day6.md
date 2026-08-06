@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-09-10T18:10:23+01:00
 title = "Elastic Agent and Fleet Server Introduction, Day 6  "
 description = "SOC Analyst Challenge, Day 6 "

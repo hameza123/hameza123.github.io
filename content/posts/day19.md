@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-09-12T19:12:54+01:00
 title = "Attack Diagram, Day 19"
 description = "SOC Analyst Challenge, Day 19 "

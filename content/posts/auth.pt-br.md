@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-10-14T09:56:39+01:00
 title = " Le protocole OAuth 2.0 "
 description = "un article complet sur OAuth 2.0, conçu pour être compréhensible par les débutants et ceux qui ont besoin d'un rappel. "

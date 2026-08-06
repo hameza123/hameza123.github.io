@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-09-10T18:10:11+01:00
 title = "ELK Stack Introduction, Day 2 "
 description = "SOC Analyst Challenge, Day 2 "

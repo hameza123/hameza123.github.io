@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-09-13T18:15:38+01:00
 title = "Investigate Mythic Agent, Day 28"
 description = "SOC Analyst Challenge, Day 28"

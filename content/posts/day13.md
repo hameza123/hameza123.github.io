@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-09-11T09:35:17+01:00
 title = "How To Install Elastic Agent on Ubuntu, Day 13 "
 description = "SOC Analyst Challenge, Day 13 "

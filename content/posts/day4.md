@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-09-10T18:10:18+01:00
 title = "Installing Kibana, Day 4  "
 description = "SOC Analyst Challenge, Day 4 "

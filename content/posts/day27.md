@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-09-13T18:15:35+01:00
 title = "Investigate RDP Brute Force Attack, Day 27 "
 description = "SOC Analyst Challenge, Day 27"

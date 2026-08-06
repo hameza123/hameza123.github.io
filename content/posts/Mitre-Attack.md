@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2026-01-09T11:03:32+01:00
 title = " Mitre Att&ck"
 description = "Mitre Adverserial Tactics, Techniques and Common Knowledge"

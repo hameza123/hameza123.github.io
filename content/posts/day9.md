@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-09-10T20:09:45+01:00
 title = "Sysmon Setup Tutorial, Day 9 "
 description = "SOC Analyst Challenge, Day 9 "

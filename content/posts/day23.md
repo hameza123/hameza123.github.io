@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-09-13T18:15:25+01:00
 title = "What is a Ticketing System?, Day 23"
 description = "SOC Analyst Challenge, Day 23"

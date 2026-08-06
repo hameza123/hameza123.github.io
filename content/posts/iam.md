@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-09-30T08:42:28+01:00
 title = "Identity and Access Management"
 description = "In today's interconnected digital world, the perimeter of an organization is no longer just its office walls. It extends to cloud servers, SaaS applications, and employee devices scattered across the globe. In this landscape, the fundamental question of security has shifted from How do we keep people out? to **How do we let the right people in, at the right time, for the right reasons?**"

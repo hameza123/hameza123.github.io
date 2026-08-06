@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-09-13T18:15:27+01:00
 title = "osTicket Setup Tutorial on Windows Server 2022 Day 24"
 description = "SOC Analyst Challenge, Day 24"

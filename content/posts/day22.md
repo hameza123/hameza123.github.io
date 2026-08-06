@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-09-13T18:15:23+01:00
 title = "How To Create Alerts and Dashboards in Kibana, Day 22"
 description = "SOC Analyst Challenge, Day 22"
