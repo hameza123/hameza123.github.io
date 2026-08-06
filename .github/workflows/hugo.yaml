@@ -31,12 +31,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.128.0  # Updated to latest stable version
+      HUGO_VERSION: 0.128.0
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true  # Force Node 24 testing
     steps:
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '24'
 
       - name: Install Hugo CLI
         run: |
