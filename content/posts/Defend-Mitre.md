@@ -1,5 +1,5 @@
 +++ 
-draft = flase
+draft = true
 date = 2026-01-28T12:14:15+01:00
 title = "Protecting Your System with the MITRE D3FEND Approach"
 description = "When discussing cybersecurity, **MITRE ATT&CK** is often mentioned for mapping attacker tactics. But do you know its defensive counterpart: **MITRE D3FEND**? This complementary framework provides a taxonomy of technical countermeasures designed to counteract the attack techniques identified in ATT&CK."
