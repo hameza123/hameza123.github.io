@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-08-29T10:56:37+01:00
 title = "Creating a Blog with GitHub Pages and Hugo Template"
 description = "A step-by-step guide to creating a static blog using Hugo and deploying it to GitHub Pages"
