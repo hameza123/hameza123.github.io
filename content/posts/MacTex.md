@@ -1,5 +1,5 @@
 +++ 
-draft = false
+draft = true
 date = 2025-10-17T17:08:06+01:00
 title = "MacTex "
 description = " the main way to install MacTeX "
