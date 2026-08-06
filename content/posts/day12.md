@@ -9,7 +9,7 @@ tags = ["SOC", "cybersecurity", "SOC Analyst", "ELK", "challenge",""]
 categories = ["SOC",""]
 series = []
 +++
- 
+    
 
 ## Day 12: Ubuntu Server 24.02 Installation (SSH-server)
 Ressources :[MyDFIR Channel](https://www.youtube.com/@MyDFIR/)
